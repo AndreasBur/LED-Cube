@@ -62,7 +62,7 @@
 <wire x1="98.73" y1="30.47" x2="-0.635" y2="30.47" width="0" layer="20"/>
 <wire x1="-0.635" y1="30.47" x2="-0.635" y2="0" width="0" layer="20"/>
 <dimension x1="-0.635" y1="0" x2="-0.635" y2="30.47" x3="-2.54" y3="15.235" textsize="1.778" layer="1"/>
-<dimension x1="-0.635" y1="30.47" x2="98.73" y2="30.47" x3="49.0475" y3="33.02" textsize="1.778" layer="1"/>
+<dimension x1="-0.635" y1="30.47" x2="98.73" y2="30.47" x3="49.0475" y3="32.385" textsize="1.778" layer="1"/>
 <text x="95.885" y="1.27" size="1.778" layer="16" rot="MR0">LED Cube</text>
 </plain>
 <libraries>
