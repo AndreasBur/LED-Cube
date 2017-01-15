@@ -37,10 +37,15 @@
  *  \param[in]      
  *  \return         -
  *****************************************************************************************************************************************************/
-LedCube::LedCube()
+LedCube::LedCube(byte sDataInPin, byte sClockPin, byte sStoragePin)
 {
-
+	DataInPin = sDataInPin;
+	ClockPin = sClockPin;
+	StoragePin = sStoragePin;
+	CurrentLayer = 0;
 } /* LedCube */
+
+
 
 
 /******************************************************************************************************************************************************
@@ -52,6 +57,26 @@ LedCube::~LedCube()
 } /* ~LedCube */
 
 
+/******************************************************************************************************************************************************
+  task()
+******************************************************************************************************************************************************/
+/*! \brief          
+ *  \details        
+ *                  
+ *
+ *  \param[in]      
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+void LedCube::task()
+{
+	if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
+		CurrentLayer = 0;
+	} else {
+		showLayer(CurrentLayer);
+		CurrentLayer++;
+	}
+} /* task */
 
 
 /******************************************************************************************************************************************************
@@ -100,18 +125,46 @@ stdReturnType LedCube::showLayer(byte Layer)
 	
 	if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
 		/* put on given layer */
-		sendData(0x01 << (Layer - 1));
-		//sendData(0x01 << Layer);
+		sendData(1 << (Layer - 1));
+		//sendData(1 << Layer);
 		
-		for(byte j = (LEDCUBE_NUMBER_OF_LAYERS * Layer) - 1; j >= LEDCUBE_NUMBER_OF_LAYERS * (Layer - 1); j--) {
-			sendData(CubeBuffer[j]);
+		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+			sendData(CurrentFrame[Y][Layer]);
 		}
+
+		//for(byte j = (LEDCUBE_NUMBER_OF_LAYERS * Layer) - 1; j >= LEDCUBE_NUMBER_OF_LAYERS * (Layer - 1); j--) {
+			//sendData(CubeBuffer[j]);
+		//}
 
 		digitalWriteFast(StoragePin, HIGH);
 		digitalWriteFast(StoragePin, LOW);
+
+		ReturnValue = E_OK;
 	}
 	return ReturnValue;
 } /* showLayer */
+
+
+/******************************************************************************************************************************************************
+  switchBufferPointer()
+******************************************************************************************************************************************************/
+/*! \brief          
+ *  \details        
+ *                  
+ *
+ *  \param[in]      
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+void LedCube::switchBufferPointer()
+{
+	if(FrameReady) {
+		byte **pTmp = CurrentFrame;
+		CurrentFrame = NextFrame;
+		NextFrame = pTmp;
+		FrameReady = false;
+	}
+} /* switchBufferPointer */
 
 /******************************************************************************************************************************************************
  *  E N D   O F   F I L E
