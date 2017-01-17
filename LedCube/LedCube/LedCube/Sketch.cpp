@@ -7,16 +7,13 @@
 
 LedCube Cube(SER_74, SCK_74, RCK_74);
 
+
 void setup() {
-	// put your setup code here, to run once:
-	pinMode(SER_74, OUTPUT);
-	pinMode(RCK_74, OUTPUT);
-	pinMode(SCK_74, OUTPUT);
-	digitalWrite(RCK_74, LOW);
+	Cube.init();
 }
 
 void loop() {
 	delay(500);
 	Cube.task();
-
+	
 }
