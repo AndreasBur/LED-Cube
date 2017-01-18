@@ -10,10 +10,10 @@ LedCube Cube(SER_74, SCK_74, RCK_74);
 
 void setup() {
 	Cube.init();
+	Cube.setVoxel(0, 0, 0);
 }
 
 void loop() {
 	delay(500);
 	Cube.task();
-	
 }
