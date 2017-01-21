@@ -32,16 +32,10 @@
 /*! \brief          LedCube Constructor
  *  \details        Instantiation of the LedCube library
  *
- *  \param[in]      sDataInPin         number of the Data Input Pin
- *  \param[in]      sClockPin          number of the Clock Pin
- *  \param[in]      sClockPin          number of the Storage Pin
  *  \return         -
  *****************************************************************************************************************************************************/
-LedCube::LedCube(byte sDataInPin, byte sClockPin, byte sStoragePin)
+LedCube::LedCube()
 {
-	DataInPin = sDataInPin;
-	ClockPin = sClockPin;
-	StoragePin = sStoragePin;
 	CurrentLayer = 0;
 	State = LEDCUBE_STATE_NONE;
 	CurrentFrame = CubeBuffer1;
@@ -72,9 +66,9 @@ void LedCube::init()
 {
 	State = LEDCUBE_STATE_INIT;
 	clearCube();
-	pinMode(DataInPin, OUTPUT);
-	pinMode(ClockPin, OUTPUT);
-	pinMode(StoragePin, OUTPUT);
+	pinModeFast(LEDCUBE_DATA_IN_PIN, OUTPUT);
+	pinModeFast(LEDCUBE_CLOCK_PIN, OUTPUT);
+	pinModeFast(LEDCUBE_STORAGE_PIN, OUTPUT);
 	State = LEDCUBE_STATE_SHOW_FRAME;
 } /* init */
 
@@ -111,14 +105,14 @@ void LedCube::task()
  *****************************************************************************************************************************************************/
 void LedCube::clearCube()
 {
-	digitalWriteFast(DataInPin, LOW);
+	digitalWriteFast(LEDCUBE_DATA_IN_PIN, LOW);
 
 	for(byte i = 0; i < (LEDCUBE_NUMBER_OF_SHIFT_REGISTERS * LEDCUBE_SHIFT_REGISTER_BITWIDTH); i++) {
-		digitalWriteFast(ClockPin, HIGH);
-		digitalWriteFast(ClockPin, LOW);
+		digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
+		digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
 	}
-	digitalWriteFast(StoragePin, HIGH);
-	digitalWriteFast(StoragePin, LOW);
+	digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
+	digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
 } /* clearCube */
 
 
@@ -153,8 +147,6 @@ stdReturnType LedCube::setVoxel(byte X, byte Y, byte Z)
  *  \details        
  *                  
  *  \param[in]      X          x-axis coordinate
- *  \param[in]      Y          y-axis coordinate
- *  \param[in]      Z          z-axis coordinate
  *  \return         E_OK
  *                  E_NOT_OK
  *****************************************************************************************************************************************************/
@@ -279,12 +271,12 @@ void LedCube::sendData(byte Data)
 {
 	for (byte i = 0; i < 8; i++) {
 		// LSB First
-		digitalWriteFast(DataInPin, !!(Data & (1 << i)));
+		//digitalWrite(DataInPin, !!(Data & (1 << i)));
 		// MSB First
-		//digitalWrite(DataInPin, !!(Data & (1 << (7 - i))));
+		digitalWriteFast(LEDCUBE_DATA_IN_PIN, !!(Data & (1 << (7 - i))));
 		// toggle clock pin
-		digitalWriteFast(ClockPin, HIGH);
-		digitalWriteFast(ClockPin, LOW);
+		digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
+		digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
 	}
 } /* sendData */
 
@@ -305,15 +297,15 @@ stdReturnType LedCube::showLayer(byte Layer)
 	
 	if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
 		/* put on given layer */
-		sendData(1 << (Layer - 1));
+		sendData(1 << Layer);
 		//sendData(1 << Layer);
 		/* send the layer data to the shift registers */
 		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
 			sendData(CurrentFrame[Y][Layer]);
 		}
 		// toggle storage pin
-		digitalWriteFast(StoragePin, HIGH);
-		digitalWriteFast(StoragePin, LOW);
+		digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
+		digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
 
 		ReturnValue = E_OK;
 	}

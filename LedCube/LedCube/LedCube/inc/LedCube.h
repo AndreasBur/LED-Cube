@@ -29,6 +29,11 @@
 /******************************************************************************************************************************************************
  *  LOCAL CONSTANT MACROS
  *****************************************************************************************************************************************************/
+/* LedCube Configuration Parameter */
+#define LEDCUBE_DATA_IN_PIN			13
+#define LEDCUBE_CLOCK_PIN			11
+#define LEDCUBE_STORAGE_PIN			12
+
 #define LEDCUBE_NUMBER_OF_LEDS_PER_SIDE				8
 #define LEDCUBE_NUMBER_OF_LAYERS					LEDCUBE_NUMBER_OF_LEDS_PER_SIDE
 #define LEDCUBE_NUMBER_OF_SHIFT_REGISTERS			9
@@ -38,10 +43,10 @@
 /******************************************************************************************************************************************************
  *  LOCAL FUNCTION MACROS
  *****************************************************************************************************************************************************/
-#define LEDCUBE_GET_VOXEL(X, Y, Z)					bitRead(CurrentFrame[Y][Z], LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - X)	
-#define LEDCUBE_SET_VOXEL(X, Y, Z)					bitSet(NextFrame[Y][Z], LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - X)
-#define LEDCUBE_CLEAR_VOXEL(X, Y, Z)				bitClear(NextFrame[Y][Z], LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - X)
-#define LEDCUBE_WRITE_VOXEL(X, Y, Z, Value)			bitWrite(NextFrame[Y][Z], LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - X, Value)
+#define LEDCUBE_GET_VOXEL(X, Y, Z)					bitRead(CurrentFrame[Y][Z], X)	
+#define LEDCUBE_SET_VOXEL(X, Y, Z)					bitSet(NextFrame[Y][Z], X)
+#define LEDCUBE_CLEAR_VOXEL(X, Y, Z)				bitClear(NextFrame[Y][Z], X)
+#define LEDCUBE_WRITE_VOXEL(X, Y, Z, Value)			bitWrite(NextFrame[Y][Z], X, Value)
 
 
 /******************************************************************************************************************************************************
@@ -62,15 +67,13 @@ typedef enum {
 	LEDCUBE_AXIS_Z
 } LedCubeAxisType;
 
+
 /******************************************************************************************************************************************************
  *  CLASS  LedCube
  *****************************************************************************************************************************************************/
 class LedCube
 {
   private:
-	byte DataInPin;
-	byte ClockPin;
-	byte StoragePin;
 	byte CurrentLayer;
 	LedCubeStateType State;
 	byte (*CurrentFrame)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
@@ -86,19 +89,14 @@ class LedCube
 	stdReturnType setLayer();
 
   public:
-    LedCube(byte, byte, byte);
+    LedCube();
     ~LedCube();
 
 	// get methods
-	byte getDataInPin() { return DataInPin; }
-	byte getClockPin() { return ClockPin; }
 	byte getCurrentLayer() {return CurrentLayer; }
 	boolean getState() {return State; }
 
 	// set methods
-	void setDataInPin(byte sDataInPin) { DataInPin = sDataInPin; }
-	void setClockPin(byte sClockPin) { ClockPin = sClockPin; }
-	void setStoragePin(byte sStoragePin) { StoragePin = sStoragePin; }
 
 	// methods
 	void init();

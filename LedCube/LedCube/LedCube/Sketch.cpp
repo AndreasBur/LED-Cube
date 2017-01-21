@@ -5,15 +5,27 @@
 #define RCK_74 12  // storage input
 #define SCK_74 11  // clock input
 
-LedCube Cube(SER_74, SCK_74, RCK_74);
+LedCube Cube;
 
 
 void setup() {
 	Cube.init();
-	Cube.setVoxel(0, 0, 0);
+	pinMode(7, OUTPUT);
+	for(byte x = 0; x<LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; x++) {
+		for(byte y = 0; y<LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; y++) {
+			for(byte z = 0; z<LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; z++) {
+				Cube.setVoxel(x, y, z);
+			}
+		}
+	}
+	Cube.setNextFrameReady();
+	Cube.showNextFrame();
 }
 
-void loop() {
+void loop()
+{
 	delay(500);
+	digitalWrite(7, STD_ON);
 	Cube.task();
+	digitalWrite(7, STD_OFF);
 }
