@@ -30,9 +30,9 @@
  *  LOCAL CONSTANT MACROS
  *****************************************************************************************************************************************************/
 /* LedCube Configuration Parameter */
-#define LEDCUBE_DATA_IN_PIN			13
-#define LEDCUBE_CLOCK_PIN			11
-#define LEDCUBE_STORAGE_PIN			12
+#define LEDCUBE_DATA_IN_PIN							13
+#define LEDCUBE_CLOCK_PIN							11
+#define LEDCUBE_STORAGE_PIN							12
 
 #define LEDCUBE_NUMBER_OF_LEDS_PER_SIDE				8
 #define LEDCUBE_NUMBER_OF_LAYERS					LEDCUBE_NUMBER_OF_LEDS_PER_SIDE
@@ -43,10 +43,10 @@
 /******************************************************************************************************************************************************
  *  LOCAL FUNCTION MACROS
  *****************************************************************************************************************************************************/
-#define LEDCUBE_GET_VOXEL(X, Y, Z)					bitRead(CurrentFrame[Y][Z], X)	
-#define LEDCUBE_SET_VOXEL(X, Y, Z)					bitSet(NextFrame[Y][Z], X)
-#define LEDCUBE_CLEAR_VOXEL(X, Y, Z)				bitClear(NextFrame[Y][Z], X)
-#define LEDCUBE_WRITE_VOXEL(X, Y, Z, Value)			bitWrite(NextFrame[Y][Z], X, Value)
+//#define LEDCUBE_GET_VOXEL(X, Y, Z)					bitRead(CurrentFrame[Y][Z], X)	
+//#define LEDCUBE_SET_VOXEL(X, Y, Z)					bitSet(NextFrame[Y][Z], X)
+//#define LEDCUBE_CLEAR_VOXEL(X, Y, Z)					bitClear(NextFrame[Y][Z], X)
+//#define LEDCUBE_WRITE_VOXEL(X, Y, Z, Value)			bitWrite(NextFrame[Y][Z], X, Value)
 
 
 /******************************************************************************************************************************************************
@@ -83,7 +83,7 @@ class LedCube
 
 	// functions
 	void clearCube();
-	stdReturnType showLayer(byte Layer);
+	stdReturnType showLayer(byte);
 	void sendData(byte Data);
 	void switchBufferPointer();
 	stdReturnType setLayer();
@@ -101,10 +101,14 @@ class LedCube
 	// methods
 	void init();
 	void task();
-	stdReturnType setVoxel(byte X, byte Y, byte Z);
-	stdReturnType clearVoxel(byte X, byte Y, byte Z);
-	stdReturnType writeVoxel(byte X, byte Y, byte Z, boolean Value);
-	stdReturnType getVoxel(byte X, byte Y, byte Z, boolean *Value);
+	stdReturnType setVoxel(byte, byte, byte);
+	inline void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
+	stdReturnType clearVoxel(byte, byte, byte);
+	inline void clearVoxelFast(byte X, byte Y, byte Z) { bitClear(NextFrame[Y][Z], X); }
+	stdReturnType writeVoxel(byte, byte, byte, boolean);
+	inline void writeVoxelFast(byte X, byte Y, byte Z, boolean Value) { bitWrite(NextFrame[Y][Z], X, Value); }
+	stdReturnType getVoxel(byte, byte, byte, boolean*);
+	inline void getVoxelFast(byte X, byte Y, byte Z, boolean* Value) { *Value = bitRead(CurrentFrame[Y][Z], X); }
 	void clearVoxels(void);
 	stdReturnType setNextFrameReady();
 	stdReturnType showNextFrame();

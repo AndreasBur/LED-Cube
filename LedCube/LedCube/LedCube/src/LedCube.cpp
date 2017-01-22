@@ -132,7 +132,7 @@ stdReturnType LedCube::setVoxel(byte X, byte Y, byte Z)
 {
 	if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
 	{
-		LEDCUBE_SET_VOXEL(X, Y, Z);
+		bitSet(NextFrame[Y][Z], X);
 		return E_OK;
 	} else {
 		return E_NOT_OK;
@@ -145,8 +145,10 @@ stdReturnType LedCube::setVoxel(byte X, byte Y, byte Z)
 ******************************************************************************************************************************************************/
 /*! \brief          clear a given voxel in the frame buffer
  *  \details        
- *                  
+ *
  *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Y          y-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
  *  \return         E_OK
  *                  E_NOT_OK
  *****************************************************************************************************************************************************/
@@ -154,7 +156,7 @@ stdReturnType LedCube::clearVoxel(byte X, byte Y, byte Z)
 {
 	if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
 	{
-		LEDCUBE_CLEAR_VOXEL(X, Y, Z);
+		bitClear(NextFrame[Y][Z], X);
 		return E_OK;
 	} else {
 		return E_NOT_OK;
@@ -179,7 +181,7 @@ stdReturnType LedCube::writeVoxel(byte X, byte Y, byte Z, boolean Value)
 {
 	if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
 	{
-		LEDCUBE_WRITE_VOXEL(X, Y, Z, Value);
+		bitWrite(NextFrame[Y][Z], X, Value);
 		return E_OK;
 	} else {
 		return E_NOT_OK;
@@ -204,7 +206,7 @@ stdReturnType LedCube::getVoxel(byte X, byte Y, byte Z, boolean* Value)
 {
 	if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
 	{
-		*Value = LEDCUBE_GET_VOXEL(X, Y, Z);
+		*Value = bitRead(CurrentFrame[Y][Z], X);
 		return E_OK;
 	} else {
 		return E_NOT_OK;
@@ -298,7 +300,6 @@ stdReturnType LedCube::showLayer(byte Layer)
 	if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
 		/* put on given layer */
 		sendData(1 << Layer);
-		//sendData(1 << Layer);
 		/* send the layer data to the shift registers */
 		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
 			sendData(CurrentFrame[Y][Layer]);
