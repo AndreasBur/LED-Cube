@@ -36,12 +36,12 @@
  *****************************************************************************************************************************************************/
 LedCube::LedCube()
 {
-	CurrentLayer = 0;
-	State = LEDCUBE_STATE_NONE;
-	CurrentFrame = CubeBuffer1;
-	NextFrame = CubeBuffer2;
-	memset(CubeBuffer1, 0, sizeof(CubeBuffer1));
-	memset(CubeBuffer2, 0, sizeof(CubeBuffer1));
+    CurrentLayer = 0;
+    State = LEDCUBE_STATE_NONE;
+    CurrentFrame = CubeBuffer1;
+    NextFrame = CubeBuffer2;
+    memset(CubeBuffer1, 0, sizeof(CubeBuffer1));
+    memset(CubeBuffer2, 0, sizeof(CubeBuffer1));
 } /* LedCube */
 
 
@@ -64,12 +64,12 @@ LedCube::~LedCube()
  *****************************************************************************************************************************************************/
 void LedCube::init()
 {
-	State = LEDCUBE_STATE_INIT;
-	clearCube();
-	pinModeFast(LEDCUBE_DATA_IN_PIN, OUTPUT);
-	pinModeFast(LEDCUBE_CLOCK_PIN, OUTPUT);
-	pinModeFast(LEDCUBE_STORAGE_PIN, OUTPUT);
-	State = LEDCUBE_STATE_SHOW_FRAME;
+    State = LEDCUBE_STATE_INIT;
+    clearCube();
+    pinModeFast(LEDCUBE_DATA_IN_PIN, OUTPUT);
+    pinModeFast(LEDCUBE_CLOCK_PIN, OUTPUT);
+    pinModeFast(LEDCUBE_STORAGE_PIN, OUTPUT);
+    State = LEDCUBE_STATE_SHOW_FRAME;
 } /* init */
 
 
@@ -78,20 +78,20 @@ void LedCube::init()
 ******************************************************************************************************************************************************/
 /*! \brief          show layer which is the next in line
  *  \details        this function shows one layer of the current frame on the cube
- *					has to be called periodically
+ *                  has to be called periodically
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
 void LedCube::task()
 {
-	if(State == LEDCUBE_STATE_SHOW_FRAME || State == LEDCUBE_STATE_NEXT_FRAME_READY) {
-		if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
-			CurrentLayer = 0;
-		} else {
-			showLayer(CurrentLayer);
-			CurrentLayer++;
-		}
-	}
+    if(State == LEDCUBE_STATE_SHOW_FRAME || State == LEDCUBE_STATE_NEXT_FRAME_READY) {
+        if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
+            CurrentLayer = 0;
+        } else {
+            showLayer(CurrentLayer);
+            CurrentLayer++;
+        }
+    }
 } /* task */
 
 
@@ -105,14 +105,14 @@ void LedCube::task()
  *****************************************************************************************************************************************************/
 void LedCube::clearCube()
 {
-	digitalWriteFast(LEDCUBE_DATA_IN_PIN, LOW);
+    digitalWriteFast(LEDCUBE_DATA_IN_PIN, LOW);
 
-	for(byte i = 0; i < (LEDCUBE_NUMBER_OF_SHIFT_REGISTERS * LEDCUBE_SHIFT_REGISTER_BITWIDTH); i++) {
-		digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
-		digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
-	}
-	digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
-	digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
+    for(byte i = 0; i < (LEDCUBE_NUMBER_OF_SHIFT_REGISTERS * LEDCUBE_SHIFT_REGISTER_BITWIDTH); i++) {
+        digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
+        digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
+    }
+    digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
+    digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
 } /* clearCube */
 
 
@@ -130,13 +130,13 @@ void LedCube::clearCube()
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::setVoxel(byte X, byte Y, byte Z)
 {
-	if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
-	{
-		bitSet(NextFrame[Y][Z], X);
-		return E_OK;
-	} else {
-		return E_NOT_OK;
-	}
+    if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        bitSet(NextFrame[Y][Z], X);
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
 } /* setVoxel */
 
 
@@ -154,13 +154,13 @@ stdReturnType LedCube::setVoxel(byte X, byte Y, byte Z)
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::clearVoxel(byte X, byte Y, byte Z)
 {
-	if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
-	{
-		bitClear(NextFrame[Y][Z], X);
-		return E_OK;
-	} else {
-		return E_NOT_OK;
-	}
+    if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        bitClear(NextFrame[Y][Z], X);
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
 } /* clearVoxel */
 
 
@@ -179,13 +179,13 @@ stdReturnType LedCube::clearVoxel(byte X, byte Y, byte Z)
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::writeVoxel(byte X, byte Y, byte Z, boolean Value)
 {
-	if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
-	{
-		bitWrite(NextFrame[Y][Z], X, Value);
-		return E_OK;
-	} else {
-		return E_NOT_OK;
-	}
+    if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        bitWrite(NextFrame[Y][Z], X, Value);
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
 } /* writeVoxel */
 
 
@@ -204,13 +204,13 @@ stdReturnType LedCube::writeVoxel(byte X, byte Y, byte Z, boolean Value)
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::getVoxel(byte X, byte Y, byte Z, boolean* Value)
 {
-	if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
-	{
-		*Value = bitRead(CurrentFrame[Y][Z], X);
-		return E_OK;
-	} else {
-		return E_NOT_OK;
-	}
+    if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        *Value = bitRead(CurrentFrame[Y][Z], X);
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
 } /* getVoxel */
 
 
@@ -225,12 +225,12 @@ stdReturnType LedCube::getVoxel(byte X, byte Y, byte Z, boolean* Value)
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::setNextFrameReady()
 {
-	if(State == LEDCUBE_STATE_SHOW_FRAME) {
-		State = LEDCUBE_STATE_NEXT_FRAME_READY;
-		return E_OK;
-	} else {
-		return E_NOT_OK;
-	}
+    if(State == LEDCUBE_STATE_SHOW_FRAME) {
+        State = LEDCUBE_STATE_NEXT_FRAME_READY;
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
 }
 
 
@@ -242,17 +242,17 @@ stdReturnType LedCube::setNextFrameReady()
  *                  function is called from timer interrupt normally
  *  \return         E_OK
  *                  E_NOT_OK
- *  \pre			setNextFrameReady() has to be called first
+ *  \pre            setNextFrameReady() has to be called first
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::showNextFrame()
 {
-	if(State == LEDCUBE_STATE_NEXT_FRAME_READY) {
-		switchBufferPointer();
-		State = LEDCUBE_STATE_SHOW_FRAME;
-		return E_OK;
-	} else {
-		return E_NOT_OK;
-	}
+    if(State == LEDCUBE_STATE_NEXT_FRAME_READY) {
+        switchBufferPointer();
+        State = LEDCUBE_STATE_SHOW_FRAME;
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
 }
 
 
@@ -266,20 +266,20 @@ stdReturnType LedCube::showNextFrame()
 /*! \brief          send data to shift registers
  *  \details        this function shifts the given data to the shift registers 74HC595
  *
- *  \param[in]      Data	data (Byte) to send
+ *  \param[in]      Data    data (Byte) to send
  *  \return         -
  *****************************************************************************************************************************************************/
 void LedCube::sendData(byte Data)
 {
-	for (byte i = 0; i < 8; i++) {
-		// LSB First
-		//digitalWrite(DataInPin, !!(Data & (1 << i)));
-		// MSB First
-		digitalWriteFast(LEDCUBE_DATA_IN_PIN, !!(Data & (1 << (7 - i))));
-		// toggle clock pin
-		digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
-		digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
-	}
+    for (byte i = 0; i < 8; i++) {
+        // LSB First
+        //digitalWrite(DataInPin, !!(Data & (1 << i)));
+        // MSB First
+        digitalWriteFast(LEDCUBE_DATA_IN_PIN, !!(Data & (1 << (7 - i))));
+        // toggle clock pin
+        digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
+        digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
+    }
 } /* sendData */
 
 
@@ -289,28 +289,28 @@ void LedCube::sendData(byte Data)
 /*! \brief          show a given layer on the cube
  *  \details        this function shows a given layer on the cube
  *                  
- *  \param[in]      Layer		layer which should be shown on the cube
+ *  \param[in]      Layer       layer which should be shown on the cube
  *  \return         E_OK
  *                  E_NOT_OK
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::showLayer(byte Layer)
 {
-	stdReturnType ReturnValue = E_NOT_OK;
-	
-	if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
-		/* put on given layer */
-		sendData(1 << Layer);
-		/* send the layer data to the shift registers */
-		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-			sendData(CurrentFrame[Y][Layer]);
-		}
-		// toggle storage pin
-		digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
-		digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
+    stdReturnType ReturnValue = E_NOT_OK;
+    
+    if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
+        /* put on given layer */
+        sendData(1 << Layer);
+        /* send the layer data to the shift registers */
+        for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+            sendData(CurrentFrame[Y][Layer]);
+        }
+        // toggle storage pin
+        digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
+        digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
 
-		ReturnValue = E_OK;
-	}
-	return ReturnValue;
+        ReturnValue = E_OK;
+    }
+    return ReturnValue;
 } /* showLayer */
 
 
@@ -324,11 +324,11 @@ stdReturnType LedCube::showLayer(byte Layer)
  *****************************************************************************************************************************************************/
 void LedCube::switchBufferPointer()
 {
-		byte (*pTmp)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
+        byte (*pTmp)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
 
-		pTmp = CurrentFrame;
-		CurrentFrame = NextFrame;
-		NextFrame = pTmp;
+        pTmp = CurrentFrame;
+        CurrentFrame = NextFrame;
+        NextFrame = pTmp;
 } /* switchBufferPointer */
 
 

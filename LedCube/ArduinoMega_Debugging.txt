@@ -1,0 +1,20 @@
+Da ich es gerade selber gemacht habe, antworte ich hier einfach mal. 
+Vielleicht hilft es ja doch noch irgendwem.
+
+Als erstes muesst ihr per ISP auf den Mega2560 zugreifen und die 
+JTAG-Fuse setzen. JTAG ist im auslieferungszustand des Arduino 
+ausgeschaltet.
+
+Bei meinem JTAGICE3 war so ein Adapterkabel bei, wo an einem Ende 
+einzelne Buchsen dran sind, die mit 0 bis 9 (wobei 0 wohl eher 10 
+bedeuten soll)beschriftet sind.
+
+Kabel Buchse 1  - Arduino Pin A4
+Kabel Buchse 2  - Arduino Pin GND
+Kabel Buchse 3  - Arduino Pin A6
+Kabel Buchse 4  - Arduino Pin 5V
+Kabel Buchse 5  - Arduino Pin A5
+Kabel Buchse 9  - Arduino Pin A7
+Kabel Buchse 0(bzw. 10) - Arduino Pin GND
+
+So ist dann auch Programmieren und Debuggen per JTAG moeglich.
