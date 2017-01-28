@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7131,16 +7131,16 @@ W = angled&lt;p&gt;
 </segment>
 <segment>
 <pinref part="IC4" gate="1" pin="GND"/>
-<wire x1="81.28" y1="66.04" x2="81.28" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="60.96" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="66.04" x2="86.36" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="60.96" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="60.96" x2="104.14" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="22.86" x2="81.28" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="22.86" x2="81.28" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="22.86" x2="86.36" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="22.86" x2="81.28" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="IC5" gate="1" pin="GND"/>
 <wire x1="104.14" y1="22.86" x2="104.14" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="104.14" y="22.86"/>
-<wire x1="104.14" y1="-15.24" x2="81.28" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="-15.24" x2="81.28" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-15.24" x2="86.36" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="-15.24" x2="81.28" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="IC6" gate="1" pin="GND"/>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="104.14" y1="-20.32" x2="104.14" y2="-15.24" width="0.1524" layer="91"/>
