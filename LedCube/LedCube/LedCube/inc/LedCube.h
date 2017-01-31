@@ -60,7 +60,7 @@ typedef enum {
     LEDCUBE_STATE_NEXT_FRAME_READY
 } LedCubeStateType;
 
-/* Type which describes the axes */
+/* Type which defines the axes */
  typedef enum {
     LEDCUBE_AXIS_X,
     LEDCUBE_AXIS_Y,
@@ -87,6 +87,7 @@ class LedCube
     void sendData(byte Data);
     void switchBufferPointer();
     stdReturnType setLayer();
+	stdReturnType showNextFrame();
 
   public:
     LedCube();
@@ -101,17 +102,19 @@ class LedCube
     // methods
     void init();
     void task();
+
     stdReturnType setVoxel(byte, byte, byte);
-    inline void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
-    stdReturnType clearVoxel(byte, byte, byte);
+	stdReturnType clearVoxel(byte, byte, byte);
+	stdReturnType writeVoxel(byte, byte, byte, boolean);
+	stdReturnType getVoxel(byte, byte, byte, boolean*);
+
+	inline void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
     inline void clearVoxelFast(byte X, byte Y, byte Z) { bitClear(NextFrame[Y][Z], X); }
-    stdReturnType writeVoxel(byte, byte, byte, boolean);
     inline void writeVoxelFast(byte X, byte Y, byte Z, boolean Value) { bitWrite(NextFrame[Y][Z], X, Value); }
-    stdReturnType getVoxel(byte, byte, byte, boolean*);
-    inline void getVoxelFast(byte X, byte Y, byte Z, boolean* Value) { *Value = bitRead(CurrentFrame[Y][Z], X); }
-    void clearVoxels(void);
+    inline byte getVoxelFast(byte X, byte Y, byte Z) { return bitRead(CurrentFrame[Y][Z], X); }
+
+	void clearVoxels(void);
     stdReturnType setNextFrameReady();
-    stdReturnType showNextFrame();
 };
 
 #endif

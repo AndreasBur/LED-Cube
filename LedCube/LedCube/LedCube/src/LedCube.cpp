@@ -87,10 +87,10 @@ void LedCube::task()
     if(State == LEDCUBE_STATE_SHOW_FRAME || State == LEDCUBE_STATE_NEXT_FRAME_READY) {
         if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
             CurrentLayer = 0;
-        } else {
-            showLayer(CurrentLayer);
-            CurrentLayer++;
+			if(State == LEDCUBE_STATE_NEXT_FRAME_READY) showNextFrame();
         }
+        showLayer(CurrentLayer);
+        CurrentLayer++;
     }
 } /* task */
 
@@ -235,28 +235,6 @@ stdReturnType LedCube::setNextFrameReady()
 
 
 /******************************************************************************************************************************************************
-  showNextFrame()
-******************************************************************************************************************************************************/
-/*! \brief          show next frame on the cube
- *  \details        this function activates the next frame only if next frame is ready
- *                  function is called from timer interrupt normally
- *  \return         E_OK
- *                  E_NOT_OK
- *  \pre            setNextFrameReady() has to be called first
- *****************************************************************************************************************************************************/
-stdReturnType LedCube::showNextFrame()
-{
-    if(State == LEDCUBE_STATE_NEXT_FRAME_READY) {
-        switchBufferPointer();
-        State = LEDCUBE_STATE_SHOW_FRAME;
-        return E_OK;
-    } else {
-        return E_NOT_OK;
-    }
-}
-
-
-/******************************************************************************************************************************************************
  * P R I V A T E   F U N C T I O N S
  *****************************************************************************************************************************************************/
 
@@ -312,6 +290,28 @@ stdReturnType LedCube::showLayer(byte Layer)
     }
     return ReturnValue;
 } /* showLayer */
+
+
+/******************************************************************************************************************************************************
+  showNextFrame()
+******************************************************************************************************************************************************/
+/*! \brief          show next frame on the cube
+ *  \details        this function activates the next frame only if next frame is ready
+ *                  function is called from timer interrupt normally
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *  \pre            setNextFrameReady() has to be called first
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::showNextFrame()
+{
+    if(State == LEDCUBE_STATE_NEXT_FRAME_READY) {
+        switchBufferPointer();
+        State = LEDCUBE_STATE_SHOW_FRAME;
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
+}
 
 
 /******************************************************************************************************************************************************
