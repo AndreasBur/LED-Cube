@@ -38,6 +38,8 @@ LedCube::LedCube()
 {
     CurrentLayer = 0;
     State = LEDCUBE_STATE_NONE;
+	NextFrameAtribute.Ready = false,
+	NextFrameAtribute.TimeElapsed = false;
     CurrentFrame = CubeBuffer1;
     NextFrame = CubeBuffer2;
     memset(CubeBuffer1, 0, sizeof(CubeBuffer1));
@@ -69,7 +71,7 @@ void LedCube::init()
     pinModeFast(LEDCUBE_DATA_IN_PIN, OUTPUT);
     pinModeFast(LEDCUBE_CLOCK_PIN, OUTPUT);
     pinModeFast(LEDCUBE_STORAGE_PIN, OUTPUT);
-    State = LEDCUBE_STATE_SHOW_FRAME;
+    State = LEDCUBE_STATE_READY;
 } /* init */
 
 
@@ -84,10 +86,10 @@ void LedCube::init()
  *****************************************************************************************************************************************************/
 void LedCube::task()
 {
-    if(State == LEDCUBE_STATE_SHOW_FRAME || State == LEDCUBE_STATE_NEXT_FRAME_READY) {
+    if(State == LEDCUBE_STATE_RUNNING) {
         if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
             CurrentLayer = 0;
-			if(State == LEDCUBE_STATE_NEXT_FRAME_READY) showNextFrame();
+			//if(State == LEDCUBE_STATE_NEXT_FRAME_READY) showNextFrame();
         }
         showLayer(CurrentLayer);
         CurrentLayer++;
@@ -225,8 +227,8 @@ stdReturnType LedCube::getVoxel(byte X, byte Y, byte Z, boolean* Value)
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::setNextFrameReady()
 {
-    if(State == LEDCUBE_STATE_SHOW_FRAME) {
-        State = LEDCUBE_STATE_NEXT_FRAME_READY;
+    if(State == LEDCUBE_STATE_RUNNING) {
+        //State = LEDCUBE_STATE_NEXT_FRAME_READY;
         return E_OK;
     } else {
         return E_NOT_OK;
@@ -304,13 +306,13 @@ stdReturnType LedCube::showLayer(byte Layer)
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::showNextFrame()
 {
-    if(State == LEDCUBE_STATE_NEXT_FRAME_READY) {
+    //if(State == LEDCUBE_STATE_NEXT_FRAME_READY) {
         switchBufferPointer();
-        State = LEDCUBE_STATE_SHOW_FRAME;
+        //State = LEDCUBE_STATE_SHOW_FRAME;
         return E_OK;
-    } else {
-        return E_NOT_OK;
-    }
+    //} else {
+        //return E_NOT_OK;
+    //}
 }
 
 
