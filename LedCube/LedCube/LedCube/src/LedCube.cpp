@@ -38,8 +38,8 @@ LedCube::LedCube()
 {
     CurrentLayer = 0;
     State = LEDCUBE_STATE_NONE;
-	NextFrameAtribute.Ready = false,
-	NextFrameAtribute.TimeElapsed = false;
+	NextFrameReady = false,
+	NextFrameTimeElapsed = false;
     CurrentFrame = CubeBuffer1;
     NextFrame = CubeBuffer2;
     memset(CubeBuffer1, 0, sizeof(CubeBuffer1));
@@ -76,6 +76,42 @@ void LedCube::init()
 
 
 /******************************************************************************************************************************************************
+  start()
+******************************************************************************************************************************************************/
+/*! \brief          
+ *  \details        
+ *                  
+ *  \return         -
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::start()
+{
+	if(State == LEDCUBE_STATE_READY || LEDCUBE_STATE_STOPPED) {
+		State = LEDCUBE_STATE_RUNNING;
+		return E_OK;
+	}
+	return E_NOT_OK;
+} /* start */
+
+
+/******************************************************************************************************************************************************
+  stop()
+******************************************************************************************************************************************************/
+/*! \brief          
+ *  \details        
+ *                  
+ *  \return         -
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::stop()
+{
+	if(State == LEDCUBE_STATE_RUNNING) {
+		State = LEDCUBE_STATE_STOPPED;
+		return E_OK;
+	}
+	return E_NOT_OK;
+} /* start */
+
+
+/******************************************************************************************************************************************************
   task()
 ******************************************************************************************************************************************************/
 /*! \brief          show layer which is the next in line
@@ -89,7 +125,12 @@ void LedCube::task()
     if(State == LEDCUBE_STATE_RUNNING) {
         if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
             CurrentLayer = 0;
-			//if(State == LEDCUBE_STATE_NEXT_FRAME_READY) showNextFrame();
+			/* is next frame ready to show? */
+			if(NextFrameReady && NextFrameTimeElapsed) { 
+				showNextFrame();
+				NextFrameReady = false;
+				NextFrameTimeElapsed = false;
+			}
         }
         showLayer(CurrentLayer);
         CurrentLayer++;
@@ -228,7 +269,27 @@ stdReturnType LedCube::getVoxel(byte X, byte Y, byte Z, boolean* Value)
 stdReturnType LedCube::setNextFrameReady()
 {
     if(State == LEDCUBE_STATE_RUNNING) {
-        //State = LEDCUBE_STATE_NEXT_FRAME_READY;
+        NextFrameReady = true;
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
+}
+
+
+/******************************************************************************************************************************************************
+  setNextFrameTimeElapsed()
+******************************************************************************************************************************************************/
+/*! \brief          set next frame time elapsed
+ *  \details        
+ *                  
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::setNextFrameTimeElapsed()
+{
+    if(State == LEDCUBE_STATE_RUNNING) {
+        NextFrameTimeElapsed = true;
         return E_OK;
     } else {
         return E_NOT_OK;
@@ -302,17 +363,11 @@ stdReturnType LedCube::showLayer(byte Layer)
  *                  function is called from timer interrupt normally
  *  \return         E_OK
  *                  E_NOT_OK
- *  \pre            setNextFrameReady() has to be called first
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::showNextFrame()
 {
-    //if(State == LEDCUBE_STATE_NEXT_FRAME_READY) {
-        switchBufferPointer();
-        //State = LEDCUBE_STATE_SHOW_FRAME;
-        return E_OK;
-    //} else {
-        //return E_NOT_OK;
-    //}
+    switchBufferPointer();
+	return E_OK;
 }
 
 

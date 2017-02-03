@@ -68,11 +68,6 @@ typedef enum {
     LEDCUBE_AXIS_Z
 } LedCubeAxisType;
 
-/* Type which describes the state of the next frame */
-struct NextFrameAtributeType {
-	boolean	Ready : 1;
-	boolean TimeElapsed : 1;
-};
 
 /******************************************************************************************************************************************************
  *  CLASS  LedCube
@@ -82,11 +77,12 @@ class LedCube
   private:
     byte CurrentLayer;
     LedCubeStateType State;
-	NextFrameAtributeType NextFrameAtribute;
     byte (*CurrentFrame)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
     byte (*NextFrame)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
     byte CubeBuffer1[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE][LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
     byte CubeBuffer2[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE][LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
+	boolean NextFrameReady;
+	boolean NextFrameTimeElapsed;
 
     // functions
     void clearCube();
@@ -103,14 +99,18 @@ class LedCube
     // get methods
     byte getCurrentLayer() { return CurrentLayer; }
     LedCubeStateType getState() { return State; }
+	boolean getNextFrameReady() { return NextFrameReady; }
+	boolean getNextFrameTimeElapsed() { return NextFrameTimeElapsed; }
 
     // set methods
+	stdReturnType setNextFrameReady();
+	stdReturnType setNextFrameTimeElapsed();
 
     // methods
     void init();
-    void task();
 	stdReturnType start();
 	stdReturnType stop();
+	void task();
 
     stdReturnType setVoxel(byte, byte, byte);
 	stdReturnType clearVoxel(byte, byte, byte);
@@ -123,7 +123,6 @@ class LedCube
     inline byte getVoxelFast(byte X, byte Y, byte Z) { return bitRead(CurrentFrame[Y][Z], X); }
 
 	void clearVoxels(void);
-    stdReturnType setNextFrameReady();
 };
 
 #endif

@@ -19,7 +19,7 @@ void setup() {
 		}
 	}
 	Cube.setNextFrameReady();
-	//Cube.showNextFrame();
+	Cube.setNextFrameTimeElapsed();
 }
 
 void loop()
