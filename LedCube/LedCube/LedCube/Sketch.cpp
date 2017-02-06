@@ -32,7 +32,7 @@ void setup() {
 void loop()
 {
 	if(Counter == 1000) { 
-		CubeTrans.shiftForward(true);
+		CubeTrans.shiftForward(&Cube, true);
 		Cube.setNextFrameReady();
 		Cube.setNextFrameTimeElapsed();
 		Counter = 0;

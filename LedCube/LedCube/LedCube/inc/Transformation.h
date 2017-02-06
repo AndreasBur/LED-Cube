@@ -62,14 +62,14 @@ class Transformation
     Transformation();
     ~Transformation();
 
-	void rotate(LedCubeAxisType ShiftAxis, TransformationRotationDegreeType Degrees);
-	stdReturnType rotateWithShift(LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Clock);
-	void shiftForward(boolean = false);
-	void shiftBackward(boolean = false);
-	void shiftUpward(boolean = false);
-	void shiftDownward(boolean = false);
-	void shiftLeft(boolean = false);
-	void shiftRight(boolean = false);
+	void rotate(LedCube&, LedCubeAxisType ShiftAxis, TransformationRotationDegreeType Degrees);
+	stdReturnType rotateWithShift(LedCube*, LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Clock);
+	void shiftForward(LedCube*, boolean = false);
+	void shiftBackward(LedCube*, boolean = false);
+	void shiftUpward(LedCube*, boolean = false);
+	void shiftDownward(LedCube*, boolean = false);
+	void shiftLeft(LedCube*, boolean = false);
+	void shiftRight(LedCube*, boolean = false);
 };
 
 #endif

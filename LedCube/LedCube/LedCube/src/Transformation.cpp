@@ -22,7 +22,7 @@
  *****************************************************************************************************************************************************/
 #include "Transformation.h"
 
-extern LedCube Cube;
+
 /******************************************************************************************************************************************************
  * P U B L I C   F U N C T I O N S
  *****************************************************************************************************************************************************/
@@ -61,14 +61,14 @@ Transformation::~Transformation()
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftForward(boolean Rotate)
+void Transformation::shiftForward(LedCube* Cube, boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
 		for(byte X = 0; X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1; X++) {
-			Cube.setVoxelsYFast(X, Z, Cube.getVoxelsYFast(X + 1, Z));
+			Cube->setVoxelsYFast(X, Z, Cube->getVoxelsYFast(X + 1, Z));
 		}
-		if(Rotate) Cube.setVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, Cube.getVoxelsYFast(0, Z));
-		else Cube.setVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, 0);
+		if(Rotate) Cube->setVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, Cube->getVoxelsYFast(0, Z));
+		else Cube->setVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, 0);
 	}
 
 } /* shiftForward */
