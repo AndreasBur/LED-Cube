@@ -1,3 +1,3 @@
 # LED-Cube
 
-Led cube 8x8x8
+Led Cube 8x8x8
