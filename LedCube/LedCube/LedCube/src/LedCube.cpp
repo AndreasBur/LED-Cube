@@ -258,6 +258,267 @@ stdReturnType LedCube::getVoxel(byte X, byte Y, byte Z, boolean* Value)
 
 
 /******************************************************************************************************************************************************
+  getVoxelsX()
+******************************************************************************************************************************************************/
+/*! \brief          get a all voxels from x-axis of the frame buffer 
+ *  \details        
+ *                  
+ *  \param[in]      Y          y-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
+ *  \param[out]     Value      voxels with value on or off
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::getVoxelsX(byte Y, byte Z, byte* Value)
+{
+    if(Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        *Value = CurrentFrame[Y][Z];
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
+} /* getVoxelsX */
+
+
+/******************************************************************************************************************************************************
+  setVoxelsX()
+******************************************************************************************************************************************************/
+/*! \brief          set all voxels from the x-axis in the frame buffer with a given value
+ *  \details        
+ *                  
+ *  \param[in]      Y          y-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
+ *  \param[in]      Value      voxels with value on or off
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::setVoxelsX(byte Y, byte Z, byte Value)
+{
+    if(Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        NextFrame[Y][Z] = Value;
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
+} /* setVoxelsX */
+
+
+/******************************************************************************************************************************************************
+  getVoxelsY()
+******************************************************************************************************************************************************/
+/*! \brief          get a all voxels from y-axis of the frame buffer 
+ *  \details        
+ *                  
+ *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
+ *  \param[out]     Value      voxels with value on or off
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::getVoxelsY(byte X, byte Z, byte* Value)
+{
+    if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+			bitWrite(*Value, Y, bitRead(CurrentFrame[Y][Z], X));
+        }
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
+} /* getVoxelsY */
+
+
+/******************************************************************************************************************************************************
+  setVoxelsY()
+******************************************************************************************************************************************************/
+/*! \brief          set all voxels from the y-axis in the frame buffer with a given value
+ *  \details        
+ *                  
+ *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
+ *  \param[in]      Value      voxels with value on or off
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::setVoxelsY(byte X, byte Z, byte Value)
+{
+    if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+			bitWrite(NextFrame[Y][Z], X, bitRead(Value, Y));
+		}
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
+} /* setVoxelsY */
+
+
+/******************************************************************************************************************************************************
+  getVoxelsZ()
+******************************************************************************************************************************************************/
+/*! \brief          get a all voxels from z-axis of the frame buffer 
+ *  \details        
+ *                  
+ *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Y          y-axis coordinate
+ *  \param[out]     Value      voxels with value on or off
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::getVoxelsZ(byte X, byte Y, byte* Value)
+{
+    if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
+			bitWrite(*Value, Z, bitRead(CurrentFrame[Y][Z], X));
+        }
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
+} /* getVoxelsZ */
+
+
+/******************************************************************************************************************************************************
+  setVoxelsZ()
+******************************************************************************************************************************************************/
+/*! \brief          set all voxels from the z-axis in the frame buffer with a given value
+ *  \details        
+ *                  
+ *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Y          y-axis coordinate
+ *  \param[in]      Value      voxels with value on or off
+ *  \return         E_OK
+ *                  E_NOT_OK
+ *****************************************************************************************************************************************************/
+stdReturnType LedCube::setVoxelsZ(byte X, byte Y, byte Value)
+{
+    if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
+    {
+        for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
+			bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
+		}
+        return E_OK;
+    } else {
+        return E_NOT_OK;
+    }
+} /* setVoxelsZ */
+
+
+/******************************************************************************************************************************************************
+  getVoxelsXFast()
+******************************************************************************************************************************************************/
+/*! \brief          get a all voxels from x-axis of the frame buffer 
+ *  \details        no check for out of bounds
+ *                  
+ *  \param[in]      Y          y-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
+ *  \param[out]     Value      voxels with value on or off
+ *****************************************************************************************************************************************************/
+byte LedCube::getVoxelsXFast(byte Y, byte Z)
+{
+	return CurrentFrame[Y][Z];
+} /* getVoxelsXFast */
+
+
+/******************************************************************************************************************************************************
+  setVoxelsXFast()
+******************************************************************************************************************************************************/
+/*! \brief          set all voxels from the x-axis in the frame buffer with a given value
+ *  \details        no check for out of bounds
+ *                  
+ *  \param[in]      Y          y-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
+ *  \return			voxels with value on or off
+ *****************************************************************************************************************************************************/
+void LedCube::setVoxelsXFast(byte Y, byte Z, byte Value)
+{
+	NextFrame[Y][Z] = Value;
+} /* setVoxelsXFast */
+
+
+/******************************************************************************************************************************************************
+  getVoxelsYFast()
+******************************************************************************************************************************************************/
+/*! \brief          get a all voxels from y-axis of the frame buffer 
+ *  \details        no check for out of bounds
+ *                  
+ *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
+ *  \param[out]     Value      voxels with value on or off
+ *****************************************************************************************************************************************************/
+byte LedCube::getVoxelsYFast(byte X, byte Z)
+{	
+	byte Value = 0;
+
+	for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+		bitWrite(Value, Y, bitRead(CurrentFrame[Y][Z], X));
+	}
+	return Value;
+} /* getVoxelsYFast */
+
+
+/******************************************************************************************************************************************************
+  setVoxelsYFast()
+******************************************************************************************************************************************************/
+/*! \brief          set all voxels from the y-axis in the frame buffer with a given value
+ *  \details        no check for out of bounds
+ *                  
+ *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Z          z-axis coordinate
+ *  \return			voxels with value on or off
+ *****************************************************************************************************************************************************/
+void LedCube::setVoxelsYFast(byte X, byte Z, byte Value)
+{
+	for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+		bitWrite(NextFrame[Y][Z], X, bitRead(Value, Y));
+	}
+} /* setVoxelsYFast */
+
+
+/******************************************************************************************************************************************************
+  getVoxelsZFast()
+******************************************************************************************************************************************************/
+/*! \brief          get a all voxels from z-axis of the frame buffer 
+ *  \details        no check for out of bounds
+ *                  
+ *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Y          y-axis coordinate
+ *****************************************************************************************************************************************************/
+byte LedCube::getVoxelsZFast(byte X, byte Y)
+{
+	byte Value = 0;
+
+	for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
+		bitWrite(Value, Z, bitRead(CurrentFrame[Y][Z], X));
+	}
+	return Value;
+} /* getVoxelsZFast */
+
+
+/******************************************************************************************************************************************************
+  setVoxelsZFast()
+******************************************************************************************************************************************************/
+/*! \brief          set all voxels from the z-axis in the frame buffer with a given value
+ *  \details        no check for out of bounds
+ *                  
+ *  \param[in]      X          x-axis coordinate
+ *  \param[in]      Y          y-axis coordinate
+ *  \return			voxels with value on or off
+ *****************************************************************************************************************************************************/
+void LedCube::setVoxelsZFast(byte X, byte Y, byte Value)
+{
+	for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
+		bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
+	}
+} /* setVoxelsZFast */
+
+
+/******************************************************************************************************************************************************
   setNextFrameReady()
 ******************************************************************************************************************************************************/
 /*! \brief          set next frame to ready state

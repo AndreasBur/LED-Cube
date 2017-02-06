@@ -64,12 +64,12 @@ class Transformation
 
 	void rotate(LedCubeAxisType ShiftAxis, TransformationRotationDegreeType Degrees);
 	stdReturnType rotateWithShift(LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Clock);
-	void shiftForward();
-	void shiftBackware();
-	void shiftUpward();
-	void shiftDownward();
-	void shiftLeft();
-	void shiftRight();
+	void shiftForward(boolean = false);
+	void shiftBackward(boolean = false);
+	void shiftUpward(boolean = false);
+	void shiftDownward(boolean = false);
+	void shiftLeft(boolean = false);
+	void shiftRight(boolean = false);
 };
 
 #endif
