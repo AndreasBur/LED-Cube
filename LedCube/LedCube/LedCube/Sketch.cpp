@@ -22,8 +22,6 @@ void setup() {
 	}
 	Cube.setVoxelsX(0,1,128);
 	
-	
-
 	Cube.start();
 	Cube.setNextFrameReady();
 	Cube.setNextFrameTimeElapsed();

@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  0000073c  00000000  00000000  00006bd8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000010a0  00000000  00000000  00007314  2**0
+ 10 .debug_str    000010e9  00000000  00000000  00007314  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002717  00000000  00000000  000083b4  2**0
+ 11 .debug_loc    00002717  00000000  00000000  000083fd  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000338  00000000  00000000  0000aacb  2**0
+ 12 .debug_ranges 00000338  00000000  00000000  0000ab14  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -155,8 +155,6 @@ void setup() {
  112:	91 e0       	ldi	r25, 0x01	; 1
  114:	0e 94 1c 01 	call	0x238	; 0x238 <_ZN7LedCube10setVoxelsXEhhh>
 	
-	
-
 	Cube.start();
  118:	83 e0       	ldi	r24, 0x03	; 3
  11a:	91 e0       	ldi	r25, 0x01	; 1
@@ -255,12 +253,6 @@ LedCube Cube;
  1b6:	0c 94 fd 00 	jmp	0x1fa	; 0x1fa <_ZN7LedCubeD1Ev>
 
 000001ba <_ZN7LedCubeC1Ev>:
-void LedCube::setVoxelsZFast(byte X, byte Y, byte Value)
-{
-	for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-		bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
-	}
-} /* setVoxelsZFast */
  1ba:	cf 93       	push	r28
  1bc:	df 93       	push	r29
  1be:	fc 01       	movw	r30, r24
@@ -489,71 +481,36 @@ void LedCube::setVoxelsZFast(byte X, byte Y, byte Value)
  362:	08 95       	ret
 
 00000364 <_ZN7LedCube17setNextFrameReadyEv>:
- *  \return         E_OK
- *                  E_NOT_OK
- *****************************************************************************************************************************************************/
-stdReturnType LedCube::setNextFrameReady()
-{
-    if(State == LEDCUBE_STATE_RUNNING) {
  364:	fc 01       	movw	r30, r24
  366:	21 81       	ldd	r18, Z+1	; 0x01
  368:	23 30       	cpi	r18, 0x03	; 3
  36a:	31 f4       	brne	.+12     	; 0x378 <_ZN7LedCube17setNextFrameReadyEv+0x14>
-        NextFrameReady = true;
  36c:	ea 57       	subi	r30, 0x7A	; 122
  36e:	ff 4f       	sbci	r31, 0xFF	; 255
  370:	81 e0       	ldi	r24, 0x01	; 1
  372:	80 83       	st	Z, r24
-        return E_OK;
  374:	80 e0       	ldi	r24, 0x00	; 0
  376:	08 95       	ret
-    } else {
-        return E_NOT_OK;
  378:	81 e0       	ldi	r24, 0x01	; 1
-    }
-}
  37a:	08 95       	ret
 
 0000037c <_ZN7LedCube23setNextFrameTimeElapsedEv>:
- *  \return         E_OK
- *                  E_NOT_OK
- *****************************************************************************************************************************************************/
-stdReturnType LedCube::setNextFrameTimeElapsed()
-{
-    if(State == LEDCUBE_STATE_RUNNING) {
  37c:	fc 01       	movw	r30, r24
  37e:	21 81       	ldd	r18, Z+1	; 0x01
  380:	23 30       	cpi	r18, 0x03	; 3
  382:	31 f4       	brne	.+12     	; 0x390 <_ZN7LedCube23setNextFrameTimeElapsedEv+0x14>
-        NextFrameTimeElapsed = true;
  384:	e9 57       	subi	r30, 0x79	; 121
  386:	ff 4f       	sbci	r31, 0xFF	; 255
  388:	81 e0       	ldi	r24, 0x01	; 1
  38a:	80 83       	st	Z, r24
-        return E_OK;
  38c:	80 e0       	ldi	r24, 0x00	; 0
  38e:	08 95       	ret
-    } else {
-        return E_NOT_OK;
  390:	81 e0       	ldi	r24, 0x01	; 1
-    }
-}
  392:	08 95       	ret
 
 00000394 <_ZN7LedCube8sendDataEh>:
- *
- *  \param[in]      Data    data (Byte) to send
- *  \return         -
- *****************************************************************************************************************************************************/
-void LedCube::sendData(byte Data)
-{
  394:	87 e0       	ldi	r24, 0x07	; 7
  396:	90 e0       	ldi	r25, 0x00	; 0
-    for (byte i = 0; i < 8; i++) {
-        // LSB First
-        //digitalWrite(DataInPin, !!(Data & (1 << i)));
-        // MSB First
-        digitalWriteFast(LEDCUBE_DATA_IN_PIN, !!(Data & (1 << (7 - i))));
  398:	70 e0       	ldi	r23, 0x00	; 0
  39a:	9b 01       	movw	r18, r22
  39c:	08 2e       	mov	r0, r24
@@ -567,38 +524,22 @@ void LedCube::sendData(byte Data)
  3ac:	2d 9a       	sbi	0x05, 5	; 5
  3ae:	01 c0       	rjmp	.+2      	; 0x3b2 <_ZN7LedCube8sendDataEh+0x1e>
  3b0:	2d 98       	cbi	0x05, 5	; 5
-        // toggle clock pin
-        digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
  3b2:	2b 9a       	sbi	0x05, 3	; 5
-        digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
  3b4:	2b 98       	cbi	0x05, 3	; 5
  3b6:	01 97       	sbiw	r24, 0x01	; 1
  3b8:	80 f7       	brcc	.-32     	; 0x39a <_ZN7LedCube8sendDataEh+0x6>
-    }
-} /* sendData */
  3ba:	08 95       	ret
 
 000003bc <_ZN7LedCube9showLayerEh>:
- *  \param[in]      Layer       layer which should be shown on the cube
- *  \return         E_OK
- *                  E_NOT_OK
- *****************************************************************************************************************************************************/
-stdReturnType LedCube::showLayer(byte Layer)
-{
  3bc:	ef 92       	push	r14
  3be:	ff 92       	push	r15
  3c0:	0f 93       	push	r16
  3c2:	1f 93       	push	r17
  3c4:	cf 93       	push	r28
  3c6:	df 93       	push	r29
-    stdReturnType ReturnValue = E_NOT_OK;
-    
-    if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
  3c8:	68 30       	cpi	r22, 0x08	; 8
  3ca:	30 f5       	brcc	.+76     	; 0x418 <__FUSE_REGION_LENGTH__+0x18>
  3cc:	ec 01       	movw	r28, r24
-        /* put on given layer */
-        sendData(1 << Layer);
  3ce:	06 2f       	mov	r16, r22
  3d0:	10 e0       	ldi	r17, 0x00	; 0
  3d2:	81 e0       	ldi	r24, 0x01	; 1
@@ -614,9 +555,6 @@ stdReturnType LedCube::showLayer(byte Layer)
  3e6:	0e 94 ca 01 	call	0x394	; 0x394 <_ZN7LedCube8sendDataEh>
  3ea:	e1 2c       	mov	r14, r1
  3ec:	f1 2c       	mov	r15, r1
-        /* send the layer data to the shift registers */
-        for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-            sendData(CurrentFrame[Y][Layer]);
  3ee:	ea 81       	ldd	r30, Y+2	; 0x02
  3f0:	fb 81       	ldd	r31, Y+3	; 0x03
  3f2:	ee 0d       	add	r30, r14
@@ -629,38 +567,15 @@ stdReturnType LedCube::showLayer(byte Layer)
  402:	38 e0       	ldi	r19, 0x08	; 8
  404:	e3 0e       	add	r14, r19
  406:	f1 1c       	adc	r15, r1
-    
-    if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
-        /* put on given layer */
-        sendData(1 << Layer);
-        /* send the layer data to the shift registers */
-        for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
  408:	80 e4       	ldi	r24, 0x40	; 64
  40a:	e8 16       	cp	r14, r24
  40c:	f1 04       	cpc	r15, r1
  40e:	79 f7       	brne	.-34     	; 0x3ee <_ZN7LedCube9showLayerEh+0x32>
-            sendData(CurrentFrame[Y][Layer]);
-        }
-        // toggle storage pin
-        digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
  410:	2c 9a       	sbi	0x05, 4	; 5
-        digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
  412:	2c 98       	cbi	0x05, 4	; 5
  414:	80 e0       	ldi	r24, 0x00	; 0
  416:	01 c0       	rjmp	.+2      	; 0x41a <__FUSE_REGION_LENGTH__+0x1a>
- *  \return         E_OK
- *                  E_NOT_OK
- *****************************************************************************************************************************************************/
-stdReturnType LedCube::showLayer(byte Layer)
-{
-    stdReturnType ReturnValue = E_NOT_OK;
  418:	81 e0       	ldi	r24, 0x01	; 1
-        digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
-
-        ReturnValue = E_OK;
-    }
-    return ReturnValue;
-} /* showLayer */
  41a:	df 91       	pop	r29
  41c:	cf 91       	pop	r28
  41e:	1f 91       	pop	r17
@@ -670,27 +585,16 @@ stdReturnType LedCube::showLayer(byte Layer)
  426:	08 95       	ret
 
 00000428 <_ZN7LedCube4taskEv>:
- *                  has to be called periodically
- *                  
- *  \return         -
- *****************************************************************************************************************************************************/
-void LedCube::task()
-{
  428:	cf 93       	push	r28
  42a:	df 93       	push	r29
  42c:	fc 01       	movw	r30, r24
-    if(State == LEDCUBE_STATE_RUNNING) {
  42e:	81 81       	ldd	r24, Z+1	; 0x01
  430:	83 30       	cpi	r24, 0x03	; 3
  432:	11 f5       	brne	.+68     	; 0x478 <_ZN7LedCube4taskEv+0x50>
-        if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
  434:	80 81       	ld	r24, Z
  436:	88 30       	cpi	r24, 0x08	; 8
  438:	b8 f0       	brcs	.+46     	; 0x468 <_ZN7LedCube4taskEv+0x40>
-            CurrentLayer = 0;
  43a:	10 82       	st	Z, r1
-			/* is next frame ready to show? */
-			if(NextFrameReady && NextFrameTimeElapsed) { 
  43c:	ef 01       	movw	r28, r30
  43e:	ca 57       	subi	r28, 0x7A	; 122
  440:	df 4f       	sbci	r29, 0xFF	; 255
@@ -703,44 +607,23 @@ void LedCube::task()
  44e:	8c 91       	ld	r24, X
  450:	88 23       	and	r24, r24
  452:	51 f0       	breq	.+20     	; 0x468 <_ZN7LedCube4taskEv+0x40>
- *****************************************************************************************************************************************************/
-void LedCube::switchBufferPointer()
-{
-        byte (*pTmp)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
-
-        pTmp = CurrentFrame;
  454:	82 81       	ldd	r24, Z+2	; 0x02
  456:	93 81       	ldd	r25, Z+3	; 0x03
-        CurrentFrame = NextFrame;
  458:	24 81       	ldd	r18, Z+4	; 0x04
  45a:	35 81       	ldd	r19, Z+5	; 0x05
  45c:	33 83       	std	Z+3, r19	; 0x03
  45e:	22 83       	std	Z+2, r18	; 0x02
-        NextFrame = pTmp;
  460:	95 83       	std	Z+5, r25	; 0x05
  462:	84 83       	std	Z+4, r24	; 0x04
-        if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
-            CurrentLayer = 0;
-			/* is next frame ready to show? */
-			if(NextFrameReady && NextFrameTimeElapsed) { 
-				showNextFrame();
-				NextFrameReady = false;
  464:	18 82       	st	Y, r1
-				NextFrameTimeElapsed = false;
  466:	1c 92       	st	X, r1
  468:	ef 01       	movw	r28, r30
-			}
-        }
-        showLayer(CurrentLayer);
  46a:	60 81       	ld	r22, Z
  46c:	cf 01       	movw	r24, r30
  46e:	0e 94 de 01 	call	0x3bc	; 0x3bc <_ZN7LedCube9showLayerEh>
-        CurrentLayer++;
  472:	88 81       	ld	r24, Y
  474:	8f 5f       	subi	r24, 0xFF	; 255
  476:	88 83       	st	Y, r24
-    }
-} /* task */
  478:	df 91       	pop	r29
  47a:	cf 91       	pop	r28
  47c:	08 95       	ret
@@ -852,21 +735,56 @@ void Transformation::shiftForward(LedCube* Cube, boolean Rotate)
  4e8:	08 95       	ret
 
 000004ea <initVariant>:
+int atexit(void (*func)()) { return 0; }
+
+// Weak empty variant initialization function.
+// May be redefined by variant files.
+void initVariant() __attribute__((weak));
+void initVariant() { }
  4ea:	08 95       	ret
 
 000004ec <main>:
+
+int main(void)
+{
+	init();
  4ec:	0e 94 1c 03 	call	0x638	; 0x638 <init>
+
+	initVariant();
  4f0:	0e 94 75 02 	call	0x4ea	; 0x4ea <initVariant>
+
+#if defined(USBCON)
+	USBDevice.attach();
+#endif
+	
+	setup();
  4f4:	0e 94 7d 00 	call	0xfa	; 0xfa <setup>
+    
+	for (;;) {
+		loop();
+		if (serialEventRun) serialEventRun();
  4f8:	c0 e0       	ldi	r28, 0x00	; 0
  4fa:	d0 e0       	ldi	r29, 0x00	; 0
+#endif
+	
+	setup();
+    
+	for (;;) {
+		loop();
  4fc:	0e 94 98 00 	call	0x130	; 0x130 <loop>
+		if (serialEventRun) serialEventRun();
  500:	20 97       	sbiw	r28, 0x00	; 0
  502:	e1 f3       	breq	.-8      	; 0x4fc <main+0x10>
  504:	0e 94 00 00 	call	0	; 0x0 <__vectors>
  508:	f9 cf       	rjmp	.-14     	; 0x4fc <main+0x10>
 
 0000050a <__vector_16>:
+	// we can't subtract any more than this or we'd overflow w/ small delays.
+	us--;
+#endif
+
+	// busy wait
+	__asm__ __volatile__ (
  50a:	1f 92       	push	r1
  50c:	0f 92       	push	r0
  50e:	0f b6       	in	r0, 0x3f	; 63
@@ -999,66 +917,144 @@ void Transformation::shiftForward(LedCube* Cube, boolean Rotate)
  636:	08 95       	ret
 
 00000638 <init>:
+
+void init()
+{
+	// this needs to be called before setup() or some functions won't
+	// work there
+	sei();
  638:	78 94       	sei
+	
+	// on the ATmega168, timer 0 is also used for fast hardware pwm
+	// (using phase-correct PWM would mean that timer 0 overflowed half as often
+	// resulting in different millis() behavior on the ATmega8 and ATmega168)
+#if defined(TCCR0A) && defined(WGM01)
+	sbi(TCCR0A, WGM01);
  63a:	84 b5       	in	r24, 0x24	; 36
  63c:	82 60       	ori	r24, 0x02	; 2
  63e:	84 bd       	out	0x24, r24	; 36
+	sbi(TCCR0A, WGM00);
  640:	84 b5       	in	r24, 0x24	; 36
  642:	81 60       	ori	r24, 0x01	; 1
  644:	84 bd       	out	0x24, r24	; 36
+	// this combination is for the standard atmega8
+	sbi(TCCR0, CS01);
+	sbi(TCCR0, CS00);
+#elif defined(TCCR0B) && defined(CS01) && defined(CS00)
+	// this combination is for the standard 168/328/1280/2560
+	sbi(TCCR0B, CS01);
  646:	85 b5       	in	r24, 0x25	; 37
  648:	82 60       	ori	r24, 0x02	; 2
  64a:	85 bd       	out	0x25, r24	; 37
+	sbi(TCCR0B, CS00);
  64c:	85 b5       	in	r24, 0x25	; 37
  64e:	81 60       	ori	r24, 0x01	; 1
  650:	85 bd       	out	0x25, r24	; 37
+
+	// enable timer 0 overflow interrupt
+#if defined(TIMSK) && defined(TOIE0)
+	sbi(TIMSK, TOIE0);
+#elif defined(TIMSK0) && defined(TOIE0)
+	sbi(TIMSK0, TOIE0);
  652:	ee e6       	ldi	r30, 0x6E	; 110
  654:	f0 e0       	ldi	r31, 0x00	; 0
  656:	80 81       	ld	r24, Z
  658:	81 60       	ori	r24, 0x01	; 1
  65a:	80 83       	st	Z, r24
+	// this is better for motors as it ensures an even waveform
+	// note, however, that fast pwm mode can achieve a frequency of up
+	// 8 MHz (with a 16 MHz clock) at 50% duty cycle
+
+#if defined(TCCR1B) && defined(CS11) && defined(CS10)
+	TCCR1B = 0;
  65c:	e1 e8       	ldi	r30, 0x81	; 129
  65e:	f0 e0       	ldi	r31, 0x00	; 0
  660:	10 82       	st	Z, r1
+
+	// set timer 1 prescale factor to 64
+	sbi(TCCR1B, CS11);
  662:	80 81       	ld	r24, Z
  664:	82 60       	ori	r24, 0x02	; 2
  666:	80 83       	st	Z, r24
+#if F_CPU >= 8000000L
+	sbi(TCCR1B, CS10);
  668:	80 81       	ld	r24, Z
  66a:	81 60       	ori	r24, 0x01	; 1
  66c:	80 83       	st	Z, r24
+	sbi(TCCR1, CS10);
+#endif
+#endif
+	// put timer 1 in 8-bit phase correct pwm mode
+#if defined(TCCR1A) && defined(WGM10)
+	sbi(TCCR1A, WGM10);
  66e:	e0 e8       	ldi	r30, 0x80	; 128
  670:	f0 e0       	ldi	r31, 0x00	; 0
  672:	80 81       	ld	r24, Z
  674:	81 60       	ori	r24, 0x01	; 1
  676:	80 83       	st	Z, r24
+
+	// set timer 2 prescale factor to 64
+#if defined(TCCR2) && defined(CS22)
+	sbi(TCCR2, CS22);
+#elif defined(TCCR2B) && defined(CS22)
+	sbi(TCCR2B, CS22);
  678:	e1 eb       	ldi	r30, 0xB1	; 177
  67a:	f0 e0       	ldi	r31, 0x00	; 0
  67c:	80 81       	ld	r24, Z
  67e:	84 60       	ori	r24, 0x04	; 4
  680:	80 83       	st	Z, r24
+
+	// configure timer 2 for phase correct pwm (8-bit)
+#if defined(TCCR2) && defined(WGM20)
+	sbi(TCCR2, WGM20);
+#elif defined(TCCR2A) && defined(WGM20)
+	sbi(TCCR2A, WGM20);
  682:	e0 eb       	ldi	r30, 0xB0	; 176
  684:	f0 e0       	ldi	r31, 0x00	; 0
  686:	80 81       	ld	r24, Z
  688:	81 60       	ori	r24, 0x01	; 1
  68a:	80 83       	st	Z, r24
+#if defined(ADCSRA)
+	// set a2d prescale factor to 128
+	// 16 MHz / 128 = 125 KHz, inside the desired 50-200 KHz range.
+	// XXX: this will not work properly for other clock speeds, and
+	// this code should use F_CPU to determine the prescale factor.
+	sbi(ADCSRA, ADPS2);
  68c:	ea e7       	ldi	r30, 0x7A	; 122
  68e:	f0 e0       	ldi	r31, 0x00	; 0
  690:	80 81       	ld	r24, Z
  692:	84 60       	ori	r24, 0x04	; 4
  694:	80 83       	st	Z, r24
+	sbi(ADCSRA, ADPS1);
  696:	80 81       	ld	r24, Z
  698:	82 60       	ori	r24, 0x02	; 2
  69a:	80 83       	st	Z, r24
+	sbi(ADCSRA, ADPS0);
  69c:	80 81       	ld	r24, Z
  69e:	81 60       	ori	r24, 0x01	; 1
  6a0:	80 83       	st	Z, r24
+
+	// enable a2d conversions
+	sbi(ADCSRA, ADEN);
  6a2:	80 81       	ld	r24, Z
  6a4:	80 68       	ori	r24, 0x80	; 128
  6a6:	80 83       	st	Z, r24
+	// here so they can be used as normal digital i/o; they will be
+	// reconnected in Serial.begin()
+#if defined(UCSRB)
+	UCSRB = 0;
+#elif defined(UCSR0B)
+	UCSR0B = 0;
  6a8:	10 92 c1 00 	sts	0x00C1, r1	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
  6ac:	08 95       	ret
 
 000006ae <turnOffPWM>:
+//
+//static inline void turnOffPWM(uint8_t timer) __attribute__ ((always_inline));
+//static inline void turnOffPWM(uint8_t timer)
+static void turnOffPWM(uint8_t timer)
+{
+	switch (timer)
  6ae:	83 30       	cpi	r24, 0x03	; 3
  6b0:	81 f0       	breq	.+32     	; 0x6d2 <turnOffPWM+0x24>
  6b2:	28 f4       	brcc	.+10     	; 0x6be <turnOffPWM+0x10>
@@ -1073,42 +1069,87 @@ void Transformation::shiftForward(LedCube* Cube, boolean Rotate)
  6c4:	b9 f0       	breq	.+46     	; 0x6f4 <turnOffPWM+0x46>
  6c6:	84 30       	cpi	r24, 0x04	; 4
  6c8:	d1 f4       	brne	.+52     	; 0x6fe <turnOffPWM+0x50>
+	{
+		#if defined(TCCR1A) && defined(COM1A1)
+		case TIMER1A:   cbi(TCCR1A, COM1A1);    break;
+		#endif
+		#if defined(TCCR1A) && defined(COM1B1)
+		case TIMER1B:   cbi(TCCR1A, COM1B1);    break;
  6ca:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
  6ce:	8f 7d       	andi	r24, 0xDF	; 223
  6d0:	03 c0       	rjmp	.+6      	; 0x6d8 <turnOffPWM+0x2a>
+static void turnOffPWM(uint8_t timer)
+{
+	switch (timer)
+	{
+		#if defined(TCCR1A) && defined(COM1A1)
+		case TIMER1A:   cbi(TCCR1A, COM1A1);    break;
  6d2:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
  6d6:	8f 77       	andi	r24, 0x7F	; 127
+		#endif
+		#if defined(TCCR1A) && defined(COM1B1)
+		case TIMER1B:   cbi(TCCR1A, COM1B1);    break;
  6d8:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
  6dc:	08 95       	ret
+		#if defined(TCCR2) && defined(COM21)
+		case  TIMER2:   cbi(TCCR2, COM21);      break;
+		#endif
+		
+		#if defined(TCCR0A) && defined(COM0A1)
+		case  TIMER0A:  cbi(TCCR0A, COM0A1);    break;
  6de:	84 b5       	in	r24, 0x24	; 36
  6e0:	8f 77       	andi	r24, 0x7F	; 127
  6e2:	02 c0       	rjmp	.+4      	; 0x6e8 <turnOffPWM+0x3a>
+		#endif
+		
+		#if defined(TIMER0B) && defined(COM0B1)
+		case  TIMER0B:  cbi(TCCR0A, COM0B1);    break;
  6e4:	84 b5       	in	r24, 0x24	; 36
  6e6:	8f 7d       	andi	r24, 0xDF	; 223
  6e8:	84 bd       	out	0x24, r24	; 36
  6ea:	08 95       	ret
+		#endif
+		#if defined(TCCR2A) && defined(COM2A1)
+		case  TIMER2A:  cbi(TCCR2A, COM2A1);    break;
  6ec:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
  6f0:	8f 77       	andi	r24, 0x7F	; 127
  6f2:	03 c0       	rjmp	.+6      	; 0x6fa <turnOffPWM+0x4c>
+		#endif
+		#if defined(TCCR2A) && defined(COM2B1)
+		case  TIMER2B:  cbi(TCCR2A, COM2B1);    break;
  6f4:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
  6f8:	8f 7d       	andi	r24, 0xDF	; 223
  6fa:	80 93 b0 00 	sts	0x00B0, r24	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
  6fe:	08 95       	ret
 
 00000700 <pinMode>:
+#define ARDUINO_MAIN
+#include "wiring_private.h"
+#include "pins_arduino.h"
+
+void pinMode(uint8_t pin, uint8_t mode)
+{
  700:	cf 93       	push	r28
  702:	df 93       	push	r29
+	uint8_t bit = digitalPinToBitMask(pin);
  704:	90 e0       	ldi	r25, 0x00	; 0
  706:	fc 01       	movw	r30, r24
  708:	e4 58       	subi	r30, 0x84	; 132
  70a:	ff 4f       	sbci	r31, 0xFF	; 255
  70c:	24 91       	lpm	r18, Z
+	uint8_t port = digitalPinToPort(pin);
  70e:	fc 01       	movw	r30, r24
  710:	e0 57       	subi	r30, 0x70	; 112
  712:	ff 4f       	sbci	r31, 0xFF	; 255
  714:	84 91       	lpm	r24, Z
+	volatile uint8_t *reg, *out;
+
+	if (port == NOT_A_PIN) return;
  716:	88 23       	and	r24, r24
  718:	61 f1       	breq	.+88     	; 0x772 <pinMode+0x72>
+
+	// JWS: can I let the optimizer do this?
+	reg = portModeRegister(port);
  71a:	90 e0       	ldi	r25, 0x00	; 0
  71c:	88 0f       	add	r24, r24
  71e:	99 1f       	adc	r25, r25
@@ -1117,69 +1158,108 @@ void Transformation::shiftForward(LedCube* Cube, boolean Rotate)
  724:	ff 4f       	sbci	r31, 0xFF	; 255
  726:	c5 91       	lpm	r28, Z+
  728:	d4 91       	lpm	r29, Z
+	out = portOutputRegister(port);
  72a:	fc 01       	movw	r30, r24
  72c:	ec 55       	subi	r30, 0x5C	; 92
  72e:	ff 4f       	sbci	r31, 0xFF	; 255
  730:	a5 91       	lpm	r26, Z+
  732:	b4 91       	lpm	r27, Z
+
+	if (mode == INPUT) { 
  734:	61 11       	cpse	r22, r1
  736:	09 c0       	rjmp	.+18     	; 0x74a <pinMode+0x4a>
+		uint8_t oldSREG = SREG;
  738:	9f b7       	in	r25, 0x3f	; 63
+                cli();
  73a:	f8 94       	cli
+		*reg &= ~bit;
  73c:	88 81       	ld	r24, Y
  73e:	20 95       	com	r18
  740:	82 23       	and	r24, r18
  742:	88 83       	st	Y, r24
+		*out &= ~bit;
  744:	ec 91       	ld	r30, X
  746:	2e 23       	and	r18, r30
  748:	0b c0       	rjmp	.+22     	; 0x760 <pinMode+0x60>
+		SREG = oldSREG;
+	} else if (mode == INPUT_PULLUP) {
  74a:	62 30       	cpi	r22, 0x02	; 2
  74c:	61 f4       	brne	.+24     	; 0x766 <pinMode+0x66>
+		uint8_t oldSREG = SREG;
  74e:	9f b7       	in	r25, 0x3f	; 63
+                cli();
  750:	f8 94       	cli
+		*reg &= ~bit;
  752:	38 81       	ld	r19, Y
  754:	82 2f       	mov	r24, r18
  756:	80 95       	com	r24
  758:	83 23       	and	r24, r19
  75a:	88 83       	st	Y, r24
+		*out |= bit;
  75c:	ec 91       	ld	r30, X
  75e:	2e 2b       	or	r18, r30
  760:	2c 93       	st	X, r18
+		SREG = oldSREG;
  762:	9f bf       	out	0x3f, r25	; 63
  764:	06 c0       	rjmp	.+12     	; 0x772 <pinMode+0x72>
+	} else {
+		uint8_t oldSREG = SREG;
  766:	8f b7       	in	r24, 0x3f	; 63
+                cli();
  768:	f8 94       	cli
+		*reg |= bit;
  76a:	e8 81       	ld	r30, Y
  76c:	2e 2b       	or	r18, r30
  76e:	28 83       	st	Y, r18
+		SREG = oldSREG;
  770:	8f bf       	out	0x3f, r24	; 63
+	}
+}
  772:	df 91       	pop	r29
  774:	cf 91       	pop	r28
  776:	08 95       	ret
 
 00000778 <digitalWrite>:
+		#endif
+	}
+}
+
+void digitalWrite(uint8_t pin, uint8_t val)
+{
  778:	1f 93       	push	r17
  77a:	cf 93       	push	r28
  77c:	df 93       	push	r29
+	uint8_t timer = digitalPinToTimer(pin);
  77e:	28 2f       	mov	r18, r24
  780:	30 e0       	ldi	r19, 0x00	; 0
  782:	f9 01       	movw	r30, r18
  784:	e8 59       	subi	r30, 0x98	; 152
  786:	ff 4f       	sbci	r31, 0xFF	; 255
  788:	84 91       	lpm	r24, Z
+	uint8_t bit = digitalPinToBitMask(pin);
  78a:	f9 01       	movw	r30, r18
  78c:	e4 58       	subi	r30, 0x84	; 132
  78e:	ff 4f       	sbci	r31, 0xFF	; 255
  790:	d4 91       	lpm	r29, Z
+	uint8_t port = digitalPinToPort(pin);
  792:	f9 01       	movw	r30, r18
  794:	e0 57       	subi	r30, 0x70	; 112
  796:	ff 4f       	sbci	r31, 0xFF	; 255
  798:	c4 91       	lpm	r28, Z
+	volatile uint8_t *out;
+
+	if (port == NOT_A_PIN) return;
  79a:	cc 23       	and	r28, r28
  79c:	c9 f0       	breq	.+50     	; 0x7d0 <digitalWrite+0x58>
  79e:	16 2f       	mov	r17, r22
+
+	// If the pin that support PWM output, we need to turn it off
+	// before doing a digital write.
+	if (timer != NOT_ON_TIMER) turnOffPWM(timer);
  7a0:	81 11       	cpse	r24, r1
  7a2:	0e 94 57 03 	call	0x6ae	; 0x6ae <turnOffPWM>
+
+	out = portOutputRegister(port);
  7a6:	ec 2f       	mov	r30, r28
  7a8:	f0 e0       	ldi	r31, 0x00	; 0
  7aa:	ee 0f       	add	r30, r30
@@ -1188,25 +1268,43 @@ void Transformation::shiftForward(LedCube* Cube, boolean Rotate)
  7b0:	ff 4f       	sbci	r31, 0xFF	; 255
  7b2:	a5 91       	lpm	r26, Z+
  7b4:	b4 91       	lpm	r27, Z
+
+	uint8_t oldSREG = SREG;
  7b6:	8f b7       	in	r24, 0x3f	; 63
+	cli();
  7b8:	f8 94       	cli
+
+	if (val == LOW) {
  7ba:	11 11       	cpse	r17, r1
  7bc:	05 c0       	rjmp	.+10     	; 0x7c8 <digitalWrite+0x50>
+		*out &= ~bit;
  7be:	9c 91       	ld	r25, X
  7c0:	ed 2f       	mov	r30, r29
  7c2:	e0 95       	com	r30
  7c4:	e9 23       	and	r30, r25
  7c6:	02 c0       	rjmp	.+4      	; 0x7cc <digitalWrite+0x54>
+	} else {
+		*out |= bit;
  7c8:	ec 91       	ld	r30, X
  7ca:	ed 2b       	or	r30, r29
  7cc:	ec 93       	st	X, r30
+	}
+
+	SREG = oldSREG;
  7ce:	8f bf       	out	0x3f, r24	; 63
+}
  7d0:	df 91       	pop	r29
  7d2:	cf 91       	pop	r28
  7d4:	1f 91       	pop	r17
  7d6:	08 95       	ret
 
 000007d8 <yield>:
+ * libraries or sketches that supports cooperative threads.
+ *
+ * Its defined as a weak symbol and it can be redefined to implement a
+ * real cooperative scheduler.
+ */
+static void __empty() {
  7d8:	08 95       	ret
 
 000007da <__tablejump2__>:

@@ -189,7 +189,6 @@ void Transformation::shiftForwardFast(LedCube* Cube, boolean Rotate)
 			if(Rotate) Cube->writeVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z, Cube->getVoxelFast(0, Y, Z));
 		}
 	}
-
 } /* shiftForwardFast */
 
 
@@ -209,8 +208,8 @@ void Transformation::shiftBackwardFast(LedCube* Cube, boolean Rotate)
 			if(Rotate) Cube->writeVoxelFast(0, Y, Z, Cube->getVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z));
 		}
 	}
-
 } /* shiftBackwardFast */
+
 
 /******************************************************************************************************************************************************
  * P R I V A T E   F U N C T I O N S
