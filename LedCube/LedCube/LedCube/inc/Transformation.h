@@ -70,6 +70,9 @@ class Transformation
 	void shiftDownward(LedCube*, boolean = false);
 	void shiftLeft(LedCube*, boolean = false);
 	void shiftRight(LedCube*, boolean = false);
+
+	void shiftForwardFast(LedCube*, boolean = false);
+	void shiftBackwardFast(LedCube*, boolean = false);
 };
 
 #endif

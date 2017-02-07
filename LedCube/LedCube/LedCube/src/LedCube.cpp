@@ -59,8 +59,8 @@ LedCube::~LedCube()
 /******************************************************************************************************************************************************
   init()
 ******************************************************************************************************************************************************/
-/*! \brief          initialization of the LedCube Hardware
- *  \details        this function initializes the IO Hardware and the shift registers 74HC595
+/*! \brief          initialization of the Led Cube hardware
+ *  \details        this function initializes the IO hardware and the shift registers 74HC595
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
@@ -78,9 +78,10 @@ void LedCube::init()
 /******************************************************************************************************************************************************
   start()
 ******************************************************************************************************************************************************/
-/*! \brief          
- *  \details        
- *                  
+/*! \brief          starts the led cube showing a frame
+ *  \details        this function starts with showing the current buffer on the led cube
+ *                  therefore the task function has to be called periodically
+ *
  *  \return         -
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::start()
@@ -96,7 +97,7 @@ stdReturnType LedCube::start()
 /******************************************************************************************************************************************************
   stop()
 ******************************************************************************************************************************************************/
-/*! \brief          
+/*! \brief          stops the led cube showing a frame
  *  \details        
  *                  
  *  \return         -
@@ -260,7 +261,7 @@ stdReturnType LedCube::getVoxel(byte X, byte Y, byte Z, boolean* Value)
 /******************************************************************************************************************************************************
   getVoxelsX()
 ******************************************************************************************************************************************************/
-/*! \brief          get a all voxels from x-axis of the frame buffer 
+/*! \brief          get a all voxels from the x-axis of the frame buffer 
  *  \details        
  *                  
  *  \param[in]      Y          y-axis coordinate
@@ -308,7 +309,7 @@ stdReturnType LedCube::setVoxelsX(byte Y, byte Z, byte Value)
 /******************************************************************************************************************************************************
   getVoxelsY()
 ******************************************************************************************************************************************************/
-/*! \brief          get a all voxels from y-axis of the frame buffer 
+/*! \brief          get a all voxels from the y-axis of the frame buffer 
  *  \details        
  *                  
  *  \param[in]      X          x-axis coordinate
@@ -360,7 +361,7 @@ stdReturnType LedCube::setVoxelsY(byte X, byte Z, byte Value)
 /******************************************************************************************************************************************************
   getVoxelsZ()
 ******************************************************************************************************************************************************/
-/*! \brief          get a all voxels from z-axis of the frame buffer 
+/*! \brief          get a all voxels from the z-axis of the frame buffer 
  *  \details        
  *                  
  *  \param[in]      X          x-axis coordinate
@@ -412,7 +413,7 @@ stdReturnType LedCube::setVoxelsZ(byte X, byte Y, byte Value)
 /******************************************************************************************************************************************************
   getVoxelsXFast()
 ******************************************************************************************************************************************************/
-/*! \brief          get a all voxels from x-axis of the frame buffer 
+/*! \brief          get a all voxels from the x-axis of the frame buffer 
  *  \details        no check for out of bounds
  *                  
  *  \param[in]      Y          y-axis coordinate
@@ -444,7 +445,7 @@ void LedCube::setVoxelsXFast(byte Y, byte Z, byte Value)
 /******************************************************************************************************************************************************
   getVoxelsYFast()
 ******************************************************************************************************************************************************/
-/*! \brief          get a all voxels from y-axis of the frame buffer 
+/*! \brief          get a all voxels from the y-axis of the frame buffer 
  *  \details        no check for out of bounds
  *                  
  *  \param[in]      X          x-axis coordinate
@@ -483,7 +484,7 @@ void LedCube::setVoxelsYFast(byte X, byte Z, byte Value)
 /******************************************************************************************************************************************************
   getVoxelsZFast()
 ******************************************************************************************************************************************************/
-/*! \brief          get a all voxels from z-axis of the frame buffer 
+/*! \brief          get a all voxels from the z-axis of the frame buffer 
  *  \details        no check for out of bounds
  *                  
  *  \param[in]      X          x-axis coordinate
