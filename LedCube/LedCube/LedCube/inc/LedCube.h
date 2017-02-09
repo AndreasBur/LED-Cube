@@ -43,7 +43,7 @@
 /******************************************************************************************************************************************************
  *  LOCAL FUNCTION MACROS
  *****************************************************************************************************************************************************/
-//#define LEDCUBE_GET_VOXEL(X, Y, Z)                    bitRead(CurrentFrame[Y][Z], X)  
+//#define LEDCUBE_GET_VOXEL(X, Y, Z)                    bitRead(CurrentFrame[Y][Z], X)
 //#define LEDCUBE_SET_VOXEL(X, Y, Z)                    bitSet(NextFrame[Y][Z], X)
 //#define LEDCUBE_CLEAR_VOXEL(X, Y, Z)                  bitClear(NextFrame[Y][Z], X)
 //#define LEDCUBE_WRITE_VOXEL(X, Y, Z, Value)           bitWrite(NextFrame[Y][Z], X, Value)
@@ -136,7 +136,11 @@ class LedCube
 	byte getVoxelsZFast(byte, byte);
 	void setVoxelsZFast(byte, byte, byte);
 
-	void clearVoxels(void);
+	void clearVoxels() { memset(NextFrame, 0, sizeof(*NextFrame)); }
+	void setVoxels() { memset(NextFrame, 255, sizeof(*NextFrame)); }
+
+	void copyCurrentFrameToNextFrame() { memcpy(NextFrame, CurrentFrame, sizeof(*NextFrame)); }
+
 };
 
 #endif
