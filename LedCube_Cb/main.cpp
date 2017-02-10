@@ -84,6 +84,7 @@ int main()
     setVoxelFastStart(1,1,0);
     setVoxelFastStart(0,0,0);
     setVoxelFastStart(7,7,0);
+    setVoxelFastStart(5,7,0);
 
     setVoxelFastStart(3,2,0);
     setVoxelFastStart(3,3,0);
@@ -103,15 +104,25 @@ int main()
     Circle--;
 
     // rechts drehen
-
     // vorne
-    for(int Y = Circle; Y < LEDs; Y++) writeVoxelFast(Circle, Y, 0, getVoxelFast(Circle, Y+1, 0));
+    //for(int Y = Circle; Y < LEDs; Y++) writeVoxelFast(Circle, Y, 0, getVoxelFast(Circle, Y+1, 0));
     // rechts
-    for(int X = Circle; X < LEDs; X++) writeVoxelFast(X, LEDs-1-Circle, 0, getVoxelFast(X+1, LEDs-1-Circle, 0));
+    //for(int X = Circle; X < LEDs; X++) writeVoxelFast(X, LEDs-1-Circle, 0, getVoxelFast(X+1, LEDs-1-Circle, 0));
     // hinten
-    for(int Y = LEDs-1-Circle; Y > 0; Y--) writeVoxelFast(LEDs-1-Circle, Y, 0, getVoxelFast(LEDs-1-Circle, Y-1, 0));
+    //for(int Y = LEDs-1-Circle; Y > Circle; Y--) writeVoxelFast(LEDs-1-Circle, Y, 0, getVoxelFast(LEDs-1-Circle, Y-1, 0));
     // links
-    for(int X = LEDs-1-Circle; X > 0; X--) writeVoxelFast(X, Circle, 0, getVoxelFast(X-1, Circle, 0));
+    //for(int X = LEDs-1-Circle; X > Circle; X--) writeVoxelFast(X, Circle, 0, getVoxelFast(X-1, Circle, 0));
+
+
+    // links drehen
+    // links
+    for(int X = Circle; X < LEDs-1-Circle; X++) writeVoxelFast(X, Circle, 0, getVoxelFast(X+1, Circle, 0));
+    // hinten
+    for(int Y = Circle; Y < LEDs-1-Circle; Y++) writeVoxelFast(LEDs-1-Circle, Y, 0, getVoxelFast(LEDs-1-Circle, Y+1, 0));
+    // rechts
+    for(int X = LEDs-1-Circle; X > Circle; X--) writeVoxelFast(X, LEDs-1-Circle, 0, getVoxelFast(X-1, LEDs-1-Circle, 0));
+    // vorne
+    //for(int X = LEDs-1-Circle; X > 0; X--) writeVoxelFast(X, Circle, 0, getVoxelFast(X-1, Circle, 0));
 
 
     cout << endl;
