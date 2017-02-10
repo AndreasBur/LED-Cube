@@ -58,6 +58,7 @@ typedef enum {
 class Transformation
 {
   private:
+	rotateWithShift(LedCube*, LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Circle);
    
   public:
     Transformation();

@@ -78,7 +78,7 @@ byte getVoxelFastAusgabe(byte X, byte Y, byte Z) { return bitRead(CubeBuffer2[Y]
 char Voxel;
 
 int main()
-{
+{   const int LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
     setVoxelFastStart(1,5,0);
     setVoxelFastStart(6,5,0);
     setVoxelFastStart(1,1,0);
@@ -98,70 +98,21 @@ int main()
         printf("\n");
     }
 
-    // ‰uﬂerer Kreis
-    for(int a = 0; a <= 6; a++)
-    {
-        writeVoxelFast(0, a, 0, getVoxelFast(0, a+1, 0));
-        //array_trans[0][a] = array[0][a+1];
-        writeVoxelFast(a, 7, 0, getVoxelFast(a+1, 7, 0));
-        //array_trans[a][7] = array[a+1][7];
-    }
+    int Circle = 1;
 
-    for(int a = 7; a > 0; a--)
-    {
-        writeVoxelFast(7, a, 0, getVoxelFast(7, a-1, 0));
-        //array_trans[7][a] = array[7][a-1];
-        writeVoxelFast(a, 0, 0, getVoxelFast(a-1, 0, 0));
-        //array_trans[a][0] = array[a-1][0];
-    }
-    // 2 ‰uﬂerer Kreis
-    for(int a = 1; a <= 5; a++)
-    {
-        writeVoxelFast(1, a, 0, getVoxelFast(1, a+1, 0));
-        //array_trans[0][a] = array[0][a+1];
-        writeVoxelFast(a, 6, 0, getVoxelFast(a+1, 6, 0));
-        //array_trans[a][7] = array[a+1][7];
-    }
+    Circle--;
 
-    for(int a = 6; a > 1; a--)
-    {
-        writeVoxelFast(6, a, 0, getVoxelFast(6, a-1, 0));
-        //array_trans[7][a] = array[7][a-1];
-        writeVoxelFast(a, 1, 0, getVoxelFast(a-1, 1, 0));
-        //array_trans[a][0] = array[a-1][0];
-    }
-    // 3 ‰uﬂerer Kreis
-    for(int a = 2; a <= 4; a++)
-    {
-        writeVoxelFast(2, a, 0, getVoxelFast(2, a+1, 0));
-        //array_trans[0][a] = array[0][a+1];
-        writeVoxelFast(a, 4, 0, getVoxelFast(a+1, 4, 0));
-        //array_trans[a][7] = array[a+1][7];
-    }
+    // rechts drehen
 
-    for(int a = 5; a > 2; a--)
-    {
-        writeVoxelFast(5, a, 0, getVoxelFast(5, a-1, 0));
-        //array_trans[7][a] = array[7][a-1];
-        writeVoxelFast(a, 2, 0, getVoxelFast(a-1, 2, 0));
-        //array_trans[a][0] = array[a-1][0];
-    }
-    // 4 ‰uﬂerer Kreis
-    for(int a = 3; a <= 3; a++)
-    {
-        writeVoxelFast(3, a, 0, getVoxelFast(3, a+1, 0));
-        //array_trans[0][a] = array[0][a+1];
-        writeVoxelFast(a, 3, 0, getVoxelFast(a+1, 3, 0));
-        //array_trans[a][7] = array[a+1][7];
-    }
+    // vorne
+    for(int Y = Circle; Y < LEDs; Y++) writeVoxelFast(Circle, Y, 0, getVoxelFast(Circle, Y+1, 0));
+    // rechts
+    for(int X = Circle; X < LEDs; X++) writeVoxelFast(X, LEDs-1-Circle, 0, getVoxelFast(X+1, LEDs-1-Circle, 0));
+    // hinten
+    for(int Y = LEDs-1-Circle; Y > 0; Y--) writeVoxelFast(LEDs-1-Circle, Y, 0, getVoxelFast(LEDs-1-Circle, Y-1, 0));
+    // links
+    for(int X = LEDs-1-Circle; X > 0; X--) writeVoxelFast(X, Circle, 0, getVoxelFast(X-1, Circle, 0));
 
-    for(int a = 4; a > 3; a--)
-    {
-        writeVoxelFast(4, a, 0, getVoxelFast(4, a-1, 0));
-        //array_trans[7][a] = array[7][a-1];
-        writeVoxelFast(a, 3, 0, getVoxelFast(a-1, 3, 0));
-        //array_trans[a][0] = array[a-1][0];
-    }
 
     cout << endl;
     cout << "transform" << endl;
@@ -175,3 +126,25 @@ int main()
 
     return 0;
 }
+
+//    // rechts drehen
+//
+//    // 1. Kreis auﬂen
+//    // vorne
+//    for(int Y = 0; Y < LEDs; Y++) writeVoxelFast(0, Y, 0, getVoxelFast(0, Y+1, 0));
+//    // rechts
+//    for(int X = 0; X < LEDs; X++) writeVoxelFast(X, LEDs-1, 0, getVoxelFast(X+1, LEDs-1, 0));
+//    // hinten
+//    for(int Y = LEDs-1; Y > 0; Y--) writeVoxelFast(LEDs-1, Y, 0, getVoxelFast(LEDs-1, Y-1, 0));
+//    // links
+//    for(int X = LEDs-1; X > 0; X--) writeVoxelFast(X, 0, 0, getVoxelFast(X-1, 0, 0));
+//
+//    // 2. Kreis auﬂen
+//    // vorne
+//    for(int Y = 1; Y < LEDs-1; Y++) writeVoxelFast(1, Y, 0, getVoxelFast(0, Y+1, 0));
+//    // rechts
+//    for(int X = 1; X < LEDs-1; X++) writeVoxelFast(X, LEDs-2, 0, getVoxelFast(X+1, LEDs-2, 0));
+//    // hinten
+//    for(int Y = LEDs-2; Y > 1; Y--) writeVoxelFast(LEDs-2, Y, 0, getVoxelFast(LEDs-2, Y-1, 0));
+//    // links
+//    for(int X = LEDs-2; X > 1; X--) writeVoxelFast(X, 1, 0, getVoxelFast(X-1, 1, 0));
