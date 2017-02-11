@@ -58,13 +58,15 @@ typedef enum {
 class Transformation
 {
   private:
-	rotateWithShift(LedCube*, LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Circle);
+	//stdReturnType shiftCircle(LedCube*, LedCubeAxisType, TransformationRotationDirectionType, byte);
    
   public:
     Transformation();
     ~Transformation();
 
+	stdReturnType shiftCircle(LedCube*, LedCubeAxisType, TransformationRotationDirectionType, byte);
 	void rotate(LedCube&, LedCubeAxisType ShiftAxis, TransformationRotationDegreeType Degrees);
+	void mirror(LedCube&, LedCubeAxisType ShiftAxis);
 	stdReturnType rotateWithShift(LedCube*, LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Clock);
 	void shiftForward(LedCube*, boolean = false);
 	void shiftBackward(LedCube*, boolean = false);

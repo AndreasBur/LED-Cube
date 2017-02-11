@@ -136,11 +136,10 @@ class LedCube
 	byte getVoxelsZFast(byte, byte);
 	void setVoxelsZFast(byte, byte, byte);
 
-	void clearVoxels() { memset(NextFrame, 0, sizeof(*NextFrame)); }
-	void setVoxels() { memset(NextFrame, 255, sizeof(*NextFrame)); }
+	void clearVoxels() { memset(NextFrame, 0, sizeof(CubeBuffer1)); }
+	void setVoxels() { memset(NextFrame, 255, sizeof(CubeBuffer1)); }
 
-	void copyCurrentFrameToNextFrame() { memcpy(NextFrame, CurrentFrame, sizeof(*NextFrame)); }
-
+	void copyCurrentFrameToNextFrame() { memcpy(NextFrame, CurrentFrame, sizeof(CubeBuffer1)); }
 };
 
 #endif

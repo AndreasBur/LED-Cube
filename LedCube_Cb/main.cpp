@@ -24,7 +24,7 @@ using namespace std;
 (((Var) & (1 << (Bit))) >> Bit)
 
 #define writeBit(Var, Bit, Value) \
-(Value ? setBit(Var, Bit) : clearBit(Var, Bit))
+((Var) = ((Var & ~(1 << Bit)) | (Value << Bit)))
 
 #define isBitSet(Var, Bit) \
 ((Var) & (1 << (Bit)))
@@ -78,7 +78,8 @@ byte getVoxelFastAusgabe(byte X, byte Y, byte Z) { return bitRead(CubeBuffer2[Y]
 char Voxel;
 
 int main()
-{   const int LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
+{
+    const int LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
     setVoxelFastStart(1,5,0);
     setVoxelFastStart(6,5,0);
     setVoxelFastStart(1,1,0);
@@ -99,7 +100,7 @@ int main()
         printf("\n");
     }
 
-    int Circle = 1;
+    int Circle = 4;
 
     Circle--;
 
@@ -122,7 +123,7 @@ int main()
     // rechts
     for(int X = LEDs-1-Circle; X > Circle; X--) writeVoxelFast(X, LEDs-1-Circle, 0, getVoxelFast(X-1, LEDs-1-Circle, 0));
     // vorne
-    //for(int X = LEDs-1-Circle; X > 0; X--) writeVoxelFast(X, Circle, 0, getVoxelFast(X-1, Circle, 0));
+    for(int Y = LEDs-1-Circle; Y > Circle; Y--) writeVoxelFast(Circle, Y, 0, getVoxelFast(Circle, Y-1, 0));
 
 
     cout << endl;

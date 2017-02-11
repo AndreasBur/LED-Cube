@@ -50,7 +50,11 @@
     
 /* read bit */
 #define readBit(Var, Bit) \
-(((Var) & (1 << (Bit))) >> Bit)
+	(((Var) & (1 << (Bit))) >> Bit)
+
+/* write bit */
+#define writeBit(Var, Bit, Value) \
+	((Var) = ((Var & (unsigned)~(1 << Bit)) | (Value << Bit)))
 
 /* is bit set */
 #define isBitSet(Var, Bit) ((Var) & (1 << (Bit)))

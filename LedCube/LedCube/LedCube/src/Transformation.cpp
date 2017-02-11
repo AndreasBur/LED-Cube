@@ -184,8 +184,8 @@ void Transformation::shiftRight(LedCube* Cube, boolean Rotate)
 void Transformation::shiftForwardFast(LedCube* Cube, boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1; Y++) {
-			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y + 1, Z) >> 1);
+		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y, Z) >> 1);
 			if(Rotate) Cube->writeVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z, Cube->getVoxelFast(0, Y, Z));
 		}
 	}
@@ -203,8 +203,8 @@ void Transformation::shiftForwardFast(LedCube* Cube, boolean Rotate)
 void Transformation::shiftBackwardFast(LedCube* Cube, boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-		for(byte Y = 1; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y - 1, Z) << 1);
+		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y, Z) << 1);
 			if(Rotate) Cube->writeVoxelFast(0, Y, Z, Cube->getVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z));
 		}
 	}
@@ -215,20 +215,46 @@ void Transformation::shiftBackwardFast(LedCube* Cube, boolean Rotate)
  * P R I V A T E   F U N C T I O N S
  *****************************************************************************************************************************************************/
 
- /******************************************************************************************************************************************************
-  shiftBackwardFast()
+/******************************************************************************************************************************************************
+  shiftCircle()
 ******************************************************************************************************************************************************/
 /*! \brief          
  *  \details        
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::rotateWithShift(LedCube*, LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Circle)
-{
-	if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
-		if(LEDCUBE_AXIS_Z == ShiftAxis) {
-			
+stdReturnType Transformation::shiftCircle(LedCube* Cube, LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Circle)
+{	
+	const byte LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
+
+	if(Circle > 0 && Circle <= LEDs / 2) {
+		Circle--;
+		if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
+			if(LEDCUBE_AXIS_Z == ShiftAxis) {
+				for(byte Z = 0; Z < LEDs; Z++) {
+					/* shift front, right, back, left */
+					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) Cube->writeVoxelFast(Circle, Y, Z, Cube->getVoxelFast(Circle, Y+1, Z));
+					for(int8_t X = Circle; X < LEDs-1-Circle; X++) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X+1, LEDs-1-Circle, Z));
+					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) Cube->writeVoxelFast(LEDs-1-Circle, Y, Z, Cube->getVoxelFast(LEDs-1-Circle, Y-1, Z));
+					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, Circle, Z, Cube->getVoxelFast(X-1, Circle, Z));
+				}
+			}
 		}
+		if(TRANSFORMATION_ROTATION_COUNTERCLOCKWISE == Direction) {
+			if(LEDCUBE_AXIS_Z == ShiftAxis) {
+				for(byte Z = 0; Z < LEDs; Z++) {
+					/* shift left, back, right, front */
+					for(int8_t X = Circle; X < LEDs-1-Circle; X++) Cube->writeVoxelFast(X, Circle, Z, Cube->getVoxelFast(X+1, Circle, Z));
+					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) Cube->writeVoxelFast(LEDs-1-Circle, Y, Z, Cube->getVoxelFast(LEDs-1-Circle, Y+1, Z));
+					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X-1, LEDs-1-Circle, Z));
+					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) Cube->writeVoxelFast(Circle, Y, Z, Cube->getVoxelFast(Circle, Y-1, Z));
+				}
+			}
+		}
+		return E_OK;
+	} 
+	else { 
+		return E_NOT_OK;
 	}
 } /* rotateWithShift */
 

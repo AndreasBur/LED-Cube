@@ -35,7 +35,8 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h \
  ../inc/LedCube.h ../inc/StandardTypes.h ../inc/digitalWriteFast.h \
- ../inc/Transformation.h ../inc/LedCube.h
+ ../inc/Transformation.h ../inc/LedCube.h \
+ ../inc/font/8x8_horizontal_LSB_1.h
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -116,3 +117,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../inc/Transformation.h:
 
 ../inc/LedCube.h:
+
+../inc/font/8x8_horizontal_LSB_1.h:
