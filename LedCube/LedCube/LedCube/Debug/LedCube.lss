@@ -3,31 +3,31 @@ LedCube.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00001366  2**0
+  0 .data         00000000  00800100  00800100  000013f0  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000012f2  00000000  00000000  00000074  2**1
+  1 .text         0000137c  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000095  00800100  00800100  00001366  2**0
+  2 .bss          00000095  00800100  00800100  000013f0  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00001366  2**0
+  3 .comment      00000030  00000000  00000000  000013f0  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001398  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001420  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000288  00000000  00000000  000013d8  2**0
+  5 .debug_aranges 00000288  00000000  00000000  00001460  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000046a5  00000000  00000000  00001660  2**0
+  6 .debug_info   000047d7  00000000  00000000  000016e8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000c3f  00000000  00000000  00005d05  2**0
+  7 .debug_abbrev 00000c3f  00000000  00000000  00005ebf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001713  00000000  00000000  00006944  2**0
+  8 .debug_line   00001737  00000000  00000000  00006afe  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000007f8  00000000  00000000  00008058  2**2
+  9 .debug_frame  000007f8  00000000  00000000  00008238  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000011e0  00000000  00000000  00008850  2**0
+ 10 .debug_str    000011e0  00000000  00000000  00008a30  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002f3e  00000000  00000000  00009a30  2**0
+ 11 .debug_loc    00002f3e  00000000  00000000  00009c10  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000410  00000000  00000000  0000c96e  2**0
+ 12 .debug_ranges 00000410  00000000  00000000  0000cb4e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -49,7 +49,7 @@ Disassembly of section .text:
       34:	0c 94 7b 04 	jmp	0x8f6	; 0x8f6 <__bad_interrupt>
       38:	0c 94 7b 04 	jmp	0x8f6	; 0x8f6 <__bad_interrupt>
       3c:	0c 94 7b 04 	jmp	0x8f6	; 0x8f6 <__bad_interrupt>
-      40:	0c 94 fe 07 	jmp	0xffc	; 0xffc <__vector_16>
+      40:	0c 94 43 08 	jmp	0x1086	; 0x1086 <__vector_16>
       44:	0c 94 7b 04 	jmp	0x8f6	; 0x8f6 <__bad_interrupt>
       48:	0c 94 7b 04 	jmp	0x8f6	; 0x8f6 <__bad_interrupt>
       4c:	0c 94 7b 04 	jmp	0x8f6	; 0x8f6 <__bad_interrupt>
@@ -96,8 +96,8 @@ Disassembly of section .text:
       cc:	3c 18       	sub	r3, r12
       ce:	7e 18       	sub	r7, r14
 	...
-      d8:	fe c6       	rjmp	.+3580   	; 0xed6 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x23c>
-      da:	fe c6       	rjmp	.+3580   	; 0xed8 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x23e>
+      d8:	fe c6       	rjmp	.+3580   	; 0xed6 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1b2>
+      da:	fe c6       	rjmp	.+3580   	; 0xed8 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1b4>
       dc:	c6 e6       	ldi	r28, 0x66	; 102
       de:	67 03       	mulsu	r22, r23
       e0:	99 5a       	subi	r25, 0xA9	; 169
@@ -555,7 +555,7 @@ Disassembly of section .text:
      47a:	1e 33       	cpi	r17, 0x3E	; 62
      47c:	3f 03       	fmul	r19, r23
      47e:	1e 00       	.word	0x001e	; ????
-     480:	7e c3       	rjmp	.+1788   	; 0xb7e <_ZN7LedCube9showLayerEh+0x20>
+     480:	7e c3       	rjmp	.+1788   	; 0xb7e <_ZN7LedCube14setVoxelsYFastEhhh+0x6c>
      482:	3c 60       	ori	r19, 0x0C	; 12
      484:	7c 66       	ori	r23, 0x6C	; 108
      486:	fc 00       	.word	0x00fc	; ????
@@ -575,7 +575,7 @@ Disassembly of section .text:
      4a2:	33 03       	mulsu	r19, r19
      4a4:	33 1e       	adc	r3, r19
      4a6:	0c 06       	cpc	r0, r28
-     4a8:	7e c3       	rjmp	.+1788   	; 0xba6 <_ZN7LedCube9showLayerEh+0x48>
+     4a8:	7e c3       	rjmp	.+1788   	; 0xba6 <_ZN7LedCube17setNextFrameReadyEv+0x16>
      4aa:	3c 66       	ori	r19, 0x6C	; 108
      4ac:	7e 06       	cpc	r7, r30
      4ae:	3c 00       	.word	0x003c	; ????
@@ -1003,12 +1003,12 @@ Disassembly of section .text:
      800:	67 34       	cpi	r22, 0x47	; 71
      802:	1e cc       	rjmp	.-1988   	; 0x40 <__SREG__+0x1>
      804:	e7 b3       	in	r30, 0x17	; 23
-     806:	f9 c0       	rjmp	.+498    	; 0x9fa <_GLOBAL__sub_D_Cube>
+     806:	f9 c0       	rjmp	.+498    	; 0x9fa <setup+0x8>
      808:	fe db       	rcall	.-2052   	; 0x6 <__zero_reg__+0x5>
      80a:	db de       	rcall	.-586    	; 0x5c2 <__FUSE_REGION_LENGTH__+0x1c2>
      80c:	d8 d8       	rcall	.-3664   	; 0xfffff9be <__eeprom_end+0xff7ef9be>
      80e:	d8 00       	.word	0x00d8	; ????
-     810:	7e c3       	rjmp	.+1788   	; 0xf0e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x274>
+     810:	7e c3       	rjmp	.+1788   	; 0xf0e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1ea>
      812:	1e 33       	cpi	r17, 0x3E	; 62
      814:	33 1e       	adc	r3, r19
      816:	31 1f       	adc	r19, r17
@@ -1065,10 +1065,10 @@ Disassembly of section .text:
      8ae:	00 00 00 00 24 00 27 00 2a 00                       ....$.'.*.
 
 000008b8 <__ctors_start>:
-     8b8:	f5 04       	cpc	r15, r5
+     8b8:	25 05       	cpc	r18, r5
 
 000008ba <__ctors_end>:
-     8ba:	fd 04       	cpc	r15, r13
+     8ba:	2d 05       	cpc	r18, r13
 
 000008bc <__dtors_end>:
      8bc:	11 24       	eor	r1, r1
@@ -1099,18 +1099,18 @@ Disassembly of section .text:
      8de:	04 c0       	rjmp	.+8      	; 0x8e8 <__do_global_ctors+0x10>
      8e0:	21 97       	sbiw	r28, 0x01	; 1
      8e2:	fe 01       	movw	r30, r28
-     8e4:	0e 94 66 09 	call	0x12cc	; 0x12cc <__tablejump2__>
+     8e4:	0e 94 ab 09 	call	0x1356	; 0x1356 <__tablejump2__>
      8e8:	cc 35       	cpi	r28, 0x5C	; 92
      8ea:	d1 07       	cpc	r29, r17
      8ec:	c9 f7       	brne	.-14     	; 0x8e0 <__do_global_ctors+0x8>
-     8ee:	0e 94 ef 07 	call	0xfde	; 0xfde <main>
-     8f2:	0c 94 6c 09 	jmp	0x12d8	; 0x12d8 <__do_global_dtors>
+     8ee:	0e 94 34 08 	call	0x1068	; 0x1068 <main>
+     8f2:	0c 94 b1 09 	jmp	0x1362	; 0x1362 <__do_global_dtors>
 
 000008f6 <__bad_interrupt>:
      8f6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000008fa <loop>:
-	Cube.setNextFrameTimeElapsed();
+	Cube.setVoxelsX(3,5,B(00011000));
 	setChar(3);
 }
 
@@ -1122,17 +1122,17 @@ void loop()
      900:	90 91 02 01 	lds	r25, 0x0102	; 0x800102 <Counter+0x1>
      904:	88 3c       	cpi	r24, 0xC8	; 200
      906:	91 05       	cpc	r25, r1
-     908:	d1 f4       	brne	.+52     	; 0x93e <__stack+0x3f>
+     908:	a9 f5       	brne	.+106    	; 0x974 <__stack+0x75>
 		//CubeTrans.shiftBackward(&Cube, true);
 		//setChar(CharCounter);
 		Cube.setNextFrameReady();
      90a:	84 e0       	ldi	r24, 0x04	; 4
      90c:	91 e0       	ldi	r25, 0x01	; 1
-     90e:	0e 94 83 05 	call	0xb06	; 0xb06 <_ZN7LedCube17setNextFrameReadyEv>
+     90e:	0e 94 c8 05 	call	0xb90	; 0xb90 <_ZN7LedCube17setNextFrameReadyEv>
 		Cube.setNextFrameTimeElapsed();
      912:	84 e0       	ldi	r24, 0x04	; 4
      914:	91 e0       	ldi	r25, 0x01	; 1
-     916:	0e 94 8f 05 	call	0xb1e	; 0xb1e <_ZN7LedCube23setNextFrameTimeElapsedEv>
+     916:	0e 94 d4 05 	call	0xba8	; 0xba8 <_ZN7LedCube23setNextFrameTimeElapsedEv>
 		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 1);
      91a:	01 e0       	ldi	r16, 0x01	; 1
      91c:	21 e0       	ldi	r18, 0x01	; 1
@@ -1141,1719 +1141,1790 @@ void loop()
      922:	71 e0       	ldi	r23, 0x01	; 1
      924:	83 e0       	ldi	r24, 0x03	; 3
      926:	91 e0       	ldi	r25, 0x01	; 1
-     928:	0e 94 4d 06 	call	0xc9a	; 0xc9a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh>
+     928:	0e 94 92 06 	call	0xd24	; 0xd24 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh>
+		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 2);
+     92c:	02 e0       	ldi	r16, 0x02	; 2
+     92e:	21 e0       	ldi	r18, 0x01	; 1
+     930:	42 e0       	ldi	r20, 0x02	; 2
+     932:	64 e0       	ldi	r22, 0x04	; 4
+     934:	71 e0       	ldi	r23, 0x01	; 1
+     936:	83 e0       	ldi	r24, 0x03	; 3
+     938:	91 e0       	ldi	r25, 0x01	; 1
+     93a:	0e 94 92 06 	call	0xd24	; 0xd24 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh>
+		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 3);
+     93e:	03 e0       	ldi	r16, 0x03	; 3
+     940:	21 e0       	ldi	r18, 0x01	; 1
+     942:	42 e0       	ldi	r20, 0x02	; 2
+     944:	64 e0       	ldi	r22, 0x04	; 4
+     946:	71 e0       	ldi	r23, 0x01	; 1
+     948:	83 e0       	ldi	r24, 0x03	; 3
+     94a:	91 e0       	ldi	r25, 0x01	; 1
+     94c:	0e 94 92 06 	call	0xd24	; 0xd24 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh>
+		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 4);
+     950:	04 e0       	ldi	r16, 0x04	; 4
+     952:	21 e0       	ldi	r18, 0x01	; 1
+     954:	42 e0       	ldi	r20, 0x02	; 2
+     956:	64 e0       	ldi	r22, 0x04	; 4
+     958:	71 e0       	ldi	r23, 0x01	; 1
+     95a:	83 e0       	ldi	r24, 0x03	; 3
+     95c:	91 e0       	ldi	r25, 0x01	; 1
+     95e:	0e 94 92 06 	call	0xd24	; 0xd24 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh>
 		Counter = 0;
-     92c:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <Counter+0x1>
-     930:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <Counter>
+     962:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <Counter+0x1>
+     966:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <Counter>
 		CharCounter++;
-     934:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
-     938:	8f 5f       	subi	r24, 0xFF	; 255
-     93a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+     96a:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+     96e:	8f 5f       	subi	r24, 0xFF	; 255
+     970:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
 	}
 	Counter++;
-     93e:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Counter>
-     942:	90 91 02 01 	lds	r25, 0x0102	; 0x800102 <Counter+0x1>
-     946:	01 96       	adiw	r24, 0x01	; 1
-     948:	90 93 02 01 	sts	0x0102, r25	; 0x800102 <Counter+0x1>
-     94c:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <Counter>
+     974:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Counter>
+     978:	90 91 02 01 	lds	r25, 0x0102	; 0x800102 <Counter+0x1>
+     97c:	01 96       	adiw	r24, 0x01	; 1
+     97e:	90 93 02 01 	sts	0x0102, r25	; 0x800102 <Counter+0x1>
+     982:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <Counter>
 	delay(1);
-     950:	61 e0       	ldi	r22, 0x01	; 1
-     952:	70 e0       	ldi	r23, 0x00	; 0
-     954:	80 e0       	ldi	r24, 0x00	; 0
-     956:	90 e0       	ldi	r25, 0x00	; 0
-     958:	0e 94 6d 08 	call	0x10da	; 0x10da <delay>
+     986:	61 e0       	ldi	r22, 0x01	; 1
+     988:	70 e0       	ldi	r23, 0x00	; 0
+     98a:	80 e0       	ldi	r24, 0x00	; 0
+     98c:	90 e0       	ldi	r25, 0x00	; 0
+     98e:	0e 94 b2 08 	call	0x1164	; 0x1164 <delay>
 	digitalWrite(7, STD_ON);
-     95c:	61 e0       	ldi	r22, 0x01	; 1
-     95e:	87 e0       	ldi	r24, 0x07	; 7
-     960:	0e 94 35 09 	call	0x126a	; 0x126a <digitalWrite>
+     992:	61 e0       	ldi	r22, 0x01	; 1
+     994:	87 e0       	ldi	r24, 0x07	; 7
+     996:	0e 94 7a 09 	call	0x12f4	; 0x12f4 <digitalWrite>
 	Cube.task();
-     964:	84 e0       	ldi	r24, 0x04	; 4
-     966:	91 e0       	ldi	r25, 0x01	; 1
-     968:	0e 94 e5 05 	call	0xbca	; 0xbca <_ZN7LedCube4taskEv>
+     99a:	84 e0       	ldi	r24, 0x04	; 4
+     99c:	91 e0       	ldi	r25, 0x01	; 1
+     99e:	0e 94 2a 06 	call	0xc54	; 0xc54 <_ZN7LedCube4taskEv>
 	digitalWrite(7, STD_OFF);
-     96c:	60 e0       	ldi	r22, 0x00	; 0
-     96e:	87 e0       	ldi	r24, 0x07	; 7
+     9a2:	60 e0       	ldi	r22, 0x00	; 0
+     9a4:	87 e0       	ldi	r24, 0x07	; 7
 }
-     970:	0f 91       	pop	r16
+     9a6:	0f 91       	pop	r16
 	}
 	Counter++;
 	delay(1);
 	digitalWrite(7, STD_ON);
 	Cube.task();
 	digitalWrite(7, STD_OFF);
-     972:	0c 94 35 09 	jmp	0x126a	; 0x126a <digitalWrite>
+     9a8:	0c 94 7a 09 	jmp	0x12f4	; 0x12f4 <digitalWrite>
 
-00000976 <_Z7setCharh>:
+000009ac <_Z7setCharh>:
 }
 
 void setChar(byte Number) {
-     976:	ef 92       	push	r14
-     978:	ff 92       	push	r15
-     97a:	1f 93       	push	r17
-     97c:	cf 93       	push	r28
-     97e:	df 93       	push	r29
-     980:	98 e0       	ldi	r25, 0x08	; 8
-     982:	89 9f       	mul	r24, r25
-     984:	70 01       	movw	r14, r0
-     986:	11 24       	eor	r1, r1
-     988:	c0 e0       	ldi	r28, 0x00	; 0
-     98a:	d0 e0       	ldi	r29, 0x00	; 0
-     98c:	17 e0       	ldi	r17, 0x07	; 7
-     98e:	fe 01       	movw	r30, r28
-     990:	ee 0d       	add	r30, r14
-     992:	ff 1d       	adc	r31, r15
-     994:	e8 59       	subi	r30, 0x98	; 152
-     996:	ff 4f       	sbci	r31, 0xFF	; 255
+     9ac:	ef 92       	push	r14
+     9ae:	ff 92       	push	r15
+     9b0:	1f 93       	push	r17
+     9b2:	cf 93       	push	r28
+     9b4:	df 93       	push	r29
+     9b6:	98 e0       	ldi	r25, 0x08	; 8
+     9b8:	89 9f       	mul	r24, r25
+     9ba:	70 01       	movw	r14, r0
+     9bc:	11 24       	eor	r1, r1
+     9be:	c0 e0       	ldi	r28, 0x00	; 0
+     9c0:	d0 e0       	ldi	r29, 0x00	; 0
+     9c2:	17 e0       	ldi	r17, 0x07	; 7
+     9c4:	fe 01       	movw	r30, r28
+     9c6:	ee 0d       	add	r30, r14
+     9c8:	ff 1d       	adc	r31, r15
+     9ca:	e8 59       	subi	r30, 0x98	; 152
+     9cc:	ff 4f       	sbci	r31, 0xFF	; 255
 	for(byte i = 0; i < 8; i++) {
 		Cube.setVoxelsYFast(0, 7-i, pgm_read_byte_near(&font[Number][i]));
-     998:	24 91       	lpm	r18, Z
-     99a:	41 2f       	mov	r20, r17
-     99c:	4c 1b       	sub	r20, r28
-     99e:	60 e0       	ldi	r22, 0x00	; 0
-     9a0:	84 e0       	ldi	r24, 0x04	; 4
-     9a2:	91 e0       	ldi	r25, 0x01	; 1
-     9a4:	0e 94 44 05 	call	0xa88	; 0xa88 <_ZN7LedCube14setVoxelsYFastEhhh>
-     9a8:	21 96       	adiw	r28, 0x01	; 1
+     9ce:	24 91       	lpm	r18, Z
+     9d0:	41 2f       	mov	r20, r17
+     9d2:	4c 1b       	sub	r20, r28
+     9d4:	60 e0       	ldi	r22, 0x00	; 0
+     9d6:	84 e0       	ldi	r24, 0x04	; 4
+     9d8:	91 e0       	ldi	r25, 0x01	; 1
+     9da:	0e 94 89 05 	call	0xb12	; 0xb12 <_ZN7LedCube14setVoxelsYFastEhhh>
+     9de:	21 96       	adiw	r28, 0x01	; 1
 	Cube.task();
 	digitalWrite(7, STD_OFF);
 }
 
 void setChar(byte Number) {
 	for(byte i = 0; i < 8; i++) {
-     9aa:	c8 30       	cpi	r28, 0x08	; 8
-     9ac:	d1 05       	cpc	r29, r1
-     9ae:	79 f7       	brne	.-34     	; 0x98e <_Z7setCharh+0x18>
+     9e0:	c8 30       	cpi	r28, 0x08	; 8
+     9e2:	d1 05       	cpc	r29, r1
+     9e4:	79 f7       	brne	.-34     	; 0x9c4 <_Z7setCharh+0x18>
 		Cube.setVoxelsYFast(0, 7-i, pgm_read_byte_near(&font[Number][i]));
 	}
-     9b0:	df 91       	pop	r29
-     9b2:	cf 91       	pop	r28
-     9b4:	1f 91       	pop	r17
-     9b6:	ff 90       	pop	r15
-     9b8:	ef 90       	pop	r14
-     9ba:	08 95       	ret
+     9e6:	df 91       	pop	r29
+     9e8:	cf 91       	pop	r28
+     9ea:	1f 91       	pop	r17
+     9ec:	ff 90       	pop	r15
+     9ee:	ef 90       	pop	r14
+     9f0:	08 95       	ret
 
-000009bc <setup>:
+000009f2 <setup>:
 Transformation CubeTrans;
 int Counter;
 byte CharCounter = 0;
 
 void setup() {
 	Cube.init();
-     9bc:	84 e0       	ldi	r24, 0x04	; 4
-     9be:	91 e0       	ldi	r25, 0x01	; 1
-     9c0:	0e 94 34 05 	call	0xa68	; 0xa68 <_ZN7LedCube4initEv>
+     9f2:	84 e0       	ldi	r24, 0x04	; 4
+     9f4:	91 e0       	ldi	r25, 0x01	; 1
+     9f6:	0e 94 64 05 	call	0xac8	; 0xac8 <_ZN7LedCube4initEv>
 	pinMode(7, OUTPUT);
-     9c4:	61 e0       	ldi	r22, 0x01	; 1
-     9c6:	87 e0       	ldi	r24, 0x07	; 7
-     9c8:	0e 94 f9 08 	call	0x11f2	; 0x11f2 <pinMode>
+     9fa:	61 e0       	ldi	r22, 0x01	; 1
+     9fc:	87 e0       	ldi	r24, 0x07	; 7
+     9fe:	0e 94 3e 09 	call	0x127c	; 0x127c <pinMode>
 			}
 		}
 	}
-	//Cube.setVoxelsX(0,1,128);
+	
 	
 	Cube.start();
-     9cc:	84 e0       	ldi	r24, 0x04	; 4
-     9ce:	91 e0       	ldi	r25, 0x01	; 1
-     9d0:	0e 94 26 05 	call	0xa4c	; 0xa4c <_ZN7LedCube5startEv>
-	Cube.setNextFrameReady();
-     9d4:	84 e0       	ldi	r24, 0x04	; 4
-     9d6:	91 e0       	ldi	r25, 0x01	; 1
-     9d8:	0e 94 83 05 	call	0xb06	; 0xb06 <_ZN7LedCube17setNextFrameReadyEv>
-	Cube.setNextFrameTimeElapsed();
-     9dc:	84 e0       	ldi	r24, 0x04	; 4
-     9de:	91 e0       	ldi	r25, 0x01	; 1
-     9e0:	0e 94 8f 05 	call	0xb1e	; 0xb1e <_ZN7LedCube23setNextFrameTimeElapsedEv>
-	setChar(3);
-     9e4:	83 e0       	ldi	r24, 0x03	; 3
-     9e6:	0c 94 bb 04 	jmp	0x976	; 0x976 <_Z7setCharh>
-
-000009ea <_GLOBAL__sub_I_Cube>:
-#define RCK_74 12  // storage input
-#define SCK_74 11  // clock input
-
-void setChar(byte);
-
-LedCube Cube;
-     9ea:	84 e0       	ldi	r24, 0x04	; 4
-     9ec:	91 e0       	ldi	r25, 0x01	; 1
-     9ee:	0e 94 05 05 	call	0xa0a	; 0xa0a <_ZN7LedCubeC1Ev>
-Transformation CubeTrans;
-     9f2:	83 e0       	ldi	r24, 0x03	; 3
-     9f4:	91 e0       	ldi	r25, 0x01	; 1
-     9f6:	0c 94 4b 06 	jmp	0xc96	; 0xc96 <_ZN14TransformationC1Ev>
-
-000009fa <_GLOBAL__sub_D_Cube>:
-     9fa:	83 e0       	ldi	r24, 0x03	; 3
-     9fc:	91 e0       	ldi	r25, 0x01	; 1
-     9fe:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN14TransformationD1Ev>
-#define RCK_74 12  // storage input
-#define SCK_74 11  // clock input
-
-void setChar(byte);
-
-LedCube Cube;
      a02:	84 e0       	ldi	r24, 0x04	; 4
      a04:	91 e0       	ldi	r25, 0x01	; 1
-     a06:	0c 94 25 05 	jmp	0xa4a	; 0xa4a <_ZN7LedCubeD1Ev>
+     a06:	0e 94 56 05 	call	0xaac	; 0xaac <_ZN7LedCube5startEv>
+	Cube.setNextFrameReady();
+     a0a:	84 e0       	ldi	r24, 0x04	; 4
+     a0c:	91 e0       	ldi	r25, 0x01	; 1
+     a0e:	0e 94 c8 05 	call	0xb90	; 0xb90 <_ZN7LedCube17setNextFrameReadyEv>
+	Cube.setNextFrameTimeElapsed();
+     a12:	84 e0       	ldi	r24, 0x04	; 4
+     a14:	91 e0       	ldi	r25, 0x01	; 1
+     a16:	0e 94 d4 05 	call	0xba8	; 0xba8 <_ZN7LedCube23setNextFrameTimeElapsedEv>
+	Cube.setVoxelsX(1,1,B(01111110));
+     a1a:	2e e7       	ldi	r18, 0x7E	; 126
+     a1c:	41 e0       	ldi	r20, 0x01	; 1
+     a1e:	61 e0       	ldi	r22, 0x01	; 1
+     a20:	84 e0       	ldi	r24, 0x04	; 4
+     a22:	91 e0       	ldi	r25, 0x01	; 1
+     a24:	0e 94 74 05 	call	0xae8	; 0xae8 <_ZN7LedCube10setVoxelsXEhhh>
+	Cube.setVoxelsX(2,7,B(00111100));
+     a28:	2c e3       	ldi	r18, 0x3C	; 60
+     a2a:	47 e0       	ldi	r20, 0x07	; 7
+     a2c:	62 e0       	ldi	r22, 0x02	; 2
+     a2e:	84 e0       	ldi	r24, 0x04	; 4
+     a30:	91 e0       	ldi	r25, 0x01	; 1
+     a32:	0e 94 74 05 	call	0xae8	; 0xae8 <_ZN7LedCube10setVoxelsXEhhh>
+	Cube.setVoxelsX(3,5,B(00011000));
+     a36:	28 e1       	ldi	r18, 0x18	; 24
+     a38:	45 e0       	ldi	r20, 0x05	; 5
+     a3a:	63 e0       	ldi	r22, 0x03	; 3
+     a3c:	84 e0       	ldi	r24, 0x04	; 4
+     a3e:	91 e0       	ldi	r25, 0x01	; 1
+     a40:	0e 94 74 05 	call	0xae8	; 0xae8 <_ZN7LedCube10setVoxelsXEhhh>
+	setChar(3);
+     a44:	83 e0       	ldi	r24, 0x03	; 3
+     a46:	0c 94 d6 04 	jmp	0x9ac	; 0x9ac <_Z7setCharh>
 
-00000a0a <_ZN7LedCubeC1Ev>:
+00000a4a <_GLOBAL__sub_I_Cube>:
+#define RCK_74 12  // storage input
+#define SCK_74 11  // clock input
+
+void setChar(byte);
+
+LedCube Cube;
+     a4a:	84 e0       	ldi	r24, 0x04	; 4
+     a4c:	91 e0       	ldi	r25, 0x01	; 1
+     a4e:	0e 94 35 05 	call	0xa6a	; 0xa6a <_ZN7LedCubeC1Ev>
+Transformation CubeTrans;
+     a52:	83 e0       	ldi	r24, 0x03	; 3
+     a54:	91 e0       	ldi	r25, 0x01	; 1
+     a56:	0c 94 90 06 	jmp	0xd20	; 0xd20 <_ZN14TransformationC1Ev>
+
+00000a5a <_GLOBAL__sub_D_Cube>:
+     a5a:	83 e0       	ldi	r24, 0x03	; 3
+     a5c:	91 e0       	ldi	r25, 0x01	; 1
+     a5e:	0e 94 91 06 	call	0xd22	; 0xd22 <_ZN14TransformationD1Ev>
+#define RCK_74 12  // storage input
+#define SCK_74 11  // clock input
+
+void setChar(byte);
+
+LedCube Cube;
+     a62:	84 e0       	ldi	r24, 0x04	; 4
+     a64:	91 e0       	ldi	r25, 0x01	; 1
+     a66:	0c 94 55 05 	jmp	0xaaa	; 0xaaa <_ZN7LedCubeD1Ev>
+
+00000a6a <_ZN7LedCubeC1Ev>:
 void LedCube::setVoxelsZFast(byte X, byte Y, byte Value)
 {
 	for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
 		bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
 	}
 } /* setVoxelsZFast */
-     a0a:	cf 93       	push	r28
-     a0c:	df 93       	push	r29
-     a0e:	fc 01       	movw	r30, r24
-     a10:	10 82       	st	Z, r1
-     a12:	11 82       	std	Z+1, r1	; 0x01
-     a14:	dc 01       	movw	r26, r24
-     a16:	aa 57       	subi	r26, 0x7A	; 122
-     a18:	bf 4f       	sbci	r27, 0xFF	; 255
-     a1a:	1c 92       	st	X, r1
-     a1c:	11 96       	adiw	r26, 0x01	; 1
-     a1e:	1c 92       	st	X, r1
-     a20:	ec 01       	movw	r28, r24
-     a22:	26 96       	adiw	r28, 0x06	; 6
-     a24:	d3 83       	std	Z+3, r29	; 0x03
-     a26:	c2 83       	std	Z+2, r28	; 0x02
-     a28:	a1 54       	subi	r26, 0x41	; 65
-     a2a:	b1 09       	sbc	r27, r1
-     a2c:	b5 83       	std	Z+5, r27	; 0x05
-     a2e:	a4 83       	std	Z+4, r26	; 0x04
-     a30:	80 e4       	ldi	r24, 0x40	; 64
-     a32:	fe 01       	movw	r30, r28
-     a34:	98 2f       	mov	r25, r24
-     a36:	11 92       	st	Z+, r1
-     a38:	9a 95       	dec	r25
-     a3a:	e9 f7       	brne	.-6      	; 0xa36 <_ZN7LedCubeC1Ev+0x2c>
-     a3c:	fd 01       	movw	r30, r26
-     a3e:	11 92       	st	Z+, r1
-     a40:	8a 95       	dec	r24
-     a42:	e9 f7       	brne	.-6      	; 0xa3e <_ZN7LedCubeC1Ev+0x34>
-     a44:	df 91       	pop	r29
-     a46:	cf 91       	pop	r28
-     a48:	08 95       	ret
+     a6a:	cf 93       	push	r28
+     a6c:	df 93       	push	r29
+     a6e:	fc 01       	movw	r30, r24
+     a70:	10 82       	st	Z, r1
+     a72:	11 82       	std	Z+1, r1	; 0x01
+     a74:	dc 01       	movw	r26, r24
+     a76:	aa 57       	subi	r26, 0x7A	; 122
+     a78:	bf 4f       	sbci	r27, 0xFF	; 255
+     a7a:	1c 92       	st	X, r1
+     a7c:	11 96       	adiw	r26, 0x01	; 1
+     a7e:	1c 92       	st	X, r1
+     a80:	ec 01       	movw	r28, r24
+     a82:	26 96       	adiw	r28, 0x06	; 6
+     a84:	d3 83       	std	Z+3, r29	; 0x03
+     a86:	c2 83       	std	Z+2, r28	; 0x02
+     a88:	a1 54       	subi	r26, 0x41	; 65
+     a8a:	b1 09       	sbc	r27, r1
+     a8c:	b5 83       	std	Z+5, r27	; 0x05
+     a8e:	a4 83       	std	Z+4, r26	; 0x04
+     a90:	80 e4       	ldi	r24, 0x40	; 64
+     a92:	fe 01       	movw	r30, r28
+     a94:	98 2f       	mov	r25, r24
+     a96:	11 92       	st	Z+, r1
+     a98:	9a 95       	dec	r25
+     a9a:	e9 f7       	brne	.-6      	; 0xa96 <_ZN7LedCubeC1Ev+0x2c>
+     a9c:	fd 01       	movw	r30, r26
+     a9e:	11 92       	st	Z+, r1
+     aa0:	8a 95       	dec	r24
+     aa2:	e9 f7       	brne	.-6      	; 0xa9e <_ZN7LedCubeC1Ev+0x34>
+     aa4:	df 91       	pop	r29
+     aa6:	cf 91       	pop	r28
+     aa8:	08 95       	ret
 
-00000a4a <_ZN7LedCubeD1Ev>:
-     a4a:	08 95       	ret
+00000aaa <_ZN7LedCubeD1Ev>:
+     aaa:	08 95       	ret
 
-00000a4c <_ZN7LedCube5startEv>:
-     a4c:	23 e0       	ldi	r18, 0x03	; 3
-     a4e:	fc 01       	movw	r30, r24
-     a50:	21 83       	std	Z+1, r18	; 0x01
-     a52:	80 e0       	ldi	r24, 0x00	; 0
-     a54:	08 95       	ret
+00000aac <_ZN7LedCube5startEv>:
+     aac:	23 e0       	ldi	r18, 0x03	; 3
+     aae:	fc 01       	movw	r30, r24
+     ab0:	21 83       	std	Z+1, r18	; 0x01
+     ab2:	80 e0       	ldi	r24, 0x00	; 0
+     ab4:	08 95       	ret
 
-00000a56 <_ZN7LedCube9clearCubeEv>:
-     a56:	2d 98       	cbi	0x05, 5	; 5
-     a58:	88 e4       	ldi	r24, 0x48	; 72
-     a5a:	2b 9a       	sbi	0x05, 3	; 5
-     a5c:	2b 98       	cbi	0x05, 3	; 5
-     a5e:	81 50       	subi	r24, 0x01	; 1
-     a60:	e1 f7       	brne	.-8      	; 0xa5a <_ZN7LedCube9clearCubeEv+0x4>
-     a62:	2c 9a       	sbi	0x05, 4	; 5
-     a64:	2c 98       	cbi	0x05, 4	; 5
-     a66:	08 95       	ret
+00000ab6 <_ZN7LedCube9clearCubeEv>:
+     ab6:	2d 98       	cbi	0x05, 5	; 5
+     ab8:	88 e4       	ldi	r24, 0x48	; 72
+     aba:	2b 9a       	sbi	0x05, 3	; 5
+     abc:	2b 98       	cbi	0x05, 3	; 5
+     abe:	81 50       	subi	r24, 0x01	; 1
+     ac0:	e1 f7       	brne	.-8      	; 0xaba <_ZN7LedCube9clearCubeEv+0x4>
+     ac2:	2c 9a       	sbi	0x05, 4	; 5
+     ac4:	2c 98       	cbi	0x05, 4	; 5
+     ac6:	08 95       	ret
 
-00000a68 <_ZN7LedCube4initEv>:
-     a68:	cf 93       	push	r28
-     a6a:	df 93       	push	r29
-     a6c:	ec 01       	movw	r28, r24
-     a6e:	81 e0       	ldi	r24, 0x01	; 1
-     a70:	89 83       	std	Y+1, r24	; 0x01
-     a72:	ce 01       	movw	r24, r28
-     a74:	0e 94 2b 05 	call	0xa56	; 0xa56 <_ZN7LedCube9clearCubeEv>
-     a78:	25 9a       	sbi	0x04, 5	; 4
-     a7a:	23 9a       	sbi	0x04, 3	; 4
-     a7c:	24 9a       	sbi	0x04, 4	; 4
-     a7e:	82 e0       	ldi	r24, 0x02	; 2
-     a80:	89 83       	std	Y+1, r24	; 0x01
-     a82:	df 91       	pop	r29
-     a84:	cf 91       	pop	r28
-     a86:	08 95       	ret
+00000ac8 <_ZN7LedCube4initEv>:
+     ac8:	cf 93       	push	r28
+     aca:	df 93       	push	r29
+     acc:	ec 01       	movw	r28, r24
+     ace:	81 e0       	ldi	r24, 0x01	; 1
+     ad0:	89 83       	std	Y+1, r24	; 0x01
+     ad2:	ce 01       	movw	r24, r28
+     ad4:	0e 94 5b 05 	call	0xab6	; 0xab6 <_ZN7LedCube9clearCubeEv>
+     ad8:	25 9a       	sbi	0x04, 5	; 4
+     ada:	23 9a       	sbi	0x04, 3	; 4
+     adc:	24 9a       	sbi	0x04, 4	; 4
+     ade:	82 e0       	ldi	r24, 0x02	; 2
+     ae0:	89 83       	std	Y+1, r24	; 0x01
+     ae2:	df 91       	pop	r29
+     ae4:	cf 91       	pop	r28
+     ae6:	08 95       	ret
 
-00000a88 <_ZN7LedCube14setVoxelsYFastEhhh>:
-     a88:	df 92       	push	r13
-     a8a:	ef 92       	push	r14
-     a8c:	ff 92       	push	r15
-     a8e:	0f 93       	push	r16
-     a90:	1f 93       	push	r17
-     a92:	cf 93       	push	r28
-     a94:	df 93       	push	r29
-     a96:	52 2f       	mov	r21, r18
-     a98:	01 e0       	ldi	r16, 0x01	; 1
-     a9a:	10 e0       	ldi	r17, 0x00	; 0
-     a9c:	20 e0       	ldi	r18, 0x00	; 0
-     a9e:	30 e0       	ldi	r19, 0x00	; 0
-     aa0:	04 c0       	rjmp	.+8      	; 0xaaa <_ZN7LedCube14setVoxelsYFastEhhh+0x22>
-     aa2:	00 0f       	add	r16, r16
-     aa4:	11 1f       	adc	r17, r17
-     aa6:	22 1f       	adc	r18, r18
-     aa8:	33 1f       	adc	r19, r19
-     aaa:	6a 95       	dec	r22
-     aac:	d2 f7       	brpl	.-12     	; 0xaa2 <_ZN7LedCube14setVoxelsYFastEhhh+0x1a>
-     aae:	d0 2e       	mov	r13, r16
-     ab0:	00 95       	com	r16
-     ab2:	a0 e0       	ldi	r26, 0x00	; 0
-     ab4:	b0 e0       	ldi	r27, 0x00	; 0
-     ab6:	60 e0       	ldi	r22, 0x00	; 0
-     ab8:	70 e0       	ldi	r23, 0x00	; 0
-     aba:	25 2f       	mov	r18, r21
-     abc:	30 e0       	ldi	r19, 0x00	; 0
-     abe:	50 e0       	ldi	r21, 0x00	; 0
-     ac0:	ec 01       	movw	r28, r24
-     ac2:	ec 81       	ldd	r30, Y+4	; 0x04
-     ac4:	fd 81       	ldd	r31, Y+5	; 0x05
-     ac6:	79 01       	movw	r14, r18
-     ac8:	06 2e       	mov	r0, r22
-     aca:	02 c0       	rjmp	.+4      	; 0xad0 <_ZN7LedCube14setVoxelsYFastEhhh+0x48>
-     acc:	f5 94       	asr	r15
-     ace:	e7 94       	ror	r14
-     ad0:	0a 94       	dec	r0
-     ad2:	e2 f7       	brpl	.-8      	; 0xacc <_ZN7LedCube14setVoxelsYFastEhhh+0x44>
-     ad4:	ea 0f       	add	r30, r26
-     ad6:	fb 1f       	adc	r31, r27
-     ad8:	e4 0f       	add	r30, r20
-     ada:	f5 1f       	adc	r31, r21
-     adc:	10 81       	ld	r17, Z
-     ade:	e0 fe       	sbrs	r14, 0
-     ae0:	02 c0       	rjmp	.+4      	; 0xae6 <_ZN7LedCube14setVoxelsYFastEhhh+0x5e>
-     ae2:	1d 29       	or	r17, r13
-     ae4:	01 c0       	rjmp	.+2      	; 0xae8 <_ZN7LedCube14setVoxelsYFastEhhh+0x60>
-     ae6:	10 23       	and	r17, r16
-     ae8:	10 83       	st	Z, r17
-     aea:	6f 5f       	subi	r22, 0xFF	; 255
-     aec:	7f 4f       	sbci	r23, 0xFF	; 255
-     aee:	18 96       	adiw	r26, 0x08	; 8
-     af0:	68 30       	cpi	r22, 0x08	; 8
-     af2:	71 05       	cpc	r23, r1
-     af4:	29 f7       	brne	.-54     	; 0xac0 <_ZN7LedCube14setVoxelsYFastEhhh+0x38>
-     af6:	df 91       	pop	r29
-     af8:	cf 91       	pop	r28
-     afa:	1f 91       	pop	r17
-     afc:	0f 91       	pop	r16
-     afe:	ff 90       	pop	r15
-     b00:	ef 90       	pop	r14
-     b02:	df 90       	pop	r13
-     b04:	08 95       	ret
+00000ae8 <_ZN7LedCube10setVoxelsXEhhh>:
+     ae8:	68 30       	cpi	r22, 0x08	; 8
+     aea:	88 f4       	brcc	.+34     	; 0xb0e <_ZN7LedCube10setVoxelsXEhhh+0x26>
+     aec:	48 30       	cpi	r20, 0x08	; 8
+     aee:	78 f4       	brcc	.+30     	; 0xb0e <_ZN7LedCube10setVoxelsXEhhh+0x26>
+     af0:	dc 01       	movw	r26, r24
+     af2:	14 96       	adiw	r26, 0x04	; 4
+     af4:	ed 91       	ld	r30, X+
+     af6:	fc 91       	ld	r31, X
+     af8:	15 97       	sbiw	r26, 0x05	; 5
+     afa:	b8 e0       	ldi	r27, 0x08	; 8
+     afc:	6b 9f       	mul	r22, r27
+     afe:	e0 0d       	add	r30, r0
+     b00:	f1 1d       	adc	r31, r1
+     b02:	11 24       	eor	r1, r1
+     b04:	e4 0f       	add	r30, r20
+     b06:	f1 1d       	adc	r31, r1
+     b08:	20 83       	st	Z, r18
+     b0a:	80 e0       	ldi	r24, 0x00	; 0
+     b0c:	08 95       	ret
+     b0e:	81 e0       	ldi	r24, 0x01	; 1
+     b10:	08 95       	ret
 
-00000b06 <_ZN7LedCube17setNextFrameReadyEv>:
+00000b12 <_ZN7LedCube14setVoxelsYFastEhhh>:
+     b12:	df 92       	push	r13
+     b14:	ef 92       	push	r14
+     b16:	ff 92       	push	r15
+     b18:	0f 93       	push	r16
+     b1a:	1f 93       	push	r17
+     b1c:	cf 93       	push	r28
+     b1e:	df 93       	push	r29
+     b20:	52 2f       	mov	r21, r18
+     b22:	01 e0       	ldi	r16, 0x01	; 1
+     b24:	10 e0       	ldi	r17, 0x00	; 0
+     b26:	20 e0       	ldi	r18, 0x00	; 0
+     b28:	30 e0       	ldi	r19, 0x00	; 0
+     b2a:	04 c0       	rjmp	.+8      	; 0xb34 <_ZN7LedCube14setVoxelsYFastEhhh+0x22>
+     b2c:	00 0f       	add	r16, r16
+     b2e:	11 1f       	adc	r17, r17
+     b30:	22 1f       	adc	r18, r18
+     b32:	33 1f       	adc	r19, r19
+     b34:	6a 95       	dec	r22
+     b36:	d2 f7       	brpl	.-12     	; 0xb2c <_ZN7LedCube14setVoxelsYFastEhhh+0x1a>
+     b38:	d0 2e       	mov	r13, r16
+     b3a:	00 95       	com	r16
+     b3c:	a0 e0       	ldi	r26, 0x00	; 0
+     b3e:	b0 e0       	ldi	r27, 0x00	; 0
+     b40:	60 e0       	ldi	r22, 0x00	; 0
+     b42:	70 e0       	ldi	r23, 0x00	; 0
+     b44:	25 2f       	mov	r18, r21
+     b46:	30 e0       	ldi	r19, 0x00	; 0
+     b48:	50 e0       	ldi	r21, 0x00	; 0
+     b4a:	ec 01       	movw	r28, r24
+     b4c:	ec 81       	ldd	r30, Y+4	; 0x04
+     b4e:	fd 81       	ldd	r31, Y+5	; 0x05
+     b50:	79 01       	movw	r14, r18
+     b52:	06 2e       	mov	r0, r22
+     b54:	02 c0       	rjmp	.+4      	; 0xb5a <_ZN7LedCube14setVoxelsYFastEhhh+0x48>
+     b56:	f5 94       	asr	r15
+     b58:	e7 94       	ror	r14
+     b5a:	0a 94       	dec	r0
+     b5c:	e2 f7       	brpl	.-8      	; 0xb56 <_ZN7LedCube14setVoxelsYFastEhhh+0x44>
+     b5e:	ea 0f       	add	r30, r26
+     b60:	fb 1f       	adc	r31, r27
+     b62:	e4 0f       	add	r30, r20
+     b64:	f5 1f       	adc	r31, r21
+     b66:	10 81       	ld	r17, Z
+     b68:	e0 fe       	sbrs	r14, 0
+     b6a:	02 c0       	rjmp	.+4      	; 0xb70 <_ZN7LedCube14setVoxelsYFastEhhh+0x5e>
+     b6c:	1d 29       	or	r17, r13
+     b6e:	01 c0       	rjmp	.+2      	; 0xb72 <_ZN7LedCube14setVoxelsYFastEhhh+0x60>
+     b70:	10 23       	and	r17, r16
+     b72:	10 83       	st	Z, r17
+     b74:	6f 5f       	subi	r22, 0xFF	; 255
+     b76:	7f 4f       	sbci	r23, 0xFF	; 255
+     b78:	18 96       	adiw	r26, 0x08	; 8
+     b7a:	68 30       	cpi	r22, 0x08	; 8
+     b7c:	71 05       	cpc	r23, r1
+     b7e:	29 f7       	brne	.-54     	; 0xb4a <_ZN7LedCube14setVoxelsYFastEhhh+0x38>
+     b80:	df 91       	pop	r29
+     b82:	cf 91       	pop	r28
+     b84:	1f 91       	pop	r17
+     b86:	0f 91       	pop	r16
+     b88:	ff 90       	pop	r15
+     b8a:	ef 90       	pop	r14
+     b8c:	df 90       	pop	r13
+     b8e:	08 95       	ret
+
+00000b90 <_ZN7LedCube17setNextFrameReadyEv>:
  *  \return         E_OK
  *                  E_NOT_OK
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::setNextFrameReady()
 {
     if(State == LEDCUBE_STATE_RUNNING) {
-     b06:	fc 01       	movw	r30, r24
-     b08:	21 81       	ldd	r18, Z+1	; 0x01
-     b0a:	23 30       	cpi	r18, 0x03	; 3
-     b0c:	31 f4       	brne	.+12     	; 0xb1a <_ZN7LedCube17setNextFrameReadyEv+0x14>
+     b90:	fc 01       	movw	r30, r24
+     b92:	21 81       	ldd	r18, Z+1	; 0x01
+     b94:	23 30       	cpi	r18, 0x03	; 3
+     b96:	31 f4       	brne	.+12     	; 0xba4 <_ZN7LedCube17setNextFrameReadyEv+0x14>
         NextFrameReady = true;
-     b0e:	ea 57       	subi	r30, 0x7A	; 122
-     b10:	ff 4f       	sbci	r31, 0xFF	; 255
-     b12:	81 e0       	ldi	r24, 0x01	; 1
-     b14:	80 83       	st	Z, r24
+     b98:	ea 57       	subi	r30, 0x7A	; 122
+     b9a:	ff 4f       	sbci	r31, 0xFF	; 255
+     b9c:	81 e0       	ldi	r24, 0x01	; 1
+     b9e:	80 83       	st	Z, r24
         return E_OK;
-     b16:	80 e0       	ldi	r24, 0x00	; 0
-     b18:	08 95       	ret
+     ba0:	80 e0       	ldi	r24, 0x00	; 0
+     ba2:	08 95       	ret
     } else {
         return E_NOT_OK;
-     b1a:	81 e0       	ldi	r24, 0x01	; 1
+     ba4:	81 e0       	ldi	r24, 0x01	; 1
     }
 }
-     b1c:	08 95       	ret
+     ba6:	08 95       	ret
 
-00000b1e <_ZN7LedCube23setNextFrameTimeElapsedEv>:
+00000ba8 <_ZN7LedCube23setNextFrameTimeElapsedEv>:
  *  \return         E_OK
  *                  E_NOT_OK
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::setNextFrameTimeElapsed()
 {
     if(State == LEDCUBE_STATE_RUNNING) {
-     b1e:	fc 01       	movw	r30, r24
-     b20:	21 81       	ldd	r18, Z+1	; 0x01
-     b22:	23 30       	cpi	r18, 0x03	; 3
-     b24:	31 f4       	brne	.+12     	; 0xb32 <_ZN7LedCube23setNextFrameTimeElapsedEv+0x14>
+     ba8:	fc 01       	movw	r30, r24
+     baa:	21 81       	ldd	r18, Z+1	; 0x01
+     bac:	23 30       	cpi	r18, 0x03	; 3
+     bae:	31 f4       	brne	.+12     	; 0xbbc <_ZN7LedCube23setNextFrameTimeElapsedEv+0x14>
         NextFrameTimeElapsed = true;
-     b26:	e9 57       	subi	r30, 0x79	; 121
-     b28:	ff 4f       	sbci	r31, 0xFF	; 255
-     b2a:	81 e0       	ldi	r24, 0x01	; 1
-     b2c:	80 83       	st	Z, r24
+     bb0:	e9 57       	subi	r30, 0x79	; 121
+     bb2:	ff 4f       	sbci	r31, 0xFF	; 255
+     bb4:	81 e0       	ldi	r24, 0x01	; 1
+     bb6:	80 83       	st	Z, r24
         return E_OK;
-     b2e:	80 e0       	ldi	r24, 0x00	; 0
-     b30:	08 95       	ret
+     bb8:	80 e0       	ldi	r24, 0x00	; 0
+     bba:	08 95       	ret
     } else {
         return E_NOT_OK;
-     b32:	81 e0       	ldi	r24, 0x01	; 1
+     bbc:	81 e0       	ldi	r24, 0x01	; 1
     }
 }
-     b34:	08 95       	ret
+     bbe:	08 95       	ret
 
-00000b36 <_ZN7LedCube8sendDataEh>:
+00000bc0 <_ZN7LedCube8sendDataEh>:
  *
  *  \param[in]      Data    data (Byte) to send
  *  \return         -
  *****************************************************************************************************************************************************/
 void LedCube::sendData(byte Data)
 {
-     b36:	87 e0       	ldi	r24, 0x07	; 7
-     b38:	90 e0       	ldi	r25, 0x00	; 0
+     bc0:	87 e0       	ldi	r24, 0x07	; 7
+     bc2:	90 e0       	ldi	r25, 0x00	; 0
     for (byte i = 0; i < 8; i++) {
         // LSB First
         //digitalWrite(DataInPin, !!(Data & (1 << i)));
         // MSB First
         digitalWriteFast(LEDCUBE_DATA_IN_PIN, !!(Data & (1 << (7 - i))));
-     b3a:	70 e0       	ldi	r23, 0x00	; 0
-     b3c:	9b 01       	movw	r18, r22
-     b3e:	08 2e       	mov	r0, r24
-     b40:	02 c0       	rjmp	.+4      	; 0xb46 <_ZN7LedCube8sendDataEh+0x10>
-     b42:	35 95       	asr	r19
-     b44:	27 95       	ror	r18
-     b46:	0a 94       	dec	r0
-     b48:	e2 f7       	brpl	.-8      	; 0xb42 <_ZN7LedCube8sendDataEh+0xc>
-     b4a:	20 ff       	sbrs	r18, 0
-     b4c:	02 c0       	rjmp	.+4      	; 0xb52 <_ZN7LedCube8sendDataEh+0x1c>
-     b4e:	2d 9a       	sbi	0x05, 5	; 5
-     b50:	01 c0       	rjmp	.+2      	; 0xb54 <_ZN7LedCube8sendDataEh+0x1e>
-     b52:	2d 98       	cbi	0x05, 5	; 5
+     bc4:	70 e0       	ldi	r23, 0x00	; 0
+     bc6:	9b 01       	movw	r18, r22
+     bc8:	08 2e       	mov	r0, r24
+     bca:	02 c0       	rjmp	.+4      	; 0xbd0 <_ZN7LedCube8sendDataEh+0x10>
+     bcc:	35 95       	asr	r19
+     bce:	27 95       	ror	r18
+     bd0:	0a 94       	dec	r0
+     bd2:	e2 f7       	brpl	.-8      	; 0xbcc <_ZN7LedCube8sendDataEh+0xc>
+     bd4:	20 ff       	sbrs	r18, 0
+     bd6:	02 c0       	rjmp	.+4      	; 0xbdc <_ZN7LedCube8sendDataEh+0x1c>
+     bd8:	2d 9a       	sbi	0x05, 5	; 5
+     bda:	01 c0       	rjmp	.+2      	; 0xbde <_ZN7LedCube8sendDataEh+0x1e>
+     bdc:	2d 98       	cbi	0x05, 5	; 5
         // toggle clock pin
         digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
-     b54:	2b 9a       	sbi	0x05, 3	; 5
+     bde:	2b 9a       	sbi	0x05, 3	; 5
         digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
-     b56:	2b 98       	cbi	0x05, 3	; 5
-     b58:	01 97       	sbiw	r24, 0x01	; 1
-     b5a:	80 f7       	brcc	.-32     	; 0xb3c <_ZN7LedCube8sendDataEh+0x6>
+     be0:	2b 98       	cbi	0x05, 3	; 5
+     be2:	01 97       	sbiw	r24, 0x01	; 1
+     be4:	80 f7       	brcc	.-32     	; 0xbc6 <_ZN7LedCube8sendDataEh+0x6>
     }
 } /* sendData */
-     b5c:	08 95       	ret
+     be6:	08 95       	ret
 
-00000b5e <_ZN7LedCube9showLayerEh>:
+00000be8 <_ZN7LedCube9showLayerEh>:
  *  \param[in]      Layer       layer which should be shown on the cube
  *  \return         E_OK
  *                  E_NOT_OK
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::showLayer(byte Layer)
 {
-     b5e:	ef 92       	push	r14
-     b60:	ff 92       	push	r15
-     b62:	0f 93       	push	r16
-     b64:	1f 93       	push	r17
-     b66:	cf 93       	push	r28
-     b68:	df 93       	push	r29
+     be8:	ef 92       	push	r14
+     bea:	ff 92       	push	r15
+     bec:	0f 93       	push	r16
+     bee:	1f 93       	push	r17
+     bf0:	cf 93       	push	r28
+     bf2:	df 93       	push	r29
     stdReturnType ReturnValue = E_NOT_OK;
     
     if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
-     b6a:	68 30       	cpi	r22, 0x08	; 8
-     b6c:	30 f5       	brcc	.+76     	; 0xbba <_ZN7LedCube9showLayerEh+0x5c>
-     b6e:	ec 01       	movw	r28, r24
+     bf4:	68 30       	cpi	r22, 0x08	; 8
+     bf6:	30 f5       	brcc	.+76     	; 0xc44 <_ZN7LedCube9showLayerEh+0x5c>
+     bf8:	ec 01       	movw	r28, r24
         /* put on given layer */
         sendData(1 << Layer);
-     b70:	06 2f       	mov	r16, r22
-     b72:	10 e0       	ldi	r17, 0x00	; 0
-     b74:	81 e0       	ldi	r24, 0x01	; 1
-     b76:	90 e0       	ldi	r25, 0x00	; 0
-     b78:	9c 01       	movw	r18, r24
-     b7a:	02 c0       	rjmp	.+4      	; 0xb80 <_ZN7LedCube9showLayerEh+0x22>
-     b7c:	22 0f       	add	r18, r18
-     b7e:	33 1f       	adc	r19, r19
-     b80:	6a 95       	dec	r22
-     b82:	e2 f7       	brpl	.-8      	; 0xb7c <_ZN7LedCube9showLayerEh+0x1e>
-     b84:	b9 01       	movw	r22, r18
-     b86:	ce 01       	movw	r24, r28
-     b88:	0e 94 9b 05 	call	0xb36	; 0xb36 <_ZN7LedCube8sendDataEh>
-     b8c:	e1 2c       	mov	r14, r1
-     b8e:	f1 2c       	mov	r15, r1
+     bfa:	06 2f       	mov	r16, r22
+     bfc:	10 e0       	ldi	r17, 0x00	; 0
+     bfe:	81 e0       	ldi	r24, 0x01	; 1
+     c00:	90 e0       	ldi	r25, 0x00	; 0
+     c02:	9c 01       	movw	r18, r24
+     c04:	02 c0       	rjmp	.+4      	; 0xc0a <_ZN7LedCube9showLayerEh+0x22>
+     c06:	22 0f       	add	r18, r18
+     c08:	33 1f       	adc	r19, r19
+     c0a:	6a 95       	dec	r22
+     c0c:	e2 f7       	brpl	.-8      	; 0xc06 <_ZN7LedCube9showLayerEh+0x1e>
+     c0e:	b9 01       	movw	r22, r18
+     c10:	ce 01       	movw	r24, r28
+     c12:	0e 94 e0 05 	call	0xbc0	; 0xbc0 <_ZN7LedCube8sendDataEh>
+     c16:	e1 2c       	mov	r14, r1
+     c18:	f1 2c       	mov	r15, r1
         /* send the layer data to the shift registers */
         for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
             sendData(CurrentFrame[Y][Layer]);
-     b90:	ea 81       	ldd	r30, Y+2	; 0x02
-     b92:	fb 81       	ldd	r31, Y+3	; 0x03
-     b94:	ee 0d       	add	r30, r14
-     b96:	ff 1d       	adc	r31, r15
-     b98:	e0 0f       	add	r30, r16
-     b9a:	f1 1f       	adc	r31, r17
-     b9c:	60 81       	ld	r22, Z
-     b9e:	ce 01       	movw	r24, r28
-     ba0:	0e 94 9b 05 	call	0xb36	; 0xb36 <_ZN7LedCube8sendDataEh>
-     ba4:	38 e0       	ldi	r19, 0x08	; 8
-     ba6:	e3 0e       	add	r14, r19
-     ba8:	f1 1c       	adc	r15, r1
+     c1a:	ea 81       	ldd	r30, Y+2	; 0x02
+     c1c:	fb 81       	ldd	r31, Y+3	; 0x03
+     c1e:	ee 0d       	add	r30, r14
+     c20:	ff 1d       	adc	r31, r15
+     c22:	e0 0f       	add	r30, r16
+     c24:	f1 1f       	adc	r31, r17
+     c26:	60 81       	ld	r22, Z
+     c28:	ce 01       	movw	r24, r28
+     c2a:	0e 94 e0 05 	call	0xbc0	; 0xbc0 <_ZN7LedCube8sendDataEh>
+     c2e:	38 e0       	ldi	r19, 0x08	; 8
+     c30:	e3 0e       	add	r14, r19
+     c32:	f1 1c       	adc	r15, r1
     
     if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
         /* put on given layer */
         sendData(1 << Layer);
         /* send the layer data to the shift registers */
         for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-     baa:	80 e4       	ldi	r24, 0x40	; 64
-     bac:	e8 16       	cp	r14, r24
-     bae:	f1 04       	cpc	r15, r1
-     bb0:	79 f7       	brne	.-34     	; 0xb90 <_ZN7LedCube9showLayerEh+0x32>
+     c34:	80 e4       	ldi	r24, 0x40	; 64
+     c36:	e8 16       	cp	r14, r24
+     c38:	f1 04       	cpc	r15, r1
+     c3a:	79 f7       	brne	.-34     	; 0xc1a <_ZN7LedCube9showLayerEh+0x32>
             sendData(CurrentFrame[Y][Layer]);
         }
         // toggle storage pin
         digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
-     bb2:	2c 9a       	sbi	0x05, 4	; 5
+     c3c:	2c 9a       	sbi	0x05, 4	; 5
         digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
-     bb4:	2c 98       	cbi	0x05, 4	; 5
-     bb6:	80 e0       	ldi	r24, 0x00	; 0
-     bb8:	01 c0       	rjmp	.+2      	; 0xbbc <_ZN7LedCube9showLayerEh+0x5e>
+     c3e:	2c 98       	cbi	0x05, 4	; 5
+     c40:	80 e0       	ldi	r24, 0x00	; 0
+     c42:	01 c0       	rjmp	.+2      	; 0xc46 <_ZN7LedCube9showLayerEh+0x5e>
  *  \return         E_OK
  *                  E_NOT_OK
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::showLayer(byte Layer)
 {
     stdReturnType ReturnValue = E_NOT_OK;
-     bba:	81 e0       	ldi	r24, 0x01	; 1
+     c44:	81 e0       	ldi	r24, 0x01	; 1
         digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
 
         ReturnValue = E_OK;
     }
     return ReturnValue;
 } /* showLayer */
-     bbc:	df 91       	pop	r29
-     bbe:	cf 91       	pop	r28
-     bc0:	1f 91       	pop	r17
-     bc2:	0f 91       	pop	r16
-     bc4:	ff 90       	pop	r15
-     bc6:	ef 90       	pop	r14
-     bc8:	08 95       	ret
+     c46:	df 91       	pop	r29
+     c48:	cf 91       	pop	r28
+     c4a:	1f 91       	pop	r17
+     c4c:	0f 91       	pop	r16
+     c4e:	ff 90       	pop	r15
+     c50:	ef 90       	pop	r14
+     c52:	08 95       	ret
 
-00000bca <_ZN7LedCube4taskEv>:
+00000c54 <_ZN7LedCube4taskEv>:
  *                  has to be called periodically
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
 void LedCube::task()
 {
-     bca:	cf 93       	push	r28
-     bcc:	df 93       	push	r29
-     bce:	fc 01       	movw	r30, r24
+     c54:	cf 93       	push	r28
+     c56:	df 93       	push	r29
+     c58:	fc 01       	movw	r30, r24
     if(State == LEDCUBE_STATE_RUNNING) {
-     bd0:	81 81       	ldd	r24, Z+1	; 0x01
-     bd2:	83 30       	cpi	r24, 0x03	; 3
-     bd4:	11 f5       	brne	.+68     	; 0xc1a <_ZN7LedCube4taskEv+0x50>
+     c5a:	81 81       	ldd	r24, Z+1	; 0x01
+     c5c:	83 30       	cpi	r24, 0x03	; 3
+     c5e:	11 f5       	brne	.+68     	; 0xca4 <_ZN7LedCube4taskEv+0x50>
         if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
-     bd6:	80 81       	ld	r24, Z
-     bd8:	88 30       	cpi	r24, 0x08	; 8
-     bda:	b8 f0       	brcs	.+46     	; 0xc0a <_ZN7LedCube4taskEv+0x40>
+     c60:	80 81       	ld	r24, Z
+     c62:	88 30       	cpi	r24, 0x08	; 8
+     c64:	b8 f0       	brcs	.+46     	; 0xc94 <_ZN7LedCube4taskEv+0x40>
             CurrentLayer = 0;
-     bdc:	10 82       	st	Z, r1
+     c66:	10 82       	st	Z, r1
 			/* is next frame ready to show? */
 			if(NextFrameReady && NextFrameTimeElapsed) { 
-     bde:	ef 01       	movw	r28, r30
-     be0:	ca 57       	subi	r28, 0x7A	; 122
-     be2:	df 4f       	sbci	r29, 0xFF	; 255
-     be4:	88 81       	ld	r24, Y
-     be6:	88 23       	and	r24, r24
-     be8:	81 f0       	breq	.+32     	; 0xc0a <_ZN7LedCube4taskEv+0x40>
-     bea:	df 01       	movw	r26, r30
-     bec:	a9 57       	subi	r26, 0x79	; 121
-     bee:	bf 4f       	sbci	r27, 0xFF	; 255
-     bf0:	8c 91       	ld	r24, X
-     bf2:	88 23       	and	r24, r24
-     bf4:	51 f0       	breq	.+20     	; 0xc0a <_ZN7LedCube4taskEv+0x40>
+     c68:	ef 01       	movw	r28, r30
+     c6a:	ca 57       	subi	r28, 0x7A	; 122
+     c6c:	df 4f       	sbci	r29, 0xFF	; 255
+     c6e:	88 81       	ld	r24, Y
+     c70:	88 23       	and	r24, r24
+     c72:	81 f0       	breq	.+32     	; 0xc94 <_ZN7LedCube4taskEv+0x40>
+     c74:	df 01       	movw	r26, r30
+     c76:	a9 57       	subi	r26, 0x79	; 121
+     c78:	bf 4f       	sbci	r27, 0xFF	; 255
+     c7a:	8c 91       	ld	r24, X
+     c7c:	88 23       	and	r24, r24
+     c7e:	51 f0       	breq	.+20     	; 0xc94 <_ZN7LedCube4taskEv+0x40>
  *****************************************************************************************************************************************************/
 void LedCube::switchBufferPointer()
 {
         byte (*pTmp)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
 
         pTmp = CurrentFrame;
-     bf6:	82 81       	ldd	r24, Z+2	; 0x02
-     bf8:	93 81       	ldd	r25, Z+3	; 0x03
+     c80:	82 81       	ldd	r24, Z+2	; 0x02
+     c82:	93 81       	ldd	r25, Z+3	; 0x03
         CurrentFrame = NextFrame;
-     bfa:	24 81       	ldd	r18, Z+4	; 0x04
-     bfc:	35 81       	ldd	r19, Z+5	; 0x05
-     bfe:	33 83       	std	Z+3, r19	; 0x03
-     c00:	22 83       	std	Z+2, r18	; 0x02
+     c84:	24 81       	ldd	r18, Z+4	; 0x04
+     c86:	35 81       	ldd	r19, Z+5	; 0x05
+     c88:	33 83       	std	Z+3, r19	; 0x03
+     c8a:	22 83       	std	Z+2, r18	; 0x02
         NextFrame = pTmp;
-     c02:	95 83       	std	Z+5, r25	; 0x05
-     c04:	84 83       	std	Z+4, r24	; 0x04
+     c8c:	95 83       	std	Z+5, r25	; 0x05
+     c8e:	84 83       	std	Z+4, r24	; 0x04
         if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
             CurrentLayer = 0;
 			/* is next frame ready to show? */
 			if(NextFrameReady && NextFrameTimeElapsed) { 
 				showNextFrame();
 				NextFrameReady = false;
-     c06:	18 82       	st	Y, r1
+     c90:	18 82       	st	Y, r1
 				NextFrameTimeElapsed = false;
-     c08:	1c 92       	st	X, r1
-     c0a:	ef 01       	movw	r28, r30
+     c92:	1c 92       	st	X, r1
+     c94:	ef 01       	movw	r28, r30
 			}
         }
         showLayer(CurrentLayer);
-     c0c:	60 81       	ld	r22, Z
-     c0e:	cf 01       	movw	r24, r30
-     c10:	0e 94 af 05 	call	0xb5e	; 0xb5e <_ZN7LedCube9showLayerEh>
+     c96:	60 81       	ld	r22, Z
+     c98:	cf 01       	movw	r24, r30
+     c9a:	0e 94 f4 05 	call	0xbe8	; 0xbe8 <_ZN7LedCube9showLayerEh>
         CurrentLayer++;
-     c14:	88 81       	ld	r24, Y
-     c16:	8f 5f       	subi	r24, 0xFF	; 255
-     c18:	88 83       	st	Y, r24
+     c9e:	88 81       	ld	r24, Y
+     ca0:	8f 5f       	subi	r24, 0xFF	; 255
+     ca2:	88 83       	st	Y, r24
     }
 } /* task */
-     c1a:	df 91       	pop	r29
-     c1c:	cf 91       	pop	r28
-     c1e:	08 95       	ret
+     ca4:	df 91       	pop	r29
+     ca6:	cf 91       	pop	r28
+     ca8:	08 95       	ret
 
-00000c20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>:
+00000caa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>:
 		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
 			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y, Z) << 1);
 			if(Rotate) Cube->writeVoxelFast(0, Y, Z, Cube->getVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z));
 		}
 	}
 } /* shiftBackwardFast */
-     c20:	0f 93       	push	r16
-     c22:	dc 01       	movw	r26, r24
-     c24:	50 e0       	ldi	r21, 0x00	; 0
-     c26:	30 e0       	ldi	r19, 0x00	; 0
-     c28:	00 23       	and	r16, r16
-     c2a:	d1 f0       	breq	.+52     	; 0xc60 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x40>
-     c2c:	fa 01       	movw	r30, r20
-     c2e:	93 e0       	ldi	r25, 0x03	; 3
-     c30:	ee 0f       	add	r30, r30
-     c32:	ff 1f       	adc	r31, r31
-     c34:	9a 95       	dec	r25
-     c36:	e1 f7       	brne	.-8      	; 0xc30 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x10>
-     c38:	ad 01       	movw	r20, r26
-     c3a:	4e 0f       	add	r20, r30
-     c3c:	5f 1f       	adc	r21, r31
-     c3e:	fa 01       	movw	r30, r20
-     c40:	e2 0f       	add	r30, r18
-     c42:	f3 1f       	adc	r31, r19
-     c44:	81 e0       	ldi	r24, 0x01	; 1
-     c46:	90 e0       	ldi	r25, 0x00	; 0
-     c48:	a0 e0       	ldi	r26, 0x00	; 0
-     c4a:	b0 e0       	ldi	r27, 0x00	; 0
-     c4c:	04 c0       	rjmp	.+8      	; 0xc56 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x36>
-     c4e:	88 0f       	add	r24, r24
-     c50:	99 1f       	adc	r25, r25
-     c52:	aa 1f       	adc	r26, r26
-     c54:	bb 1f       	adc	r27, r27
-     c56:	6a 95       	dec	r22
-     c58:	d2 f7       	brpl	.-12     	; 0xc4e <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x2e>
-     c5a:	20 81       	ld	r18, Z
-     c5c:	82 2b       	or	r24, r18
-     c5e:	18 c0       	rjmp	.+48     	; 0xc90 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x70>
-     c60:	83 e0       	ldi	r24, 0x03	; 3
-     c62:	44 0f       	add	r20, r20
-     c64:	55 1f       	adc	r21, r21
-     c66:	8a 95       	dec	r24
-     c68:	e1 f7       	brne	.-8      	; 0xc62 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x42>
-     c6a:	4a 0f       	add	r20, r26
-     c6c:	5b 1f       	adc	r21, r27
-     c6e:	fa 01       	movw	r30, r20
-     c70:	e2 0f       	add	r30, r18
-     c72:	f3 1f       	adc	r31, r19
-     c74:	81 e0       	ldi	r24, 0x01	; 1
-     c76:	90 e0       	ldi	r25, 0x00	; 0
-     c78:	a0 e0       	ldi	r26, 0x00	; 0
-     c7a:	b0 e0       	ldi	r27, 0x00	; 0
-     c7c:	04 c0       	rjmp	.+8      	; 0xc86 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x66>
-     c7e:	88 0f       	add	r24, r24
-     c80:	99 1f       	adc	r25, r25
-     c82:	aa 1f       	adc	r26, r26
-     c84:	bb 1f       	adc	r27, r27
-     c86:	6a 95       	dec	r22
-     c88:	d2 f7       	brpl	.-12     	; 0xc7e <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x5e>
-     c8a:	80 95       	com	r24
-     c8c:	90 81       	ld	r25, Z
-     c8e:	89 23       	and	r24, r25
-     c90:	80 83       	st	Z, r24
-     c92:	0f 91       	pop	r16
-     c94:	08 95       	ret
+     caa:	0f 93       	push	r16
+     cac:	dc 01       	movw	r26, r24
+     cae:	50 e0       	ldi	r21, 0x00	; 0
+     cb0:	30 e0       	ldi	r19, 0x00	; 0
+     cb2:	00 23       	and	r16, r16
+     cb4:	d1 f0       	breq	.+52     	; 0xcea <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x40>
+     cb6:	fa 01       	movw	r30, r20
+     cb8:	93 e0       	ldi	r25, 0x03	; 3
+     cba:	ee 0f       	add	r30, r30
+     cbc:	ff 1f       	adc	r31, r31
+     cbe:	9a 95       	dec	r25
+     cc0:	e1 f7       	brne	.-8      	; 0xcba <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x10>
+     cc2:	ad 01       	movw	r20, r26
+     cc4:	4e 0f       	add	r20, r30
+     cc6:	5f 1f       	adc	r21, r31
+     cc8:	fa 01       	movw	r30, r20
+     cca:	e2 0f       	add	r30, r18
+     ccc:	f3 1f       	adc	r31, r19
+     cce:	81 e0       	ldi	r24, 0x01	; 1
+     cd0:	90 e0       	ldi	r25, 0x00	; 0
+     cd2:	a0 e0       	ldi	r26, 0x00	; 0
+     cd4:	b0 e0       	ldi	r27, 0x00	; 0
+     cd6:	04 c0       	rjmp	.+8      	; 0xce0 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x36>
+     cd8:	88 0f       	add	r24, r24
+     cda:	99 1f       	adc	r25, r25
+     cdc:	aa 1f       	adc	r26, r26
+     cde:	bb 1f       	adc	r27, r27
+     ce0:	6a 95       	dec	r22
+     ce2:	d2 f7       	brpl	.-12     	; 0xcd8 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x2e>
+     ce4:	20 81       	ld	r18, Z
+     ce6:	82 2b       	or	r24, r18
+     ce8:	18 c0       	rjmp	.+48     	; 0xd1a <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x70>
+     cea:	83 e0       	ldi	r24, 0x03	; 3
+     cec:	44 0f       	add	r20, r20
+     cee:	55 1f       	adc	r21, r21
+     cf0:	8a 95       	dec	r24
+     cf2:	e1 f7       	brne	.-8      	; 0xcec <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x42>
+     cf4:	4a 0f       	add	r20, r26
+     cf6:	5b 1f       	adc	r21, r27
+     cf8:	fa 01       	movw	r30, r20
+     cfa:	e2 0f       	add	r30, r18
+     cfc:	f3 1f       	adc	r31, r19
+     cfe:	81 e0       	ldi	r24, 0x01	; 1
+     d00:	90 e0       	ldi	r25, 0x00	; 0
+     d02:	a0 e0       	ldi	r26, 0x00	; 0
+     d04:	b0 e0       	ldi	r27, 0x00	; 0
+     d06:	04 c0       	rjmp	.+8      	; 0xd10 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x66>
+     d08:	88 0f       	add	r24, r24
+     d0a:	99 1f       	adc	r25, r25
+     d0c:	aa 1f       	adc	r26, r26
+     d0e:	bb 1f       	adc	r27, r27
+     d10:	6a 95       	dec	r22
+     d12:	d2 f7       	brpl	.-12     	; 0xd08 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0+0x5e>
+     d14:	80 95       	com	r24
+     d16:	90 81       	ld	r25, Z
+     d18:	89 23       	and	r24, r25
+     d1a:	80 83       	st	Z, r24
+     d1c:	0f 91       	pop	r16
+     d1e:	08 95       	ret
 
-00000c96 <_ZN14TransformationC1Ev>:
-     c96:	08 95       	ret
+00000d20 <_ZN14TransformationC1Ev>:
+     d20:	08 95       	ret
 
-00000c98 <_ZN14TransformationD1Ev>:
-     c98:	08 95       	ret
+00000d22 <_ZN14TransformationD1Ev>:
+     d22:	08 95       	ret
 
-00000c9a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh>:
+00000d24 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh>:
  *  \details        
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
 stdReturnType Transformation::shiftCircle(LedCube* Cube, LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Circle)
 {	
-     c9a:	2f 92       	push	r2
-     c9c:	3f 92       	push	r3
-     c9e:	4f 92       	push	r4
-     ca0:	5f 92       	push	r5
-     ca2:	6f 92       	push	r6
-     ca4:	7f 92       	push	r7
-     ca6:	8f 92       	push	r8
-     ca8:	9f 92       	push	r9
-     caa:	af 92       	push	r10
-     cac:	bf 92       	push	r11
-     cae:	cf 92       	push	r12
-     cb0:	df 92       	push	r13
-     cb2:	ef 92       	push	r14
-     cb4:	ff 92       	push	r15
-     cb6:	0f 93       	push	r16
-     cb8:	1f 93       	push	r17
-     cba:	cf 93       	push	r28
-     cbc:	df 93       	push	r29
+     d24:	2f 92       	push	r2
+     d26:	3f 92       	push	r3
+     d28:	4f 92       	push	r4
+     d2a:	5f 92       	push	r5
+     d2c:	6f 92       	push	r6
+     d2e:	7f 92       	push	r7
+     d30:	8f 92       	push	r8
+     d32:	9f 92       	push	r9
+     d34:	af 92       	push	r10
+     d36:	bf 92       	push	r11
+     d38:	cf 92       	push	r12
+     d3a:	df 92       	push	r13
+     d3c:	ef 92       	push	r14
+     d3e:	ff 92       	push	r15
+     d40:	0f 93       	push	r16
+     d42:	1f 93       	push	r17
+     d44:	cf 93       	push	r28
+     d46:	df 93       	push	r29
 	const byte LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
 
 	if(Circle > 0 && Circle <= LEDs / 2) {
-     cbe:	1f ef       	ldi	r17, 0xFF	; 255
-     cc0:	10 0f       	add	r17, r16
-     cc2:	14 30       	cpi	r17, 0x04	; 4
-     cc4:	08 f0       	brcs	.+2      	; 0xcc8 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2e>
-     cc6:	74 c1       	rjmp	.+744    	; 0xfb0 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x316>
-     cc8:	eb 01       	movw	r28, r22
+     d48:	1f ef       	ldi	r17, 0xFF	; 255
+     d4a:	10 0f       	add	r17, r16
+     d4c:	14 30       	cpi	r17, 0x04	; 4
+     d4e:	08 f0       	brcs	.+2      	; 0xd52 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2e>
+     d50:	74 c1       	rjmp	.+744    	; 0x103a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x316>
+     d52:	eb 01       	movw	r28, r22
 		Circle--;
 		if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
-     cca:	21 11       	cpse	r18, r1
-     ccc:	b7 c0       	rjmp	.+366    	; 0xe3c <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1a2>
+     d54:	21 11       	cpse	r18, r1
+     d56:	b7 c0       	rjmp	.+366    	; 0xec6 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1a2>
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
-     cce:	42 30       	cpi	r20, 0x02	; 2
-     cd0:	09 f0       	breq	.+2      	; 0xcd4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x3a>
-     cd2:	70 c1       	rjmp	.+736    	; 0xfb4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
+     d58:	42 30       	cpi	r20, 0x02	; 2
+     d5a:	09 f0       	breq	.+2      	; 0xd5e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x3a>
+     d5c:	70 c1       	rjmp	.+736    	; 0x103e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift front, right, back, left */
 					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) Cube->writeVoxelFast(Circle, Y, Z, Cube->getVoxelFast(Circle, Y+1, Z));
 					for(int8_t X = Circle; X < LEDs-1-Circle; X++) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X+1, LEDs-1-Circle, Z));
-     cd4:	88 e0       	ldi	r24, 0x08	; 8
-     cd6:	58 2e       	mov	r5, r24
-     cd8:	50 1a       	sub	r5, r16
+     d5e:	88 e0       	ldi	r24, 0x08	; 8
+     d60:	58 2e       	mov	r5, r24
+     d62:	50 1a       	sub	r5, r16
 	stdReturnType getVoxel(byte, byte, byte, boolean*);
 
 	inline void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
     inline void clearVoxelFast(byte X, byte Y, byte Z) { bitClear(NextFrame[Y][Z], X); }
     inline void writeVoxelFast(byte X, byte Y, byte Z, boolean Value) { bitWrite(NextFrame[Y][Z], X, Value); }
     inline byte getVoxelFast(byte X, byte Y, byte Z) { return bitRead(CurrentFrame[Y][Z], X); }
-     cda:	88 e0       	ldi	r24, 0x08	; 8
-     cdc:	58 9e       	mul	r5, r24
-     cde:	40 01       	movw	r8, r0
-     ce0:	11 24       	eor	r1, r1
-     ce2:	c1 2e       	mov	r12, r17
-     ce4:	d1 2c       	mov	r13, r1
-     ce6:	36 01       	movw	r6, r12
-     ce8:	93 e0       	ldi	r25, 0x03	; 3
-     cea:	66 0c       	add	r6, r6
-     cec:	77 1c       	adc	r7, r7
-     cee:	9a 95       	dec	r25
-     cf0:	e1 f7       	brne	.-8      	; 0xcea <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x50>
-     cf2:	e1 2c       	mov	r14, r1
-     cf4:	f1 2c       	mov	r15, r1
+     d64:	88 e0       	ldi	r24, 0x08	; 8
+     d66:	58 9e       	mul	r5, r24
+     d68:	40 01       	movw	r8, r0
+     d6a:	11 24       	eor	r1, r1
+     d6c:	c1 2e       	mov	r12, r17
+     d6e:	d1 2c       	mov	r13, r1
+     d70:	36 01       	movw	r6, r12
+     d72:	93 e0       	ldi	r25, 0x03	; 3
+     d74:	66 0c       	add	r6, r6
+     d76:	77 1c       	adc	r7, r7
+     d78:	9a 95       	dec	r25
+     d7a:	e1 f7       	brne	.-8      	; 0xd74 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x50>
+     d7c:	e1 2c       	mov	r14, r1
+     d7e:	f1 2c       	mov	r15, r1
 		Circle--;
 		if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift front, right, back, left */
 					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) Cube->writeVoxelFast(Circle, Y, Z, Cube->getVoxelFast(Circle, Y+1, Z));
-     cf6:	87 e0       	ldi	r24, 0x07	; 7
-     cf8:	90 e0       	ldi	r25, 0x00	; 0
-     cfa:	5c 01       	movw	r10, r24
-     cfc:	ac 18       	sub	r10, r12
-     cfe:	bd 08       	sbc	r11, r13
-     d00:	4e 2c       	mov	r4, r14
-     d02:	31 2e       	mov	r3, r17
-     d04:	41 2f       	mov	r20, r17
-     d06:	84 2f       	mov	r24, r20
-     d08:	04 2e       	mov	r0, r20
-     d0a:	00 0c       	add	r0, r0
-     d0c:	99 0b       	sbc	r25, r25
-     d0e:	8a 15       	cp	r24, r10
-     d10:	9b 05       	cpc	r25, r11
-     d12:	f4 f4       	brge	.+60     	; 0xd50 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xb6>
-     d14:	22 24       	eor	r2, r2
-     d16:	23 94       	inc	r2
-     d18:	24 0e       	add	r2, r20
-     d1a:	ea 81       	ldd	r30, Y+2	; 0x02
-     d1c:	fb 81       	ldd	r31, Y+3	; 0x03
-     d1e:	88 e0       	ldi	r24, 0x08	; 8
-     d20:	28 9e       	mul	r2, r24
-     d22:	e0 0d       	add	r30, r0
-     d24:	f1 1d       	adc	r31, r1
-     d26:	11 24       	eor	r1, r1
-     d28:	ee 0d       	add	r30, r14
-     d2a:	ff 1d       	adc	r31, r15
-     d2c:	80 81       	ld	r24, Z
-     d2e:	90 e0       	ldi	r25, 0x00	; 0
-     d30:	01 2e       	mov	r0, r17
-     d32:	02 c0       	rjmp	.+4      	; 0xd38 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x9e>
-     d34:	95 95       	asr	r25
-     d36:	87 95       	ror	r24
-     d38:	0a 94       	dec	r0
-     d3a:	e2 f7       	brpl	.-8      	; 0xd34 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x9a>
-     d3c:	08 2f       	mov	r16, r24
-     d3e:	01 70       	andi	r16, 0x01	; 1
-     d40:	24 2d       	mov	r18, r4
-     d42:	61 2f       	mov	r22, r17
-     d44:	8c 81       	ldd	r24, Y+4	; 0x04
-     d46:	9d 81       	ldd	r25, Y+5	; 0x05
-     d48:	0e 94 10 06 	call	0xc20	; 0xc20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
-     d4c:	42 2d       	mov	r20, r2
-     d4e:	db cf       	rjmp	.-74     	; 0xd06 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x6c>
+     d80:	87 e0       	ldi	r24, 0x07	; 7
+     d82:	90 e0       	ldi	r25, 0x00	; 0
+     d84:	5c 01       	movw	r10, r24
+     d86:	ac 18       	sub	r10, r12
+     d88:	bd 08       	sbc	r11, r13
+     d8a:	4e 2c       	mov	r4, r14
+     d8c:	31 2e       	mov	r3, r17
+     d8e:	41 2f       	mov	r20, r17
+     d90:	84 2f       	mov	r24, r20
+     d92:	04 2e       	mov	r0, r20
+     d94:	00 0c       	add	r0, r0
+     d96:	99 0b       	sbc	r25, r25
+     d98:	8a 15       	cp	r24, r10
+     d9a:	9b 05       	cpc	r25, r11
+     d9c:	f4 f4       	brge	.+60     	; 0xdda <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xb6>
+     d9e:	22 24       	eor	r2, r2
+     da0:	23 94       	inc	r2
+     da2:	24 0e       	add	r2, r20
+     da4:	ea 81       	ldd	r30, Y+2	; 0x02
+     da6:	fb 81       	ldd	r31, Y+3	; 0x03
+     da8:	88 e0       	ldi	r24, 0x08	; 8
+     daa:	28 9e       	mul	r2, r24
+     dac:	e0 0d       	add	r30, r0
+     dae:	f1 1d       	adc	r31, r1
+     db0:	11 24       	eor	r1, r1
+     db2:	ee 0d       	add	r30, r14
+     db4:	ff 1d       	adc	r31, r15
+     db6:	80 81       	ld	r24, Z
+     db8:	90 e0       	ldi	r25, 0x00	; 0
+     dba:	01 2e       	mov	r0, r17
+     dbc:	02 c0       	rjmp	.+4      	; 0xdc2 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x9e>
+     dbe:	95 95       	asr	r25
+     dc0:	87 95       	ror	r24
+     dc2:	0a 94       	dec	r0
+     dc4:	e2 f7       	brpl	.-8      	; 0xdbe <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x9a>
+     dc6:	08 2f       	mov	r16, r24
+     dc8:	01 70       	andi	r16, 0x01	; 1
+     dca:	24 2d       	mov	r18, r4
+     dcc:	61 2f       	mov	r22, r17
+     dce:	8c 81       	ldd	r24, Y+4	; 0x04
+     dd0:	9d 81       	ldd	r25, Y+5	; 0x05
+     dd2:	0e 94 55 06 	call	0xcaa	; 0xcaa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     dd6:	42 2d       	mov	r20, r2
+     dd8:	db cf       	rjmp	.-74     	; 0xd90 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x6c>
 					for(int8_t X = Circle; X < LEDs-1-Circle; X++) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X+1, LEDs-1-Circle, Z));
-     d50:	83 2d       	mov	r24, r3
-     d52:	03 2c       	mov	r0, r3
-     d54:	00 0c       	add	r0, r0
-     d56:	99 0b       	sbc	r25, r25
-     d58:	8a 15       	cp	r24, r10
-     d5a:	9b 05       	cpc	r25, r11
-     d5c:	e4 f4       	brge	.+56     	; 0xd96 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xfc>
-     d5e:	22 24       	eor	r2, r2
-     d60:	23 94       	inc	r2
-     d62:	23 0c       	add	r2, r3
-     d64:	ea 81       	ldd	r30, Y+2	; 0x02
-     d66:	fb 81       	ldd	r31, Y+3	; 0x03
-     d68:	e8 0d       	add	r30, r8
-     d6a:	f9 1d       	adc	r31, r9
-     d6c:	ee 0d       	add	r30, r14
-     d6e:	ff 1d       	adc	r31, r15
-     d70:	80 81       	ld	r24, Z
-     d72:	90 e0       	ldi	r25, 0x00	; 0
-     d74:	02 2c       	mov	r0, r2
-     d76:	02 c0       	rjmp	.+4      	; 0xd7c <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xe2>
-     d78:	95 95       	asr	r25
-     d7a:	87 95       	ror	r24
-     d7c:	0a 94       	dec	r0
-     d7e:	e2 f7       	brpl	.-8      	; 0xd78 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xde>
-     d80:	08 2f       	mov	r16, r24
-     d82:	01 70       	andi	r16, 0x01	; 1
-     d84:	24 2d       	mov	r18, r4
-     d86:	45 2d       	mov	r20, r5
-     d88:	63 2d       	mov	r22, r3
-     d8a:	8c 81       	ldd	r24, Y+4	; 0x04
-     d8c:	9d 81       	ldd	r25, Y+5	; 0x05
-     d8e:	0e 94 10 06 	call	0xc20	; 0xc20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
-     d92:	32 2c       	mov	r3, r2
-     d94:	dd cf       	rjmp	.-70     	; 0xd50 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xb6>
+     dda:	83 2d       	mov	r24, r3
+     ddc:	03 2c       	mov	r0, r3
+     dde:	00 0c       	add	r0, r0
+     de0:	99 0b       	sbc	r25, r25
+     de2:	8a 15       	cp	r24, r10
+     de4:	9b 05       	cpc	r25, r11
+     de6:	e4 f4       	brge	.+56     	; 0xe20 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xfc>
+     de8:	22 24       	eor	r2, r2
+     dea:	23 94       	inc	r2
+     dec:	23 0c       	add	r2, r3
+     dee:	ea 81       	ldd	r30, Y+2	; 0x02
+     df0:	fb 81       	ldd	r31, Y+3	; 0x03
+     df2:	e8 0d       	add	r30, r8
+     df4:	f9 1d       	adc	r31, r9
+     df6:	ee 0d       	add	r30, r14
+     df8:	ff 1d       	adc	r31, r15
+     dfa:	80 81       	ld	r24, Z
+     dfc:	90 e0       	ldi	r25, 0x00	; 0
+     dfe:	02 2c       	mov	r0, r2
+     e00:	02 c0       	rjmp	.+4      	; 0xe06 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xe2>
+     e02:	95 95       	asr	r25
+     e04:	87 95       	ror	r24
+     e06:	0a 94       	dec	r0
+     e08:	e2 f7       	brpl	.-8      	; 0xe02 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xde>
+     e0a:	08 2f       	mov	r16, r24
+     e0c:	01 70       	andi	r16, 0x01	; 1
+     e0e:	24 2d       	mov	r18, r4
+     e10:	45 2d       	mov	r20, r5
+     e12:	63 2d       	mov	r22, r3
+     e14:	8c 81       	ldd	r24, Y+4	; 0x04
+     e16:	9d 81       	ldd	r25, Y+5	; 0x05
+     e18:	0e 94 55 06 	call	0xcaa	; 0xcaa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     e1c:	32 2c       	mov	r3, r2
+     e1e:	dd cf       	rjmp	.-70     	; 0xdda <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0xb6>
 					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) Cube->writeVoxelFast(LEDs-1-Circle, Y, Z, Cube->getVoxelFast(LEDs-1-Circle, Y-1, Z));
-     d96:	35 2c       	mov	r3, r5
-     d98:	45 2d       	mov	r20, r5
-     d9a:	84 2f       	mov	r24, r20
-     d9c:	04 2e       	mov	r0, r20
-     d9e:	00 0c       	add	r0, r0
-     da0:	99 0b       	sbc	r25, r25
-     da2:	c8 16       	cp	r12, r24
-     da4:	d9 06       	cpc	r13, r25
-     da6:	f4 f4       	brge	.+60     	; 0xde4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x14a>
-     da8:	22 24       	eor	r2, r2
-     daa:	2a 94       	dec	r2
-     dac:	24 0e       	add	r2, r20
-     dae:	ea 81       	ldd	r30, Y+2	; 0x02
-     db0:	fb 81       	ldd	r31, Y+3	; 0x03
-     db2:	88 e0       	ldi	r24, 0x08	; 8
-     db4:	28 9e       	mul	r2, r24
-     db6:	e0 0d       	add	r30, r0
-     db8:	f1 1d       	adc	r31, r1
-     dba:	11 24       	eor	r1, r1
-     dbc:	ee 0d       	add	r30, r14
-     dbe:	ff 1d       	adc	r31, r15
-     dc0:	80 81       	ld	r24, Z
-     dc2:	90 e0       	ldi	r25, 0x00	; 0
-     dc4:	05 2c       	mov	r0, r5
-     dc6:	02 c0       	rjmp	.+4      	; 0xdcc <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x132>
-     dc8:	95 95       	asr	r25
-     dca:	87 95       	ror	r24
-     dcc:	0a 94       	dec	r0
-     dce:	e2 f7       	brpl	.-8      	; 0xdc8 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x12e>
-     dd0:	08 2f       	mov	r16, r24
-     dd2:	01 70       	andi	r16, 0x01	; 1
-     dd4:	24 2d       	mov	r18, r4
-     dd6:	65 2d       	mov	r22, r5
-     dd8:	8c 81       	ldd	r24, Y+4	; 0x04
-     dda:	9d 81       	ldd	r25, Y+5	; 0x05
-     ddc:	0e 94 10 06 	call	0xc20	; 0xc20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
-     de0:	42 2d       	mov	r20, r2
-     de2:	db cf       	rjmp	.-74     	; 0xd9a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x100>
+     e20:	35 2c       	mov	r3, r5
+     e22:	45 2d       	mov	r20, r5
+     e24:	84 2f       	mov	r24, r20
+     e26:	04 2e       	mov	r0, r20
+     e28:	00 0c       	add	r0, r0
+     e2a:	99 0b       	sbc	r25, r25
+     e2c:	c8 16       	cp	r12, r24
+     e2e:	d9 06       	cpc	r13, r25
+     e30:	f4 f4       	brge	.+60     	; 0xe6e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x14a>
+     e32:	22 24       	eor	r2, r2
+     e34:	2a 94       	dec	r2
+     e36:	24 0e       	add	r2, r20
+     e38:	ea 81       	ldd	r30, Y+2	; 0x02
+     e3a:	fb 81       	ldd	r31, Y+3	; 0x03
+     e3c:	88 e0       	ldi	r24, 0x08	; 8
+     e3e:	28 9e       	mul	r2, r24
+     e40:	e0 0d       	add	r30, r0
+     e42:	f1 1d       	adc	r31, r1
+     e44:	11 24       	eor	r1, r1
+     e46:	ee 0d       	add	r30, r14
+     e48:	ff 1d       	adc	r31, r15
+     e4a:	80 81       	ld	r24, Z
+     e4c:	90 e0       	ldi	r25, 0x00	; 0
+     e4e:	05 2c       	mov	r0, r5
+     e50:	02 c0       	rjmp	.+4      	; 0xe56 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x132>
+     e52:	95 95       	asr	r25
+     e54:	87 95       	ror	r24
+     e56:	0a 94       	dec	r0
+     e58:	e2 f7       	brpl	.-8      	; 0xe52 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x12e>
+     e5a:	08 2f       	mov	r16, r24
+     e5c:	01 70       	andi	r16, 0x01	; 1
+     e5e:	24 2d       	mov	r18, r4
+     e60:	65 2d       	mov	r22, r5
+     e62:	8c 81       	ldd	r24, Y+4	; 0x04
+     e64:	9d 81       	ldd	r25, Y+5	; 0x05
+     e66:	0e 94 55 06 	call	0xcaa	; 0xcaa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     e6a:	42 2d       	mov	r20, r2
+     e6c:	db cf       	rjmp	.-74     	; 0xe24 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x100>
 					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, Circle, Z, Cube->getVoxelFast(X-1, Circle, Z));
-     de4:	83 2d       	mov	r24, r3
-     de6:	03 2c       	mov	r0, r3
-     de8:	00 0c       	add	r0, r0
-     dea:	99 0b       	sbc	r25, r25
-     dec:	c8 16       	cp	r12, r24
-     dee:	d9 06       	cpc	r13, r25
-     df0:	e4 f4       	brge	.+56     	; 0xe2a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x190>
-     df2:	22 24       	eor	r2, r2
-     df4:	2a 94       	dec	r2
-     df6:	23 0c       	add	r2, r3
-     df8:	ea 81       	ldd	r30, Y+2	; 0x02
-     dfa:	fb 81       	ldd	r31, Y+3	; 0x03
-     dfc:	e6 0d       	add	r30, r6
-     dfe:	f7 1d       	adc	r31, r7
-     e00:	ee 0d       	add	r30, r14
-     e02:	ff 1d       	adc	r31, r15
-     e04:	80 81       	ld	r24, Z
-     e06:	90 e0       	ldi	r25, 0x00	; 0
-     e08:	02 2c       	mov	r0, r2
-     e0a:	02 c0       	rjmp	.+4      	; 0xe10 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x176>
-     e0c:	95 95       	asr	r25
-     e0e:	87 95       	ror	r24
-     e10:	0a 94       	dec	r0
-     e12:	e2 f7       	brpl	.-8      	; 0xe0c <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x172>
-     e14:	08 2f       	mov	r16, r24
-     e16:	01 70       	andi	r16, 0x01	; 1
-     e18:	24 2d       	mov	r18, r4
-     e1a:	41 2f       	mov	r20, r17
-     e1c:	63 2d       	mov	r22, r3
-     e1e:	8c 81       	ldd	r24, Y+4	; 0x04
-     e20:	9d 81       	ldd	r25, Y+5	; 0x05
-     e22:	0e 94 10 06 	call	0xc20	; 0xc20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
-     e26:	32 2c       	mov	r3, r2
-     e28:	dd cf       	rjmp	.-70     	; 0xde4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x14a>
-     e2a:	8f ef       	ldi	r24, 0xFF	; 255
-     e2c:	e8 1a       	sub	r14, r24
-     e2e:	f8 0a       	sbc	r15, r24
+     e6e:	83 2d       	mov	r24, r3
+     e70:	03 2c       	mov	r0, r3
+     e72:	00 0c       	add	r0, r0
+     e74:	99 0b       	sbc	r25, r25
+     e76:	c8 16       	cp	r12, r24
+     e78:	d9 06       	cpc	r13, r25
+     e7a:	e4 f4       	brge	.+56     	; 0xeb4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x190>
+     e7c:	22 24       	eor	r2, r2
+     e7e:	2a 94       	dec	r2
+     e80:	23 0c       	add	r2, r3
+     e82:	ea 81       	ldd	r30, Y+2	; 0x02
+     e84:	fb 81       	ldd	r31, Y+3	; 0x03
+     e86:	e6 0d       	add	r30, r6
+     e88:	f7 1d       	adc	r31, r7
+     e8a:	ee 0d       	add	r30, r14
+     e8c:	ff 1d       	adc	r31, r15
+     e8e:	80 81       	ld	r24, Z
+     e90:	90 e0       	ldi	r25, 0x00	; 0
+     e92:	02 2c       	mov	r0, r2
+     e94:	02 c0       	rjmp	.+4      	; 0xe9a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x176>
+     e96:	95 95       	asr	r25
+     e98:	87 95       	ror	r24
+     e9a:	0a 94       	dec	r0
+     e9c:	e2 f7       	brpl	.-8      	; 0xe96 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x172>
+     e9e:	08 2f       	mov	r16, r24
+     ea0:	01 70       	andi	r16, 0x01	; 1
+     ea2:	24 2d       	mov	r18, r4
+     ea4:	41 2f       	mov	r20, r17
+     ea6:	63 2d       	mov	r22, r3
+     ea8:	8c 81       	ldd	r24, Y+4	; 0x04
+     eaa:	9d 81       	ldd	r25, Y+5	; 0x05
+     eac:	0e 94 55 06 	call	0xcaa	; 0xcaa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     eb0:	32 2c       	mov	r3, r2
+     eb2:	dd cf       	rjmp	.-70     	; 0xe6e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x14a>
+     eb4:	8f ef       	ldi	r24, 0xFF	; 255
+     eb6:	e8 1a       	sub	r14, r24
+     eb8:	f8 0a       	sbc	r15, r24
 
 	if(Circle > 0 && Circle <= LEDs / 2) {
 		Circle--;
 		if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
 				for(byte Z = 0; Z < LEDs; Z++) {
-     e30:	88 e0       	ldi	r24, 0x08	; 8
-     e32:	e8 16       	cp	r14, r24
-     e34:	f1 04       	cpc	r15, r1
-     e36:	09 f0       	breq	.+2      	; 0xe3a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1a0>
-     e38:	63 cf       	rjmp	.-314    	; 0xd00 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x66>
-     e3a:	bc c0       	rjmp	.+376    	; 0xfb4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
+     eba:	88 e0       	ldi	r24, 0x08	; 8
+     ebc:	e8 16       	cp	r14, r24
+     ebe:	f1 04       	cpc	r15, r1
+     ec0:	09 f0       	breq	.+2      	; 0xec4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1a0>
+     ec2:	63 cf       	rjmp	.-314    	; 0xd8a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x66>
+     ec4:	bc c0       	rjmp	.+376    	; 0x103e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
 					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) Cube->writeVoxelFast(LEDs-1-Circle, Y, Z, Cube->getVoxelFast(LEDs-1-Circle, Y-1, Z));
 					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, Circle, Z, Cube->getVoxelFast(X-1, Circle, Z));
 				}
 			}
 		}
 		if(TRANSFORMATION_ROTATION_COUNTERCLOCKWISE == Direction) {
-     e3c:	21 30       	cpi	r18, 0x01	; 1
-     e3e:	09 f0       	breq	.+2      	; 0xe42 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1a8>
-     e40:	b9 c0       	rjmp	.+370    	; 0xfb4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
+     ec6:	21 30       	cpi	r18, 0x01	; 1
+     ec8:	09 f0       	breq	.+2      	; 0xecc <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1a8>
+     eca:	b9 c0       	rjmp	.+370    	; 0x103e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
-     e42:	42 30       	cpi	r20, 0x02	; 2
-     e44:	09 f0       	breq	.+2      	; 0xe48 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1ae>
-     e46:	b6 c0       	rjmp	.+364    	; 0xfb4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
-     e48:	c1 2e       	mov	r12, r17
-     e4a:	d1 2c       	mov	r13, r1
-     e4c:	46 01       	movw	r8, r12
-     e4e:	83 e0       	ldi	r24, 0x03	; 3
-     e50:	88 0c       	add	r8, r8
-     e52:	99 1c       	adc	r9, r9
-     e54:	8a 95       	dec	r24
-     e56:	e1 f7       	brne	.-8      	; 0xe50 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1b6>
+     ecc:	42 30       	cpi	r20, 0x02	; 2
+     ece:	09 f0       	breq	.+2      	; 0xed2 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1ae>
+     ed0:	b6 c0       	rjmp	.+364    	; 0x103e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
+     ed2:	c1 2e       	mov	r12, r17
+     ed4:	d1 2c       	mov	r13, r1
+     ed6:	46 01       	movw	r8, r12
+     ed8:	83 e0       	ldi	r24, 0x03	; 3
+     eda:	88 0c       	add	r8, r8
+     edc:	99 1c       	adc	r9, r9
+     ede:	8a 95       	dec	r24
+     ee0:	e1 f7       	brne	.-8      	; 0xeda <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1b6>
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift left, back, right, front */
 					for(int8_t X = Circle; X < LEDs-1-Circle; X++) Cube->writeVoxelFast(X, Circle, Z, Cube->getVoxelFast(X+1, Circle, Z));
 					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) Cube->writeVoxelFast(LEDs-1-Circle, Y, Z, Cube->getVoxelFast(LEDs-1-Circle, Y+1, Z));
 					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X-1, LEDs-1-Circle, Z));
-     e58:	88 e0       	ldi	r24, 0x08	; 8
-     e5a:	58 2e       	mov	r5, r24
-     e5c:	50 1a       	sub	r5, r16
-     e5e:	88 e0       	ldi	r24, 0x08	; 8
-     e60:	58 9e       	mul	r5, r24
-     e62:	30 01       	movw	r6, r0
-     e64:	11 24       	eor	r1, r1
-     e66:	e1 2c       	mov	r14, r1
-     e68:	f1 2c       	mov	r15, r1
+     ee2:	88 e0       	ldi	r24, 0x08	; 8
+     ee4:	58 2e       	mov	r5, r24
+     ee6:	50 1a       	sub	r5, r16
+     ee8:	88 e0       	ldi	r24, 0x08	; 8
+     eea:	58 9e       	mul	r5, r24
+     eec:	30 01       	movw	r6, r0
+     eee:	11 24       	eor	r1, r1
+     ef0:	e1 2c       	mov	r14, r1
+     ef2:	f1 2c       	mov	r15, r1
 		}
 		if(TRANSFORMATION_ROTATION_COUNTERCLOCKWISE == Direction) {
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift left, back, right, front */
 					for(int8_t X = Circle; X < LEDs-1-Circle; X++) Cube->writeVoxelFast(X, Circle, Z, Cube->getVoxelFast(X+1, Circle, Z));
-     e6a:	87 e0       	ldi	r24, 0x07	; 7
-     e6c:	90 e0       	ldi	r25, 0x00	; 0
-     e6e:	5c 01       	movw	r10, r24
-     e70:	ac 18       	sub	r10, r12
-     e72:	bd 08       	sbc	r11, r13
-     e74:	4e 2c       	mov	r4, r14
-     e76:	31 2e       	mov	r3, r17
-     e78:	61 2f       	mov	r22, r17
-     e7a:	86 2f       	mov	r24, r22
-     e7c:	06 2e       	mov	r0, r22
-     e7e:	00 0c       	add	r0, r0
-     e80:	99 0b       	sbc	r25, r25
-     e82:	8a 15       	cp	r24, r10
-     e84:	9b 05       	cpc	r25, r11
-     e86:	dc f4       	brge	.+54     	; 0xebe <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x224>
-     e88:	22 24       	eor	r2, r2
-     e8a:	23 94       	inc	r2
-     e8c:	26 0e       	add	r2, r22
-     e8e:	ea 81       	ldd	r30, Y+2	; 0x02
-     e90:	fb 81       	ldd	r31, Y+3	; 0x03
-     e92:	e8 0d       	add	r30, r8
-     e94:	f9 1d       	adc	r31, r9
-     e96:	ee 0d       	add	r30, r14
-     e98:	ff 1d       	adc	r31, r15
-     e9a:	80 81       	ld	r24, Z
-     e9c:	90 e0       	ldi	r25, 0x00	; 0
-     e9e:	02 2c       	mov	r0, r2
-     ea0:	02 c0       	rjmp	.+4      	; 0xea6 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x20c>
-     ea2:	95 95       	asr	r25
-     ea4:	87 95       	ror	r24
-     ea6:	0a 94       	dec	r0
-     ea8:	e2 f7       	brpl	.-8      	; 0xea2 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x208>
-     eaa:	08 2f       	mov	r16, r24
-     eac:	01 70       	andi	r16, 0x01	; 1
-     eae:	24 2d       	mov	r18, r4
-     eb0:	41 2f       	mov	r20, r17
-     eb2:	8c 81       	ldd	r24, Y+4	; 0x04
-     eb4:	9d 81       	ldd	r25, Y+5	; 0x05
-     eb6:	0e 94 10 06 	call	0xc20	; 0xc20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
-     eba:	62 2d       	mov	r22, r2
-     ebc:	de cf       	rjmp	.-68     	; 0xe7a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1e0>
+     ef4:	87 e0       	ldi	r24, 0x07	; 7
+     ef6:	90 e0       	ldi	r25, 0x00	; 0
+     ef8:	5c 01       	movw	r10, r24
+     efa:	ac 18       	sub	r10, r12
+     efc:	bd 08       	sbc	r11, r13
+     efe:	4e 2c       	mov	r4, r14
+     f00:	31 2e       	mov	r3, r17
+     f02:	61 2f       	mov	r22, r17
+     f04:	86 2f       	mov	r24, r22
+     f06:	06 2e       	mov	r0, r22
+     f08:	00 0c       	add	r0, r0
+     f0a:	99 0b       	sbc	r25, r25
+     f0c:	8a 15       	cp	r24, r10
+     f0e:	9b 05       	cpc	r25, r11
+     f10:	dc f4       	brge	.+54     	; 0xf48 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x224>
+     f12:	22 24       	eor	r2, r2
+     f14:	23 94       	inc	r2
+     f16:	26 0e       	add	r2, r22
+     f18:	ea 81       	ldd	r30, Y+2	; 0x02
+     f1a:	fb 81       	ldd	r31, Y+3	; 0x03
+     f1c:	e8 0d       	add	r30, r8
+     f1e:	f9 1d       	adc	r31, r9
+     f20:	ee 0d       	add	r30, r14
+     f22:	ff 1d       	adc	r31, r15
+     f24:	80 81       	ld	r24, Z
+     f26:	90 e0       	ldi	r25, 0x00	; 0
+     f28:	02 2c       	mov	r0, r2
+     f2a:	02 c0       	rjmp	.+4      	; 0xf30 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x20c>
+     f2c:	95 95       	asr	r25
+     f2e:	87 95       	ror	r24
+     f30:	0a 94       	dec	r0
+     f32:	e2 f7       	brpl	.-8      	; 0xf2c <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x208>
+     f34:	08 2f       	mov	r16, r24
+     f36:	01 70       	andi	r16, 0x01	; 1
+     f38:	24 2d       	mov	r18, r4
+     f3a:	41 2f       	mov	r20, r17
+     f3c:	8c 81       	ldd	r24, Y+4	; 0x04
+     f3e:	9d 81       	ldd	r25, Y+5	; 0x05
+     f40:	0e 94 55 06 	call	0xcaa	; 0xcaa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     f44:	62 2d       	mov	r22, r2
+     f46:	de cf       	rjmp	.-68     	; 0xf04 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1e0>
 					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) Cube->writeVoxelFast(LEDs-1-Circle, Y, Z, Cube->getVoxelFast(LEDs-1-Circle, Y+1, Z));
-     ebe:	83 2d       	mov	r24, r3
-     ec0:	03 2c       	mov	r0, r3
-     ec2:	00 0c       	add	r0, r0
-     ec4:	99 0b       	sbc	r25, r25
-     ec6:	8a 15       	cp	r24, r10
-     ec8:	9b 05       	cpc	r25, r11
-     eca:	fc f4       	brge	.+62     	; 0xf0a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x270>
-     ecc:	22 24       	eor	r2, r2
-     ece:	23 94       	inc	r2
-     ed0:	23 0c       	add	r2, r3
-     ed2:	ea 81       	ldd	r30, Y+2	; 0x02
-     ed4:	fb 81       	ldd	r31, Y+3	; 0x03
-     ed6:	88 e0       	ldi	r24, 0x08	; 8
-     ed8:	28 9e       	mul	r2, r24
-     eda:	e0 0d       	add	r30, r0
-     edc:	f1 1d       	adc	r31, r1
-     ede:	11 24       	eor	r1, r1
-     ee0:	ee 0d       	add	r30, r14
-     ee2:	ff 1d       	adc	r31, r15
-     ee4:	80 81       	ld	r24, Z
-     ee6:	90 e0       	ldi	r25, 0x00	; 0
-     ee8:	05 2c       	mov	r0, r5
-     eea:	02 c0       	rjmp	.+4      	; 0xef0 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x256>
-     eec:	95 95       	asr	r25
-     eee:	87 95       	ror	r24
-     ef0:	0a 94       	dec	r0
-     ef2:	e2 f7       	brpl	.-8      	; 0xeec <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x252>
-     ef4:	08 2f       	mov	r16, r24
-     ef6:	01 70       	andi	r16, 0x01	; 1
-     ef8:	24 2d       	mov	r18, r4
-     efa:	43 2d       	mov	r20, r3
-     efc:	65 2d       	mov	r22, r5
-     efe:	8c 81       	ldd	r24, Y+4	; 0x04
-     f00:	9d 81       	ldd	r25, Y+5	; 0x05
-     f02:	0e 94 10 06 	call	0xc20	; 0xc20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
-     f06:	32 2c       	mov	r3, r2
-     f08:	da cf       	rjmp	.-76     	; 0xebe <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x224>
+     f48:	83 2d       	mov	r24, r3
+     f4a:	03 2c       	mov	r0, r3
+     f4c:	00 0c       	add	r0, r0
+     f4e:	99 0b       	sbc	r25, r25
+     f50:	8a 15       	cp	r24, r10
+     f52:	9b 05       	cpc	r25, r11
+     f54:	fc f4       	brge	.+62     	; 0xf94 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x270>
+     f56:	22 24       	eor	r2, r2
+     f58:	23 94       	inc	r2
+     f5a:	23 0c       	add	r2, r3
+     f5c:	ea 81       	ldd	r30, Y+2	; 0x02
+     f5e:	fb 81       	ldd	r31, Y+3	; 0x03
+     f60:	88 e0       	ldi	r24, 0x08	; 8
+     f62:	28 9e       	mul	r2, r24
+     f64:	e0 0d       	add	r30, r0
+     f66:	f1 1d       	adc	r31, r1
+     f68:	11 24       	eor	r1, r1
+     f6a:	ee 0d       	add	r30, r14
+     f6c:	ff 1d       	adc	r31, r15
+     f6e:	80 81       	ld	r24, Z
+     f70:	90 e0       	ldi	r25, 0x00	; 0
+     f72:	05 2c       	mov	r0, r5
+     f74:	02 c0       	rjmp	.+4      	; 0xf7a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x256>
+     f76:	95 95       	asr	r25
+     f78:	87 95       	ror	r24
+     f7a:	0a 94       	dec	r0
+     f7c:	e2 f7       	brpl	.-8      	; 0xf76 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x252>
+     f7e:	08 2f       	mov	r16, r24
+     f80:	01 70       	andi	r16, 0x01	; 1
+     f82:	24 2d       	mov	r18, r4
+     f84:	43 2d       	mov	r20, r3
+     f86:	65 2d       	mov	r22, r5
+     f88:	8c 81       	ldd	r24, Y+4	; 0x04
+     f8a:	9d 81       	ldd	r25, Y+5	; 0x05
+     f8c:	0e 94 55 06 	call	0xcaa	; 0xcaa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     f90:	32 2c       	mov	r3, r2
+     f92:	da cf       	rjmp	.-76     	; 0xf48 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x224>
 					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X-1, LEDs-1-Circle, Z));
-     f0a:	35 2c       	mov	r3, r5
-     f0c:	65 2d       	mov	r22, r5
-     f0e:	86 2f       	mov	r24, r22
-     f10:	06 2e       	mov	r0, r22
-     f12:	00 0c       	add	r0, r0
-     f14:	99 0b       	sbc	r25, r25
-     f16:	c8 16       	cp	r12, r24
-     f18:	d9 06       	cpc	r13, r25
-     f1a:	dc f4       	brge	.+54     	; 0xf52 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2b8>
-     f1c:	22 24       	eor	r2, r2
-     f1e:	2a 94       	dec	r2
-     f20:	26 0e       	add	r2, r22
-     f22:	ea 81       	ldd	r30, Y+2	; 0x02
-     f24:	fb 81       	ldd	r31, Y+3	; 0x03
-     f26:	e6 0d       	add	r30, r6
-     f28:	f7 1d       	adc	r31, r7
-     f2a:	ee 0d       	add	r30, r14
-     f2c:	ff 1d       	adc	r31, r15
-     f2e:	80 81       	ld	r24, Z
-     f30:	90 e0       	ldi	r25, 0x00	; 0
-     f32:	02 2c       	mov	r0, r2
-     f34:	02 c0       	rjmp	.+4      	; 0xf3a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2a0>
-     f36:	95 95       	asr	r25
-     f38:	87 95       	ror	r24
-     f3a:	0a 94       	dec	r0
-     f3c:	e2 f7       	brpl	.-8      	; 0xf36 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x29c>
-     f3e:	08 2f       	mov	r16, r24
-     f40:	01 70       	andi	r16, 0x01	; 1
-     f42:	24 2d       	mov	r18, r4
-     f44:	45 2d       	mov	r20, r5
-     f46:	8c 81       	ldd	r24, Y+4	; 0x04
-     f48:	9d 81       	ldd	r25, Y+5	; 0x05
-     f4a:	0e 94 10 06 	call	0xc20	; 0xc20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
-     f4e:	62 2d       	mov	r22, r2
-     f50:	de cf       	rjmp	.-68     	; 0xf0e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x274>
+     f94:	35 2c       	mov	r3, r5
+     f96:	65 2d       	mov	r22, r5
+     f98:	86 2f       	mov	r24, r22
+     f9a:	06 2e       	mov	r0, r22
+     f9c:	00 0c       	add	r0, r0
+     f9e:	99 0b       	sbc	r25, r25
+     fa0:	c8 16       	cp	r12, r24
+     fa2:	d9 06       	cpc	r13, r25
+     fa4:	dc f4       	brge	.+54     	; 0xfdc <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2b8>
+     fa6:	22 24       	eor	r2, r2
+     fa8:	2a 94       	dec	r2
+     faa:	26 0e       	add	r2, r22
+     fac:	ea 81       	ldd	r30, Y+2	; 0x02
+     fae:	fb 81       	ldd	r31, Y+3	; 0x03
+     fb0:	e6 0d       	add	r30, r6
+     fb2:	f7 1d       	adc	r31, r7
+     fb4:	ee 0d       	add	r30, r14
+     fb6:	ff 1d       	adc	r31, r15
+     fb8:	80 81       	ld	r24, Z
+     fba:	90 e0       	ldi	r25, 0x00	; 0
+     fbc:	02 2c       	mov	r0, r2
+     fbe:	02 c0       	rjmp	.+4      	; 0xfc4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2a0>
+     fc0:	95 95       	asr	r25
+     fc2:	87 95       	ror	r24
+     fc4:	0a 94       	dec	r0
+     fc6:	e2 f7       	brpl	.-8      	; 0xfc0 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x29c>
+     fc8:	08 2f       	mov	r16, r24
+     fca:	01 70       	andi	r16, 0x01	; 1
+     fcc:	24 2d       	mov	r18, r4
+     fce:	45 2d       	mov	r20, r5
+     fd0:	8c 81       	ldd	r24, Y+4	; 0x04
+     fd2:	9d 81       	ldd	r25, Y+5	; 0x05
+     fd4:	0e 94 55 06 	call	0xcaa	; 0xcaa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     fd8:	62 2d       	mov	r22, r2
+     fda:	de cf       	rjmp	.-68     	; 0xf98 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x274>
 					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) Cube->writeVoxelFast(Circle, Y, Z, Cube->getVoxelFast(Circle, Y-1, Z));
-     f52:	83 2d       	mov	r24, r3
-     f54:	03 2c       	mov	r0, r3
-     f56:	00 0c       	add	r0, r0
-     f58:	99 0b       	sbc	r25, r25
-     f5a:	c8 16       	cp	r12, r24
-     f5c:	d9 06       	cpc	r13, r25
-     f5e:	fc f4       	brge	.+62     	; 0xf9e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x304>
-     f60:	22 24       	eor	r2, r2
-     f62:	2a 94       	dec	r2
-     f64:	23 0c       	add	r2, r3
-     f66:	ea 81       	ldd	r30, Y+2	; 0x02
-     f68:	fb 81       	ldd	r31, Y+3	; 0x03
-     f6a:	88 e0       	ldi	r24, 0x08	; 8
-     f6c:	28 9e       	mul	r2, r24
-     f6e:	e0 0d       	add	r30, r0
-     f70:	f1 1d       	adc	r31, r1
-     f72:	11 24       	eor	r1, r1
-     f74:	ee 0d       	add	r30, r14
-     f76:	ff 1d       	adc	r31, r15
-     f78:	80 81       	ld	r24, Z
-     f7a:	90 e0       	ldi	r25, 0x00	; 0
-     f7c:	0c 2c       	mov	r0, r12
-     f7e:	02 c0       	rjmp	.+4      	; 0xf84 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2ea>
-     f80:	95 95       	asr	r25
-     f82:	87 95       	ror	r24
-     f84:	0a 94       	dec	r0
-     f86:	e2 f7       	brpl	.-8      	; 0xf80 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2e6>
-     f88:	08 2f       	mov	r16, r24
-     f8a:	01 70       	andi	r16, 0x01	; 1
-     f8c:	24 2d       	mov	r18, r4
-     f8e:	43 2d       	mov	r20, r3
-     f90:	61 2f       	mov	r22, r17
-     f92:	8c 81       	ldd	r24, Y+4	; 0x04
-     f94:	9d 81       	ldd	r25, Y+5	; 0x05
-     f96:	0e 94 10 06 	call	0xc20	; 0xc20 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
-     f9a:	32 2c       	mov	r3, r2
-     f9c:	da cf       	rjmp	.-76     	; 0xf52 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2b8>
-     f9e:	8f ef       	ldi	r24, 0xFF	; 255
-     fa0:	e8 1a       	sub	r14, r24
-     fa2:	f8 0a       	sbc	r15, r24
+     fdc:	83 2d       	mov	r24, r3
+     fde:	03 2c       	mov	r0, r3
+     fe0:	00 0c       	add	r0, r0
+     fe2:	99 0b       	sbc	r25, r25
+     fe4:	c8 16       	cp	r12, r24
+     fe6:	d9 06       	cpc	r13, r25
+     fe8:	fc f4       	brge	.+62     	; 0x1028 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x304>
+     fea:	22 24       	eor	r2, r2
+     fec:	2a 94       	dec	r2
+     fee:	23 0c       	add	r2, r3
+     ff0:	ea 81       	ldd	r30, Y+2	; 0x02
+     ff2:	fb 81       	ldd	r31, Y+3	; 0x03
+     ff4:	88 e0       	ldi	r24, 0x08	; 8
+     ff6:	28 9e       	mul	r2, r24
+     ff8:	e0 0d       	add	r30, r0
+     ffa:	f1 1d       	adc	r31, r1
+     ffc:	11 24       	eor	r1, r1
+     ffe:	ee 0d       	add	r30, r14
+    1000:	ff 1d       	adc	r31, r15
+    1002:	80 81       	ld	r24, Z
+    1004:	90 e0       	ldi	r25, 0x00	; 0
+    1006:	0c 2c       	mov	r0, r12
+    1008:	02 c0       	rjmp	.+4      	; 0x100e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2ea>
+    100a:	95 95       	asr	r25
+    100c:	87 95       	ror	r24
+    100e:	0a 94       	dec	r0
+    1010:	e2 f7       	brpl	.-8      	; 0x100a <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2e6>
+    1012:	08 2f       	mov	r16, r24
+    1014:	01 70       	andi	r16, 0x01	; 1
+    1016:	24 2d       	mov	r18, r4
+    1018:	43 2d       	mov	r20, r3
+    101a:	61 2f       	mov	r22, r17
+    101c:	8c 81       	ldd	r24, Y+4	; 0x04
+    101e:	9d 81       	ldd	r25, Y+5	; 0x05
+    1020:	0e 94 55 06 	call	0xcaa	; 0xcaa <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+    1024:	32 2c       	mov	r3, r2
+    1026:	da cf       	rjmp	.-76     	; 0xfdc <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2b8>
+    1028:	8f ef       	ldi	r24, 0xFF	; 255
+    102a:	e8 1a       	sub	r14, r24
+    102c:	f8 0a       	sbc	r15, r24
 				}
 			}
 		}
 		if(TRANSFORMATION_ROTATION_COUNTERCLOCKWISE == Direction) {
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
 				for(byte Z = 0; Z < LEDs; Z++) {
-     fa4:	88 e0       	ldi	r24, 0x08	; 8
-     fa6:	e8 16       	cp	r14, r24
-     fa8:	f1 04       	cpc	r15, r1
-     faa:	09 f0       	breq	.+2      	; 0xfae <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x314>
-     fac:	63 cf       	rjmp	.-314    	; 0xe74 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1da>
-     fae:	02 c0       	rjmp	.+4      	; 0xfb4 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
+    102e:	88 e0       	ldi	r24, 0x08	; 8
+    1030:	e8 16       	cp	r14, r24
+    1032:	f1 04       	cpc	r15, r1
+    1034:	09 f0       	breq	.+2      	; 0x1038 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x314>
+    1036:	63 cf       	rjmp	.-314    	; 0xefe <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1da>
+    1038:	02 c0       	rjmp	.+4      	; 0x103e <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31a>
 			}
 		}
 		return E_OK;
 	} 
 	else { 
 		return E_NOT_OK;
-     fb0:	81 e0       	ldi	r24, 0x01	; 1
-     fb2:	01 c0       	rjmp	.+2      	; 0xfb6 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31c>
+    103a:	81 e0       	ldi	r24, 0x01	; 1
+    103c:	01 c0       	rjmp	.+2      	; 0x1040 <_ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh+0x31c>
 					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X-1, LEDs-1-Circle, Z));
 					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) Cube->writeVoxelFast(Circle, Y, Z, Cube->getVoxelFast(Circle, Y-1, Z));
 				}
 			}
 		}
 		return E_OK;
-     fb4:	80 e0       	ldi	r24, 0x00	; 0
+    103e:	80 e0       	ldi	r24, 0x00	; 0
 	} 
 	else { 
 		return E_NOT_OK;
 	}
 } /* rotateWithShift */
-     fb6:	df 91       	pop	r29
-     fb8:	cf 91       	pop	r28
-     fba:	1f 91       	pop	r17
-     fbc:	0f 91       	pop	r16
-     fbe:	ff 90       	pop	r15
-     fc0:	ef 90       	pop	r14
-     fc2:	df 90       	pop	r13
-     fc4:	cf 90       	pop	r12
-     fc6:	bf 90       	pop	r11
-     fc8:	af 90       	pop	r10
-     fca:	9f 90       	pop	r9
-     fcc:	8f 90       	pop	r8
-     fce:	7f 90       	pop	r7
-     fd0:	6f 90       	pop	r6
-     fd2:	5f 90       	pop	r5
-     fd4:	4f 90       	pop	r4
-     fd6:	3f 90       	pop	r3
-     fd8:	2f 90       	pop	r2
-     fda:	08 95       	ret
+    1040:	df 91       	pop	r29
+    1042:	cf 91       	pop	r28
+    1044:	1f 91       	pop	r17
+    1046:	0f 91       	pop	r16
+    1048:	ff 90       	pop	r15
+    104a:	ef 90       	pop	r14
+    104c:	df 90       	pop	r13
+    104e:	cf 90       	pop	r12
+    1050:	bf 90       	pop	r11
+    1052:	af 90       	pop	r10
+    1054:	9f 90       	pop	r9
+    1056:	8f 90       	pop	r8
+    1058:	7f 90       	pop	r7
+    105a:	6f 90       	pop	r6
+    105c:	5f 90       	pop	r5
+    105e:	4f 90       	pop	r4
+    1060:	3f 90       	pop	r3
+    1062:	2f 90       	pop	r2
+    1064:	08 95       	ret
 
-00000fdc <initVariant>:
+00001066 <initVariant>:
 int atexit(void (*func)()) { return 0; }
 
 // Weak empty variant initialization function.
 // May be redefined by variant files.
 void initVariant() __attribute__((weak));
 void initVariant() { }
-     fdc:	08 95       	ret
+    1066:	08 95       	ret
 
-00000fde <main>:
+00001068 <main>:
 
 int main(void)
 {
 	init();
-     fde:	0e 94 95 08 	call	0x112a	; 0x112a <init>
+    1068:	0e 94 da 08 	call	0x11b4	; 0x11b4 <init>
 
 	initVariant();
-     fe2:	0e 94 ee 07 	call	0xfdc	; 0xfdc <initVariant>
+    106c:	0e 94 33 08 	call	0x1066	; 0x1066 <initVariant>
 
 #if defined(USBCON)
 	USBDevice.attach();
 #endif
 	
 	setup();
-     fe6:	0e 94 de 04 	call	0x9bc	; 0x9bc <setup>
+    1070:	0e 94 f9 04 	call	0x9f2	; 0x9f2 <setup>
     
 	for (;;) {
 		loop();
 		if (serialEventRun) serialEventRun();
-     fea:	c0 e0       	ldi	r28, 0x00	; 0
-     fec:	d0 e0       	ldi	r29, 0x00	; 0
+    1074:	c0 e0       	ldi	r28, 0x00	; 0
+    1076:	d0 e0       	ldi	r29, 0x00	; 0
 #endif
 	
 	setup();
     
 	for (;;) {
 		loop();
-     fee:	0e 94 7d 04 	call	0x8fa	; 0x8fa <loop>
+    1078:	0e 94 7d 04 	call	0x8fa	; 0x8fa <loop>
 		if (serialEventRun) serialEventRun();
-     ff2:	20 97       	sbiw	r28, 0x00	; 0
-     ff4:	e1 f3       	breq	.-8      	; 0xfee <main+0x10>
-     ff6:	0e 94 00 00 	call	0	; 0x0 <__vectors>
-     ffa:	f9 cf       	rjmp	.-14     	; 0xfee <main+0x10>
+    107c:	20 97       	sbiw	r28, 0x00	; 0
+    107e:	e1 f3       	breq	.-8      	; 0x1078 <main+0x10>
+    1080:	0e 94 00 00 	call	0	; 0x0 <__vectors>
+    1084:	f9 cf       	rjmp	.-14     	; 0x1078 <main+0x10>
 
-00000ffc <__vector_16>:
+00001086 <__vector_16>:
 	// we can't subtract any more than this or we'd overflow w/ small delays.
 	us--;
 #endif
 
 	// busy wait
 	__asm__ __volatile__ (
-     ffc:	1f 92       	push	r1
-     ffe:	0f 92       	push	r0
-    1000:	0f b6       	in	r0, 0x3f	; 63
-    1002:	0f 92       	push	r0
-    1004:	11 24       	eor	r1, r1
-    1006:	2f 93       	push	r18
-    1008:	3f 93       	push	r19
-    100a:	8f 93       	push	r24
-    100c:	9f 93       	push	r25
-    100e:	af 93       	push	r26
-    1010:	bf 93       	push	r27
-    1012:	80 91 8d 01 	lds	r24, 0x018D	; 0x80018d <timer0_millis>
-    1016:	90 91 8e 01 	lds	r25, 0x018E	; 0x80018e <timer0_millis+0x1>
-    101a:	a0 91 8f 01 	lds	r26, 0x018F	; 0x80018f <timer0_millis+0x2>
-    101e:	b0 91 90 01 	lds	r27, 0x0190	; 0x800190 <timer0_millis+0x3>
-    1022:	30 91 8c 01 	lds	r19, 0x018C	; 0x80018c <timer0_fract>
-    1026:	23 e0       	ldi	r18, 0x03	; 3
-    1028:	23 0f       	add	r18, r19
-    102a:	2d 37       	cpi	r18, 0x7D	; 125
-    102c:	20 f4       	brcc	.+8      	; 0x1036 <__vector_16+0x3a>
-    102e:	01 96       	adiw	r24, 0x01	; 1
-    1030:	a1 1d       	adc	r26, r1
-    1032:	b1 1d       	adc	r27, r1
-    1034:	05 c0       	rjmp	.+10     	; 0x1040 <__vector_16+0x44>
-    1036:	26 e8       	ldi	r18, 0x86	; 134
-    1038:	23 0f       	add	r18, r19
-    103a:	02 96       	adiw	r24, 0x02	; 2
-    103c:	a1 1d       	adc	r26, r1
-    103e:	b1 1d       	adc	r27, r1
-    1040:	20 93 8c 01 	sts	0x018C, r18	; 0x80018c <timer0_fract>
-    1044:	80 93 8d 01 	sts	0x018D, r24	; 0x80018d <timer0_millis>
-    1048:	90 93 8e 01 	sts	0x018E, r25	; 0x80018e <timer0_millis+0x1>
-    104c:	a0 93 8f 01 	sts	0x018F, r26	; 0x80018f <timer0_millis+0x2>
-    1050:	b0 93 90 01 	sts	0x0190, r27	; 0x800190 <timer0_millis+0x3>
-    1054:	80 91 91 01 	lds	r24, 0x0191	; 0x800191 <timer0_overflow_count>
-    1058:	90 91 92 01 	lds	r25, 0x0192	; 0x800192 <timer0_overflow_count+0x1>
-    105c:	a0 91 93 01 	lds	r26, 0x0193	; 0x800193 <timer0_overflow_count+0x2>
-    1060:	b0 91 94 01 	lds	r27, 0x0194	; 0x800194 <timer0_overflow_count+0x3>
-    1064:	01 96       	adiw	r24, 0x01	; 1
-    1066:	a1 1d       	adc	r26, r1
-    1068:	b1 1d       	adc	r27, r1
-    106a:	80 93 91 01 	sts	0x0191, r24	; 0x800191 <timer0_overflow_count>
-    106e:	90 93 92 01 	sts	0x0192, r25	; 0x800192 <timer0_overflow_count+0x1>
-    1072:	a0 93 93 01 	sts	0x0193, r26	; 0x800193 <timer0_overflow_count+0x2>
-    1076:	b0 93 94 01 	sts	0x0194, r27	; 0x800194 <timer0_overflow_count+0x3>
-    107a:	bf 91       	pop	r27
-    107c:	af 91       	pop	r26
-    107e:	9f 91       	pop	r25
-    1080:	8f 91       	pop	r24
-    1082:	3f 91       	pop	r19
-    1084:	2f 91       	pop	r18
-    1086:	0f 90       	pop	r0
-    1088:	0f be       	out	0x3f, r0	; 63
-    108a:	0f 90       	pop	r0
-    108c:	1f 90       	pop	r1
-    108e:	18 95       	reti
+    1086:	1f 92       	push	r1
+    1088:	0f 92       	push	r0
+    108a:	0f b6       	in	r0, 0x3f	; 63
+    108c:	0f 92       	push	r0
+    108e:	11 24       	eor	r1, r1
+    1090:	2f 93       	push	r18
+    1092:	3f 93       	push	r19
+    1094:	8f 93       	push	r24
+    1096:	9f 93       	push	r25
+    1098:	af 93       	push	r26
+    109a:	bf 93       	push	r27
+    109c:	80 91 8d 01 	lds	r24, 0x018D	; 0x80018d <timer0_millis>
+    10a0:	90 91 8e 01 	lds	r25, 0x018E	; 0x80018e <timer0_millis+0x1>
+    10a4:	a0 91 8f 01 	lds	r26, 0x018F	; 0x80018f <timer0_millis+0x2>
+    10a8:	b0 91 90 01 	lds	r27, 0x0190	; 0x800190 <timer0_millis+0x3>
+    10ac:	30 91 8c 01 	lds	r19, 0x018C	; 0x80018c <timer0_fract>
+    10b0:	23 e0       	ldi	r18, 0x03	; 3
+    10b2:	23 0f       	add	r18, r19
+    10b4:	2d 37       	cpi	r18, 0x7D	; 125
+    10b6:	20 f4       	brcc	.+8      	; 0x10c0 <__vector_16+0x3a>
+    10b8:	01 96       	adiw	r24, 0x01	; 1
+    10ba:	a1 1d       	adc	r26, r1
+    10bc:	b1 1d       	adc	r27, r1
+    10be:	05 c0       	rjmp	.+10     	; 0x10ca <__vector_16+0x44>
+    10c0:	26 e8       	ldi	r18, 0x86	; 134
+    10c2:	23 0f       	add	r18, r19
+    10c4:	02 96       	adiw	r24, 0x02	; 2
+    10c6:	a1 1d       	adc	r26, r1
+    10c8:	b1 1d       	adc	r27, r1
+    10ca:	20 93 8c 01 	sts	0x018C, r18	; 0x80018c <timer0_fract>
+    10ce:	80 93 8d 01 	sts	0x018D, r24	; 0x80018d <timer0_millis>
+    10d2:	90 93 8e 01 	sts	0x018E, r25	; 0x80018e <timer0_millis+0x1>
+    10d6:	a0 93 8f 01 	sts	0x018F, r26	; 0x80018f <timer0_millis+0x2>
+    10da:	b0 93 90 01 	sts	0x0190, r27	; 0x800190 <timer0_millis+0x3>
+    10de:	80 91 91 01 	lds	r24, 0x0191	; 0x800191 <timer0_overflow_count>
+    10e2:	90 91 92 01 	lds	r25, 0x0192	; 0x800192 <timer0_overflow_count+0x1>
+    10e6:	a0 91 93 01 	lds	r26, 0x0193	; 0x800193 <timer0_overflow_count+0x2>
+    10ea:	b0 91 94 01 	lds	r27, 0x0194	; 0x800194 <timer0_overflow_count+0x3>
+    10ee:	01 96       	adiw	r24, 0x01	; 1
+    10f0:	a1 1d       	adc	r26, r1
+    10f2:	b1 1d       	adc	r27, r1
+    10f4:	80 93 91 01 	sts	0x0191, r24	; 0x800191 <timer0_overflow_count>
+    10f8:	90 93 92 01 	sts	0x0192, r25	; 0x800192 <timer0_overflow_count+0x1>
+    10fc:	a0 93 93 01 	sts	0x0193, r26	; 0x800193 <timer0_overflow_count+0x2>
+    1100:	b0 93 94 01 	sts	0x0194, r27	; 0x800194 <timer0_overflow_count+0x3>
+    1104:	bf 91       	pop	r27
+    1106:	af 91       	pop	r26
+    1108:	9f 91       	pop	r25
+    110a:	8f 91       	pop	r24
+    110c:	3f 91       	pop	r19
+    110e:	2f 91       	pop	r18
+    1110:	0f 90       	pop	r0
+    1112:	0f be       	out	0x3f, r0	; 63
+    1114:	0f 90       	pop	r0
+    1116:	1f 90       	pop	r1
+    1118:	18 95       	reti
 
-00001090 <micros>:
-    1090:	3f b7       	in	r19, 0x3f	; 63
-    1092:	f8 94       	cli
-    1094:	80 91 91 01 	lds	r24, 0x0191	; 0x800191 <timer0_overflow_count>
-    1098:	90 91 92 01 	lds	r25, 0x0192	; 0x800192 <timer0_overflow_count+0x1>
-    109c:	a0 91 93 01 	lds	r26, 0x0193	; 0x800193 <timer0_overflow_count+0x2>
-    10a0:	b0 91 94 01 	lds	r27, 0x0194	; 0x800194 <timer0_overflow_count+0x3>
-    10a4:	26 b5       	in	r18, 0x26	; 38
-    10a6:	a8 9b       	sbis	0x15, 0	; 21
-    10a8:	05 c0       	rjmp	.+10     	; 0x10b4 <micros+0x24>
-    10aa:	2f 3f       	cpi	r18, 0xFF	; 255
-    10ac:	19 f0       	breq	.+6      	; 0x10b4 <micros+0x24>
-    10ae:	01 96       	adiw	r24, 0x01	; 1
-    10b0:	a1 1d       	adc	r26, r1
-    10b2:	b1 1d       	adc	r27, r1
-    10b4:	3f bf       	out	0x3f, r19	; 63
-    10b6:	ba 2f       	mov	r27, r26
-    10b8:	a9 2f       	mov	r26, r25
-    10ba:	98 2f       	mov	r25, r24
-    10bc:	88 27       	eor	r24, r24
-    10be:	82 0f       	add	r24, r18
-    10c0:	91 1d       	adc	r25, r1
-    10c2:	a1 1d       	adc	r26, r1
-    10c4:	b1 1d       	adc	r27, r1
-    10c6:	bc 01       	movw	r22, r24
-    10c8:	cd 01       	movw	r24, r26
-    10ca:	42 e0       	ldi	r20, 0x02	; 2
-    10cc:	66 0f       	add	r22, r22
-    10ce:	77 1f       	adc	r23, r23
-    10d0:	88 1f       	adc	r24, r24
-    10d2:	99 1f       	adc	r25, r25
-    10d4:	4a 95       	dec	r20
-    10d6:	d1 f7       	brne	.-12     	; 0x10cc <micros+0x3c>
-    10d8:	08 95       	ret
+0000111a <micros>:
+    111a:	3f b7       	in	r19, 0x3f	; 63
+    111c:	f8 94       	cli
+    111e:	80 91 91 01 	lds	r24, 0x0191	; 0x800191 <timer0_overflow_count>
+    1122:	90 91 92 01 	lds	r25, 0x0192	; 0x800192 <timer0_overflow_count+0x1>
+    1126:	a0 91 93 01 	lds	r26, 0x0193	; 0x800193 <timer0_overflow_count+0x2>
+    112a:	b0 91 94 01 	lds	r27, 0x0194	; 0x800194 <timer0_overflow_count+0x3>
+    112e:	26 b5       	in	r18, 0x26	; 38
+    1130:	a8 9b       	sbis	0x15, 0	; 21
+    1132:	05 c0       	rjmp	.+10     	; 0x113e <micros+0x24>
+    1134:	2f 3f       	cpi	r18, 0xFF	; 255
+    1136:	19 f0       	breq	.+6      	; 0x113e <micros+0x24>
+    1138:	01 96       	adiw	r24, 0x01	; 1
+    113a:	a1 1d       	adc	r26, r1
+    113c:	b1 1d       	adc	r27, r1
+    113e:	3f bf       	out	0x3f, r19	; 63
+    1140:	ba 2f       	mov	r27, r26
+    1142:	a9 2f       	mov	r26, r25
+    1144:	98 2f       	mov	r25, r24
+    1146:	88 27       	eor	r24, r24
+    1148:	82 0f       	add	r24, r18
+    114a:	91 1d       	adc	r25, r1
+    114c:	a1 1d       	adc	r26, r1
+    114e:	b1 1d       	adc	r27, r1
+    1150:	bc 01       	movw	r22, r24
+    1152:	cd 01       	movw	r24, r26
+    1154:	42 e0       	ldi	r20, 0x02	; 2
+    1156:	66 0f       	add	r22, r22
+    1158:	77 1f       	adc	r23, r23
+    115a:	88 1f       	adc	r24, r24
+    115c:	99 1f       	adc	r25, r25
+    115e:	4a 95       	dec	r20
+    1160:	d1 f7       	brne	.-12     	; 0x1156 <micros+0x3c>
+    1162:	08 95       	ret
 
-000010da <delay>:
-    10da:	cf 92       	push	r12
-    10dc:	df 92       	push	r13
-    10de:	ef 92       	push	r14
-    10e0:	ff 92       	push	r15
-    10e2:	cf 93       	push	r28
-    10e4:	df 93       	push	r29
-    10e6:	6b 01       	movw	r12, r22
-    10e8:	7c 01       	movw	r14, r24
-    10ea:	0e 94 48 08 	call	0x1090	; 0x1090 <micros>
-    10ee:	eb 01       	movw	r28, r22
-    10f0:	c1 14       	cp	r12, r1
-    10f2:	d1 04       	cpc	r13, r1
-    10f4:	e1 04       	cpc	r14, r1
-    10f6:	f1 04       	cpc	r15, r1
-    10f8:	89 f0       	breq	.+34     	; 0x111c <delay+0x42>
-    10fa:	0e 94 65 09 	call	0x12ca	; 0x12ca <yield>
-    10fe:	0e 94 48 08 	call	0x1090	; 0x1090 <micros>
-    1102:	6c 1b       	sub	r22, r28
-    1104:	7d 0b       	sbc	r23, r29
-    1106:	68 3e       	cpi	r22, 0xE8	; 232
-    1108:	73 40       	sbci	r23, 0x03	; 3
-    110a:	90 f3       	brcs	.-28     	; 0x10f0 <delay+0x16>
-    110c:	81 e0       	ldi	r24, 0x01	; 1
-    110e:	c8 1a       	sub	r12, r24
-    1110:	d1 08       	sbc	r13, r1
-    1112:	e1 08       	sbc	r14, r1
-    1114:	f1 08       	sbc	r15, r1
-    1116:	c8 51       	subi	r28, 0x18	; 24
-    1118:	dc 4f       	sbci	r29, 0xFC	; 252
-    111a:	ea cf       	rjmp	.-44     	; 0x10f0 <delay+0x16>
-    111c:	df 91       	pop	r29
-    111e:	cf 91       	pop	r28
-    1120:	ff 90       	pop	r15
-    1122:	ef 90       	pop	r14
-    1124:	df 90       	pop	r13
-    1126:	cf 90       	pop	r12
-    1128:	08 95       	ret
+00001164 <delay>:
+    1164:	cf 92       	push	r12
+    1166:	df 92       	push	r13
+    1168:	ef 92       	push	r14
+    116a:	ff 92       	push	r15
+    116c:	cf 93       	push	r28
+    116e:	df 93       	push	r29
+    1170:	6b 01       	movw	r12, r22
+    1172:	7c 01       	movw	r14, r24
+    1174:	0e 94 8d 08 	call	0x111a	; 0x111a <micros>
+    1178:	eb 01       	movw	r28, r22
+    117a:	c1 14       	cp	r12, r1
+    117c:	d1 04       	cpc	r13, r1
+    117e:	e1 04       	cpc	r14, r1
+    1180:	f1 04       	cpc	r15, r1
+    1182:	89 f0       	breq	.+34     	; 0x11a6 <delay+0x42>
+    1184:	0e 94 aa 09 	call	0x1354	; 0x1354 <yield>
+    1188:	0e 94 8d 08 	call	0x111a	; 0x111a <micros>
+    118c:	6c 1b       	sub	r22, r28
+    118e:	7d 0b       	sbc	r23, r29
+    1190:	68 3e       	cpi	r22, 0xE8	; 232
+    1192:	73 40       	sbci	r23, 0x03	; 3
+    1194:	90 f3       	brcs	.-28     	; 0x117a <delay+0x16>
+    1196:	81 e0       	ldi	r24, 0x01	; 1
+    1198:	c8 1a       	sub	r12, r24
+    119a:	d1 08       	sbc	r13, r1
+    119c:	e1 08       	sbc	r14, r1
+    119e:	f1 08       	sbc	r15, r1
+    11a0:	c8 51       	subi	r28, 0x18	; 24
+    11a2:	dc 4f       	sbci	r29, 0xFC	; 252
+    11a4:	ea cf       	rjmp	.-44     	; 0x117a <delay+0x16>
+    11a6:	df 91       	pop	r29
+    11a8:	cf 91       	pop	r28
+    11aa:	ff 90       	pop	r15
+    11ac:	ef 90       	pop	r14
+    11ae:	df 90       	pop	r13
+    11b0:	cf 90       	pop	r12
+    11b2:	08 95       	ret
 
-0000112a <init>:
+000011b4 <init>:
 
 void init()
 {
 	// this needs to be called before setup() or some functions won't
 	// work there
 	sei();
-    112a:	78 94       	sei
+    11b4:	78 94       	sei
 	
 	// on the ATmega168, timer 0 is also used for fast hardware pwm
 	// (using phase-correct PWM would mean that timer 0 overflowed half as often
 	// resulting in different millis() behavior on the ATmega8 and ATmega168)
 #if defined(TCCR0A) && defined(WGM01)
 	sbi(TCCR0A, WGM01);
-    112c:	84 b5       	in	r24, 0x24	; 36
-    112e:	82 60       	ori	r24, 0x02	; 2
-    1130:	84 bd       	out	0x24, r24	; 36
+    11b6:	84 b5       	in	r24, 0x24	; 36
+    11b8:	82 60       	ori	r24, 0x02	; 2
+    11ba:	84 bd       	out	0x24, r24	; 36
 	sbi(TCCR0A, WGM00);
-    1132:	84 b5       	in	r24, 0x24	; 36
-    1134:	81 60       	ori	r24, 0x01	; 1
-    1136:	84 bd       	out	0x24, r24	; 36
+    11bc:	84 b5       	in	r24, 0x24	; 36
+    11be:	81 60       	ori	r24, 0x01	; 1
+    11c0:	84 bd       	out	0x24, r24	; 36
 	// this combination is for the standard atmega8
 	sbi(TCCR0, CS01);
 	sbi(TCCR0, CS00);
 #elif defined(TCCR0B) && defined(CS01) && defined(CS00)
 	// this combination is for the standard 168/328/1280/2560
 	sbi(TCCR0B, CS01);
-    1138:	85 b5       	in	r24, 0x25	; 37
-    113a:	82 60       	ori	r24, 0x02	; 2
-    113c:	85 bd       	out	0x25, r24	; 37
+    11c2:	85 b5       	in	r24, 0x25	; 37
+    11c4:	82 60       	ori	r24, 0x02	; 2
+    11c6:	85 bd       	out	0x25, r24	; 37
 	sbi(TCCR0B, CS00);
-    113e:	85 b5       	in	r24, 0x25	; 37
-    1140:	81 60       	ori	r24, 0x01	; 1
-    1142:	85 bd       	out	0x25, r24	; 37
+    11c8:	85 b5       	in	r24, 0x25	; 37
+    11ca:	81 60       	ori	r24, 0x01	; 1
+    11cc:	85 bd       	out	0x25, r24	; 37
 
 	// enable timer 0 overflow interrupt
 #if defined(TIMSK) && defined(TOIE0)
 	sbi(TIMSK, TOIE0);
 #elif defined(TIMSK0) && defined(TOIE0)
 	sbi(TIMSK0, TOIE0);
-    1144:	ee e6       	ldi	r30, 0x6E	; 110
-    1146:	f0 e0       	ldi	r31, 0x00	; 0
-    1148:	80 81       	ld	r24, Z
-    114a:	81 60       	ori	r24, 0x01	; 1
-    114c:	80 83       	st	Z, r24
+    11ce:	ee e6       	ldi	r30, 0x6E	; 110
+    11d0:	f0 e0       	ldi	r31, 0x00	; 0
+    11d2:	80 81       	ld	r24, Z
+    11d4:	81 60       	ori	r24, 0x01	; 1
+    11d6:	80 83       	st	Z, r24
 	// this is better for motors as it ensures an even waveform
 	// note, however, that fast pwm mode can achieve a frequency of up
 	// 8 MHz (with a 16 MHz clock) at 50% duty cycle
 
 #if defined(TCCR1B) && defined(CS11) && defined(CS10)
 	TCCR1B = 0;
-    114e:	e1 e8       	ldi	r30, 0x81	; 129
-    1150:	f0 e0       	ldi	r31, 0x00	; 0
-    1152:	10 82       	st	Z, r1
+    11d8:	e1 e8       	ldi	r30, 0x81	; 129
+    11da:	f0 e0       	ldi	r31, 0x00	; 0
+    11dc:	10 82       	st	Z, r1
 
 	// set timer 1 prescale factor to 64
 	sbi(TCCR1B, CS11);
-    1154:	80 81       	ld	r24, Z
-    1156:	82 60       	ori	r24, 0x02	; 2
-    1158:	80 83       	st	Z, r24
+    11de:	80 81       	ld	r24, Z
+    11e0:	82 60       	ori	r24, 0x02	; 2
+    11e2:	80 83       	st	Z, r24
 #if F_CPU >= 8000000L
 	sbi(TCCR1B, CS10);
-    115a:	80 81       	ld	r24, Z
-    115c:	81 60       	ori	r24, 0x01	; 1
-    115e:	80 83       	st	Z, r24
+    11e4:	80 81       	ld	r24, Z
+    11e6:	81 60       	ori	r24, 0x01	; 1
+    11e8:	80 83       	st	Z, r24
 	sbi(TCCR1, CS10);
 #endif
 #endif
 	// put timer 1 in 8-bit phase correct pwm mode
 #if defined(TCCR1A) && defined(WGM10)
 	sbi(TCCR1A, WGM10);
-    1160:	e0 e8       	ldi	r30, 0x80	; 128
-    1162:	f0 e0       	ldi	r31, 0x00	; 0
-    1164:	80 81       	ld	r24, Z
-    1166:	81 60       	ori	r24, 0x01	; 1
-    1168:	80 83       	st	Z, r24
+    11ea:	e0 e8       	ldi	r30, 0x80	; 128
+    11ec:	f0 e0       	ldi	r31, 0x00	; 0
+    11ee:	80 81       	ld	r24, Z
+    11f0:	81 60       	ori	r24, 0x01	; 1
+    11f2:	80 83       	st	Z, r24
 
 	// set timer 2 prescale factor to 64
 #if defined(TCCR2) && defined(CS22)
 	sbi(TCCR2, CS22);
 #elif defined(TCCR2B) && defined(CS22)
 	sbi(TCCR2B, CS22);
-    116a:	e1 eb       	ldi	r30, 0xB1	; 177
-    116c:	f0 e0       	ldi	r31, 0x00	; 0
-    116e:	80 81       	ld	r24, Z
-    1170:	84 60       	ori	r24, 0x04	; 4
-    1172:	80 83       	st	Z, r24
+    11f4:	e1 eb       	ldi	r30, 0xB1	; 177
+    11f6:	f0 e0       	ldi	r31, 0x00	; 0
+    11f8:	80 81       	ld	r24, Z
+    11fa:	84 60       	ori	r24, 0x04	; 4
+    11fc:	80 83       	st	Z, r24
 
 	// configure timer 2 for phase correct pwm (8-bit)
 #if defined(TCCR2) && defined(WGM20)
 	sbi(TCCR2, WGM20);
 #elif defined(TCCR2A) && defined(WGM20)
 	sbi(TCCR2A, WGM20);
-    1174:	e0 eb       	ldi	r30, 0xB0	; 176
-    1176:	f0 e0       	ldi	r31, 0x00	; 0
-    1178:	80 81       	ld	r24, Z
-    117a:	81 60       	ori	r24, 0x01	; 1
-    117c:	80 83       	st	Z, r24
+    11fe:	e0 eb       	ldi	r30, 0xB0	; 176
+    1200:	f0 e0       	ldi	r31, 0x00	; 0
+    1202:	80 81       	ld	r24, Z
+    1204:	81 60       	ori	r24, 0x01	; 1
+    1206:	80 83       	st	Z, r24
 #if defined(ADCSRA)
 	// set a2d prescale factor to 128
 	// 16 MHz / 128 = 125 KHz, inside the desired 50-200 KHz range.
 	// XXX: this will not work properly for other clock speeds, and
 	// this code should use F_CPU to determine the prescale factor.
 	sbi(ADCSRA, ADPS2);
-    117e:	ea e7       	ldi	r30, 0x7A	; 122
-    1180:	f0 e0       	ldi	r31, 0x00	; 0
-    1182:	80 81       	ld	r24, Z
-    1184:	84 60       	ori	r24, 0x04	; 4
-    1186:	80 83       	st	Z, r24
+    1208:	ea e7       	ldi	r30, 0x7A	; 122
+    120a:	f0 e0       	ldi	r31, 0x00	; 0
+    120c:	80 81       	ld	r24, Z
+    120e:	84 60       	ori	r24, 0x04	; 4
+    1210:	80 83       	st	Z, r24
 	sbi(ADCSRA, ADPS1);
-    1188:	80 81       	ld	r24, Z
-    118a:	82 60       	ori	r24, 0x02	; 2
-    118c:	80 83       	st	Z, r24
+    1212:	80 81       	ld	r24, Z
+    1214:	82 60       	ori	r24, 0x02	; 2
+    1216:	80 83       	st	Z, r24
 	sbi(ADCSRA, ADPS0);
-    118e:	80 81       	ld	r24, Z
-    1190:	81 60       	ori	r24, 0x01	; 1
-    1192:	80 83       	st	Z, r24
+    1218:	80 81       	ld	r24, Z
+    121a:	81 60       	ori	r24, 0x01	; 1
+    121c:	80 83       	st	Z, r24
 
 	// enable a2d conversions
 	sbi(ADCSRA, ADEN);
-    1194:	80 81       	ld	r24, Z
-    1196:	80 68       	ori	r24, 0x80	; 128
-    1198:	80 83       	st	Z, r24
+    121e:	80 81       	ld	r24, Z
+    1220:	80 68       	ori	r24, 0x80	; 128
+    1222:	80 83       	st	Z, r24
 	// here so they can be used as normal digital i/o; they will be
 	// reconnected in Serial.begin()
 #if defined(UCSRB)
 	UCSRB = 0;
 #elif defined(UCSR0B)
 	UCSR0B = 0;
-    119a:	10 92 c1 00 	sts	0x00C1, r1	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
-    119e:	08 95       	ret
+    1224:	10 92 c1 00 	sts	0x00C1, r1	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+    1228:	08 95       	ret
 
-000011a0 <turnOffPWM>:
+0000122a <turnOffPWM>:
 //
 //static inline void turnOffPWM(uint8_t timer) __attribute__ ((always_inline));
 //static inline void turnOffPWM(uint8_t timer)
 static void turnOffPWM(uint8_t timer)
 {
 	switch (timer)
-    11a0:	83 30       	cpi	r24, 0x03	; 3
-    11a2:	81 f0       	breq	.+32     	; 0x11c4 <turnOffPWM+0x24>
-    11a4:	28 f4       	brcc	.+10     	; 0x11b0 <turnOffPWM+0x10>
-    11a6:	81 30       	cpi	r24, 0x01	; 1
-    11a8:	99 f0       	breq	.+38     	; 0x11d0 <turnOffPWM+0x30>
-    11aa:	82 30       	cpi	r24, 0x02	; 2
-    11ac:	a1 f0       	breq	.+40     	; 0x11d6 <turnOffPWM+0x36>
-    11ae:	08 95       	ret
-    11b0:	87 30       	cpi	r24, 0x07	; 7
-    11b2:	a9 f0       	breq	.+42     	; 0x11de <turnOffPWM+0x3e>
-    11b4:	88 30       	cpi	r24, 0x08	; 8
-    11b6:	b9 f0       	breq	.+46     	; 0x11e6 <turnOffPWM+0x46>
-    11b8:	84 30       	cpi	r24, 0x04	; 4
-    11ba:	d1 f4       	brne	.+52     	; 0x11f0 <turnOffPWM+0x50>
+    122a:	83 30       	cpi	r24, 0x03	; 3
+    122c:	81 f0       	breq	.+32     	; 0x124e <turnOffPWM+0x24>
+    122e:	28 f4       	brcc	.+10     	; 0x123a <turnOffPWM+0x10>
+    1230:	81 30       	cpi	r24, 0x01	; 1
+    1232:	99 f0       	breq	.+38     	; 0x125a <turnOffPWM+0x30>
+    1234:	82 30       	cpi	r24, 0x02	; 2
+    1236:	a1 f0       	breq	.+40     	; 0x1260 <turnOffPWM+0x36>
+    1238:	08 95       	ret
+    123a:	87 30       	cpi	r24, 0x07	; 7
+    123c:	a9 f0       	breq	.+42     	; 0x1268 <turnOffPWM+0x3e>
+    123e:	88 30       	cpi	r24, 0x08	; 8
+    1240:	b9 f0       	breq	.+46     	; 0x1270 <turnOffPWM+0x46>
+    1242:	84 30       	cpi	r24, 0x04	; 4
+    1244:	d1 f4       	brne	.+52     	; 0x127a <turnOffPWM+0x50>
 	{
 		#if defined(TCCR1A) && defined(COM1A1)
 		case TIMER1A:   cbi(TCCR1A, COM1A1);    break;
 		#endif
 		#if defined(TCCR1A) && defined(COM1B1)
 		case TIMER1B:   cbi(TCCR1A, COM1B1);    break;
-    11bc:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
-    11c0:	8f 7d       	andi	r24, 0xDF	; 223
-    11c2:	03 c0       	rjmp	.+6      	; 0x11ca <turnOffPWM+0x2a>
+    1246:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
+    124a:	8f 7d       	andi	r24, 0xDF	; 223
+    124c:	03 c0       	rjmp	.+6      	; 0x1254 <turnOffPWM+0x2a>
 static void turnOffPWM(uint8_t timer)
 {
 	switch (timer)
 	{
 		#if defined(TCCR1A) && defined(COM1A1)
 		case TIMER1A:   cbi(TCCR1A, COM1A1);    break;
-    11c4:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
-    11c8:	8f 77       	andi	r24, 0x7F	; 127
+    124e:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
+    1252:	8f 77       	andi	r24, 0x7F	; 127
 		#endif
 		#if defined(TCCR1A) && defined(COM1B1)
 		case TIMER1B:   cbi(TCCR1A, COM1B1);    break;
-    11ca:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
-    11ce:	08 95       	ret
+    1254:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
+    1258:	08 95       	ret
 		#if defined(TCCR2) && defined(COM21)
 		case  TIMER2:   cbi(TCCR2, COM21);      break;
 		#endif
 		
 		#if defined(TCCR0A) && defined(COM0A1)
 		case  TIMER0A:  cbi(TCCR0A, COM0A1);    break;
-    11d0:	84 b5       	in	r24, 0x24	; 36
-    11d2:	8f 77       	andi	r24, 0x7F	; 127
-    11d4:	02 c0       	rjmp	.+4      	; 0x11da <turnOffPWM+0x3a>
+    125a:	84 b5       	in	r24, 0x24	; 36
+    125c:	8f 77       	andi	r24, 0x7F	; 127
+    125e:	02 c0       	rjmp	.+4      	; 0x1264 <turnOffPWM+0x3a>
 		#endif
 		
 		#if defined(TIMER0B) && defined(COM0B1)
 		case  TIMER0B:  cbi(TCCR0A, COM0B1);    break;
-    11d6:	84 b5       	in	r24, 0x24	; 36
-    11d8:	8f 7d       	andi	r24, 0xDF	; 223
-    11da:	84 bd       	out	0x24, r24	; 36
-    11dc:	08 95       	ret
+    1260:	84 b5       	in	r24, 0x24	; 36
+    1262:	8f 7d       	andi	r24, 0xDF	; 223
+    1264:	84 bd       	out	0x24, r24	; 36
+    1266:	08 95       	ret
 		#endif
 		#if defined(TCCR2A) && defined(COM2A1)
 		case  TIMER2A:  cbi(TCCR2A, COM2A1);    break;
-    11de:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
-    11e2:	8f 77       	andi	r24, 0x7F	; 127
-    11e4:	03 c0       	rjmp	.+6      	; 0x11ec <turnOffPWM+0x4c>
+    1268:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
+    126c:	8f 77       	andi	r24, 0x7F	; 127
+    126e:	03 c0       	rjmp	.+6      	; 0x1276 <turnOffPWM+0x4c>
 		#endif
 		#if defined(TCCR2A) && defined(COM2B1)
 		case  TIMER2B:  cbi(TCCR2A, COM2B1);    break;
-    11e6:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
-    11ea:	8f 7d       	andi	r24, 0xDF	; 223
-    11ec:	80 93 b0 00 	sts	0x00B0, r24	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
-    11f0:	08 95       	ret
+    1270:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
+    1274:	8f 7d       	andi	r24, 0xDF	; 223
+    1276:	80 93 b0 00 	sts	0x00B0, r24	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
+    127a:	08 95       	ret
 
-000011f2 <pinMode>:
+0000127c <pinMode>:
 #define ARDUINO_MAIN
 #include "wiring_private.h"
 #include "pins_arduino.h"
 
 void pinMode(uint8_t pin, uint8_t mode)
 {
-    11f2:	cf 93       	push	r28
-    11f4:	df 93       	push	r29
+    127c:	cf 93       	push	r28
+    127e:	df 93       	push	r29
 	uint8_t bit = digitalPinToBitMask(pin);
-    11f6:	90 e0       	ldi	r25, 0x00	; 0
-    11f8:	fc 01       	movw	r30, r24
-    11fa:	e4 58       	subi	r30, 0x84	; 132
-    11fc:	f7 4f       	sbci	r31, 0xF7	; 247
-    11fe:	24 91       	lpm	r18, Z
+    1280:	90 e0       	ldi	r25, 0x00	; 0
+    1282:	fc 01       	movw	r30, r24
+    1284:	e4 58       	subi	r30, 0x84	; 132
+    1286:	f7 4f       	sbci	r31, 0xF7	; 247
+    1288:	24 91       	lpm	r18, Z
 	uint8_t port = digitalPinToPort(pin);
-    1200:	fc 01       	movw	r30, r24
-    1202:	e0 57       	subi	r30, 0x70	; 112
-    1204:	f7 4f       	sbci	r31, 0xF7	; 247
-    1206:	84 91       	lpm	r24, Z
+    128a:	fc 01       	movw	r30, r24
+    128c:	e0 57       	subi	r30, 0x70	; 112
+    128e:	f7 4f       	sbci	r31, 0xF7	; 247
+    1290:	84 91       	lpm	r24, Z
 	volatile uint8_t *reg, *out;
 
 	if (port == NOT_A_PIN) return;
-    1208:	88 23       	and	r24, r24
-    120a:	61 f1       	breq	.+88     	; 0x1264 <pinMode+0x72>
+    1292:	88 23       	and	r24, r24
+    1294:	61 f1       	breq	.+88     	; 0x12ee <pinMode+0x72>
 
 	// JWS: can I let the optimizer do this?
 	reg = portModeRegister(port);
-    120c:	90 e0       	ldi	r25, 0x00	; 0
-    120e:	88 0f       	add	r24, r24
-    1210:	99 1f       	adc	r25, r25
-    1212:	fc 01       	movw	r30, r24
-    1214:	e2 55       	subi	r30, 0x52	; 82
-    1216:	f7 4f       	sbci	r31, 0xF7	; 247
-    1218:	c5 91       	lpm	r28, Z+
-    121a:	d4 91       	lpm	r29, Z
+    1296:	90 e0       	ldi	r25, 0x00	; 0
+    1298:	88 0f       	add	r24, r24
+    129a:	99 1f       	adc	r25, r25
+    129c:	fc 01       	movw	r30, r24
+    129e:	e2 55       	subi	r30, 0x52	; 82
+    12a0:	f7 4f       	sbci	r31, 0xF7	; 247
+    12a2:	c5 91       	lpm	r28, Z+
+    12a4:	d4 91       	lpm	r29, Z
 	out = portOutputRegister(port);
-    121c:	fc 01       	movw	r30, r24
-    121e:	ec 55       	subi	r30, 0x5C	; 92
-    1220:	f7 4f       	sbci	r31, 0xF7	; 247
-    1222:	a5 91       	lpm	r26, Z+
-    1224:	b4 91       	lpm	r27, Z
+    12a6:	fc 01       	movw	r30, r24
+    12a8:	ec 55       	subi	r30, 0x5C	; 92
+    12aa:	f7 4f       	sbci	r31, 0xF7	; 247
+    12ac:	a5 91       	lpm	r26, Z+
+    12ae:	b4 91       	lpm	r27, Z
 
 	if (mode == INPUT) { 
-    1226:	61 11       	cpse	r22, r1
-    1228:	09 c0       	rjmp	.+18     	; 0x123c <pinMode+0x4a>
+    12b0:	61 11       	cpse	r22, r1
+    12b2:	09 c0       	rjmp	.+18     	; 0x12c6 <pinMode+0x4a>
 		uint8_t oldSREG = SREG;
-    122a:	9f b7       	in	r25, 0x3f	; 63
+    12b4:	9f b7       	in	r25, 0x3f	; 63
                 cli();
-    122c:	f8 94       	cli
+    12b6:	f8 94       	cli
 		*reg &= ~bit;
-    122e:	88 81       	ld	r24, Y
-    1230:	20 95       	com	r18
-    1232:	82 23       	and	r24, r18
-    1234:	88 83       	st	Y, r24
+    12b8:	88 81       	ld	r24, Y
+    12ba:	20 95       	com	r18
+    12bc:	82 23       	and	r24, r18
+    12be:	88 83       	st	Y, r24
 		*out &= ~bit;
-    1236:	ec 91       	ld	r30, X
-    1238:	2e 23       	and	r18, r30
-    123a:	0b c0       	rjmp	.+22     	; 0x1252 <pinMode+0x60>
+    12c0:	ec 91       	ld	r30, X
+    12c2:	2e 23       	and	r18, r30
+    12c4:	0b c0       	rjmp	.+22     	; 0x12dc <pinMode+0x60>
 		SREG = oldSREG;
 	} else if (mode == INPUT_PULLUP) {
-    123c:	62 30       	cpi	r22, 0x02	; 2
-    123e:	61 f4       	brne	.+24     	; 0x1258 <pinMode+0x66>
+    12c6:	62 30       	cpi	r22, 0x02	; 2
+    12c8:	61 f4       	brne	.+24     	; 0x12e2 <pinMode+0x66>
 		uint8_t oldSREG = SREG;
-    1240:	9f b7       	in	r25, 0x3f	; 63
+    12ca:	9f b7       	in	r25, 0x3f	; 63
                 cli();
-    1242:	f8 94       	cli
+    12cc:	f8 94       	cli
 		*reg &= ~bit;
-    1244:	38 81       	ld	r19, Y
-    1246:	82 2f       	mov	r24, r18
-    1248:	80 95       	com	r24
-    124a:	83 23       	and	r24, r19
-    124c:	88 83       	st	Y, r24
+    12ce:	38 81       	ld	r19, Y
+    12d0:	82 2f       	mov	r24, r18
+    12d2:	80 95       	com	r24
+    12d4:	83 23       	and	r24, r19
+    12d6:	88 83       	st	Y, r24
 		*out |= bit;
-    124e:	ec 91       	ld	r30, X
-    1250:	2e 2b       	or	r18, r30
-    1252:	2c 93       	st	X, r18
+    12d8:	ec 91       	ld	r30, X
+    12da:	2e 2b       	or	r18, r30
+    12dc:	2c 93       	st	X, r18
 		SREG = oldSREG;
-    1254:	9f bf       	out	0x3f, r25	; 63
-    1256:	06 c0       	rjmp	.+12     	; 0x1264 <pinMode+0x72>
+    12de:	9f bf       	out	0x3f, r25	; 63
+    12e0:	06 c0       	rjmp	.+12     	; 0x12ee <pinMode+0x72>
 	} else {
 		uint8_t oldSREG = SREG;
-    1258:	8f b7       	in	r24, 0x3f	; 63
+    12e2:	8f b7       	in	r24, 0x3f	; 63
                 cli();
-    125a:	f8 94       	cli
+    12e4:	f8 94       	cli
 		*reg |= bit;
-    125c:	e8 81       	ld	r30, Y
-    125e:	2e 2b       	or	r18, r30
-    1260:	28 83       	st	Y, r18
+    12e6:	e8 81       	ld	r30, Y
+    12e8:	2e 2b       	or	r18, r30
+    12ea:	28 83       	st	Y, r18
 		SREG = oldSREG;
-    1262:	8f bf       	out	0x3f, r24	; 63
+    12ec:	8f bf       	out	0x3f, r24	; 63
 	}
 }
-    1264:	df 91       	pop	r29
-    1266:	cf 91       	pop	r28
-    1268:	08 95       	ret
+    12ee:	df 91       	pop	r29
+    12f0:	cf 91       	pop	r28
+    12f2:	08 95       	ret
 
-0000126a <digitalWrite>:
+000012f4 <digitalWrite>:
 		#endif
 	}
 }
 
 void digitalWrite(uint8_t pin, uint8_t val)
 {
-    126a:	1f 93       	push	r17
-    126c:	cf 93       	push	r28
-    126e:	df 93       	push	r29
+    12f4:	1f 93       	push	r17
+    12f6:	cf 93       	push	r28
+    12f8:	df 93       	push	r29
 	uint8_t timer = digitalPinToTimer(pin);
-    1270:	28 2f       	mov	r18, r24
-    1272:	30 e0       	ldi	r19, 0x00	; 0
-    1274:	f9 01       	movw	r30, r18
-    1276:	e8 59       	subi	r30, 0x98	; 152
-    1278:	f7 4f       	sbci	r31, 0xF7	; 247
-    127a:	84 91       	lpm	r24, Z
+    12fa:	28 2f       	mov	r18, r24
+    12fc:	30 e0       	ldi	r19, 0x00	; 0
+    12fe:	f9 01       	movw	r30, r18
+    1300:	e8 59       	subi	r30, 0x98	; 152
+    1302:	f7 4f       	sbci	r31, 0xF7	; 247
+    1304:	84 91       	lpm	r24, Z
 	uint8_t bit = digitalPinToBitMask(pin);
-    127c:	f9 01       	movw	r30, r18
-    127e:	e4 58       	subi	r30, 0x84	; 132
-    1280:	f7 4f       	sbci	r31, 0xF7	; 247
-    1282:	d4 91       	lpm	r29, Z
+    1306:	f9 01       	movw	r30, r18
+    1308:	e4 58       	subi	r30, 0x84	; 132
+    130a:	f7 4f       	sbci	r31, 0xF7	; 247
+    130c:	d4 91       	lpm	r29, Z
 	uint8_t port = digitalPinToPort(pin);
-    1284:	f9 01       	movw	r30, r18
-    1286:	e0 57       	subi	r30, 0x70	; 112
-    1288:	f7 4f       	sbci	r31, 0xF7	; 247
-    128a:	c4 91       	lpm	r28, Z
+    130e:	f9 01       	movw	r30, r18
+    1310:	e0 57       	subi	r30, 0x70	; 112
+    1312:	f7 4f       	sbci	r31, 0xF7	; 247
+    1314:	c4 91       	lpm	r28, Z
 	volatile uint8_t *out;
 
 	if (port == NOT_A_PIN) return;
-    128c:	cc 23       	and	r28, r28
-    128e:	c9 f0       	breq	.+50     	; 0x12c2 <digitalWrite+0x58>
-    1290:	16 2f       	mov	r17, r22
+    1316:	cc 23       	and	r28, r28
+    1318:	c9 f0       	breq	.+50     	; 0x134c <digitalWrite+0x58>
+    131a:	16 2f       	mov	r17, r22
 
 	// If the pin that support PWM output, we need to turn it off
 	// before doing a digital write.
 	if (timer != NOT_ON_TIMER) turnOffPWM(timer);
-    1292:	81 11       	cpse	r24, r1
-    1294:	0e 94 d0 08 	call	0x11a0	; 0x11a0 <turnOffPWM>
+    131c:	81 11       	cpse	r24, r1
+    131e:	0e 94 15 09 	call	0x122a	; 0x122a <turnOffPWM>
 
 	out = portOutputRegister(port);
-    1298:	ec 2f       	mov	r30, r28
-    129a:	f0 e0       	ldi	r31, 0x00	; 0
-    129c:	ee 0f       	add	r30, r30
-    129e:	ff 1f       	adc	r31, r31
-    12a0:	ec 55       	subi	r30, 0x5C	; 92
-    12a2:	f7 4f       	sbci	r31, 0xF7	; 247
-    12a4:	a5 91       	lpm	r26, Z+
-    12a6:	b4 91       	lpm	r27, Z
+    1322:	ec 2f       	mov	r30, r28
+    1324:	f0 e0       	ldi	r31, 0x00	; 0
+    1326:	ee 0f       	add	r30, r30
+    1328:	ff 1f       	adc	r31, r31
+    132a:	ec 55       	subi	r30, 0x5C	; 92
+    132c:	f7 4f       	sbci	r31, 0xF7	; 247
+    132e:	a5 91       	lpm	r26, Z+
+    1330:	b4 91       	lpm	r27, Z
 
 	uint8_t oldSREG = SREG;
-    12a8:	8f b7       	in	r24, 0x3f	; 63
+    1332:	8f b7       	in	r24, 0x3f	; 63
 	cli();
-    12aa:	f8 94       	cli
+    1334:	f8 94       	cli
 
 	if (val == LOW) {
-    12ac:	11 11       	cpse	r17, r1
-    12ae:	05 c0       	rjmp	.+10     	; 0x12ba <digitalWrite+0x50>
+    1336:	11 11       	cpse	r17, r1
+    1338:	05 c0       	rjmp	.+10     	; 0x1344 <digitalWrite+0x50>
 		*out &= ~bit;
-    12b0:	9c 91       	ld	r25, X
-    12b2:	ed 2f       	mov	r30, r29
-    12b4:	e0 95       	com	r30
-    12b6:	e9 23       	and	r30, r25
-    12b8:	02 c0       	rjmp	.+4      	; 0x12be <digitalWrite+0x54>
+    133a:	9c 91       	ld	r25, X
+    133c:	ed 2f       	mov	r30, r29
+    133e:	e0 95       	com	r30
+    1340:	e9 23       	and	r30, r25
+    1342:	02 c0       	rjmp	.+4      	; 0x1348 <digitalWrite+0x54>
 	} else {
 		*out |= bit;
-    12ba:	ec 91       	ld	r30, X
-    12bc:	ed 2b       	or	r30, r29
-    12be:	ec 93       	st	X, r30
+    1344:	ec 91       	ld	r30, X
+    1346:	ed 2b       	or	r30, r29
+    1348:	ec 93       	st	X, r30
 	}
 
 	SREG = oldSREG;
-    12c0:	8f bf       	out	0x3f, r24	; 63
+    134a:	8f bf       	out	0x3f, r24	; 63
 }
-    12c2:	df 91       	pop	r29
-    12c4:	cf 91       	pop	r28
-    12c6:	1f 91       	pop	r17
-    12c8:	08 95       	ret
+    134c:	df 91       	pop	r29
+    134e:	cf 91       	pop	r28
+    1350:	1f 91       	pop	r17
+    1352:	08 95       	ret
 
-000012ca <yield>:
+00001354 <yield>:
  * libraries or sketches that supports cooperative threads.
  *
  * Its defined as a weak symbol and it can be redefined to implement a
  * real cooperative scheduler.
  */
 static void __empty() {
-    12ca:	08 95       	ret
+    1354:	08 95       	ret
 
-000012cc <__tablejump2__>:
-    12cc:	ee 0f       	add	r30, r30
-    12ce:	ff 1f       	adc	r31, r31
-    12d0:	05 90       	lpm	r0, Z+
-    12d2:	f4 91       	lpm	r31, Z
-    12d4:	e0 2d       	mov	r30, r0
-    12d6:	09 94       	ijmp
+00001356 <__tablejump2__>:
+    1356:	ee 0f       	add	r30, r30
+    1358:	ff 1f       	adc	r31, r31
+    135a:	05 90       	lpm	r0, Z+
+    135c:	f4 91       	lpm	r31, Z
+    135e:	e0 2d       	mov	r30, r0
+    1360:	09 94       	ijmp
 
-000012d8 <__do_global_dtors>:
-    12d8:	14 e0       	ldi	r17, 0x04	; 4
-    12da:	cd e5       	ldi	r28, 0x5D	; 93
-    12dc:	d4 e0       	ldi	r29, 0x04	; 4
-    12de:	04 c0       	rjmp	.+8      	; 0x12e8 <__do_global_dtors+0x10>
-    12e0:	fe 01       	movw	r30, r28
-    12e2:	0e 94 66 09 	call	0x12cc	; 0x12cc <__tablejump2__>
-    12e6:	21 96       	adiw	r28, 0x01	; 1
-    12e8:	ce 35       	cpi	r28, 0x5E	; 94
-    12ea:	d1 07       	cpc	r29, r17
-    12ec:	c9 f7       	brne	.-14     	; 0x12e0 <__do_global_dtors+0x8>
-    12ee:	f8 94       	cli
+00001362 <__do_global_dtors>:
+    1362:	14 e0       	ldi	r17, 0x04	; 4
+    1364:	cd e5       	ldi	r28, 0x5D	; 93
+    1366:	d4 e0       	ldi	r29, 0x04	; 4
+    1368:	04 c0       	rjmp	.+8      	; 0x1372 <__do_global_dtors+0x10>
+    136a:	fe 01       	movw	r30, r28
+    136c:	0e 94 ab 09 	call	0x1356	; 0x1356 <__tablejump2__>
+    1370:	21 96       	adiw	r28, 0x01	; 1
+    1372:	ce 35       	cpi	r28, 0x5E	; 94
+    1374:	d1 07       	cpc	r29, r17
+    1376:	c9 f7       	brne	.-14     	; 0x136a <__do_global_dtors+0x8>
+    1378:	f8 94       	cli
 
-000012f0 <__stop_program>:
-    12f0:	ff cf       	rjmp	.-2      	; 0x12f0 <__stop_program>
+0000137a <__stop_program>:
+    137a:	ff cf       	rjmp	.-2      	; 0x137a <__stop_program>

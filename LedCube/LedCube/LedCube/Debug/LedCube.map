@@ -57,8 +57,6 @@ Discarded input sections
                 0x00000000       0x48 src/LedCube.o
  .text._ZN7LedCube10getVoxelsXEhhPh
                 0x00000000       0x2e src/LedCube.o
- .text._ZN7LedCube10setVoxelsXEhhh
-                0x00000000       0x2a src/LedCube.o
  .text._ZN7LedCube10getVoxelsYEhhPh
                 0x00000000       0xd6 src/LedCube.o
  .text._ZN7LedCube10setVoxelsYEhhh
@@ -330,7 +328,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x12f2
+.text           0x00000000     0x137c
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -435,104 +433,107 @@ END GROUP
                 0x000008f6                __vector_20
                 0x000008fa                . = ALIGN (0x2)
  *(.text.*)
- .text.loop     0x000008fa       0x7c Sketch.o
+ .text.loop     0x000008fa       0xb2 Sketch.o
                 0x000008fa                loop
  .text._Z7setCharh
-                0x00000976       0x46 Sketch.o
-                0x00000976                _Z7setCharh
- .text.setup    0x000009bc       0x2e Sketch.o
-                0x000009bc                setup
+                0x000009ac       0x46 Sketch.o
+                0x000009ac                _Z7setCharh
+ .text.setup    0x000009f2       0x58 Sketch.o
+                0x000009f2                setup
  .text.startup._GLOBAL__sub_I_Cube
-                0x000009ea       0x10 Sketch.o
+                0x00000a4a       0x10 Sketch.o
  .text.exit._GLOBAL__sub_D_Cube
-                0x000009fa       0x10 Sketch.o
+                0x00000a5a       0x10 Sketch.o
  .text._ZN7LedCubeC2Ev
-                0x00000a0a       0x40 src/LedCube.o
-                0x00000a0a                _ZN7LedCubeC2Ev
-                0x00000a0a                _ZN7LedCubeC1Ev
+                0x00000a6a       0x40 src/LedCube.o
+                0x00000a6a                _ZN7LedCubeC2Ev
+                0x00000a6a                _ZN7LedCubeC1Ev
  .text._ZN7LedCubeD2Ev
-                0x00000a4a        0x2 src/LedCube.o
-                0x00000a4a                _ZN7LedCubeD2Ev
-                0x00000a4a                _ZN7LedCubeD1Ev
+                0x00000aaa        0x2 src/LedCube.o
+                0x00000aaa                _ZN7LedCubeD2Ev
+                0x00000aaa                _ZN7LedCubeD1Ev
  .text._ZN7LedCube5startEv
-                0x00000a4c        0xa src/LedCube.o
-                0x00000a4c                _ZN7LedCube5startEv
+                0x00000aac        0xa src/LedCube.o
+                0x00000aac                _ZN7LedCube5startEv
  .text._ZN7LedCube9clearCubeEv
-                0x00000a56       0x12 src/LedCube.o
-                0x00000a56                _ZN7LedCube9clearCubeEv
+                0x00000ab6       0x12 src/LedCube.o
+                0x00000ab6                _ZN7LedCube9clearCubeEv
  .text._ZN7LedCube4initEv
-                0x00000a68       0x20 src/LedCube.o
-                0x00000a68                _ZN7LedCube4initEv
+                0x00000ac8       0x20 src/LedCube.o
+                0x00000ac8                _ZN7LedCube4initEv
+ .text._ZN7LedCube10setVoxelsXEhhh
+                0x00000ae8       0x2a src/LedCube.o
+                0x00000ae8                _ZN7LedCube10setVoxelsXEhhh
  .text._ZN7LedCube14setVoxelsYFastEhhh
-                0x00000a88       0x7e src/LedCube.o
-                0x00000a88                _ZN7LedCube14setVoxelsYFastEhhh
+                0x00000b12       0x7e src/LedCube.o
+                0x00000b12                _ZN7LedCube14setVoxelsYFastEhhh
  .text._ZN7LedCube17setNextFrameReadyEv
-                0x00000b06       0x18 src/LedCube.o
-                0x00000b06                _ZN7LedCube17setNextFrameReadyEv
+                0x00000b90       0x18 src/LedCube.o
+                0x00000b90                _ZN7LedCube17setNextFrameReadyEv
  .text._ZN7LedCube23setNextFrameTimeElapsedEv
-                0x00000b1e       0x18 src/LedCube.o
-                0x00000b1e                _ZN7LedCube23setNextFrameTimeElapsedEv
+                0x00000ba8       0x18 src/LedCube.o
+                0x00000ba8                _ZN7LedCube23setNextFrameTimeElapsedEv
  .text._ZN7LedCube8sendDataEh
-                0x00000b36       0x28 src/LedCube.o
-                0x00000b36                _ZN7LedCube8sendDataEh
+                0x00000bc0       0x28 src/LedCube.o
+                0x00000bc0                _ZN7LedCube8sendDataEh
  .text._ZN7LedCube9showLayerEh
-                0x00000b5e       0x6c src/LedCube.o
-                0x00000b5e                _ZN7LedCube9showLayerEh
+                0x00000be8       0x6c src/LedCube.o
+                0x00000be8                _ZN7LedCube9showLayerEh
  .text._ZN7LedCube4taskEv
-                0x00000bca       0x56 src/LedCube.o
-                0x00000bca                _ZN7LedCube4taskEv
+                0x00000c54       0x56 src/LedCube.o
+                0x00000c54                _ZN7LedCube4taskEv
  .text._ZN7LedCube14writeVoxelFastEhhhb.isra.0
-                0x00000c20       0x76 src/Transformation.o
+                0x00000caa       0x76 src/Transformation.o
  .text._ZN14TransformationC2Ev
-                0x00000c96        0x2 src/Transformation.o
-                0x00000c96                _ZN14TransformationC2Ev
-                0x00000c96                _ZN14TransformationC1Ev
+                0x00000d20        0x2 src/Transformation.o
+                0x00000d20                _ZN14TransformationC2Ev
+                0x00000d20                _ZN14TransformationC1Ev
  .text._ZN14TransformationD2Ev
-                0x00000c98        0x2 src/Transformation.o
-                0x00000c98                _ZN14TransformationD2Ev
-                0x00000c98                _ZN14TransformationD1Ev
+                0x00000d22        0x2 src/Transformation.o
+                0x00000d22                _ZN14TransformationD2Ev
+                0x00000d22                _ZN14TransformationD1Ev
  .text._ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh
-                0x00000c9a      0x342 src/Transformation.o
-                0x00000c9a                _ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh
+                0x00000d24      0x342 src/Transformation.o
+                0x00000d24                _ZN14Transformation11shiftCircleEP7LedCube15LedCubeAxisType35TransformationRotationDirectionTypeh
  .text.initVariant
-                0x00000fdc        0x2 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(main.o)
-                0x00000fdc                initVariant
+                0x00001066        0x2 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(main.o)
+                0x00001066                initVariant
  .text.startup.main
-                0x00000fde       0x1e C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(main.o)
-                0x00000fde                main
+                0x00001068       0x1e C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(main.o)
+                0x00001068                main
  .text.__vector_16
-                0x00000ffc       0x94 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00000ffc                __vector_16
- .text.micros   0x00001090       0x4a C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00001090                micros
- .text.delay    0x000010da       0x50 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x000010da                delay
- .text.init     0x0000112a       0x76 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x0000112a                init
+                0x00001086       0x94 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00001086                __vector_16
+ .text.micros   0x0000111a       0x4a C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x0000111a                micros
+ .text.delay    0x00001164       0x50 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00001164                delay
+ .text.init     0x000011b4       0x76 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x000011b4                init
  .text.turnOffPWM
-                0x000011a0       0x52 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .text.pinMode  0x000011f2       0x78 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000011f2                pinMode
+                0x0000122a       0x52 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .text.pinMode  0x0000127c       0x78 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x0000127c                pinMode
  .text.digitalWrite
-                0x0000126a       0x60 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x0000126a                digitalWrite
- .text.__empty  0x000012ca        0x2 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
-                0x000012ca                yield
- .text.libgcc   0x000012cc        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
-                0x000012cc                __tablejump2__
-                0x000012d8                . = ALIGN (0x2)
+                0x000012f4       0x60 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000012f4                digitalWrite
+ .text.__empty  0x00001354        0x2 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+                0x00001354                yield
+ .text.libgcc   0x00001356        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+                0x00001356                __tablejump2__
+                0x00001362                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000012d8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x000012d8                _exit
-                0x000012d8                exit
+ .fini9         0x00001362        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00001362                _exit
+                0x00001362                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
  *(.fini7)
  *(.fini7)
  *(.fini6)
- .fini6         0x000012d8       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_dtors.o)
-                0x000012d8                __do_global_dtors
+ .fini6         0x00001362       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_dtors.o)
+                0x00001362                __do_global_dtors
  *(.fini6)
  *(.fini5)
  *(.fini5)
@@ -545,11 +546,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000012ee        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001378        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000012f2                _etext = .
+                0x0000137c                _etext = .
 
-.data           0x00800100        0x0 load address 0x000012f2
+.data           0x00800100        0x0 load address 0x0000137c
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -584,8 +585,8 @@ END GROUP
                 0x00800191                timer0_overflow_count
  *(COMMON)
                 0x00800195                PROVIDE (__bss_end, .)
-                0x000012f2                __data_load_start = LOADADDR (.data)
-                0x000012f2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000137c                __data_load_start = LOADADDR (.data)
+                0x0000137c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800195        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -682,15 +683,15 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x46a5
+.debug_info     0x00000000     0x47d7
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xf2c Sketch.o
- .debug_info    0x00000f2c     0x130c src/LedCube.o
- .debug_info    0x00002238     0x1989 src/Transformation.o
- .debug_info    0x00003bc1      0x1f0 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_info    0x00003db1      0x2bd C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_info    0x0000406e      0x5f9 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_info    0x00004667       0x3e C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_info    0x00000000     0x105e Sketch.o
+ .debug_info    0x0000105e     0x130c src/LedCube.o
+ .debug_info    0x0000236a     0x1989 src/Transformation.o
+ .debug_info    0x00003cf3      0x1f0 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_info    0x00003ee3      0x2bd C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_info    0x000041a0      0x5f9 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_info    0x00004799       0x3e C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
 .debug_abbrev   0x00000000      0xc3f
  *(.debug_abbrev)
@@ -702,15 +703,15 @@ END GROUP
  .debug_abbrev  0x00000aba      0x15b C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
  .debug_abbrev  0x00000c15       0x2a C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
-.debug_line     0x00000000     0x1713
+.debug_line     0x00000000     0x1737
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x256 Sketch.o
- .debug_line    0x00000256      0x83e src/LedCube.o
- .debug_line    0x00000a94      0x604 src/Transformation.o
- .debug_line    0x00001098      0x159 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_line    0x000011f1      0x28f C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_line    0x00001480      0x252 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_line    0x000016d2       0x41 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_line    0x00000000      0x27a Sketch.o
+ .debug_line    0x0000027a      0x83e src/LedCube.o
+ .debug_line    0x00000ab8      0x604 src/Transformation.o
+ .debug_line    0x000010bc      0x159 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_line    0x00001215      0x28f C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_line    0x000014a4      0x252 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_line    0x000016f6       0x41 C:\Users\Andreas\Documents\GitHub\LED-Cube\LedCube\LedCube\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
 
 .debug_frame    0x00000000      0x7f8
  *(.debug_frame)

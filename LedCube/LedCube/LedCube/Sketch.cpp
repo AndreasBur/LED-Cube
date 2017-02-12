@@ -24,11 +24,14 @@ void setup() {
 			}
 		}
 	}
-	//Cube.setVoxelsX(0,1,128);
+	
 	
 	Cube.start();
 	Cube.setNextFrameReady();
 	Cube.setNextFrameTimeElapsed();
+	Cube.setVoxelsX(1,1,B(01111110));
+	Cube.setVoxelsX(2,7,B(00111100));
+	Cube.setVoxelsX(3,5,B(00011000));
 	setChar(3);
 }
 
@@ -40,6 +43,9 @@ void loop()
 		Cube.setNextFrameReady();
 		Cube.setNextFrameTimeElapsed();
 		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 1);
+		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 2);
+		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 3);
+		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 4);
 		Counter = 0;
 		CharCounter++;
 	}
