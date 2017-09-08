@@ -1,5 +1,5 @@
 src/Transformation.d src/Transformation.o: ../src/Transformation.cpp \
- ../inc/Transformation.h ../inc/StandardTypes.h ../inc/LedCube.h \
+ ../inc/Transformation.h ../inc/StandardTypes.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
@@ -35,13 +35,11 @@ src/Transformation.d src/Transformation.o: ../src/Transformation.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h \
- ../inc/digitalWriteFast.h
+ ../inc/LedCube.h ../inc/digitalWriteFast.h
 
 ../inc/Transformation.h:
 
 ../inc/StandardTypes.h:
-
-../inc/LedCube.h:
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -112,5 +110,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
 ..\\..\ArduinoCore\include\variants\standard/pins_arduino.h:
+
+../inc/LedCube.h:
 
 ../inc/digitalWriteFast.h:

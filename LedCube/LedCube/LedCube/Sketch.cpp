@@ -10,7 +10,7 @@
 void setChar(byte);
 
 LedCube Cube;
-Transformation CubeTrans;
+Transformation CubeTrans(&Cube);
 int Counter;
 byte CharCounter = 0;
 
@@ -42,10 +42,10 @@ void loop()
 		//setChar(CharCounter);
 		Cube.setNextFrameReady();
 		Cube.setNextFrameTimeElapsed();
-		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 1);
-		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 2);
-		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 3);
-		CubeTrans.shiftCircle(&Cube, LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 4);
+		CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 1);
+		CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 2);
+		CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 3);
+		CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 4);
 		Counter = 0;
 		CharCounter++;
 	}

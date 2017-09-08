@@ -117,10 +117,10 @@ class LedCube
 	stdReturnType writeVoxel(byte, byte, byte, boolean);
 	stdReturnType getVoxel(byte, byte, byte, boolean*);
 
-	inline void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
-    inline void clearVoxelFast(byte X, byte Y, byte Z) { bitClear(NextFrame[Y][Z], X); }
-    inline void writeVoxelFast(byte X, byte Y, byte Z, boolean Value) { bitWrite(NextFrame[Y][Z], X, Value); }
-    inline byte getVoxelFast(byte X, byte Y, byte Z) { return bitRead(CurrentFrame[Y][Z], X); }
+	void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
+    void clearVoxelFast(byte X, byte Y, byte Z) { bitClear(NextFrame[Y][Z], X); }
+    void writeVoxelFast(byte X, byte Y, byte Z, boolean Value) { bitWrite(NextFrame[Y][Z], X, Value); }
+    byte getVoxelFast(byte X, byte Y, byte Z) { return bitRead(CurrentFrame[Y][Z], X); }
 
 	stdReturnType getVoxelsX(byte, byte, byte*);
 	stdReturnType setVoxelsX(byte, byte, byte);

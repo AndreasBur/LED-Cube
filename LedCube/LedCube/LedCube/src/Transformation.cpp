@@ -38,9 +38,9 @@
  *  \param[in]      
  *  \return         -
  *****************************************************************************************************************************************************/
-Transformation::Transformation()
+Transformation::Transformation(LedCube* pLedCube)
 {
-
+	pCube = pLedCube;
 } /* Transformation */
 
 
@@ -61,14 +61,14 @@ Transformation::~Transformation()
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftForward(LedCube* Cube, boolean Rotate)
+void Transformation::shiftForward(boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
 		for(byte X = 0; X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1; X++) {
-			Cube->setVoxelsYFast(X, Z, Cube->getVoxelsYFast(X + 1, Z));
+			pCube->setVoxelsYFast(X, Z, pCube->getVoxelsYFast(X + 1, Z));
 		}
-		if(Rotate) Cube->setVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, Cube->getVoxelsYFast(0, Z));
-		else Cube->setVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, 0);
+		if(Rotate) pCube->setVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, pCube->getVoxelsYFast(0, Z));
+		else pCube->setVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, 0);
 	}
 } /* shiftForward */
 
@@ -81,14 +81,14 @@ void Transformation::shiftForward(LedCube* Cube, boolean Rotate)
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftBackward(LedCube* Cube, boolean Rotate)
+void Transformation::shiftBackward(boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
 		for(byte X = 1; X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; X++) {
-			Cube->setVoxelsYFast(X, Z, Cube->getVoxelsYFast(X - 1, Z));
+			pCube->setVoxelsYFast(X, Z, pCube->getVoxelsYFast(X - 1, Z));
 		}
-		if(Rotate) Cube->setVoxelsYFast(0, Z, Cube->getVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z));
-		else Cube->setVoxelsYFast(0, Z, 0);
+		if(Rotate) pCube->setVoxelsYFast(0, Z, pCube->getVoxelsYFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z));
+		else pCube->setVoxelsYFast(0, Z, 0);
 	}
 } /* shiftBackward */
 
@@ -101,14 +101,14 @@ void Transformation::shiftBackward(LedCube* Cube, boolean Rotate)
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftUpward(LedCube* Cube, boolean Rotate)
+void Transformation::shiftUpward(boolean Rotate)
 {
 	for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
 		for (byte Z = 1; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y, Z - 1));
+			pCube->setVoxelsXFast(Y, Z, pCube->getVoxelsXFast(Y, Z - 1));
 		}
-		if(Rotate) Cube->setVoxelsXFast(Y, 0, Cube->getVoxelsXFast(Y, LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1));
-		else Cube->setVoxelsXFast(Y, 0, 0);
+		if(Rotate) pCube->setVoxelsXFast(Y, 0, pCube->getVoxelsXFast(Y, LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1));
+		else pCube->setVoxelsXFast(Y, 0, 0);
 	}
 } /* shiftUpward */
 
@@ -121,14 +121,14 @@ void Transformation::shiftUpward(LedCube* Cube, boolean Rotate)
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftDownward(LedCube* Cube, boolean Rotate)
+void Transformation::shiftDownward(boolean Rotate)
 {
 	for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1; Y++) {
 		for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y, Z + 1));
+			pCube->setVoxelsXFast(Y, Z, pCube->getVoxelsXFast(Y, Z + 1));
 		}
-		if(Rotate) Cube->setVoxelsXFast(Y, LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Cube->getVoxelsXFast(Y, 0));
-		else Cube->setVoxelsXFast(Y, LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, 0);
+		if(Rotate) pCube->setVoxelsXFast(Y, LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, pCube->getVoxelsXFast(Y, 0));
+		else pCube->setVoxelsXFast(Y, LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, 0);
 	}
 } /* shiftDownward */
 
@@ -141,14 +141,14 @@ void Transformation::shiftDownward(LedCube* Cube, boolean Rotate)
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftLeft(LedCube* Cube, boolean Rotate)
+void Transformation::shiftLeft(boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
 		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1; Y++) {
-			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y + 1, Z));
+			pCube->setVoxelsXFast(Y, Z, pCube->getVoxelsXFast(Y + 1, Z));
 		}
-		if(Rotate) Cube->setVoxelsXFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, Cube->getVoxelsXFast(0, Z));
-		else Cube->setVoxelsXFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, 0);
+		if(Rotate) pCube->setVoxelsXFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, pCube->getVoxelsXFast(0, Z));
+		else pCube->setVoxelsXFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z, 0);
 	}
 } /* shiftLeft */
 
@@ -161,14 +161,14 @@ void Transformation::shiftLeft(LedCube* Cube, boolean Rotate)
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftRight(LedCube* Cube, boolean Rotate)
+void Transformation::shiftRight(boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
 		for(byte Y = 1; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y - 1, Z));
+			pCube->setVoxelsXFast(Y, Z, pCube->getVoxelsXFast(Y - 1, Z));
 		}
-		if(Rotate) Cube->setVoxelsXFast(0, Z, Cube->getVoxelsXFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z));
-		else Cube->setVoxelsXFast(0, Z, 0);
+		if(Rotate) pCube->setVoxelsXFast(0, Z, pCube->getVoxelsXFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Z));
+		else pCube->setVoxelsXFast(0, Z, 0);
 	}
 } /* shiftRight */
 
@@ -181,12 +181,12 @@ void Transformation::shiftRight(LedCube* Cube, boolean Rotate)
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftForwardFast(LedCube* Cube, boolean Rotate)
+void Transformation::shiftForwardFast(boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
 		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y, Z) >> 1);
-			if(Rotate) Cube->writeVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z, Cube->getVoxelFast(0, Y, Z));
+			pCube->setVoxelsXFast(Y, Z, pCube->getVoxelsXFast(Y, Z) >> 1);
+			if(Rotate) pCube->writeVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z, pCube->getVoxelFast(0, Y, Z));
 		}
 	}
 } /* shiftForwardFast */
@@ -200,12 +200,12 @@ void Transformation::shiftForwardFast(LedCube* Cube, boolean Rotate)
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-void Transformation::shiftBackwardFast(LedCube* Cube, boolean Rotate)
+void Transformation::shiftBackwardFast(boolean Rotate)
 {
 	for (byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
 		for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-			Cube->setVoxelsXFast(Y, Z, Cube->getVoxelsXFast(Y, Z) << 1);
-			if(Rotate) Cube->writeVoxelFast(0, Y, Z, Cube->getVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z));
+			pCube->setVoxelsXFast(Y, Z, pCube->getVoxelsXFast(Y, Z) << 1);
+			if(Rotate) pCube->writeVoxelFast(0, Y, Z, pCube->getVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z));
 		}
 	}
 } /* shiftBackwardFast */
@@ -223,7 +223,7 @@ void Transformation::shiftBackwardFast(LedCube* Cube, boolean Rotate)
  *                  
  *  \return         -
  *****************************************************************************************************************************************************/
-stdReturnType Transformation::shiftCircle(LedCube* Cube, LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Circle)
+stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Circle)
 {	
 	const byte LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
 
@@ -233,10 +233,10 @@ stdReturnType Transformation::shiftCircle(LedCube* Cube, LedCubeAxisType ShiftAx
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift front, right, back, left */
-					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) Cube->writeVoxelFast(Circle, Y, Z, Cube->getVoxelFast(Circle, Y+1, Z));
-					for(int8_t X = Circle; X < LEDs-1-Circle; X++) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X+1, LEDs-1-Circle, Z));
-					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) Cube->writeVoxelFast(LEDs-1-Circle, Y, Z, Cube->getVoxelFast(LEDs-1-Circle, Y-1, Z));
-					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, Circle, Z, Cube->getVoxelFast(X-1, Circle, Z));
+					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y+1, Z));
+					for(int8_t X = Circle; X < LEDs-1-Circle; X++) pCube->writeVoxelFast(X, LEDs-1-Circle, Z, pCube->getVoxelFast(X+1, LEDs-1-Circle, Z));
+					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) pCube->writeVoxelFast(LEDs-1-Circle, Y, Z, pCube->getVoxelFast(LEDs-1-Circle, Y-1, Z));
+					for(int8_t X = LEDs-1-Circle; X > Circle; X--) pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X-1, Circle, Z));
 				}
 			}
 		}
@@ -244,10 +244,10 @@ stdReturnType Transformation::shiftCircle(LedCube* Cube, LedCubeAxisType ShiftAx
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift left, back, right, front */
-					for(int8_t X = Circle; X < LEDs-1-Circle; X++) Cube->writeVoxelFast(X, Circle, Z, Cube->getVoxelFast(X+1, Circle, Z));
-					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) Cube->writeVoxelFast(LEDs-1-Circle, Y, Z, Cube->getVoxelFast(LEDs-1-Circle, Y+1, Z));
-					for(int8_t X = LEDs-1-Circle; X > Circle; X--) Cube->writeVoxelFast(X, LEDs-1-Circle, Z, Cube->getVoxelFast(X-1, LEDs-1-Circle, Z));
-					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) Cube->writeVoxelFast(Circle, Y, Z, Cube->getVoxelFast(Circle, Y-1, Z));
+					for(int8_t X = Circle; X < LEDs-1-Circle; X++) pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X+1, Circle, Z));
+					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) pCube->writeVoxelFast(LEDs-1-Circle, Y, Z, pCube->getVoxelFast(LEDs-1-Circle, Y+1, Z));
+					for(int8_t X = LEDs-1-Circle; X > Circle; X--) pCube->writeVoxelFast(X, LEDs-1-Circle, Z, pCube->getVoxelFast(X-1, LEDs-1-Circle, Z));
+					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y-1, Z));
 				}
 			}
 		}
