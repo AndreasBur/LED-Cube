@@ -256,7 +256,7 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
 	else { 
 		return E_NOT_OK;
 	}
-} /* rotateWithShift */
+} /* shiftCircle */
 
 /******************************************************************************************************************************************************
  *  E N D   O F   F I L E
