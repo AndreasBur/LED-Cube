@@ -27,10 +27,10 @@
  *  LOCAL CONSTANT MACROS
  *****************************************************************************************************************************************************/
  /* standard type for configuration */
-#define STD_ON					1u
-#define STD_OFF					0u
+#define STD_ON                  1u
+#define STD_OFF                 0u
 
-#define STD_NULL_CHARACTER		'\0'
+#define STD_NULL_CHARACTER      '\0'
 
 
 /******************************************************************************************************************************************************
@@ -50,11 +50,11 @@
     
 /* read bit */
 #define readBit(Var, Bit) \
-	(((Var) & (1 << (Bit))) >> Bit)
+    (((Var) & (1 << (Bit))) >> Bit)
 
 /* write bit */
 #define writeBit(Var, Bit, Value) \
-	((Var) = ((Var & (unsigned)~(1 << Bit)) | (Value << Bit)))
+    ((Var) = ((Var & (unsigned)~(1 << Bit)) | (Value << Bit)))
 
 /* is bit set */
 #define isBitSet(Var, Bit) ((Var) & (1 << (Bit)))

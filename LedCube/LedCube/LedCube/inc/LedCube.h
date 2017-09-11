@@ -56,7 +56,7 @@
 typedef enum {
     LEDCUBE_STATE_NONE,
     LEDCUBE_STATE_INIT,
-	LEDCUBE_STATE_READY,
+    LEDCUBE_STATE_READY,
     LEDCUBE_STATE_RUNNING,
     LEDCUBE_STATE_STOPPED
 } LedCubeStateType;
@@ -81,8 +81,8 @@ class LedCube
     byte (*NextFrame)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
     byte CubeBuffer1[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE][LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
     byte CubeBuffer2[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE][LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
-	boolean NextFrameReady;
-	boolean NextFrameTimeElapsed;
+    boolean NextFrameReady;
+    boolean NextFrameTimeElapsed;
 
     // functions
     void clearCube();
@@ -90,7 +90,7 @@ class LedCube
     void sendData(byte Data);
     void switchBufferPointer();
     stdReturnType setLayer();
-	stdReturnType showNextFrame();
+    stdReturnType showNextFrame();
 
   public:
     LedCube();
@@ -99,47 +99,47 @@ class LedCube
     // get methods
     byte getCurrentLayer() { return CurrentLayer; }
     LedCubeStateType getState() { return State; }
-	boolean getNextFrameReady() { return NextFrameReady; }
-	boolean getNextFrameTimeElapsed() { return NextFrameTimeElapsed; }
+    boolean getNextFrameReady() { return NextFrameReady; }
+    boolean getNextFrameTimeElapsed() { return NextFrameTimeElapsed; }
 
     // set methods
-	stdReturnType setNextFrameReady();
-	stdReturnType setNextFrameTimeElapsed();
+    stdReturnType setNextFrameReady();
+    stdReturnType setNextFrameTimeElapsed();
 
     // methods
     void init();
-	stdReturnType start();
-	stdReturnType stop();
-	void task();
+    stdReturnType start();
+    stdReturnType stop();
+    void task();
 
     stdReturnType setVoxel(byte, byte, byte);
-	stdReturnType clearVoxel(byte, byte, byte);
-	stdReturnType writeVoxel(byte, byte, byte, boolean);
-	stdReturnType getVoxel(byte, byte, byte, boolean*);
+    stdReturnType clearVoxel(byte, byte, byte);
+    stdReturnType writeVoxel(byte, byte, byte, boolean);
+    stdReturnType getVoxel(byte, byte, byte, boolean*);
 
-	void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
+    void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
     void clearVoxelFast(byte X, byte Y, byte Z) { bitClear(NextFrame[Y][Z], X); }
     void writeVoxelFast(byte X, byte Y, byte Z, boolean Value) { bitWrite(NextFrame[Y][Z], X, Value); }
     byte getVoxelFast(byte X, byte Y, byte Z) { return bitRead(CurrentFrame[Y][Z], X); }
 
-	stdReturnType getVoxelsX(byte, byte, byte*);
-	stdReturnType setVoxelsX(byte, byte, byte);
-	stdReturnType getVoxelsY(byte, byte, byte*);
-	stdReturnType setVoxelsY(byte, byte, byte);
-	stdReturnType getVoxelsZ(byte, byte, byte*);
-	stdReturnType setVoxelsZ(byte, byte, byte);
+    stdReturnType getVoxelsX(byte, byte, byte*);
+    stdReturnType setVoxelsX(byte, byte, byte);
+    stdReturnType getVoxelsY(byte, byte, byte*);
+    stdReturnType setVoxelsY(byte, byte, byte);
+    stdReturnType getVoxelsZ(byte, byte, byte*);
+    stdReturnType setVoxelsZ(byte, byte, byte);
 
-	byte getVoxelsXFast(byte, byte);
-	void setVoxelsXFast(byte, byte, byte);
-	byte getVoxelsYFast(byte, byte);
-	void setVoxelsYFast(byte, byte, byte);
-	byte getVoxelsZFast(byte, byte);
-	void setVoxelsZFast(byte, byte, byte);
+    byte getVoxelsXFast(byte, byte);
+    void setVoxelsXFast(byte, byte, byte);
+    byte getVoxelsYFast(byte, byte);
+    void setVoxelsYFast(byte, byte, byte);
+    byte getVoxelsZFast(byte, byte);
+    void setVoxelsZFast(byte, byte, byte);
 
-	void clearVoxels() { memset(NextFrame, 0, sizeof(CubeBuffer1)); }
-	void setVoxels() { memset(NextFrame, 255, sizeof(CubeBuffer1)); }
+    void clearVoxels() { memset(NextFrame, 0, sizeof(CubeBuffer1)); }
+    void setVoxels() { memset(NextFrame, 255, sizeof(CubeBuffer1)); }
 
-	void copyCurrentFrameToNextFrame() { memcpy(NextFrame, CurrentFrame, sizeof(CubeBuffer1)); }
+    void copyCurrentFrameToNextFrame() { memcpy(NextFrame, CurrentFrame, sizeof(CubeBuffer1)); }
 };
 
 #endif
