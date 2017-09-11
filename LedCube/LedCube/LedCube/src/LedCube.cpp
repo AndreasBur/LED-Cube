@@ -38,8 +38,8 @@ LedCube::LedCube()
 {
     CurrentLayer = 0;
     State = LEDCUBE_STATE_NONE;
-	NextFrameReady = false,
-	NextFrameTimeElapsed = false;
+    NextFrameReady = false,
+    NextFrameTimeElapsed = false;
     CurrentFrame = CubeBuffer1;
     NextFrame = CubeBuffer2;
     memset(CubeBuffer1, 0, sizeof(CubeBuffer1));
@@ -86,11 +86,11 @@ void LedCube::init()
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::start()
 {
-	if(State == LEDCUBE_STATE_READY || LEDCUBE_STATE_STOPPED) {
-		State = LEDCUBE_STATE_RUNNING;
-		return E_OK;
-	}
-	return E_NOT_OK;
+    if(State == LEDCUBE_STATE_READY || LEDCUBE_STATE_STOPPED) {
+        State = LEDCUBE_STATE_RUNNING;
+        return E_OK;
+    }
+    return E_NOT_OK;
 } /* start */
 
 
@@ -104,11 +104,11 @@ stdReturnType LedCube::start()
  *****************************************************************************************************************************************************/
 stdReturnType LedCube::stop()
 {
-	if(State == LEDCUBE_STATE_RUNNING) {
-		State = LEDCUBE_STATE_STOPPED;
-		return E_OK;
-	}
-	return E_NOT_OK;
+    if(State == LEDCUBE_STATE_RUNNING) {
+        State = LEDCUBE_STATE_STOPPED;
+        return E_OK;
+    }
+    return E_NOT_OK;
 } /* start */
 
 
@@ -126,12 +126,12 @@ void LedCube::task()
     if(State == LEDCUBE_STATE_RUNNING) {
         if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
             CurrentLayer = 0;
-			/* is next frame ready to show? */
-			if(NextFrameReady && NextFrameTimeElapsed) { 
-				showNextFrame();
-				NextFrameReady = false;
-				NextFrameTimeElapsed = false;
-			}
+            /* is next frame ready to show? */
+            if(NextFrameReady && NextFrameTimeElapsed) { 
+                showNextFrame();
+                NextFrameReady = false;
+                NextFrameTimeElapsed = false;
+            }
         }
         showLayer(CurrentLayer);
         CurrentLayer++;
@@ -323,7 +323,7 @@ stdReturnType LedCube::getVoxelsY(byte X, byte Z, byte* Value)
     if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
     {
         for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-			bitWrite(*Value, Y, bitRead(CurrentFrame[Y][Z], X));
+            bitWrite(*Value, Y, bitRead(CurrentFrame[Y][Z], X));
         }
         return E_OK;
     } else {
@@ -349,8 +349,8 @@ stdReturnType LedCube::setVoxelsY(byte X, byte Z, byte Value)
     if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
     {
         for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-			bitWrite(NextFrame[Y][Z], X, bitRead(Value, Y));
-		}
+            bitWrite(NextFrame[Y][Z], X, bitRead(Value, Y));
+        }
         return E_OK;
     } else {
         return E_NOT_OK;
@@ -375,7 +375,7 @@ stdReturnType LedCube::getVoxelsZ(byte X, byte Y, byte* Value)
     if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
     {
         for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-			bitWrite(*Value, Z, bitRead(CurrentFrame[Y][Z], X));
+            bitWrite(*Value, Z, bitRead(CurrentFrame[Y][Z], X));
         }
         return E_OK;
     } else {
@@ -401,8 +401,8 @@ stdReturnType LedCube::setVoxelsZ(byte X, byte Y, byte Value)
     if(X < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE && Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE)
     {
         for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-			bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
-		}
+            bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
+        }
         return E_OK;
     } else {
         return E_NOT_OK;
@@ -422,7 +422,7 @@ stdReturnType LedCube::setVoxelsZ(byte X, byte Y, byte Value)
  *****************************************************************************************************************************************************/
 byte LedCube::getVoxelsXFast(byte Y, byte Z)
 {
-	return CurrentFrame[Y][Z];
+    return CurrentFrame[Y][Z];
 } /* getVoxelsXFast */
 
 
@@ -434,11 +434,11 @@ byte LedCube::getVoxelsXFast(byte Y, byte Z)
  *                  
  *  \param[in]      Y          y-axis coordinate
  *  \param[in]      Z          z-axis coordinate
- *  \return			voxels with value on or off
+ *  \return         voxels with value on or off
  *****************************************************************************************************************************************************/
 void LedCube::setVoxelsXFast(byte Y, byte Z, byte Value)
 {
-	NextFrame[Y][Z] = Value;
+    NextFrame[Y][Z] = Value;
 } /* setVoxelsXFast */
 
 
@@ -453,13 +453,13 @@ void LedCube::setVoxelsXFast(byte Y, byte Z, byte Value)
  *  \param[out]     Value      voxels with value on or off
  *****************************************************************************************************************************************************/
 byte LedCube::getVoxelsYFast(byte X, byte Z)
-{	
-	byte Value = 0;
+{   
+    byte Value = 0;
 
-	for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-		bitWrite(Value, Y, bitRead(CurrentFrame[Y][Z], X));
-	}
-	return Value;
+    for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+        bitWrite(Value, Y, bitRead(CurrentFrame[Y][Z], X));
+    }
+    return Value;
 } /* getVoxelsYFast */
 
 
@@ -471,13 +471,13 @@ byte LedCube::getVoxelsYFast(byte X, byte Z)
  *                  
  *  \param[in]      X          x-axis coordinate
  *  \param[in]      Z          z-axis coordinate
- *  \return			voxels with value on or off
+ *  \return         voxels with value on or off
  *****************************************************************************************************************************************************/
 void LedCube::setVoxelsYFast(byte X, byte Z, byte Value)
 {
-	for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
-		bitWrite(NextFrame[Y][Z], X, bitRead(Value, Y));
-	}
+    for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+        bitWrite(NextFrame[Y][Z], X, bitRead(Value, Y));
+    }
 } /* setVoxelsYFast */
 
 
@@ -492,12 +492,12 @@ void LedCube::setVoxelsYFast(byte X, byte Z, byte Value)
  *****************************************************************************************************************************************************/
 byte LedCube::getVoxelsZFast(byte X, byte Y)
 {
-	byte Value = 0;
+    byte Value = 0;
 
-	for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-		bitWrite(Value, Z, bitRead(CurrentFrame[Y][Z], X));
-	}
-	return Value;
+    for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
+        bitWrite(Value, Z, bitRead(CurrentFrame[Y][Z], X));
+    }
+    return Value;
 } /* getVoxelsZFast */
 
 
@@ -509,13 +509,13 @@ byte LedCube::getVoxelsZFast(byte X, byte Y)
  *                  
  *  \param[in]      X          x-axis coordinate
  *  \param[in]      Y          y-axis coordinate
- *  \return			voxels with value on or off
+ *  \return         voxels with value on or off
  *****************************************************************************************************************************************************/
 void LedCube::setVoxelsZFast(byte X, byte Y, byte Value)
 {
-	for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-		bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
-	}
+    for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
+        bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
+    }
 } /* setVoxelsZFast */
 
 
@@ -629,7 +629,7 @@ stdReturnType LedCube::showLayer(byte Layer)
 stdReturnType LedCube::showNextFrame()
 {
     switchBufferPointer();
-	return E_OK;
+    return E_OK;
 }
 
 

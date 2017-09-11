@@ -227,7 +227,6 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
 {   
     const byte LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
 
-<<<<<<< Updated upstream
 	if(Circle > 0 && Circle <= LEDs / 2) {
 		Circle--;
 		if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
@@ -258,38 +257,6 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
 		return E_NOT_OK;
 	}
 } /* shiftCircle */
-=======
-    if(Circle > 0 && Circle <= LEDs / 2) {
-        Circle--;
-        if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
-            if(LEDCUBE_AXIS_Z == ShiftAxis) {
-                for(byte Z = 0; Z < LEDs; Z++) {
-                    /* shift front, right, back, left */
-                    for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y+1, Z));
-                    for(int8_t X = Circle; X < LEDs-1-Circle; X++) pCube->writeVoxelFast(X, LEDs-1-Circle, Z, pCube->getVoxelFast(X+1, LEDs-1-Circle, Z));
-                    for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) pCube->writeVoxelFast(LEDs-1-Circle, Y, Z, pCube->getVoxelFast(LEDs-1-Circle, Y-1, Z));
-                    for(int8_t X = LEDs-1-Circle; X > Circle; X--) pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X-1, Circle, Z));
-                }
-            }
-        }
-        if(TRANSFORMATION_ROTATION_COUNTERCLOCKWISE == Direction) {
-            if(LEDCUBE_AXIS_Z == ShiftAxis) {
-                for(byte Z = 0; Z < LEDs; Z++) {
-                    /* shift left, back, right, front */
-                    for(int8_t X = Circle; X < LEDs-1-Circle; X++) pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X+1, Circle, Z));
-                    for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) pCube->writeVoxelFast(LEDs-1-Circle, Y, Z, pCube->getVoxelFast(LEDs-1-Circle, Y+1, Z));
-                    for(int8_t X = LEDs-1-Circle; X > Circle; X--) pCube->writeVoxelFast(X, LEDs-1-Circle, Z, pCube->getVoxelFast(X-1, LEDs-1-Circle, Z));
-                    for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y-1, Z));
-                }
-            }
-        }
-        return E_OK;
-    } 
-    else { 
-        return E_NOT_OK;
-    }
-} /* rotateWithShift */
->>>>>>> Stashed changes
 
 /******************************************************************************************************************************************************
  *  E N D   O F   F I L E
