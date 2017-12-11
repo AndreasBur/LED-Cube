@@ -68,6 +68,11 @@ typedef enum {
     LEDCUBE_AXIS_Z
 } LedCubeAxisType;
 
+/* Type which defines the buffer with all led states */
+typedef byte BufferType[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE][LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
+/* Type which points to the buffer for the next or current frame */
+typedef byte (*pFrameType)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
+
 
 /******************************************************************************************************************************************************
  *  CLASS  LedCube
@@ -77,10 +82,10 @@ class LedCube
   private:
     byte CurrentLayer;
     LedCubeStateType State;
-    byte (*CurrentFrame)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
-    byte (*NextFrame)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
-    byte CubeBuffer1[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE][LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
-    byte CubeBuffer2[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE][LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
+    pFrameType CurrentFrame;
+    pFrameType NextFrame;
+    BufferType Buffer1;
+    BufferType Buffer2;
     boolean NextFrameReady;
     boolean NextFrameTimeElapsed;
 
@@ -136,10 +141,10 @@ class LedCube
     byte getVoxelsZFast(byte, byte);
     void setVoxelsZFast(byte, byte, byte);
 
-    void clearVoxels() { memset(NextFrame, 0, sizeof(CubeBuffer1)); }
-    void setVoxels() { memset(NextFrame, 255, sizeof(CubeBuffer1)); }
+    void clearVoxels() { memset(NextFrame, 0, sizeof(BufferType)); }
+    void setVoxels() { memset(NextFrame, 255, sizeof(BufferType)); }
 
-    void copyCurrentFrameToNextFrame() { memcpy(NextFrame, CurrentFrame, sizeof(CubeBuffer1)); }
+    void copyCurrentFrameToNextFrame() { memcpy(NextFrame, CurrentFrame, sizeof(BufferType)); }
 };
 
 #endif

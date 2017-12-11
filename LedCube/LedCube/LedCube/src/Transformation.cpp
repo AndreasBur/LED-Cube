@@ -233,10 +233,18 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift front, right, back, left */
-					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y+1, Z));
-					for(int8_t X = Circle; X < LEDs-1-Circle; X++) pCube->writeVoxelFast(X, LEDs-1-Circle, Z, pCube->getVoxelFast(X+1, LEDs-1-Circle, Z));
-					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) pCube->writeVoxelFast(LEDs-1-Circle, Y, Z, pCube->getVoxelFast(LEDs-1-Circle, Y-1, Z));
-					for(int8_t X = LEDs-1-Circle; X > Circle; X--) pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X-1, Circle, Z));
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y + 1, Z));
+                    }
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X + 1, LEDs - 1 - Circle, Z));
+                    }
+					for(int8_t Y = LEDs -1 - Circle; Y > Circle; Y--) {
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y - 1, Z));
+                    }
+					for(int8_t X = LEDs -1 - Circle; X > Circle; X--) {
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X - 1, Circle, Z));
+                    }
 				}
 			}
 		}
@@ -244,10 +252,18 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
 			if(LEDCUBE_AXIS_Z == ShiftAxis) {
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift left, back, right, front */
-					for(int8_t X = Circle; X < LEDs-1-Circle; X++) pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X+1, Circle, Z));
-					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) pCube->writeVoxelFast(LEDs-1-Circle, Y, Z, pCube->getVoxelFast(LEDs-1-Circle, Y+1, Z));
-					for(int8_t X = LEDs-1-Circle; X > Circle; X--) pCube->writeVoxelFast(X, LEDs-1-Circle, Z, pCube->getVoxelFast(X-1, LEDs-1-Circle, Z));
-					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y-1, Z));
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X + 1, Circle, Z));
+                    }
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y + 1, Z));
+                    }
+					for(int8_t X = LEDs - 1 - Circle; X > Circle; X--) {
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X - 1, LEDs - 1 - Circle, Z));
+                    }
+					for(int8_t Y = LEDs - 1 - Circle; Y > Circle; Y--) {
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y - 1, Z));
+                    }
 				}
 			}
 		}

@@ -40,10 +40,10 @@ LedCube::LedCube()
     State = LEDCUBE_STATE_NONE;
     NextFrameReady = false,
     NextFrameTimeElapsed = false;
-    CurrentFrame = CubeBuffer1;
-    NextFrame = CubeBuffer2;
-    memset(CubeBuffer1, 0, sizeof(CubeBuffer1));
-    memset(CubeBuffer2, 0, sizeof(CubeBuffer1));
+    CurrentFrame = Buffer1;
+    NextFrame = Buffer2;
+    memset(Buffer1, 0, sizeof(Buffer1));
+    memset(Buffer2, 0, sizeof(Buffer2));
 } /* LedCube */
 
 
@@ -602,7 +602,7 @@ stdReturnType LedCube::showLayer(byte Layer)
     
     if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
         /* put on given layer */
-        sendData(1 << Layer);
+        sendData(1U << Layer);
         /* send the layer data to the shift registers */
         for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
             sendData(CurrentFrame[Y][Layer]);
@@ -643,7 +643,7 @@ stdReturnType LedCube::showNextFrame()
  *****************************************************************************************************************************************************/
 void LedCube::switchBufferPointer()
 {
-        byte (*pTmp)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
+        pFrameType pTmp;
 
         pTmp = CurrentFrame;
         CurrentFrame = NextFrame;

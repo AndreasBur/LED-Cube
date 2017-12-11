@@ -4,30 +4,35 @@ LedCube.elf:     file format elf32-avr
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
 <<<<<<< HEAD
+<<<<<<< HEAD
   0 .data         00000000  00800100  00800100  00001428  2**0
+=======
+  0 .data         00000000  00800100  00800100  000013d2  2**0
+>>>>>>> ...
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000013b4  00000000  00000000  00000074  2**1
+  1 .text         0000135e  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000096  00800100  00800100  00001428  2**0
+  2 .bss          00000096  00800100  00800100  000013d2  2**0
                   ALLOC
-  3 .comment      00000060  00000000  00000000  00001428  2**0
+  3 .comment      00000060  00000000  00000000  000013d2  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001488  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001434  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000288  00000000  00000000  000014c8  2**0
+  5 .debug_aranges 00000288  00000000  00000000  00001474  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000451f  00000000  00000000  00001750  2**0
+  6 .debug_info   00004a7f  00000000  00000000  000016fc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000c14  00000000  00000000  00005c6f  2**0
+  7 .debug_abbrev 000011da  00000000  00000000  0000617b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000017a1  00000000  00000000  00006883  2**0
+  8 .debug_line   000018ec  00000000  00000000  00007355  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000007f4  00000000  00000000  00008024  2**2
+  9 .debug_frame  000007f0  00000000  00000000  00008c44  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000118a  00000000  00000000  00008818  2**0
+ 10 .debug_str    00001507  00000000  00000000  00009434  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002dd7  00000000  00000000  000099a2  2**0
+ 11 .debug_loc    00002b8d  00000000  00000000  0000a93b  2**0
                   CONTENTS, READONLY, DEBUGGING
+<<<<<<< HEAD
  12 .debug_ranges 00000410  00000000  00000000  0000c779  2**0
 =======
   0 .data         00000000  00800100  00800100  000013d2  2**0
@@ -56,6 +61,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_ranges 00000368  00000000  00000000  0000c553  2**0
 >>>>>>> ...
+=======
+ 12 .debug_ranges 00000368  00000000  00000000  0000d4c8  2**0
+>>>>>>> ...
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -78,7 +86,11 @@ Disassembly of section .text:
       38:	0c 94 7b 04 	jmp	0x8f6	; 0x8f6 <__bad_interrupt>
       3c:	0c 94 7b 04 	jmp	0x8f6	; 0x8f6 <__bad_interrupt>
 <<<<<<< HEAD
+<<<<<<< HEAD
       40:	0c 94 5f 08 	jmp	0x10be	; 0x10be <__vector_16>
+=======
+      40:	0c 94 35 08 	jmp	0x106a	; 0x106a <__vector_16>
+>>>>>>> ...
 =======
       40:	0c 94 35 08 	jmp	0x106a	; 0x106a <__vector_16>
 >>>>>>> ...
@@ -129,8 +141,13 @@ Disassembly of section .text:
       ce:	7e 18       	sub	r7, r14
 	...
 <<<<<<< HEAD
+<<<<<<< HEAD
       d8:	fe c6       	rjmp	.+3580   	; 0xed6 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1bc>
       da:	fe c6       	rjmp	.+3580   	; 0xed8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1be>
+=======
+      d8:	fe c6       	rjmp	.+3580   	; 0xed6 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1ee>
+      da:	fe c6       	rjmp	.+3580   	; 0xed8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1f0>
+>>>>>>> ...
 =======
       d8:	fe c6       	rjmp	.+3580   	; 0xed6 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1ee>
       da:	fe c6       	rjmp	.+3580   	; 0xed8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1f0>
@@ -161,7 +178,7 @@ Disassembly of section .text:
      10a:	db de       	rcall	.-586    	; 0xfffffec2 <__eeprom_end+0xff7efec2>
      10c:	d8 d8       	rcall	.-3664   	; 0xfffff2be <__eeprom_end+0xff7ef2be>
      10e:	d8 00       	.word	0x00d8	; ????
-     110:	7e c3       	rjmp	.+1788   	; 0x80e <__FUSE_REGION_LENGTH__+0x40e>
+     110:	7e c3       	rjmp	.+1788   	; 0x80e <__LOCK_REGION_LENGTH__+0x40e>
      112:	1e 33       	cpi	r17, 0x3E	; 62
      114:	33 1e       	adc	r3, r19
      116:	31 1f       	adc	r19, r17
@@ -593,7 +610,11 @@ Disassembly of section .text:
      47c:	3f 03       	fmul	r19, r23
      47e:	1e 00       	.word	0x001e	; ????
 <<<<<<< HEAD
+<<<<<<< HEAD
      480:	7e c3       	rjmp	.+1788   	; 0xb7e <_ZN7LedCube14setVoxelsYFastEhhh+0x7c>
+=======
+     480:	7e c3       	rjmp	.+1788   	; 0xb7e <_ZN7LedCube17setNextFrameReadyEv>
+>>>>>>> ...
 =======
      480:	7e c3       	rjmp	.+1788   	; 0xb7e <_ZN7LedCube17setNextFrameReadyEv>
 >>>>>>> ...
@@ -617,7 +638,11 @@ Disassembly of section .text:
      4a4:	33 1e       	adc	r3, r19
      4a6:	0c 06       	cpc	r0, r28
 <<<<<<< HEAD
+<<<<<<< HEAD
      4a8:	7e c3       	rjmp	.+1788   	; 0xba6 <_ZN7LedCube23setNextFrameTimeElapsedEv+0xe>
+=======
+     4a8:	7e c3       	rjmp	.+1788   	; 0xba6 <_ZN7LedCube23setNextFrameTimeElapsedEv+0x10>
+>>>>>>> ...
 =======
      4a8:	7e c3       	rjmp	.+1788   	; 0xba6 <_ZN7LedCube23setNextFrameTimeElapsedEv+0x10>
 >>>>>>> ...
@@ -767,7 +792,7 @@ Disassembly of section .text:
      5c8:	67 36       	cpi	r22, 0x67	; 103
      5ca:	1e ce       	rjmp	.-964    	; 0x208 <__trampolines_end+0x1a0>
      5cc:	e6 b3       	in	r30, 0x16	; 22
-     5ce:	f9 c0       	rjmp	.+498    	; 0x7c2 <__FUSE_REGION_LENGTH__+0x3c2>
+     5ce:	f9 c0       	rjmp	.+498    	; 0x7c2 <__LOCK_REGION_LENGTH__+0x3c2>
      5d0:	00 18       	sub	r0, r0
      5d2:	00 18       	sub	r0, r0
      5d4:	18 3c       	cpi	r17, 0xC8	; 200
@@ -1049,6 +1074,7 @@ Disassembly of section .text:
      802:	1e cc       	rjmp	.-1988   	; 0x40 <__SREG__+0x1>
      804:	e7 b3       	in	r30, 0x17	; 23
 <<<<<<< HEAD
+<<<<<<< HEAD
      806:	f9 c0       	rjmp	.+498    	; 0x9fa <setup+0x1c>
 =======
      806:	f9 c0       	rjmp	.+498    	; 0x9fa <setup+0x1e>
@@ -1060,6 +1086,14 @@ Disassembly of section .text:
 <<<<<<< HEAD
      810:	7e c3       	rjmp	.+1788   	; 0xf0e <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1f4>
 =======
+     810:	7e c3       	rjmp	.+1788   	; 0xf0e <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x226>
+>>>>>>> ...
+=======
+     806:	f9 c0       	rjmp	.+498    	; 0x9fa <setup+0x1e>
+     808:	fe db       	rcall	.-2052   	; 0x6 <__FUSE_REGION_LENGTH__+0x3>
+     80a:	db de       	rcall	.-586    	; 0x5c2 <__LOCK_REGION_LENGTH__+0x1c2>
+     80c:	d8 d8       	rcall	.-3664   	; 0xfffff9be <__eeprom_end+0xff7ef9be>
+     80e:	d8 00       	.word	0x00d8	; ????
      810:	7e c3       	rjmp	.+1788   	; 0xf0e <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x226>
 >>>>>>> ...
      812:	1e 33       	cpi	r17, 0x3E	; 62
@@ -1119,10 +1153,17 @@ Disassembly of section .text:
 
 000008b8 <__ctors_start>:
 <<<<<<< HEAD
+<<<<<<< HEAD
      8b8:	1b 05       	cpc	r17, r11
 
 000008ba <__ctors_end>:
      8ba:	25 05       	cpc	r18, r5
+=======
+     8b8:	1a 05       	cpc	r17, r10
+
+000008ba <__ctors_end>:
+     8ba:	24 05       	cpc	r18, r4
+>>>>>>> ...
 =======
      8b8:	1a 05       	cpc	r17, r10
 
@@ -1160,6 +1201,7 @@ Disassembly of section .text:
      8e0:	21 97       	sbiw	r28, 0x01	; 1
      8e2:	fe 01       	movw	r30, r28
 <<<<<<< HEAD
+<<<<<<< HEAD
      8e4:	0e 94 c7 09 	call	0x138e	; 0x138e <__tablejump2__>
      8e8:	cc 35       	cpi	r28, 0x5C	; 92
      8ea:	d1 07       	cpc	r29, r17
@@ -1174,27 +1216,36 @@ Disassembly of section .text:
      8ee:	0e 94 26 08 	call	0x104c	; 0x104c <main>
      8f2:	0c 94 a2 09 	jmp	0x1344	; 0x1344 <__do_global_dtors>
 >>>>>>> ...
+=======
+     8e4:	0e 94 9c 09 	call	0x1338	; 0x1338 <__tablejump2__>
+     8e8:	cc 35       	cpi	r28, 0x5C	; 92
+     8ea:	d1 07       	cpc	r29, r17
+     8ec:	c9 f7       	brne	.-14     	; 0x8e0 <__do_global_ctors+0x8>
+     8ee:	0e 94 26 08 	call	0x104c	; 0x104c <main>
+     8f2:	0c 94 a2 09 	jmp	0x1344	; 0x1344 <__do_global_dtors>
+>>>>>>> ...
 
 000008f6 <__bad_interrupt>:
      8f6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000008fa <loop>:
-	setChar(3);
+    setChar(3);
 }
 
 void loop()
 {
-	if(Counter == 200) {
+    if(Counter == 200) {
      8fa:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Counter>
      8fe:	90 91 02 01 	lds	r25, 0x0102	; 0x800102 <Counter+0x1>
      902:	88 3c       	cpi	r24, 0xC8	; 200
      904:	91 05       	cpc	r25, r1
      906:	69 f5       	brne	.+90     	; 0x962 <__stack+0x63>
-		//CubeTrans.shiftBackward(&Cube, true);
-		//setChar(CharCounter);
-		Cube.setNextFrameReady();
+        //CubeTrans.shiftBackward(&Cube, true);
+        //setChar(CharCounter);
+        Cube.setNextFrameReady();
      908:	85 e0       	ldi	r24, 0x05	; 5
      90a:	91 e0       	ldi	r25, 0x01	; 1
+<<<<<<< HEAD
 <<<<<<< HEAD
      90c:	0e 94 c0 05 	call	0xb80	; 0xb80 <_ZN7LedCube17setNextFrameReadyEv>
 		Cube.setNextFrameTimeElapsed();
@@ -1209,81 +1260,115 @@ void loop()
      914:	0e 94 cb 05 	call	0xb96	; 0xb96 <_ZN7LedCube23setNextFrameTimeElapsedEv>
 >>>>>>> ...
 		CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 1);
+=======
+     90c:	0e 94 bf 05 	call	0xb7e	; 0xb7e <_ZN7LedCube17setNextFrameReadyEv>
+        Cube.setNextFrameTimeElapsed();
+     910:	85 e0       	ldi	r24, 0x05	; 5
+     912:	91 e0       	ldi	r25, 0x01	; 1
+     914:	0e 94 cb 05 	call	0xb96	; 0xb96 <_ZN7LedCube23setNextFrameTimeElapsedEv>
+        CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 1);
+>>>>>>> ...
      918:	21 e0       	ldi	r18, 0x01	; 1
      91a:	41 e0       	ldi	r20, 0x01	; 1
      91c:	62 e0       	ldi	r22, 0x02	; 2
      91e:	83 e0       	ldi	r24, 0x03	; 3
      920:	91 e0       	ldi	r25, 0x01	; 1
 <<<<<<< HEAD
+<<<<<<< HEAD
      922:	0e 94 8d 06 	call	0xd1a	; 0xd1a <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
 =======
      922:	0e 94 74 06 	call	0xce8	; 0xce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
 >>>>>>> ...
 		CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 2);
+=======
+     922:	0e 94 74 06 	call	0xce8	; 0xce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
+        CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 2);
+>>>>>>> ...
      926:	22 e0       	ldi	r18, 0x02	; 2
      928:	41 e0       	ldi	r20, 0x01	; 1
      92a:	62 e0       	ldi	r22, 0x02	; 2
      92c:	83 e0       	ldi	r24, 0x03	; 3
      92e:	91 e0       	ldi	r25, 0x01	; 1
 <<<<<<< HEAD
+<<<<<<< HEAD
      930:	0e 94 8d 06 	call	0xd1a	; 0xd1a <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
 =======
      930:	0e 94 74 06 	call	0xce8	; 0xce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
 >>>>>>> ...
 		CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 3);
+=======
+     930:	0e 94 74 06 	call	0xce8	; 0xce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
+        CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 3);
+>>>>>>> ...
      934:	23 e0       	ldi	r18, 0x03	; 3
      936:	41 e0       	ldi	r20, 0x01	; 1
      938:	62 e0       	ldi	r22, 0x02	; 2
      93a:	83 e0       	ldi	r24, 0x03	; 3
      93c:	91 e0       	ldi	r25, 0x01	; 1
 <<<<<<< HEAD
+<<<<<<< HEAD
      93e:	0e 94 8d 06 	call	0xd1a	; 0xd1a <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
 =======
      93e:	0e 94 74 06 	call	0xce8	; 0xce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
 >>>>>>> ...
 		CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 4);
+=======
+     93e:	0e 94 74 06 	call	0xce8	; 0xce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
+        CubeTrans.shiftCircle(LEDCUBE_AXIS_Z, TRANSFORMATION_ROTATION_COUNTERCLOCKWISE, 4);
+>>>>>>> ...
      942:	24 e0       	ldi	r18, 0x04	; 4
      944:	41 e0       	ldi	r20, 0x01	; 1
      946:	62 e0       	ldi	r22, 0x02	; 2
      948:	83 e0       	ldi	r24, 0x03	; 3
      94a:	91 e0       	ldi	r25, 0x01	; 1
 <<<<<<< HEAD
+<<<<<<< HEAD
      94c:	0e 94 8d 06 	call	0xd1a	; 0xd1a <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
 =======
      94c:	0e 94 74 06 	call	0xce8	; 0xce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
 >>>>>>> ...
 		Counter = 0;
+=======
+     94c:	0e 94 74 06 	call	0xce8	; 0xce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>
+        Counter = 0;
+>>>>>>> ...
      950:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <Counter+0x1>
      954:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <Counter>
-		CharCounter++;
+        CharCounter++;
      958:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
      95c:	8f 5f       	subi	r24, 0xFF	; 255
      95e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
-	}
-	Counter++;
+    }
+    Counter++;
      962:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Counter>
      966:	90 91 02 01 	lds	r25, 0x0102	; 0x800102 <Counter+0x1>
      96a:	01 96       	adiw	r24, 0x01	; 1
      96c:	90 93 02 01 	sts	0x0102, r25	; 0x800102 <Counter+0x1>
      970:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <Counter>
-	delay(1);
+    delay(1);
      974:	61 e0       	ldi	r22, 0x01	; 1
      976:	70 e0       	ldi	r23, 0x00	; 0
      978:	80 e0       	ldi	r24, 0x00	; 0
      97a:	90 e0       	ldi	r25, 0x00	; 0
 <<<<<<< HEAD
+<<<<<<< HEAD
      97c:	0e 94 ce 08 	call	0x119c	; 0x119c <delay>
 	digitalWrite(7, STD_ON);
+=======
+     97c:	0e 94 a4 08 	call	0x1148	; 0x1148 <delay>
+    digitalWrite(7, STD_ON);
+>>>>>>> ...
      980:	61 e0       	ldi	r22, 0x01	; 1
      982:	87 e0       	ldi	r24, 0x07	; 7
-     984:	0e 94 96 09 	call	0x132c	; 0x132c <digitalWrite>
-	Cube.task();
+     984:	0e 94 6c 09 	call	0x12d8	; 0x12d8 <digitalWrite>
+    Cube.task();
      988:	85 e0       	ldi	r24, 0x05	; 5
      98a:	91 e0       	ldi	r25, 0x01	; 1
-     98c:	0e 94 22 06 	call	0xc44	; 0xc44 <_ZN7LedCube4taskEv>
-	digitalWrite(7, STD_OFF);
+     98c:	0e 94 21 06 	call	0xc42	; 0xc42 <_ZN7LedCube4taskEv>
+    digitalWrite(7, STD_OFF);
      990:	60 e0       	ldi	r22, 0x00	; 0
      992:	87 e0       	ldi	r24, 0x07	; 7
+<<<<<<< HEAD
      994:	0c 94 96 09 	jmp	0x132c	; 0x132c <digitalWrite>
 =======
      97c:	0e 94 a4 08 	call	0x1148	; 0x1148 <delay>
@@ -1300,6 +1385,9 @@ void loop()
      992:	87 e0       	ldi	r24, 0x07	; 7
      994:	0c 94 6c 09 	jmp	0x12d8	; 0x12d8 <digitalWrite>
 >>>>>>> ...
+=======
+     994:	0c 94 6c 09 	jmp	0x12d8	; 0x12d8 <digitalWrite>
+>>>>>>> ...
 
 00000998 <_Z7setCharh>:
 }
@@ -1308,9 +1396,15 @@ void setChar(byte Number) {
      998:	ef 92       	push	r14
      99a:	ff 92       	push	r15
 <<<<<<< HEAD
+<<<<<<< HEAD
      99c:	1f 93       	push	r17
      99e:	cf 93       	push	r28
      9a0:	df 93       	push	r29
+=======
+     99c:	0f 93       	push	r16
+     99e:	1f 93       	push	r17
+     9a0:	cf 93       	push	r28
+>>>>>>> ...
 =======
      99c:	0f 93       	push	r16
      99e:	1f 93       	push	r17
@@ -1321,17 +1415,25 @@ void setChar(byte Number) {
      9a6:	70 01       	movw	r14, r0
      9a8:	11 24       	eor	r1, r1
 <<<<<<< HEAD
+<<<<<<< HEAD
      9aa:	c0 e0       	ldi	r28, 0x00	; 0
      9ac:	d0 e0       	ldi	r29, 0x00	; 0
      9ae:	17 e0       	ldi	r17, 0x07	; 7
      9b0:	fe 01       	movw	r30, r28
+=======
+     9aa:	c7 e0       	ldi	r28, 0x07	; 7
+     9ac:	00 e0       	ldi	r16, 0x00	; 0
+     9ae:	10 e0       	ldi	r17, 0x00	; 0
+    for(byte i = 0; i < 8; i++) {
+        Cube.setVoxelsYFast(0, 7-i, pgm_read_byte_near(&font[Number][i]));
+     9b0:	f8 01       	movw	r30, r16
+>>>>>>> ...
      9b2:	ee 0d       	add	r30, r14
      9b4:	ff 1d       	adc	r31, r15
      9b6:	e8 59       	subi	r30, 0x98	; 152
      9b8:	ff 4f       	sbci	r31, 0xFF	; 255
-	for(byte i = 0; i < 8; i++) {
-		Cube.setVoxelsYFast(0, 7-i, pgm_read_byte_near(&font[Number][i]));
      9ba:	24 91       	lpm	r18, Z
+<<<<<<< HEAD
      9bc:	41 2f       	mov	r20, r17
      9be:	4c 1b       	sub	r20, r28
      9c0:	60 e0       	ldi	r22, 0x00	; 0
@@ -1370,6 +1472,8 @@ void setChar(byte Number) {
      9b6:	e8 59       	subi	r30, 0x98	; 152
      9b8:	ff 4f       	sbci	r31, 0xFF	; 255
      9ba:	24 91       	lpm	r18, Z
+=======
+>>>>>>> ...
      9bc:	4c 2f       	mov	r20, r28
      9be:	60 e0       	ldi	r22, 0x00	; 0
      9c0:	85 e0       	ldi	r24, 0x05	; 5
@@ -1379,7 +1483,11 @@ void setChar(byte Number) {
      9ca:	1f 4f       	sbci	r17, 0xFF	; 255
      9cc:	c1 50       	subi	r28, 0x01	; 1
      9ce:	80 f7       	brcc	.-32     	; 0x9b0 <_Z7setCharh+0x18>
+<<<<<<< HEAD
 	}
+=======
+    }
+>>>>>>> ...
      9d0:	cf 91       	pop	r28
      9d2:	1f 91       	pop	r17
      9d4:	0f 91       	pop	r16
@@ -1388,12 +1496,16 @@ void setChar(byte Number) {
      9da:	08 95       	ret
 
 000009dc <setup>:
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
 Transformation CubeTrans(&Cube);
 int Counter;
 byte CharCounter = 0;
 
 void setup() {
+<<<<<<< HEAD
 	Cube.init();
 <<<<<<< HEAD
      9de:	85 e0       	ldi	r24, 0x05	; 5
@@ -1469,31 +1581,74 @@ void setup() {
      9fe:	91 e0       	ldi	r25, 0x01	; 1
      a00:	0e 94 cb 05 	call	0xb96	; 0xb96 <_ZN7LedCube23setNextFrameTimeElapsedEv>
 	Cube.setVoxelsX(1,1,B(01111110));
+=======
+    Cube.init();
+     9dc:	85 e0       	ldi	r24, 0x05	; 5
+     9de:	91 e0       	ldi	r25, 0x01	; 1
+     9e0:	0e 94 5b 05 	call	0xab6	; 0xab6 <_ZN7LedCube4initEv>
+    pinMode(7, OUTPUT);
+     9e4:	61 e0       	ldi	r22, 0x01	; 1
+     9e6:	87 e0       	ldi	r24, 0x07	; 7
+     9e8:	0e 94 30 09 	call	0x1260	; 0x1260 <pinMode>
+            }
+        }
+    }
+    
+    
+    Cube.start();
+     9ec:	85 e0       	ldi	r24, 0x05	; 5
+     9ee:	91 e0       	ldi	r25, 0x01	; 1
+     9f0:	0e 94 4d 05 	call	0xa9a	; 0xa9a <_ZN7LedCube5startEv>
+    Cube.setNextFrameReady();
+     9f4:	85 e0       	ldi	r24, 0x05	; 5
+     9f6:	91 e0       	ldi	r25, 0x01	; 1
+     9f8:	0e 94 bf 05 	call	0xb7e	; 0xb7e <_ZN7LedCube17setNextFrameReadyEv>
+    Cube.setNextFrameTimeElapsed();
+     9fc:	85 e0       	ldi	r24, 0x05	; 5
+     9fe:	91 e0       	ldi	r25, 0x01	; 1
+     a00:	0e 94 cb 05 	call	0xb96	; 0xb96 <_ZN7LedCube23setNextFrameTimeElapsedEv>
+    Cube.setVoxelsX(1,1,B(01111110));
+>>>>>>> ...
      a04:	2e e7       	ldi	r18, 0x7E	; 126
      a06:	41 e0       	ldi	r20, 0x01	; 1
      a08:	61 e0       	ldi	r22, 0x01	; 1
      a0a:	85 e0       	ldi	r24, 0x05	; 5
      a0c:	91 e0       	ldi	r25, 0x01	; 1
      a0e:	0e 94 6b 05 	call	0xad6	; 0xad6 <_ZN7LedCube10setVoxelsXEhhh>
+<<<<<<< HEAD
 	Cube.setVoxelsX(2,7,B(00111100));
+=======
+    Cube.setVoxelsX(2,7,B(00111100));
+>>>>>>> ...
      a12:	2c e3       	ldi	r18, 0x3C	; 60
      a14:	47 e0       	ldi	r20, 0x07	; 7
      a16:	62 e0       	ldi	r22, 0x02	; 2
      a18:	85 e0       	ldi	r24, 0x05	; 5
      a1a:	91 e0       	ldi	r25, 0x01	; 1
      a1c:	0e 94 6b 05 	call	0xad6	; 0xad6 <_ZN7LedCube10setVoxelsXEhhh>
+<<<<<<< HEAD
 	Cube.setVoxelsX(3,5,B(00011000));
+=======
+    Cube.setVoxelsX(3,5,B(00011000));
+>>>>>>> ...
      a20:	28 e1       	ldi	r18, 0x18	; 24
      a22:	45 e0       	ldi	r20, 0x05	; 5
      a24:	63 e0       	ldi	r22, 0x03	; 3
      a26:	85 e0       	ldi	r24, 0x05	; 5
      a28:	91 e0       	ldi	r25, 0x01	; 1
      a2a:	0e 94 6b 05 	call	0xad6	; 0xad6 <_ZN7LedCube10setVoxelsXEhhh>
+<<<<<<< HEAD
 	setChar(3);
+=======
+    setChar(3);
+>>>>>>> ...
      a2e:	83 e0       	ldi	r24, 0x03	; 3
      a30:	0c 94 cc 04 	jmp	0x998	; 0x998 <_Z7setCharh>
 
 00000a34 <_GLOBAL__sub_I_Cube>:
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
 #define RCK_74 12  // storage input
 #define SCK_74 11  // clock input
@@ -1501,6 +1656,7 @@ void setup() {
 void setChar(byte);
 
 LedCube Cube;
+<<<<<<< HEAD
 <<<<<<< HEAD
      a36:	85 e0       	ldi	r24, 0x05	; 5
      a38:	91 e0       	ldi	r25, 0x01	; 1
@@ -1521,6 +1677,12 @@ Transformation CubeTrans(&Cube);
      a36:	91 e0       	ldi	r25, 0x01	; 1
      a38:	0e 94 2c 05 	call	0xa58	; 0xa58 <_ZN7LedCubeC1Ev>
 Transformation CubeTrans(&Cube);
+=======
+     a34:	85 e0       	ldi	r24, 0x05	; 5
+     a36:	91 e0       	ldi	r25, 0x01	; 1
+     a38:	0e 94 2c 05 	call	0xa58	; 0xa58 <_ZN7LedCubeC1Ev>
+Transformation CubeTrans(&Cube);
+>>>>>>> ...
      a3c:	65 e0       	ldi	r22, 0x05	; 5
      a3e:	71 e0       	ldi	r23, 0x01	; 1
      a40:	83 e0       	ldi	r24, 0x03	; 3
@@ -1531,6 +1693,9 @@ Transformation CubeTrans(&Cube);
      a48:	83 e0       	ldi	r24, 0x03	; 3
      a4a:	91 e0       	ldi	r25, 0x01	; 1
      a4c:	0e 94 73 06 	call	0xce6	; 0xce6 <_ZN14TransformationD1Ev>
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
 #define RCK_74 12  // storage input
 #define SCK_74 11  // clock input
@@ -1538,6 +1703,7 @@ Transformation CubeTrans(&Cube);
 void setChar(byte);
 
 LedCube Cube;
+<<<<<<< HEAD
 <<<<<<< HEAD
      a52:	85 e0       	ldi	r24, 0x05	; 5
      a54:	91 e0       	ldi	r25, 0x01	; 1
@@ -1551,12 +1717,20 @@ LedCube Cube;
 
 00000a58 <_ZN7LedCubeC1Ev>:
 >>>>>>> ...
+=======
+     a50:	85 e0       	ldi	r24, 0x05	; 5
+     a52:	91 e0       	ldi	r25, 0x01	; 1
+     a54:	0c 94 4c 05 	jmp	0xa98	; 0xa98 <_ZN7LedCubeD1Ev>
+
+00000a58 <_ZN7LedCubeC1Ev>:
+>>>>>>> ...
 void LedCube::setVoxelsZFast(byte X, byte Y, byte Value)
 {
-	for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
-		bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
-	}
+    for(byte Z = 0; Z < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Z++) {
+        bitWrite(NextFrame[Y][Z], X, bitRead(Value, Z));
+    }
 } /* setVoxelsZFast */
+<<<<<<< HEAD
 <<<<<<< HEAD
      a5a:	cf 93       	push	r28
      a5c:	df 93       	push	r29
@@ -1755,6 +1929,44 @@ void LedCube::setVoxelsZFast(byte X, byte Y, byte Value)
 00000a98 <_ZN7LedCubeD1Ev>:
      a98:	08 95       	ret
 
+=======
+     a58:	cf 93       	push	r28
+     a5a:	df 93       	push	r29
+     a5c:	fc 01       	movw	r30, r24
+     a5e:	10 82       	st	Z, r1
+     a60:	11 82       	std	Z+1, r1	; 0x01
+     a62:	dc 01       	movw	r26, r24
+     a64:	aa 57       	subi	r26, 0x7A	; 122
+     a66:	bf 4f       	sbci	r27, 0xFF	; 255
+     a68:	1c 92       	st	X, r1
+     a6a:	11 96       	adiw	r26, 0x01	; 1
+     a6c:	1c 92       	st	X, r1
+     a6e:	ec 01       	movw	r28, r24
+     a70:	26 96       	adiw	r28, 0x06	; 6
+     a72:	d3 83       	std	Z+3, r29	; 0x03
+     a74:	c2 83       	std	Z+2, r28	; 0x02
+     a76:	a1 54       	subi	r26, 0x41	; 65
+     a78:	b1 09       	sbc	r27, r1
+     a7a:	b5 83       	std	Z+5, r27	; 0x05
+     a7c:	a4 83       	std	Z+4, r26	; 0x04
+     a7e:	80 e4       	ldi	r24, 0x40	; 64
+     a80:	fe 01       	movw	r30, r28
+     a82:	98 2f       	mov	r25, r24
+     a84:	11 92       	st	Z+, r1
+     a86:	9a 95       	dec	r25
+     a88:	e9 f7       	brne	.-6      	; 0xa84 <_ZN7LedCubeC1Ev+0x2c>
+     a8a:	fd 01       	movw	r30, r26
+     a8c:	11 92       	st	Z+, r1
+     a8e:	8a 95       	dec	r24
+     a90:	e9 f7       	brne	.-6      	; 0xa8c <_ZN7LedCubeC1Ev+0x34>
+     a92:	df 91       	pop	r29
+     a94:	cf 91       	pop	r28
+     a96:	08 95       	ret
+
+00000a98 <_ZN7LedCubeD1Ev>:
+     a98:	08 95       	ret
+
+>>>>>>> ...
 00000a9a <_ZN7LedCube5startEv>:
      a9a:	23 e0       	ldi	r18, 0x03	; 3
      a9c:	fc 01       	movw	r30, r24
@@ -1879,6 +2091,9 @@ void LedCube::setVoxelsZFast(byte X, byte Y, byte Value)
      b7c:	08 95       	ret
 
 00000b7e <_ZN7LedCube17setNextFrameReadyEv>:
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
  *  \return         E_OK
  *                  E_NOT_OK
@@ -1887,25 +2102,33 @@ stdReturnType LedCube::setNextFrameReady()
 {
     if(State == LEDCUBE_STATE_RUNNING) {
 <<<<<<< HEAD
+<<<<<<< HEAD
      b80:	fc 01       	movw	r30, r24
      b82:	21 81       	ldd	r18, Z+1	; 0x01
      b84:	23 30       	cpi	r18, 0x03	; 3
      b86:	31 f4       	brne	.+12     	; 0xb94 <_ZN7LedCube17setNextFrameReadyEv+0x14>
+=======
+     b7e:	fc 01       	movw	r30, r24
+     b80:	21 81       	ldd	r18, Z+1	; 0x01
+     b82:	23 30       	cpi	r18, 0x03	; 3
+     b84:	31 f4       	brne	.+12     	; 0xb92 <_ZN7LedCube17setNextFrameReadyEv+0x14>
+>>>>>>> ...
         NextFrameReady = true;
-     b88:	ea 57       	subi	r30, 0x7A	; 122
-     b8a:	ff 4f       	sbci	r31, 0xFF	; 255
-     b8c:	81 e0       	ldi	r24, 0x01	; 1
-     b8e:	80 83       	st	Z, r24
+     b86:	ea 57       	subi	r30, 0x7A	; 122
+     b88:	ff 4f       	sbci	r31, 0xFF	; 255
+     b8a:	21 e0       	ldi	r18, 0x01	; 1
+     b8c:	20 83       	st	Z, r18
         return E_OK;
-     b90:	80 e0       	ldi	r24, 0x00	; 0
-     b92:	08 95       	ret
+     b8e:	80 e0       	ldi	r24, 0x00	; 0
+     b90:	08 95       	ret
     } else {
         return E_NOT_OK;
-     b94:	81 e0       	ldi	r24, 0x01	; 1
+     b92:	81 e0       	ldi	r24, 0x01	; 1
     }
 }
-     b96:	08 95       	ret
+     b94:	08 95       	ret
 
+<<<<<<< HEAD
 00000b98 <_ZN7LedCube23setNextFrameTimeElapsedEv>:
 =======
      b7e:	fc 01       	movw	r30, r24
@@ -1929,6 +2152,9 @@ stdReturnType LedCube::setNextFrameReady()
 
 00000b96 <_ZN7LedCube23setNextFrameTimeElapsedEv>:
 >>>>>>> ...
+=======
+00000b96 <_ZN7LedCube23setNextFrameTimeElapsedEv>:
+>>>>>>> ...
  *  \return         E_OK
  *                  E_NOT_OK
  *****************************************************************************************************************************************************/
@@ -1936,25 +2162,33 @@ stdReturnType LedCube::setNextFrameTimeElapsed()
 {
     if(State == LEDCUBE_STATE_RUNNING) {
 <<<<<<< HEAD
+<<<<<<< HEAD
      b98:	fc 01       	movw	r30, r24
      b9a:	21 81       	ldd	r18, Z+1	; 0x01
      b9c:	23 30       	cpi	r18, 0x03	; 3
      b9e:	31 f4       	brne	.+12     	; 0xbac <_ZN7LedCube23setNextFrameTimeElapsedEv+0x14>
+=======
+     b96:	fc 01       	movw	r30, r24
+     b98:	21 81       	ldd	r18, Z+1	; 0x01
+     b9a:	23 30       	cpi	r18, 0x03	; 3
+     b9c:	31 f4       	brne	.+12     	; 0xbaa <_ZN7LedCube23setNextFrameTimeElapsedEv+0x14>
+>>>>>>> ...
         NextFrameTimeElapsed = true;
-     ba0:	e9 57       	subi	r30, 0x79	; 121
-     ba2:	ff 4f       	sbci	r31, 0xFF	; 255
-     ba4:	81 e0       	ldi	r24, 0x01	; 1
-     ba6:	80 83       	st	Z, r24
+     b9e:	e9 57       	subi	r30, 0x79	; 121
+     ba0:	ff 4f       	sbci	r31, 0xFF	; 255
+     ba2:	21 e0       	ldi	r18, 0x01	; 1
+     ba4:	20 83       	st	Z, r18
         return E_OK;
-     ba8:	80 e0       	ldi	r24, 0x00	; 0
-     baa:	08 95       	ret
+     ba6:	80 e0       	ldi	r24, 0x00	; 0
+     ba8:	08 95       	ret
     } else {
         return E_NOT_OK;
-     bac:	81 e0       	ldi	r24, 0x01	; 1
+     baa:	81 e0       	ldi	r24, 0x01	; 1
     }
 }
-     bae:	08 95       	ret
+     bac:	08 95       	ret
 
+<<<<<<< HEAD
 00000bb0 <_ZN7LedCube8sendDataEh>:
 =======
      b96:	fc 01       	movw	r30, r24
@@ -1978,6 +2212,9 @@ stdReturnType LedCube::setNextFrameTimeElapsed()
 
 00000bae <_ZN7LedCube8sendDataEh>:
 >>>>>>> ...
+=======
+00000bae <_ZN7LedCube8sendDataEh>:
+>>>>>>> ...
  *
  *  \param[in]      Data    data (Byte) to send
  *  \return         -
@@ -1985,8 +2222,13 @@ stdReturnType LedCube::setNextFrameTimeElapsed()
 void LedCube::sendData(byte Data)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
      bb0:	87 e0       	ldi	r24, 0x07	; 7
      bb2:	90 e0       	ldi	r25, 0x00	; 0
+=======
+     bae:	87 e0       	ldi	r24, 0x07	; 7
+     bb0:	90 e0       	ldi	r25, 0x00	; 0
+>>>>>>> ...
 =======
      bae:	87 e0       	ldi	r24, 0x07	; 7
      bb0:	90 e0       	ldi	r25, 0x00	; 0
@@ -1996,6 +2238,7 @@ void LedCube::sendData(byte Data)
         //digitalWrite(DataInPin, !!(Data & (1 << i)));
         // MSB First
         digitalWriteFast(LEDCUBE_DATA_IN_PIN, !!(Data & (1 << (7 - i))));
+<<<<<<< HEAD
 <<<<<<< HEAD
      bb4:	70 e0       	ldi	r23, 0x00	; 0
      bb6:	9b 01       	movw	r18, r22
@@ -2010,17 +2253,33 @@ void LedCube::sendData(byte Data)
      bc8:	2d 9a       	sbi	0x05, 5	; 5
      bca:	01 c0       	rjmp	.+2      	; 0xbce <_ZN7LedCube8sendDataEh+0x1e>
      bcc:	2d 98       	cbi	0x05, 5	; 5
+=======
+     bb2:	70 e0       	ldi	r23, 0x00	; 0
+     bb4:	9b 01       	movw	r18, r22
+     bb6:	08 2e       	mov	r0, r24
+     bb8:	02 c0       	rjmp	.+4      	; 0xbbe <_ZN7LedCube8sendDataEh+0x10>
+     bba:	35 95       	asr	r19
+     bbc:	27 95       	ror	r18
+     bbe:	0a 94       	dec	r0
+     bc0:	e2 f7       	brpl	.-8      	; 0xbba <_ZN7LedCube8sendDataEh+0xc>
+     bc2:	20 ff       	sbrs	r18, 0
+     bc4:	02 c0       	rjmp	.+4      	; 0xbca <_ZN7LedCube8sendDataEh+0x1c>
+     bc6:	2d 9a       	sbi	0x05, 5	; 5
+     bc8:	01 c0       	rjmp	.+2      	; 0xbcc <_ZN7LedCube8sendDataEh+0x1e>
+     bca:	2d 98       	cbi	0x05, 5	; 5
+>>>>>>> ...
         // toggle clock pin
         digitalWriteFast(LEDCUBE_CLOCK_PIN, HIGH);
-     bce:	2b 9a       	sbi	0x05, 3	; 5
+     bcc:	2b 9a       	sbi	0x05, 3	; 5
         digitalWriteFast(LEDCUBE_CLOCK_PIN, LOW);
-     bd0:	2b 98       	cbi	0x05, 3	; 5
-     bd2:	01 97       	sbiw	r24, 0x01	; 1
-     bd4:	80 f7       	brcc	.-32     	; 0xbb6 <_ZN7LedCube8sendDataEh+0x6>
+     bce:	2b 98       	cbi	0x05, 3	; 5
+     bd0:	01 97       	sbiw	r24, 0x01	; 1
+     bd2:	80 f7       	brcc	.-32     	; 0xbb4 <_ZN7LedCube8sendDataEh+0x6>
     }
 } /* sendData */
-     bd6:	08 95       	ret
+     bd4:	08 95       	ret
 
+<<<<<<< HEAD
 00000bd8 <_ZN7LedCube9showLayerEh>:
 =======
      bb2:	70 e0       	ldi	r23, 0x00	; 0
@@ -2049,6 +2308,9 @@ void LedCube::sendData(byte Data)
 
 00000bd6 <_ZN7LedCube9showLayerEh>:
 >>>>>>> ...
+=======
+00000bd6 <_ZN7LedCube9showLayerEh>:
+>>>>>>> ...
  *  \param[in]      Layer       layer which should be shown on the cube
  *  \return         E_OK
  *                  E_NOT_OK
@@ -2056,38 +2318,48 @@ void LedCube::sendData(byte Data)
 stdReturnType LedCube::showLayer(byte Layer)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
      bd8:	ef 92       	push	r14
      bda:	ff 92       	push	r15
      bdc:	0f 93       	push	r16
      bde:	1f 93       	push	r17
      be0:	cf 93       	push	r28
      be2:	df 93       	push	r29
+=======
+     bd6:	ef 92       	push	r14
+     bd8:	ff 92       	push	r15
+     bda:	0f 93       	push	r16
+     bdc:	1f 93       	push	r17
+     bde:	cf 93       	push	r28
+     be0:	df 93       	push	r29
+>>>>>>> ...
     stdReturnType ReturnValue = E_NOT_OK;
     
     if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
-     be4:	68 30       	cpi	r22, 0x08	; 8
-     be6:	30 f5       	brcc	.+76     	; 0xc34 <_ZN7LedCube9showLayerEh+0x5c>
-     be8:	ec 01       	movw	r28, r24
+     be2:	68 30       	cpi	r22, 0x08	; 8
+     be4:	30 f5       	brcc	.+76     	; 0xc32 <_ZN7LedCube9showLayerEh+0x5c>
+     be6:	ec 01       	movw	r28, r24
         /* put on given layer */
-        sendData(1 << Layer);
-     bea:	06 2f       	mov	r16, r22
-     bec:	10 e0       	ldi	r17, 0x00	; 0
-     bee:	81 e0       	ldi	r24, 0x01	; 1
-     bf0:	90 e0       	ldi	r25, 0x00	; 0
-     bf2:	9c 01       	movw	r18, r24
-     bf4:	02 c0       	rjmp	.+4      	; 0xbfa <_ZN7LedCube9showLayerEh+0x22>
-     bf6:	22 0f       	add	r18, r18
-     bf8:	33 1f       	adc	r19, r19
-     bfa:	6a 95       	dec	r22
-     bfc:	e2 f7       	brpl	.-8      	; 0xbf6 <_ZN7LedCube9showLayerEh+0x1e>
-     bfe:	b9 01       	movw	r22, r18
-     c00:	ce 01       	movw	r24, r28
-     c02:	0e 94 d8 05 	call	0xbb0	; 0xbb0 <_ZN7LedCube8sendDataEh>
-     c06:	e1 2c       	mov	r14, r1
-     c08:	f1 2c       	mov	r15, r1
+        sendData(1U << Layer);
+     be8:	06 2f       	mov	r16, r22
+     bea:	10 e0       	ldi	r17, 0x00	; 0
+     bec:	81 e0       	ldi	r24, 0x01	; 1
+     bee:	90 e0       	ldi	r25, 0x00	; 0
+     bf0:	9c 01       	movw	r18, r24
+     bf2:	02 c0       	rjmp	.+4      	; 0xbf8 <_ZN7LedCube9showLayerEh+0x22>
+     bf4:	22 0f       	add	r18, r18
+     bf6:	33 1f       	adc	r19, r19
+     bf8:	6a 95       	dec	r22
+     bfa:	e2 f7       	brpl	.-8      	; 0xbf4 <_ZN7LedCube9showLayerEh+0x1e>
+     bfc:	b9 01       	movw	r22, r18
+     bfe:	ce 01       	movw	r24, r28
+     c00:	0e 94 d7 05 	call	0xbae	; 0xbae <_ZN7LedCube8sendDataEh>
+     c04:	e1 2c       	mov	r14, r1
+     c06:	f1 2c       	mov	r15, r1
         /* send the layer data to the shift registers */
         for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
             sendData(CurrentFrame[Y][Layer]);
+<<<<<<< HEAD
      c0a:	ea 81       	ldd	r30, Y+2	; 0x02
      c0c:	fb 81       	ldd	r31, Y+3	; 0x03
      c0e:	ee 0d       	add	r30, r14
@@ -2108,12 +2380,27 @@ stdReturnType LedCube::showLayer(byte Layer)
      bde:	cf 93       	push	r28
      be0:	df 93       	push	r29
     stdReturnType ReturnValue = E_NOT_OK;
+=======
+     c08:	ea 81       	ldd	r30, Y+2	; 0x02
+     c0a:	fb 81       	ldd	r31, Y+3	; 0x03
+     c0c:	ee 0d       	add	r30, r14
+     c0e:	ff 1d       	adc	r31, r15
+     c10:	e0 0f       	add	r30, r16
+     c12:	f1 1f       	adc	r31, r17
+     c14:	60 81       	ld	r22, Z
+     c16:	ce 01       	movw	r24, r28
+     c18:	0e 94 d7 05 	call	0xbae	; 0xbae <_ZN7LedCube8sendDataEh>
+     c1c:	38 e0       	ldi	r19, 0x08	; 8
+     c1e:	e3 0e       	add	r14, r19
+     c20:	f1 1c       	adc	r15, r1
+>>>>>>> ...
     
     if(Layer < LEDCUBE_NUMBER_OF_LAYERS) {
      be2:	68 30       	cpi	r22, 0x08	; 8
      be4:	30 f5       	brcc	.+76     	; 0xc32 <_ZN7LedCube9showLayerEh+0x5c>
      be6:	ec 01       	movw	r28, r24
         /* put on given layer */
+<<<<<<< HEAD
         sendData(1 << Layer);
      be8:	06 2f       	mov	r16, r22
      bea:	10 e0       	ldi	r17, 0x00	; 0
@@ -2158,21 +2445,37 @@ stdReturnType LedCube::showLayer(byte Layer)
      c28:	f1 04       	cpc	r15, r1
      c2a:	79 f7       	brne	.-34     	; 0xc0a <_ZN7LedCube9showLayerEh+0x32>
 =======
+=======
+        sendData(1U << Layer);
+        /* send the layer data to the shift registers */
+        for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
+>>>>>>> ...
      c22:	80 e4       	ldi	r24, 0x40	; 64
      c24:	e8 16       	cp	r14, r24
      c26:	f1 04       	cpc	r15, r1
      c28:	79 f7       	brne	.-34     	; 0xc08 <_ZN7LedCube9showLayerEh+0x32>
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
             sendData(CurrentFrame[Y][Layer]);
         }
         // toggle storage pin
         digitalWriteFast(LEDCUBE_STORAGE_PIN, HIGH);
 <<<<<<< HEAD
+<<<<<<< HEAD
      c2c:	2c 9a       	sbi	0x05, 4	; 5
         digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
      c2e:	2c 98       	cbi	0x05, 4	; 5
      c30:	80 e0       	ldi	r24, 0x00	; 0
      c32:	01 c0       	rjmp	.+2      	; 0xc36 <_ZN7LedCube9showLayerEh+0x5e>
+=======
+     c2a:	2c 9a       	sbi	0x05, 4	; 5
+        digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
+     c2c:	2c 98       	cbi	0x05, 4	; 5
+     c2e:	80 e0       	ldi	r24, 0x00	; 0
+     c30:	01 c0       	rjmp	.+2      	; 0xc34 <_ZN7LedCube9showLayerEh+0x5e>
+>>>>>>> ...
 =======
      c2a:	2c 9a       	sbi	0x05, 4	; 5
         digitalWriteFast(LEDCUBE_STORAGE_PIN, LOW);
@@ -2187,7 +2490,11 @@ stdReturnType LedCube::showLayer(byte Layer)
 {
     stdReturnType ReturnValue = E_NOT_OK;
 <<<<<<< HEAD
+<<<<<<< HEAD
      c34:	81 e0       	ldi	r24, 0x01	; 1
+=======
+     c32:	81 e0       	ldi	r24, 0x01	; 1
+>>>>>>> ...
 =======
      c32:	81 e0       	ldi	r24, 0x01	; 1
 >>>>>>> ...
@@ -2197,6 +2504,7 @@ stdReturnType LedCube::showLayer(byte Layer)
     }
     return ReturnValue;
 } /* showLayer */
+<<<<<<< HEAD
 <<<<<<< HEAD
      c36:	df 91       	pop	r29
      c38:	cf 91       	pop	r28
@@ -2208,6 +2516,8 @@ stdReturnType LedCube::showLayer(byte Layer)
 
 00000c44 <_ZN7LedCube4taskEv>:
 =======
+=======
+>>>>>>> ...
      c34:	df 91       	pop	r29
      c36:	cf 91       	pop	r28
      c38:	1f 91       	pop	r17
@@ -2217,6 +2527,9 @@ stdReturnType LedCube::showLayer(byte Layer)
      c40:	08 95       	ret
 
 00000c42 <_ZN7LedCube4taskEv>:
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
  *                  has to be called periodically
  *                  
@@ -2225,18 +2538,25 @@ stdReturnType LedCube::showLayer(byte Layer)
 void LedCube::task()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
      c44:	cf 93       	push	r28
      c46:	df 93       	push	r29
      c48:	fc 01       	movw	r30, r24
+=======
+     c42:	cf 93       	push	r28
+     c44:	df 93       	push	r29
+     c46:	fc 01       	movw	r30, r24
+>>>>>>> ...
     if(State == LEDCUBE_STATE_RUNNING) {
-     c4a:	81 81       	ldd	r24, Z+1	; 0x01
-     c4c:	83 30       	cpi	r24, 0x03	; 3
-     c4e:	11 f5       	brne	.+68     	; 0xc94 <_ZN7LedCube4taskEv+0x50>
+     c48:	81 81       	ldd	r24, Z+1	; 0x01
+     c4a:	83 30       	cpi	r24, 0x03	; 3
+     c4c:	11 f5       	brne	.+68     	; 0xc92 <_ZN7LedCube4taskEv+0x50>
         if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
-     c50:	80 81       	ld	r24, Z
-     c52:	88 30       	cpi	r24, 0x08	; 8
-     c54:	b8 f0       	brcs	.+46     	; 0xc84 <_ZN7LedCube4taskEv+0x40>
+     c4e:	80 81       	ld	r24, Z
+     c50:	88 30       	cpi	r24, 0x08	; 8
+     c52:	b8 f0       	brcs	.+46     	; 0xc82 <_ZN7LedCube4taskEv+0x40>
             CurrentLayer = 0;
+<<<<<<< HEAD
      c56:	10 82       	st	Z, r1
 			/* is next frame ready to show? */
 			if(NextFrameReady && NextFrameTimeElapsed) { 
@@ -2268,6 +2588,11 @@ void LedCube::task()
      c54:	10 82       	st	Z, r1
 			/* is next frame ready to show? */
 			if(NextFrameReady && NextFrameTimeElapsed) { 
+=======
+     c54:	10 82       	st	Z, r1
+            /* is next frame ready to show? */
+            if(NextFrameReady && NextFrameTimeElapsed) { 
+>>>>>>> ...
      c56:	ef 01       	movw	r28, r30
      c58:	ca 57       	subi	r28, 0x7A	; 122
      c5a:	df 4f       	sbci	r29, 0xFF	; 255
@@ -2280,22 +2605,31 @@ void LedCube::task()
      c68:	8c 91       	ld	r24, X
      c6a:	88 23       	and	r24, r24
      c6c:	51 f0       	breq	.+20     	; 0xc82 <_ZN7LedCube4taskEv+0x40>
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
  *****************************************************************************************************************************************************/
 void LedCube::switchBufferPointer()
 {
-        byte (*pTmp)[LEDCUBE_NUMBER_OF_LEDS_PER_SIDE];
+        pFrameType pTmp;
 
         pTmp = CurrentFrame;
 <<<<<<< HEAD
+<<<<<<< HEAD
      c70:	82 81       	ldd	r24, Z+2	; 0x02
      c72:	93 81       	ldd	r25, Z+3	; 0x03
+=======
+     c6e:	82 81       	ldd	r24, Z+2	; 0x02
+     c70:	93 81       	ldd	r25, Z+3	; 0x03
+>>>>>>> ...
         CurrentFrame = NextFrame;
-     c74:	24 81       	ldd	r18, Z+4	; 0x04
-     c76:	35 81       	ldd	r19, Z+5	; 0x05
-     c78:	33 83       	std	Z+3, r19	; 0x03
-     c7a:	22 83       	std	Z+2, r18	; 0x02
+     c72:	24 81       	ldd	r18, Z+4	; 0x04
+     c74:	35 81       	ldd	r19, Z+5	; 0x05
+     c76:	33 83       	std	Z+3, r19	; 0x03
+     c78:	22 83       	std	Z+2, r18	; 0x02
         NextFrame = pTmp;
+<<<<<<< HEAD
      c7c:	95 83       	std	Z+5, r25	; 0x05
      c7e:	84 83       	std	Z+4, r24	; 0x04
 =======
@@ -2322,28 +2656,44 @@ void LedCube::switchBufferPointer()
      c82:	1c 92       	st	X, r1
      c84:	ef 01       	movw	r28, r30
 			}
+=======
+     c7a:	95 83       	std	Z+5, r25	; 0x05
+     c7c:	84 83       	std	Z+4, r24	; 0x04
+        if(CurrentLayer >= LEDCUBE_NUMBER_OF_LAYERS) {
+            CurrentLayer = 0;
+            /* is next frame ready to show? */
+            if(NextFrameReady && NextFrameTimeElapsed) { 
+                showNextFrame();
+                NextFrameReady = false;
+     c7e:	18 82       	st	Y, r1
+                NextFrameTimeElapsed = false;
+     c80:	1c 92       	st	X, r1
+     c82:	ef 01       	movw	r28, r30
+            }
+>>>>>>> ...
         }
         showLayer(CurrentLayer);
-     c86:	60 81       	ld	r22, Z
-     c88:	cf 01       	movw	r24, r30
-     c8a:	0e 94 ec 05 	call	0xbd8	; 0xbd8 <_ZN7LedCube9showLayerEh>
+     c84:	60 81       	ld	r22, Z
+     c86:	cf 01       	movw	r24, r30
+     c88:	0e 94 eb 05 	call	0xbd6	; 0xbd6 <_ZN7LedCube9showLayerEh>
         CurrentLayer++;
-     c8e:	88 81       	ld	r24, Y
-     c90:	8f 5f       	subi	r24, 0xFF	; 255
-     c92:	88 83       	st	Y, r24
+     c8c:	88 81       	ld	r24, Y
+     c8e:	8f 5f       	subi	r24, 0xFF	; 255
+     c90:	88 83       	st	Y, r24
     }
 } /* task */
-     c94:	df 91       	pop	r29
-     c96:	cf 91       	pop	r28
-     c98:	08 95       	ret
+     c92:	df 91       	pop	r29
+     c94:	cf 91       	pop	r28
+     c96:	08 95       	ret
 
-00000c9a <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>:
+00000c98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>:
         for(byte Y = 0; Y < LEDCUBE_NUMBER_OF_LEDS_PER_SIDE; Y++) {
             pCube->setVoxelsXFast(Y, Z, pCube->getVoxelsXFast(Y, Z) << 1);
             if(Rotate) pCube->writeVoxelFast(0, Y, Z, pCube->getVoxelFast(LEDCUBE_NUMBER_OF_LEDS_PER_SIDE - 1, Y, Z));
         }
     }
 } /* shiftBackwardFast */
+<<<<<<< HEAD
      c9a:	0f 93       	push	r16
      c9c:	dc 01       	movw	r26, r24
      c9e:	50 e0       	ldi	r21, 0x00	; 0
@@ -2442,6 +2792,8 @@ void LedCube::switchBufferPointer()
 		}
 	}
 } /* shiftBackwardFast */
+=======
+>>>>>>> ...
      c98:	0f 93       	push	r16
      c9a:	50 e0       	ldi	r21, 0x00	; 0
      c9c:	e2 2f       	mov	r30, r18
@@ -2488,6 +2840,9 @@ void LedCube::switchBufferPointer()
      ce6:	08 95       	ret
 
 00000ce8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh>:
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
  *  \details        
  *                  
@@ -2496,30 +2851,27 @@ void LedCube::switchBufferPointer()
 stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, TransformationRotationDirectionType Direction, byte Circle)
 <<<<<<< HEAD
 {   
-     d1a:	2f 92       	push	r2
-     d1c:	3f 92       	push	r3
-     d1e:	4f 92       	push	r4
-     d20:	5f 92       	push	r5
-     d22:	6f 92       	push	r6
-     d24:	7f 92       	push	r7
-     d26:	8f 92       	push	r8
-     d28:	9f 92       	push	r9
-     d2a:	af 92       	push	r10
-     d2c:	bf 92       	push	r11
-     d2e:	cf 92       	push	r12
-     d30:	df 92       	push	r13
-     d32:	ef 92       	push	r14
-     d34:	ff 92       	push	r15
-     d36:	0f 93       	push	r16
-     d38:	1f 93       	push	r17
-     d3a:	cf 93       	push	r28
-     d3c:	df 93       	push	r29
-     d3e:	00 d0       	rcall	.+0      	; 0xd40 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x26>
-     d40:	1f 92       	push	r1
-     d42:	cd b7       	in	r28, 0x3d	; 61
-     d44:	de b7       	in	r29, 0x3e	; 62
+     ce8:	2f 92       	push	r2
+     cea:	3f 92       	push	r3
+     cec:	4f 92       	push	r4
+     cee:	5f 92       	push	r5
+     cf0:	6f 92       	push	r6
+     cf2:	7f 92       	push	r7
+     cf4:	8f 92       	push	r8
+     cf6:	9f 92       	push	r9
+     cf8:	af 92       	push	r10
+     cfa:	bf 92       	push	r11
+     cfc:	cf 92       	push	r12
+     cfe:	df 92       	push	r13
+     d00:	ef 92       	push	r14
+     d02:	ff 92       	push	r15
+     d04:	0f 93       	push	r16
+     d06:	1f 93       	push	r17
+     d08:	cf 93       	push	r28
+     d0a:	df 93       	push	r29
     const byte LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
 
+<<<<<<< HEAD
     if(Circle > 0 && Circle <= LEDs / 2) {
      d46:	3f ef       	ldi	r19, 0xFF	; 255
      d48:	32 0f       	add	r19, r18
@@ -2565,6 +2917,8 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
      d0a:	df 93       	push	r29
 	const byte LEDs = LEDCUBE_NUMBER_OF_LEDS_PER_SIDE;
 
+=======
+>>>>>>> ...
 	if(Circle > 0 && Circle <= LEDs / 2) {
      d0c:	1f ef       	ldi	r17, 0xFF	; 255
      d0e:	12 0f       	add	r17, r18
@@ -2580,6 +2934,7 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
      d1c:	62 30       	cpi	r22, 0x02	; 2
      d1e:	09 f0       	breq	.+2      	; 0xd22 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x3a>
      d20:	80 c1       	rjmp	.+768    	; 0x1022 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x33a>
+<<<<<<< HEAD
 				for(byte Z = 0; Z < LEDs; Z++) {
 					/* shift front, right, back, left */
 					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y+1, Z));
@@ -3723,6 +4078,348 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
      f1c:	62 2d       	mov	r22, r2
      f1e:	dc cf       	rjmp	.-72     	; 0xed8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1f0>
 					for(int8_t Y = Circle; Y < LEDs-1-Circle; Y++) pCube->writeVoxelFast(LEDs-1-Circle, Y, Z, pCube->getVoxelFast(LEDs-1-Circle, Y+1, Z));
+=======
+					/* shift front, right, back, left */
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y + 1, Z));
+                    }
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X + 1, LEDs - 1 - Circle, Z));
+     d22:	87 e0       	ldi	r24, 0x07	; 7
+     d24:	58 2e       	mov	r5, r24
+     d26:	51 1a       	sub	r5, r17
+    stdReturnType getVoxel(byte, byte, byte, boolean*);
+
+    void setVoxelFast(byte X, byte Y, byte Z) { bitSet(NextFrame[Y][Z], X); }
+    void clearVoxelFast(byte X, byte Y, byte Z) { bitClear(NextFrame[Y][Z], X); }
+    void writeVoxelFast(byte X, byte Y, byte Z, boolean Value) { bitWrite(NextFrame[Y][Z], X, Value); }
+    byte getVoxelFast(byte X, byte Y, byte Z) { return bitRead(CurrentFrame[Y][Z], X); }
+     d28:	88 e0       	ldi	r24, 0x08	; 8
+     d2a:	58 9e       	mul	r5, r24
+     d2c:	30 01       	movw	r6, r0
+     d2e:	11 24       	eor	r1, r1
+     d30:	c1 2e       	mov	r12, r17
+     d32:	d1 2c       	mov	r13, r1
+     d34:	46 01       	movw	r8, r12
+     d36:	93 e0       	ldi	r25, 0x03	; 3
+     d38:	88 0c       	add	r8, r8
+     d3a:	99 1c       	adc	r9, r9
+     d3c:	9a 95       	dec	r25
+     d3e:	e1 f7       	brne	.-8      	; 0xd38 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x50>
+     d40:	e1 2c       	mov	r14, r1
+     d42:	f1 2c       	mov	r15, r1
+		Circle--;
+		if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
+			if(LEDCUBE_AXIS_Z == ShiftAxis) {
+				for(byte Z = 0; Z < LEDs; Z++) {
+					/* shift front, right, back, left */
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+     d44:	87 e0       	ldi	r24, 0x07	; 7
+     d46:	90 e0       	ldi	r25, 0x00	; 0
+     d48:	5c 01       	movw	r10, r24
+     d4a:	ac 18       	sub	r10, r12
+     d4c:	bd 08       	sbc	r11, r13
+     d4e:	3e 2c       	mov	r3, r14
+     d50:	41 2e       	mov	r4, r17
+     d52:	41 2f       	mov	r20, r17
+     d54:	84 2f       	mov	r24, r20
+     d56:	04 2e       	mov	r0, r20
+     d58:	00 0c       	add	r0, r0
+     d5a:	99 0b       	sbc	r25, r25
+     d5c:	8a 15       	cp	r24, r10
+     d5e:	9b 05       	cpc	r25, r11
+     d60:	04 f5       	brge	.+64     	; 0xda2 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0xba>
+     d62:	22 24       	eor	r2, r2
+     d64:	23 94       	inc	r2
+     d66:	24 0e       	add	r2, r20
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y + 1, Z));
+     d68:	e8 81       	ld	r30, Y
+     d6a:	f9 81       	ldd	r31, Y+1	; 0x01
+     d6c:	a2 81       	ldd	r26, Z+2	; 0x02
+     d6e:	b3 81       	ldd	r27, Z+3	; 0x03
+     d70:	88 e0       	ldi	r24, 0x08	; 8
+     d72:	28 9e       	mul	r2, r24
+     d74:	a0 0d       	add	r26, r0
+     d76:	b1 1d       	adc	r27, r1
+     d78:	11 24       	eor	r1, r1
+     d7a:	ae 0d       	add	r26, r14
+     d7c:	bf 1d       	adc	r27, r15
+     d7e:	8c 91       	ld	r24, X
+     d80:	90 e0       	ldi	r25, 0x00	; 0
+     d82:	01 2e       	mov	r0, r17
+     d84:	02 c0       	rjmp	.+4      	; 0xd8a <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0xa2>
+     d86:	95 95       	asr	r25
+     d88:	87 95       	ror	r24
+     d8a:	0a 94       	dec	r0
+     d8c:	e2 f7       	brpl	.-8      	; 0xd86 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x9e>
+     d8e:	08 2f       	mov	r16, r24
+     d90:	01 70       	andi	r16, 0x01	; 1
+     d92:	23 2d       	mov	r18, r3
+     d94:	61 2f       	mov	r22, r17
+     d96:	84 81       	ldd	r24, Z+4	; 0x04
+     d98:	95 81       	ldd	r25, Z+5	; 0x05
+     d9a:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     d9e:	42 2d       	mov	r20, r2
+		Circle--;
+		if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
+			if(LEDCUBE_AXIS_Z == ShiftAxis) {
+				for(byte Z = 0; Z < LEDs; Z++) {
+					/* shift front, right, back, left */
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+     da0:	d9 cf       	rjmp	.-78     	; 0xd54 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x6c>
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y + 1, Z));
+                    }
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+     da2:	84 2d       	mov	r24, r4
+     da4:	04 2c       	mov	r0, r4
+     da6:	00 0c       	add	r0, r0
+     da8:	99 0b       	sbc	r25, r25
+     daa:	8a 15       	cp	r24, r10
+     dac:	9b 05       	cpc	r25, r11
+     dae:	f4 f4       	brge	.+60     	; 0xdec <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x104>
+     db0:	22 24       	eor	r2, r2
+     db2:	23 94       	inc	r2
+     db4:	24 0c       	add	r2, r4
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X + 1, LEDs - 1 - Circle, Z));
+     db6:	e8 81       	ld	r30, Y
+     db8:	f9 81       	ldd	r31, Y+1	; 0x01
+     dba:	a2 81       	ldd	r26, Z+2	; 0x02
+     dbc:	b3 81       	ldd	r27, Z+3	; 0x03
+     dbe:	a6 0d       	add	r26, r6
+     dc0:	b7 1d       	adc	r27, r7
+     dc2:	ae 0d       	add	r26, r14
+     dc4:	bf 1d       	adc	r27, r15
+     dc6:	8c 91       	ld	r24, X
+     dc8:	90 e0       	ldi	r25, 0x00	; 0
+     dca:	02 2c       	mov	r0, r2
+     dcc:	02 c0       	rjmp	.+4      	; 0xdd2 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0xea>
+     dce:	95 95       	asr	r25
+     dd0:	87 95       	ror	r24
+     dd2:	0a 94       	dec	r0
+     dd4:	e2 f7       	brpl	.-8      	; 0xdce <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0xe6>
+     dd6:	08 2f       	mov	r16, r24
+     dd8:	01 70       	andi	r16, 0x01	; 1
+     dda:	23 2d       	mov	r18, r3
+     ddc:	45 2d       	mov	r20, r5
+     dde:	64 2d       	mov	r22, r4
+     de0:	84 81       	ldd	r24, Z+4	; 0x04
+     de2:	95 81       	ldd	r25, Z+5	; 0x05
+     de4:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     de8:	42 2c       	mov	r4, r2
+				for(byte Z = 0; Z < LEDs; Z++) {
+					/* shift front, right, back, left */
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y + 1, Z));
+                    }
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+     dea:	db cf       	rjmp	.-74     	; 0xda2 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0xba>
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X + 1, LEDs - 1 - Circle, Z));
+                    }
+					for(int8_t Y = LEDs -1 - Circle; Y > Circle; Y--) {
+     dec:	45 2c       	mov	r4, r5
+     dee:	45 2d       	mov	r20, r5
+     df0:	84 2f       	mov	r24, r20
+     df2:	04 2e       	mov	r0, r20
+     df4:	00 0c       	add	r0, r0
+     df6:	99 0b       	sbc	r25, r25
+     df8:	c8 16       	cp	r12, r24
+     dfa:	d9 06       	cpc	r13, r25
+     dfc:	04 f5       	brge	.+64     	; 0xe3e <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x156>
+     dfe:	22 24       	eor	r2, r2
+     e00:	2a 94       	dec	r2
+     e02:	24 0e       	add	r2, r20
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y - 1, Z));
+     e04:	e8 81       	ld	r30, Y
+     e06:	f9 81       	ldd	r31, Y+1	; 0x01
+     e08:	a2 81       	ldd	r26, Z+2	; 0x02
+     e0a:	b3 81       	ldd	r27, Z+3	; 0x03
+     e0c:	88 e0       	ldi	r24, 0x08	; 8
+     e0e:	28 9e       	mul	r2, r24
+     e10:	a0 0d       	add	r26, r0
+     e12:	b1 1d       	adc	r27, r1
+     e14:	11 24       	eor	r1, r1
+     e16:	ae 0d       	add	r26, r14
+     e18:	bf 1d       	adc	r27, r15
+     e1a:	8c 91       	ld	r24, X
+     e1c:	90 e0       	ldi	r25, 0x00	; 0
+     e1e:	05 2c       	mov	r0, r5
+     e20:	02 c0       	rjmp	.+4      	; 0xe26 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x13e>
+     e22:	95 95       	asr	r25
+     e24:	87 95       	ror	r24
+     e26:	0a 94       	dec	r0
+     e28:	e2 f7       	brpl	.-8      	; 0xe22 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x13a>
+     e2a:	08 2f       	mov	r16, r24
+     e2c:	01 70       	andi	r16, 0x01	; 1
+     e2e:	23 2d       	mov	r18, r3
+     e30:	65 2d       	mov	r22, r5
+     e32:	84 81       	ldd	r24, Z+4	; 0x04
+     e34:	95 81       	ldd	r25, Z+5	; 0x05
+     e36:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     e3a:	42 2d       	mov	r20, r2
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y + 1, Z));
+                    }
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X + 1, LEDs - 1 - Circle, Z));
+                    }
+					for(int8_t Y = LEDs -1 - Circle; Y > Circle; Y--) {
+     e3c:	d9 cf       	rjmp	.-78     	; 0xdf0 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x108>
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y - 1, Z));
+                    }
+					for(int8_t X = LEDs -1 - Circle; X > Circle; X--) {
+     e3e:	84 2d       	mov	r24, r4
+     e40:	04 2c       	mov	r0, r4
+     e42:	00 0c       	add	r0, r0
+     e44:	99 0b       	sbc	r25, r25
+     e46:	c8 16       	cp	r12, r24
+     e48:	d9 06       	cpc	r13, r25
+     e4a:	f4 f4       	brge	.+60     	; 0xe88 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1a0>
+     e4c:	22 24       	eor	r2, r2
+     e4e:	2a 94       	dec	r2
+     e50:	24 0c       	add	r2, r4
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X - 1, Circle, Z));
+     e52:	e8 81       	ld	r30, Y
+     e54:	f9 81       	ldd	r31, Y+1	; 0x01
+     e56:	a2 81       	ldd	r26, Z+2	; 0x02
+     e58:	b3 81       	ldd	r27, Z+3	; 0x03
+     e5a:	a8 0d       	add	r26, r8
+     e5c:	b9 1d       	adc	r27, r9
+     e5e:	ae 0d       	add	r26, r14
+     e60:	bf 1d       	adc	r27, r15
+     e62:	8c 91       	ld	r24, X
+     e64:	90 e0       	ldi	r25, 0x00	; 0
+     e66:	02 2c       	mov	r0, r2
+     e68:	02 c0       	rjmp	.+4      	; 0xe6e <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x186>
+     e6a:	95 95       	asr	r25
+     e6c:	87 95       	ror	r24
+     e6e:	0a 94       	dec	r0
+     e70:	e2 f7       	brpl	.-8      	; 0xe6a <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x182>
+     e72:	08 2f       	mov	r16, r24
+     e74:	01 70       	andi	r16, 0x01	; 1
+     e76:	23 2d       	mov	r18, r3
+     e78:	41 2f       	mov	r20, r17
+     e7a:	64 2d       	mov	r22, r4
+     e7c:	84 81       	ldd	r24, Z+4	; 0x04
+     e7e:	95 81       	ldd	r25, Z+5	; 0x05
+     e80:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     e84:	42 2c       	mov	r4, r2
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X + 1, LEDs - 1 - Circle, Z));
+                    }
+					for(int8_t Y = LEDs -1 - Circle; Y > Circle; Y--) {
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y - 1, Z));
+                    }
+					for(int8_t X = LEDs -1 - Circle; X > Circle; X--) {
+     e86:	db cf       	rjmp	.-74     	; 0xe3e <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x156>
+     e88:	8f ef       	ldi	r24, 0xFF	; 255
+     e8a:	e8 1a       	sub	r14, r24
+     e8c:	f8 0a       	sbc	r15, r24
+
+	if(Circle > 0 && Circle <= LEDs / 2) {
+		Circle--;
+		if(TRANSFORMATION_ROTATION_CLOCKWISE == Direction) {
+			if(LEDCUBE_AXIS_Z == ShiftAxis) {
+				for(byte Z = 0; Z < LEDs; Z++) {
+     e8e:	88 e0       	ldi	r24, 0x08	; 8
+     e90:	e8 16       	cp	r14, r24
+     e92:	f1 04       	cpc	r15, r1
+     e94:	09 f0       	breq	.+2      	; 0xe98 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1b0>
+     e96:	5b cf       	rjmp	.-330    	; 0xd4e <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x66>
+     e98:	c4 c0       	rjmp	.+392    	; 0x1022 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x33a>
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X - 1, Circle, Z));
+                    }
+				}
+			}
+		}
+		if(TRANSFORMATION_ROTATION_COUNTERCLOCKWISE == Direction) {
+     e9a:	41 30       	cpi	r20, 0x01	; 1
+     e9c:	09 f0       	breq	.+2      	; 0xea0 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1b8>
+     e9e:	c1 c0       	rjmp	.+386    	; 0x1022 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x33a>
+			if(LEDCUBE_AXIS_Z == ShiftAxis) {
+     ea0:	62 30       	cpi	r22, 0x02	; 2
+     ea2:	09 f0       	breq	.+2      	; 0xea6 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1be>
+     ea4:	be c0       	rjmp	.+380    	; 0x1022 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x33a>
+     ea6:	c1 2e       	mov	r12, r17
+     ea8:	d1 2c       	mov	r13, r1
+     eaa:	36 01       	movw	r6, r12
+     eac:	83 e0       	ldi	r24, 0x03	; 3
+     eae:	66 0c       	add	r6, r6
+     eb0:	77 1c       	adc	r7, r7
+     eb2:	8a 95       	dec	r24
+     eb4:	e1 f7       	brne	.-8      	; 0xeae <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1c6>
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X + 1, Circle, Z));
+                    }
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y + 1, Z));
+                    }
+					for(int8_t X = LEDs - 1 - Circle; X > Circle; X--) {
+     eb6:	87 e0       	ldi	r24, 0x07	; 7
+     eb8:	58 2e       	mov	r5, r24
+     eba:	51 1a       	sub	r5, r17
+     ebc:	88 e0       	ldi	r24, 0x08	; 8
+     ebe:	58 9e       	mul	r5, r24
+     ec0:	40 01       	movw	r8, r0
+     ec2:	11 24       	eor	r1, r1
+     ec4:	e1 2c       	mov	r14, r1
+     ec6:	f1 2c       	mov	r15, r1
+		}
+		if(TRANSFORMATION_ROTATION_COUNTERCLOCKWISE == Direction) {
+			if(LEDCUBE_AXIS_Z == ShiftAxis) {
+				for(byte Z = 0; Z < LEDs; Z++) {
+					/* shift left, back, right, front */
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+     ec8:	87 e0       	ldi	r24, 0x07	; 7
+     eca:	90 e0       	ldi	r25, 0x00	; 0
+     ecc:	5c 01       	movw	r10, r24
+     ece:	ac 18       	sub	r10, r12
+     ed0:	bd 08       	sbc	r11, r13
+     ed2:	3e 2c       	mov	r3, r14
+     ed4:	41 2e       	mov	r4, r17
+     ed6:	61 2f       	mov	r22, r17
+     ed8:	86 2f       	mov	r24, r22
+     eda:	06 2e       	mov	r0, r22
+     edc:	00 0c       	add	r0, r0
+     ede:	99 0b       	sbc	r25, r25
+     ee0:	8a 15       	cp	r24, r10
+     ee2:	9b 05       	cpc	r25, r11
+     ee4:	ec f4       	brge	.+58     	; 0xf20 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x238>
+     ee6:	22 24       	eor	r2, r2
+     ee8:	23 94       	inc	r2
+     eea:	26 0e       	add	r2, r22
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X + 1, Circle, Z));
+     eec:	e8 81       	ld	r30, Y
+     eee:	f9 81       	ldd	r31, Y+1	; 0x01
+     ef0:	a2 81       	ldd	r26, Z+2	; 0x02
+     ef2:	b3 81       	ldd	r27, Z+3	; 0x03
+     ef4:	a6 0d       	add	r26, r6
+     ef6:	b7 1d       	adc	r27, r7
+     ef8:	ae 0d       	add	r26, r14
+     efa:	bf 1d       	adc	r27, r15
+     efc:	8c 91       	ld	r24, X
+     efe:	90 e0       	ldi	r25, 0x00	; 0
+     f00:	02 2c       	mov	r0, r2
+     f02:	02 c0       	rjmp	.+4      	; 0xf08 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x220>
+     f04:	95 95       	asr	r25
+     f06:	87 95       	ror	r24
+     f08:	0a 94       	dec	r0
+     f0a:	e2 f7       	brpl	.-8      	; 0xf04 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x21c>
+     f0c:	08 2f       	mov	r16, r24
+     f0e:	01 70       	andi	r16, 0x01	; 1
+     f10:	23 2d       	mov	r18, r3
+     f12:	41 2f       	mov	r20, r17
+     f14:	84 81       	ldd	r24, Z+4	; 0x04
+     f16:	95 81       	ldd	r25, Z+5	; 0x05
+     f18:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
+     f1c:	62 2d       	mov	r22, r2
+		}
+		if(TRANSFORMATION_ROTATION_COUNTERCLOCKWISE == Direction) {
+			if(LEDCUBE_AXIS_Z == ShiftAxis) {
+				for(byte Z = 0; Z < LEDs; Z++) {
+					/* shift left, back, right, front */
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+     f1e:	dc cf       	rjmp	.-72     	; 0xed8 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x1f0>
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X + 1, Circle, Z));
+                    }
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+>>>>>>> ...
      f20:	84 2d       	mov	r24, r4
      f22:	04 2c       	mov	r0, r4
      f24:	00 0c       	add	r0, r0
@@ -3733,6 +4430,10 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
      f2e:	22 24       	eor	r2, r2
      f30:	23 94       	inc	r2
      f32:	24 0c       	add	r2, r4
+<<<<<<< HEAD
+=======
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y + 1, Z));
+>>>>>>> ...
      f34:	e8 81       	ld	r30, Y
      f36:	f9 81       	ldd	r31, Y+1	; 0x01
      f38:	a2 81       	ldd	r26, Z+2	; 0x02
@@ -3761,8 +4462,21 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
      f66:	95 81       	ldd	r25, Z+5	; 0x05
      f68:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
      f6c:	42 2c       	mov	r4, r2
+<<<<<<< HEAD
      f6e:	d8 cf       	rjmp	.-80     	; 0xf20 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x238>
 					for(int8_t X = LEDs-1-Circle; X > Circle; X--) pCube->writeVoxelFast(X, LEDs-1-Circle, Z, pCube->getVoxelFast(X-1, LEDs-1-Circle, Z));
+=======
+				for(byte Z = 0; Z < LEDs; Z++) {
+					/* shift left, back, right, front */
+					for(int8_t X = Circle; X < LEDs - 1 - Circle; X++) {
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X + 1, Circle, Z));
+                    }
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+     f6e:	d8 cf       	rjmp	.-80     	; 0xf20 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x238>
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y + 1, Z));
+                    }
+					for(int8_t X = LEDs - 1 - Circle; X > Circle; X--) {
+>>>>>>> ...
      f70:	45 2c       	mov	r4, r5
      f72:	65 2d       	mov	r22, r5
      f74:	86 2f       	mov	r24, r22
@@ -3775,6 +4489,10 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
      f82:	22 24       	eor	r2, r2
      f84:	2a 94       	dec	r2
      f86:	26 0e       	add	r2, r22
+<<<<<<< HEAD
+=======
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X - 1, LEDs - 1 - Circle, Z));
+>>>>>>> ...
      f88:	e8 81       	ld	r30, Y
      f8a:	f9 81       	ldd	r31, Y+1	; 0x01
      f8c:	a2 81       	ldd	r26, Z+2	; 0x02
@@ -3799,8 +4517,21 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
      fb2:	95 81       	ldd	r25, Z+5	; 0x05
      fb4:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
      fb8:	62 2d       	mov	r22, r2
+<<<<<<< HEAD
      fba:	dc cf       	rjmp	.-72     	; 0xf74 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x28c>
 					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y-1, Z));
+=======
+                        pCube->writeVoxelFast(X, Circle, Z, pCube->getVoxelFast(X + 1, Circle, Z));
+                    }
+					for(int8_t Y = Circle; Y < LEDs - 1 - Circle; Y++) {
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y + 1, Z));
+                    }
+					for(int8_t X = LEDs - 1 - Circle; X > Circle; X--) {
+     fba:	dc cf       	rjmp	.-72     	; 0xf74 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x28c>
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X - 1, LEDs - 1 - Circle, Z));
+                    }
+					for(int8_t Y = LEDs - 1 - Circle; Y > Circle; Y--) {
+>>>>>>> ...
      fbc:	84 2d       	mov	r24, r4
      fbe:	04 2c       	mov	r0, r4
      fc0:	00 0c       	add	r0, r0
@@ -3811,6 +4542,10 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
      fca:	22 24       	eor	r2, r2
      fcc:	2a 94       	dec	r2
      fce:	24 0c       	add	r2, r4
+<<<<<<< HEAD
+=======
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y - 1, Z));
+>>>>>>> ...
      fd0:	e8 81       	ld	r30, Y
      fd2:	f9 81       	ldd	r31, Y+1	; 0x01
      fd4:	a2 81       	ldd	r26, Z+2	; 0x02
@@ -3839,6 +4574,15 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
     1002:	95 81       	ldd	r25, Z+5	; 0x05
     1004:	0e 94 4c 06 	call	0xc98	; 0xc98 <_ZN7LedCube14writeVoxelFastEhhhb.isra.0>
     1008:	42 2c       	mov	r4, r2
+<<<<<<< HEAD
+=======
+                        pCube->writeVoxelFast(LEDs - 1 - Circle, Y, Z, pCube->getVoxelFast(LEDs - 1 - Circle, Y + 1, Z));
+                    }
+					for(int8_t X = LEDs - 1 - Circle; X > Circle; X--) {
+                        pCube->writeVoxelFast(X, LEDs - 1 - Circle, Z, pCube->getVoxelFast(X - 1, LEDs - 1 - Circle, Z));
+                    }
+					for(int8_t Y = LEDs - 1 - Circle; Y > Circle; Y--) {
+>>>>>>> ...
     100a:	d8 cf       	rjmp	.-80     	; 0xfbc <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x2d4>
     100c:	8f ef       	ldi	r24, 0xFF	; 255
     100e:	e8 1a       	sub	r14, r24
@@ -3863,8 +4607,13 @@ stdReturnType Transformation::shiftCircle(LedCubeAxisType ShiftAxis, Transformat
 		return E_NOT_OK;
     101e:	81 e0       	ldi	r24, 0x01	; 1
     1020:	01 c0       	rjmp	.+2      	; 0x1024 <_ZN14Transformation11shiftCircleE15LedCubeAxisType35TransformationRotationDirectionTypeh+0x33c>
+<<<<<<< HEAD
 					for(int8_t X = LEDs-1-Circle; X > Circle; X--) pCube->writeVoxelFast(X, LEDs-1-Circle, Z, pCube->getVoxelFast(X-1, LEDs-1-Circle, Z));
 					for(int8_t Y = LEDs-1-Circle; Y > Circle; Y--) pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y-1, Z));
+=======
+                        pCube->writeVoxelFast(Circle, Y, Z, pCube->getVoxelFast(Circle, Y - 1, Z));
+                    }
+>>>>>>> ...
 				}
 			}
 		}
@@ -4459,12 +5208,15 @@ void digitalWrite(uint8_t pin, uint8_t val)
     1334:	08 95       	ret
 
 00001336 <yield>:
+<<<<<<< HEAD
  * libraries or sketches that supports cooperative threads.
  *
  * Its defined as a weak symbol and it can be redefined to implement a
  * real cooperative scheduler.
  */
 static void __empty() {
+=======
+>>>>>>> ...
     1336:	08 95       	ret
 
 00001338 <__tablejump2__>:
@@ -4490,4 +5242,7 @@ static void __empty() {
 
 0000135c <__stop_program>:
     135c:	ff cf       	rjmp	.-2      	; 0x135c <__stop_program>
+<<<<<<< HEAD
+>>>>>>> ...
+=======
 >>>>>>> ...
